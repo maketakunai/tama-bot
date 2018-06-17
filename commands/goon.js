@@ -18,7 +18,6 @@ exports.run = async (client, message, args) => {
         region = ":flag_jp: JP";
       }
       if (!validURL(searchResult[j].servantSupportList)){
-        //searchResult[j].servantSupportList = "";
         if (!searchResult[j].servantSupportList) {searchResult[j].servantSupportList = "";}
         if (!searchResult[j].note) {searchResult[j].note = "";}
         message.channel.send({
@@ -26,9 +25,6 @@ exports.run = async (client, message, args) => {
             "title":`FGO Name: ${searchResult[j].fgoName}`,
             "description": `Friend ID: ${searchResult[j].friendId}\nRegion: ${region}\nNote: ${searchResult[j].note}\nServant Support List: ${searchResult[j].servantSupportList}`,
             "color": embedColor,
-            //"image": {
-            //"url": `${searchResult[j].servantSupportList}`,
-            //},
             "author": {
               "name": `SA Name: ${searchResult[j].saName}`,
             },
@@ -62,7 +58,6 @@ exports.run = async (client, message, args) => {
 function validURL(str) {
   var regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
   if(!regex .test(str)) {
-    //alert("Please enter valid URL.");
     return false;
   } else {
     return true;

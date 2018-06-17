@@ -1,23 +1,6 @@
-/*
-exports.run = (client, message, args) => {
-  message.channel.send("**Mikonー♪ Your reliable Shrine Maiden Fox is here to help!**\n" +
-  //"'!banner' for current gacha banner information.\n" +
-  "'!grails' to list current available grails.\n" +
-  "'!goon (name or friend id)' to check if they are on the spreadsheet.\n" +
-  "'!servant (servantname)' to look up servant information.\n" +
-  "'!event' to see current event details.\n" +
-  "'!drops' to see the drop spreadsheet, '!drops (item)' to search for a specific item.\n" +
-  "'!affinity' to see the servant affinity diagram.\n" +
-  "'!roll' to let me decide your gacha destiny.").catch(console.error);
-}
-*/
-
 exports.run = (client, message, args) => {
   message.channel.send({
     "embed": {
-      //"title": "List of Commands",
-      //"description": "asdf",
-      //"url": "https://discordapp.com",
       "color": 12093600,
       "thumbnail": {
         "url": "https://i.imgur.com/aMihBVQ.png"

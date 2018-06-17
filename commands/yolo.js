@@ -59,17 +59,12 @@ exports.run = (client, message, args) => {
   if (talkedRecently.has(message.author.id)){
     message.channel.send(message.author.username + ", you can only gacha once every 5 seconds.")
   }
-  //snek.get(url).then( r =>
   else {
     message.channel.send({
       "embed": {
-        //"title": "mm/dd/yyyy to mm/dd/yyyy",
-        //"description": "time remaining: x days, y hours, z minutes",
-        //"url": "https://discordapp.com",
+
         "color": 8817876,
-        //"thumbnail": {
-          //"url": "https://cirnopedia.org/fate-go/icons/item/item_007.png"
-        //},
+
         "image": {
         "url": url
         },
@@ -77,22 +72,11 @@ exports.run = (client, message, args) => {
           "name": `${message.author.username}'s single roll:`,
         }
       }
-    });//.catch(console.error)
-  //);
+    });
     talkedRecently.add(message.author.id);
     setTimeout(() => {
       talkedRecently.delete(message.author.id);
     }, 5000);
   }
-
-  /*
-  message.channel.send(`${message.author.username}'s single roll:`).catch(console.error);
-  snek.get(url).then( r =>
-
-    message.channel.send({
-      file: r.body
-    }).catch(console.error)
-  );
-  */
 
 }

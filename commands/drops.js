@@ -9,14 +9,10 @@ exports.run = (client, message, args) => {
   }
   else {
     var searchString = args.join(' ');
-    //searchString = searchString.toLowerCase();
-    //searchString = searchString.replace(/\W/g, '');
-    console.log(`Searching dropdb for ${searchString}...`);
+    //console.log(`Searching dropdb for ${searchString}...`);
     var searchResult = findDrop(searchString);
-    console.log(`${searchResult.length} items found`);
+    //console.log(`${searchResult.length} items found`);
     if (searchResult.length > 0 && searchResult.length <= 5) {
-      //for (var j = 0; j < searchResult.length; j++){
-        //if (searchResult[j].AP_per_Run != null){
           message.channel.send({
             "embed": {
               "color": 2613131,
@@ -61,25 +57,6 @@ exports.run = (client, message, args) => {
     }
   }
 }
-/*
-function findDrop(input){
-  console.log(`Searching ${dropList.length} entries...`);
-  var itemsFound = [];
-  if (input == "" || input.length < 3){
-    return itemsFound;
-  }
-  for (var i = 0; i < dropList.length; i++){
-    var itemName = dropList[i].Item;
-    itemName = itemName.replace(/\W/g, '');
-    itemName = itemName.toLowerCase();
-    if (itemName.search(input) != -1){
-      console.log(`${dropList[i].Item}...`)
-      itemsFound.push(dropList[i]);
-    }
-  }
-  return itemsFound;
-}
-*/
 
 function findDrop(input){
   console.log(`Searching ${dropList.length} entries...`);
@@ -112,8 +89,6 @@ function findDrop(input){
   }
   return itemsFound;
 }
-
-//use.indexOf('string')
 
 
 

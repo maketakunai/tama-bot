@@ -16,14 +16,9 @@ exports.run = (client, message, args) => {
   var servantSearch = findServant(classSearch, searchString);
 
   if (servantSearch.length > 0) {
-    //message.channel.send("Mmhmm, nothing gets by these ears.");
     for (var j = 0; j < servantSearch.length; j++){
-      //message.channel.send(`Link to ${servantSearch[j]["name"]}: ${servantSearch[j]["link"]}`).catch(console.error);
       message.channel.send({
         "embed": {
-          //"title": "List of Commands",
-          //"description": "asdf",
-          //"url": ``,
           "color": 16756224,
           "thumbnail": {
             "url": `${servantSearch[j]["image"]}`
@@ -69,10 +64,6 @@ function checkServantClass(input){
 
 
 function findServant(classSearchResults, input){
-  //console.log(`Searching ${Object.keys(servantList).length} entries...`);
-  //var search = search.join('');
-  //search = search.toLowerCase();
-  //search = search.replace(/\W/g, '');
   var servantsFound = [];
   if (input == "" || input.length < 2){
     return servantsFound;
@@ -84,7 +75,7 @@ function findServant(classSearchResults, input){
         sName = sName.replace(/\W/g, '');
         sName = sName.toLowerCase();
         if (sName.search(input) != -1){
-          servantsFound.push(classSearchResults[key])//["link"])
+          servantsFound.push(classSearchResults[key])
         }
       }
     }

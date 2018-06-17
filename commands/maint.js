@@ -6,25 +6,18 @@ exports.run = (client, message, args) => {
   if (getUTC < endTime && getUTC < startTime)
   {
     beforeMaint = 1;
-    //console.log("before");
   }
   else if (getUTC < endTime && getUTC > startTime)
   {
     inMaint = 1;
-    //console.log("during");
   }
   else
   {
     endMaint = 1;
-    //console.log("after");
   }
 
 
   var elapsed_time = timeconverter(startTime, endTime);
-  //console.log(elapsed_time, beforeMaint, inMaint, endMaint);
-  //var estdamage3bp = Math.round(Math.floor(elapsed_time[4] / 3) * Number(args[1])/1000000*10)/10;
-  //var estdamage2bp = Math.floor(elapsed_time[4] / 2);// * 1000000;
-  //var bp3runs = Math.floor(elapsed_time[4] / 3);
   if (beforeMaint){
     message.channel.send({
       "embed": {
@@ -35,13 +28,10 @@ exports.run = (client, message, args) => {
         "image": {
         "url": "https://i.imgur.com/guwcFbn.jpg",
         },
-        //"author": {
-          //"name": "Maintenance",
-        //},
       }
     }).catch(console.error);
   }
-  //else message.channel.send("There is no currently ongoing event.").catch(console.error);
+
   else if (inMaint){
     message.channel.send({
       "embed": {
@@ -52,9 +42,6 @@ exports.run = (client, message, args) => {
         "image": {
         "url": "https://i.imgur.com/guwcFbn.jpg",
         },
-        //"author": {
-          //"name": "Maintenance",
-        //},
       }
     }).catch(console.error);
   }
@@ -62,14 +49,6 @@ exports.run = (client, message, args) => {
     message.channel.send("Maintenance has ended.").catch(console.error);
   }
 }
-/*
-exports.run = (client, message, args) => {
-  var elapsed_time = timeconverter();
-  message.channel.send({file:"https://webview.fate-go.us/wp-content/uploads/2018/03/0307_training_ap_half/banner_101141854.png"});
-  message.channel.send("The current event is **Training Grounds AP Cost 1/2**, and it ends in " + elapsed_time[0] + " days, " + elapsed_time[1] + " hours, " + elapsed_time[2] + " minutes.").catch(console.error);
-  message.channel.send("You will regenerate " + elapsed_time[3] + " more AP during this time.").catch(console.error);
-}
-*/
 
 
 function timeconverter(sTime, eTime){

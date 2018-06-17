@@ -16,28 +16,14 @@ exports.run = async (client, message, args) => {
 
   if (servantSearch.length > 0) {
     for (var j = 0; j < servantSearch.length; j++){
-    //var leftoverservs;
-      var servnum = servantSearch[j]["id"];
-      //for (var j = 1; j < servantSearch.length; j++){
-        //leftoverservs.push(servantSearch[j]);
-      //}
 
-      //need to find which element of the array the servant is, argh!
+      var servnum = servantSearch[j]["id"];
       for (var x = 0; x < dmglist.length; x++){
         if (dmglist[x].ID == servnum) {var foundID = x;}
       }
 
-      //starmaker
-      //var stars = "";
-      //for (var y = 0; y < dmglist[foundID].Rarity; y++){
-        //stars += ":star:";
-      //}
-      //console.log(`Made it to just before embed.`);
       message.channel.send({
         "embed": {
-          //"title": `${servantSearch[0]["servantClass"]}`+" | "+` ${stars}`,
-          //"description": `${servantSearch[0]["servantClass"]}`+` ${stars}`,
-          //"url": ``,
           "color": 16756224,
           "thumbnail": {
             "url": `${servantSearch[j]["image"]}`
@@ -49,10 +35,6 @@ exports.run = async (client, message, args) => {
             "name": `${servantSearch[j]["name"]}`
           },
           "fields": [
-            //{
-              //"name": `${servantSearch[0]["name"]}`,
-              //"value": `${servantSearch[0]["link"]}`
-            //}
             {
               "name": "Class",
               "value": `${dmglist[foundID].Class}`,
@@ -91,7 +73,6 @@ exports.run = async (client, message, args) => {
           ]
         }
       }).catch(console.error);
-    //console.log(`finished embed.`);
     }
   }
   else
@@ -119,10 +100,6 @@ function checkServantClass(input){
 
 
 function findServant(classSearchResults, input){
-  //console.log(`Searching ${Object.keys(servantList).length} entries...`);
-  //var search = search.join('');
-  //search = search.toLowerCase();
-  //search = search.replace(/\W/g, '');
   var servantsFound = [];
   if (input == "" || input.length < 2){
     return servantsFound;
@@ -139,6 +116,5 @@ function findServant(classSearchResults, input){
       }
     }
   }
-  //console.log(`Made it through servants.`);
   return servantsFound;
 }

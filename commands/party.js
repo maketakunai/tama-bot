@@ -12,23 +12,3 @@ function randomImage() {
   "https://i.imgur.com/6j4SsWp.gif"]
   return answers[Math.floor(Math.random()*answers.length)];
 }
-
-/*
-var counter = 0;
-exports.run = (client, message, args) => {
-  if (counter % 2 == 0){
-    message.channel.send({
-      file: "http://i.imgur.com/wM5u6qP.gif"
-    }).catch(console.error);
-    counter++;
-    return;
-  }
-  else {
-    message.channel.send({
-      file: "https://i.imgur.com/wQuF3u2.jpg"
-    }).catch(console.error);
-    counter++;
-    return;
-  }
-}
-*/
