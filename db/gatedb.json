@@ -1,0 +1,7 @@
+[{"input":0,"day":"Sunday","items":"Saber","classexp":["Random", "Random", "Random"],"link":"https://cirnopedia.org/fate-go/icons/quest/daily_07.png"},
+{"input":1,"day":"Monday","items":"Archer","classexp":["Lancer", "Assassin", "Berserker"],"link":"https://cirnopedia.org/fate-go/icons/quest/daily_01.png"},
+{"input":2,"day":"Tuesday","items":"Lancer","classexp":["Saber", "Rider", "Berserker"],"link":"https://cirnopedia.org/fate-go/icons/quest/daily_02.png"},
+{"input":3,"day":"Wednesday","items":"Berserker","classexp":["Archer", "Caster", "Berserker"],"link":"https://cirnopedia.org/fate-go/icons/quest/daily_03.png"},
+{"input":4,"day":"Thursday","items":"Rider","classexp":["Lancer", "Assassin", "Berserker"],"link":"https://cirnopedia.org/fate-go/icons/quest/daily_04.png"},
+{"input":5,"day":"Friday","items":"Caster","classexp":["Saber", "Rider", "Berserker"],"link":"https://cirnopedia.org/fate-go/icons/quest/daily_05.png"},
+{"input":6,"day":"Saturday","items":"Assassin","classexp":["Archer", "Caster", "Berserker"],"link":"https://cirnopedia.org/fate-go/icons/quest/daily_06.png"}]
