@@ -1,4 +1,4 @@
-exports.run = async (client, message, args) => {
+exports.run = (client, message, args) => {
   message.channel.send(message.author.toString() + ", my verdict is... " + roll()).catch(console.error);
 }
 

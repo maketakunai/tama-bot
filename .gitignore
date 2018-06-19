@@ -1,9 +1,8 @@
 node_modules
-config.json
-tamabot-89eab44bdef9.json
 res
 commands_old
-package.json
+config.json
+tama-bot.json
 package-lock.json
 to-do.txt
 .DS_Store

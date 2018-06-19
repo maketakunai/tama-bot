@@ -1,4 +1,8 @@
-exports.run = async (client, message, args) => {
+exports.run = (client, message, args) => {
+
+  let nagoons = require('../db/goonDB.json');
+  let jpgoons = require('../db/jpgoonDB.json');
+
   if (args.length > 6 || args.length == 0){
     message.channel.send("Stop, stop please! To search the goon spreadsheet, please type '!goon (name)'.")
     return;
@@ -7,9 +11,11 @@ exports.run = async (client, message, args) => {
   searchString = searchString.toLowerCase();
   searchString = searchString.replace(/[\W_]+/g, '');
   console.log(`Searching for ${searchString}...`);
-  var searchResult = findGoon(searchString);
+  var searchResult = findGoon(searchString, nagoons, jpgoons);
+  delete require.cache[require.resolve('../db/goonDB.json')];
+  delete require.cache[require.resolve('../db/jpgoonDB.json')];
   if (searchResult.length > 0) {
-    message.channel.send("Mmhmm, nothing gets by these ears.");
+    //message.channel.send("Mmhmm, nothing gets by these ears.");
     for (var j = 0; j < searchResult.length; j++){
       var embedColor = 6513663;
       var region = ":flag_us: NA";
@@ -64,10 +70,7 @@ function validURL(str) {
   }
 }
 
-function findGoon(input){
-
-  var nagoons = require('../db/goonDB.json');
-  var jpgoons = require('../db/jpgoonDB.json');
+function findGoon(input, nagoons, jpgoons){
 
   for (var j = 0; j < jpgoons.length; j++)
   {
@@ -91,8 +94,7 @@ function findGoon(input){
       goonsFound.push(result[i]);
     }
   }
-  delete require.cache[require.resolve('../db/goonDB.json')];
-  delete require.cache[require.resolve('../db/jpgoonDB.json')];
+
   return goonsFound;
 }
 

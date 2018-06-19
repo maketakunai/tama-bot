@@ -1,6 +1,6 @@
 const servantList = require("../db/servantdb.json");
 const dmglist = require("../db/npdamage.json")
-exports.run = async (client, message, args) => {
+exports.run = (client, message, args) => {
   //var searchResult = findServant(searchString);
   var classSearch = checkServantClass(args[0]);
   var searchString = args.shift()

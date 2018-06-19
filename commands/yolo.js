@@ -1,13 +1,13 @@
 const talkedRecently = new Set();
 const normgacha = require("../db/gacha.json");
 const rateup = require("../db/rateup.json")
-const snek = require("snekfetch")
+//const snek = require("snekfetch")
 const rates = {
   servstandard: [ 1, 3, 40 ],
   cestandard: [ 4, 12, 40 ],
-  servrateup: [ 0.7, 1.5, 4 ],
+  servrateup: [ 0.7, 1.5, 12 ],
   cerateup: [ 2.8, 4, 8 ]
-} // all in order from SSR, SR, R
+} // all in order from SSR, SR, R (rateup is combined totals)
 
 const r_intervals = [ Number(rates.servstandard[0]+rates.servrateup[1]), //ssr_total + sr rateup
   Number(rates.servstandard[0]+rates.servstandard[1]), //ssr_total + sr_total
@@ -53,8 +53,11 @@ function gacharoll () {
 }
 
 exports.run = (client, message, args) => {
-  var testroll = gacharoll();
-  var url = `https://raw.githubusercontent.com/aister/nobuDB/master/images/${testroll}.png`;
+  //check the gach rates
+  //console.log(r_intervals);
+
+  var yoloroll = gacharoll();
+  var url = `https://raw.githubusercontent.com/aister/nobuDB/master/images/${yoloroll}.png`;
   //message.channel.send(`${testroll} was rolled.`).catch(console.error);
   if (talkedRecently.has(message.author.id)){
     message.channel.send(message.author.username + ", you can only gacha once every 5 seconds.")
@@ -62,9 +65,7 @@ exports.run = (client, message, args) => {
   else {
     message.channel.send({
       "embed": {
-
         "color": 8817876,
-
         "image": {
         "url": url
         },
@@ -78,5 +79,5 @@ exports.run = (client, message, args) => {
       talkedRecently.delete(message.author.id);
     }, 5000);
   }
-
+  return;
 }
