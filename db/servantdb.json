@@ -3772,5 +3772,29 @@
     "servantClass": "Caster",
     "image": "http://fate-go.cirnopedia.org/icons/servant/servant_2081.png",
     "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=208"
+  },
+  "209": {
+    "rarity": "5",
+    "name": "Okita Souji [Alter]",
+    "id": "209",
+    "servantClass": "AlterEgo",
+    "image": "http://fate-go.cirnopedia.org/icons/servant/servant_2091.png",
+    "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=209"
+  },
+  "210": {
+    "rarity": "3",
+    "name": "Okada Izou",
+    "id": "210",
+    "servantClass": "Assassin",
+    "image": "http://fate-go.cirnopedia.org/icons/servant/servant_2101.png",
+    "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=210"
+  },
+  "211": {
+    "rarity": "4",
+    "name": "Sakamoto Ryouma",
+    "id": "211",
+    "servantClass": "Rider",
+    "image": "http://fate-go.cirnopedia.org/icons/servant/servant_2111.png",
+    "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=211"
   }
 }

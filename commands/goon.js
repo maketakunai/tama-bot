@@ -59,7 +59,7 @@ exports.run = (client, message, args) => {
   }
   else
     message.channel.send("Sorry, I couldn't find that person. Please try again, or use a search term longer than two characters.");
-}
+};
 
 function validURL(str) {
   var regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
@@ -68,7 +68,7 @@ function validURL(str) {
   } else {
     return true;
   }
-}
+};
 
 function findGoon(input, nagoons, jpgoons){
 
@@ -96,6 +96,6 @@ function findGoon(input, nagoons, jpgoons){
   }
 
   return goonsFound;
-}
+};
 
 //to be added later: search by discord name?

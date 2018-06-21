@@ -13,7 +13,7 @@
     "merge-images": "^1.1.0",
     "node-opus": "^0.3.0",
     "seedrandom": "^2.4.3",
-    "uws": "^10.148.0"
+    "uws": "^10.148.1"
   },
   "devDependencies": {},
   "scripts": {

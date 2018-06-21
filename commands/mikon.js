@@ -14,7 +14,8 @@ exports.run = (client, message, args) => {
       "fields": [
         {
           "name": "List of Commands",
-          "value": "'!grails' to list current available grails.\n" +
+          "value": "'!davinci (question)' to ask Da Vinci a yes or no question with a magic 8ball answer.\n" +
+          "'!grails' to list current available grails.\n" +
           "'!goon (name)' to check if they are on the spreadsheet.\n" +
           "'!update' to reload my goonlist information. Please be patient! It takes a little while.\n" +
           "'!servant (class) (servantname)' to look up servant information.\n" +
@@ -24,13 +25,14 @@ exports.run = (client, message, args) => {
           "'!drops' to see the drop spreadsheet.\n" +
           "'!drops (item)' to search for a specific item in NA.\n" +
           "'!jpdrops (item)' to search for a specific item in JP.\n" +
-          "'!fgo' to see what event each version of FGO is running.\n" +
+          //"'!fgo' to see what event each version of FGO is running.\n" +
           "'!maint' to see when maintenance will begin or end.\n" +
           "'!affinity' to see the servant affinity diagram.\n" +
           "'!exp' to see an experience chart for leveling your servants.\n" +
           "'!exp startlevel endlevel' to see # of cards required. ex)!exp 1 90\n" +
           "'!roll' to let me decide your gacha destiny.\n" +
-          "'!omikuji (number)' to donate SQ to the shrine and receive a fortune."
+          "'!omikuji (number)' to donate SQ to the shrine and receive a fortune.\n" +
+          "'!yolo' to do a single gacha pull."
         },
         {
           "name": "Fun Stuff",
@@ -38,5 +40,6 @@ exports.run = (client, message, args) => {
         }
       ]
     }
-  }).catch(console.error);
+  });
+  return;
 }

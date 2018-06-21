@@ -43,4 +43,4 @@ exports.run = (client, message, args) => {
       console.log(err.stack);
       return;
   });
-}
+};
