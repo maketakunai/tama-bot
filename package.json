@@ -5,6 +5,7 @@
   "main": "tama-bot.js",
   "dependencies": {
     "bufferutil": "^3.0.5",
+    "canvas-prebuilt": "^1.6.5-prerelease.1",
     "discord.js": "github:discordjs/discord.js#11.3-dev",
     "enmap": "^2.6.3",
     "erlpack": "^0.1.2",
@@ -12,6 +13,7 @@
     "google-spreadsheet-to-json": "^1.0.0",
     "merge-images": "^1.1.0",
     "node-opus": "^0.3.0",
+    "plotly": "^1.0.6",
     "seedrandom": "^2.4.3",
     "uws": "^10.148.1"
   },

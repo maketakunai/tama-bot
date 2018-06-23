@@ -32,7 +32,7 @@ exports.run = (client, message, args) => {
           "'!exp startlevel endlevel' to see # of cards required. ex)!exp 1 90\n" +
           "'!roll' to let me decide your gacha destiny.\n" +
           "'!omikuji (number)' to donate SQ to the shrine and receive a fortune.\n" +
-          "'!yolo' to do a single gacha pull."
+          "'!yolo' to do a single gacha pull. '!yolo stats' to see yolo roll stats."
         },
         {
           "name": "Fun Stuff",

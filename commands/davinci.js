@@ -5,6 +5,10 @@ exports.run = (client, message, args) => {
     message.channel.send(message.author.username + ", you can only ask a question once every 10 seconds.");
     return;
   }
+  else if (args.length == 0){
+    message.channel.send("Usage: '!davinci (type your yes/no question here)'");
+    return;
+  }
   else {
     let answer = randomAnswer();
     let question = args.join(" ");
