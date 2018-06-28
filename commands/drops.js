@@ -59,7 +59,7 @@ exports.run = (client, message, args) => {
 }
 
 function findDrop(input){
-  console.log(`Searching ${dropList.length} entries...`);
+  //console.log(`Searching ${dropList.length} entries...`);
   var itemsFound = [];
   if (input == "" || input.length < 3){
     return itemsFound;
@@ -83,7 +83,7 @@ function findDrop(input){
     //itemName = itemName.replace(/\W/g, '');
     //itemName = itemName.toLowerCase();
     if (itemName.search(result[0]) != -1 && itemName.length == result[0].length){
-      console.log(`${dropList[i].Item}...`)
+      //console.log(`${dropList[i].Item}...`)
       itemsFound.push(dropList[i]);
     }
   }

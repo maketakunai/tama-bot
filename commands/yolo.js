@@ -4,6 +4,7 @@ const rateup = require("../db/rateup.json");
 const config = require("../config.json");
 const plotly = require('plotly')(config.plotlyuser, config.plotlyapikey);
 const fs = require('fs');
+const startTime = new Date().getTime();
 //const snek = require("snekfetch")
 const rates = {
   servstandard: [ 1, 3, 40 ],
@@ -89,6 +90,7 @@ exports.run = (client, message, args) => {
     return;
   }
   else if (args[0] == "stats") {
+    let currTime = (new Date().getTime()) - startTime;
     message.channel.send(rollstats.reduce((a, b) => a + b, 0) + " total yolo rolls across all servers since last restart.");
 
     var data = [{x:["5* Servant","4* Servant","3* Servant","5* CE","4* CE","3* CE"], y:rollstats, type: 'bar'}];
@@ -108,8 +110,8 @@ exports.run = (client, message, args) => {
     return;
   }
   else {
-    var yoloroll = gacharoll();
-    var url = `https://raw.githubusercontent.com/aister/nobuDB/master/images/${yoloroll}.png`;
+    let yoloroll = gacharoll();
+    let url = `https://raw.githubusercontent.com/aister/nobuDB/master/images/${yoloroll}.png`;
     message.channel.send({
       "embed": {
         "title":`${message.author.username}'s single roll:`,

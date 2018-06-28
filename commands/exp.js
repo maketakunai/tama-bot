@@ -4,9 +4,7 @@ const expChart = require("../db/exp.json");
 
 exports.run = (client, message, args) => {
   if (args.length == 0){
-    message.channel.send({
-    file: "https://media.discordapp.net/attachments/328226993361649674/377617545697689620/unknown.png"
-    }).catch(console.error);
+    message.channel.send("Please enter in two levels between 1 and 100. Example: !exp 1 90").catch(console.error);
   }
   else if (expChart[args[0]-1] && expChart[args[1]-1] && args.length == 2 && Number(args[0]) < Number(args[1])){
     var results = calcExp(args[0], args[1]);

@@ -1,4 +1,4 @@
-var storyGrails = 6;
+var storyGrails = 7;
 var eventGrails = 4;
 var jpStoryGrails1 = 10;
 var jpStoryGrails2 = 4;

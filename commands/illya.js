@@ -1,6 +1,10 @@
 exports.run = (client, message, args) => {
   message.channel.send({
-    file: randomImage()
+    "embed": {
+      "image": {
+      "url": randomImage(),
+      }
+    }
   }).catch(console.error);
 }
 

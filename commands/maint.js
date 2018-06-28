@@ -1,8 +1,8 @@
 exports.run = (client, message, args) => {
   var inMaint, beforeMaint, endMaint;
   var getUTC = Number(new Date().getTime());
-  var startTime = 1528948800*1000;
-  var endTime = 1528959600*1000;
+  var startTime = 1530158400*1000;
+  var endTime = 1530169200*1000;
   if (getUTC < endTime && getUTC < startTime)
   {
     beforeMaint = 1;
@@ -46,7 +46,14 @@ exports.run = (client, message, args) => {
     }).catch(console.error);
   }
   else {
-    message.channel.send("Maintenance has ended.").catch(console.error);
+
+    message.channel.send({
+      "embed": {
+        "image": {
+        "url": "https://i.imgur.com/guwcFbn.jpg",
+        }
+      }
+    });
   }
 }
 
