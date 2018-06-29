@@ -82,3 +82,9 @@ function findServant(classSearchResults, input){
   }
   return servantsFound;
 }
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: []
+};

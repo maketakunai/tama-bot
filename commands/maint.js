@@ -75,3 +75,9 @@ function timeconverter(sTime, eTime){
   var time_until = [s_days, s_hours%24, s_mins%60, e_days, e_hours%24, e_mins%60];
   return time_until;
 }
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: []
+};

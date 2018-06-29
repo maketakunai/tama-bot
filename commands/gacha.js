@@ -14,3 +14,9 @@ exports.run = (client, message, args) => {
     }
   }).catch(console.error);
 }
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: []
+};

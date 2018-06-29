@@ -43,3 +43,9 @@ function timeconverter(endTime){
   var time_until = [days, hours%24, mins%60, APRegen, BPRegen];
   return time_until;
 }
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: []
+};

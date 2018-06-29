@@ -17,3 +17,9 @@ function randomImage() {
   "https://cdn.discordapp.com/attachments/328226993361649674/456057252579901440/CfhkDlkUIAAQcrc.jpg"]
   return answers[Math.floor(Math.random()*answers.length)];
 }
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: []
+};

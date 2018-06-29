@@ -7,11 +7,11 @@ exports.run = (client, message, args) => {
     message.channel.send("Stop, stop please! To search the goon spreadsheet, please type '!goon (name)'.")
     return;
   }
-  var searchString = args.join('');
+  let searchString = args.join('');
   searchString = searchString.toLowerCase();
   searchString = searchString.replace(/[\W_]+/g, '');
   console.log(`Searching for ${searchString}...`);
-  var searchResult = findGoon(searchString, nagoons, jpgoons);
+  let searchResult = findGoon(searchString, nagoons, jpgoons);
   delete require.cache[require.resolve('../db/goonDB.json')];
   delete require.cache[require.resolve('../db/jpgoonDB.json')];
   if (searchResult.length > 0) {
@@ -55,7 +55,6 @@ exports.run = (client, message, args) => {
         })
       }
     }
-    return;
   }
   else
     message.channel.send("Sorry, I couldn't find that person. Please try again, or use a search term longer than two characters.");
@@ -96,6 +95,12 @@ function findGoon(input, nagoons, jpgoons){
   }
 
   return goonsFound;
+};
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: []
 };
 
 //to be added later: search by discord name?

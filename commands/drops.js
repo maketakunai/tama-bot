@@ -90,6 +90,11 @@ function findDrop(input){
   return itemsFound;
 }
 
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: ["drop"]
+};
 
 
 

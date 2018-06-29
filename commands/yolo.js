@@ -91,18 +91,20 @@ exports.run = (client, message, args) => {
   }
   else if (args[0] == "stats") {
     let currTime = (new Date().getTime()) - startTime;
-    message.channel.send(rollstats.reduce((a, b) => a + b, 0) + " total yolo rolls across all servers since last restart.");
+    let hours = (currTime / (1000*60*60)).toFixed(1);
+    message.channel.send(rollstats.reduce((a, b) => a + b, 0) + ` total yolo rolls across all servers since last restart ${hours} hours ago.`);
 
     var data = [{x:["5* Servant","4* Servant","3* Servant","5* CE","4* CE","3* CE"], y:rollstats, type: 'bar'}];
     var layout = {fileopt : "overwrite", filename : "simple-node-example"};
 
     plotly.plot(data, layout, function (err, msg) {
     	if (err) return console.log(err);
-    	//console.log(msg);
+      let graph = msg.url+'.png';
       message.channel.send({
-        file: `${msg.url}.png`
-      });
-    })
+        files: [graph]
+      }).catch(console.error);
+    });
+
     talkedRecently.add(message.author.id);
     setTimeout(() => {
       talkedRecently.delete(message.author.id);
@@ -130,4 +132,10 @@ exports.run = (client, message, args) => {
     }, 5000);
   }
   return;
+};
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: []
 };

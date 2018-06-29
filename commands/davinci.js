@@ -57,3 +57,9 @@ function randomAnswer() {
                  "Very doubtful."]
   return answers[Math.floor(Math.random()*answers.length)];
 };
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: []
+};

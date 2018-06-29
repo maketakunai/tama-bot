@@ -25,3 +25,9 @@ function randomImage() {
                  "https://i.imgur.com/A5rxDgi.jpg"]
   return answers[Math.floor(Math.random()*answers.length)];
 }
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: []
+};

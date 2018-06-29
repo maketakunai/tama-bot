@@ -34,3 +34,9 @@ exports.run = (client, message, args) => {
     return;
   }
 }
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: []
+};

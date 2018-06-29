@@ -1,6 +1,5 @@
 const talkedRecently = new Set();
 
-
 exports.run = (client, message, args) => {
   if (talkedRecently.has(message.author.id)){
     message.channel.send(message.author.toString() + ", you can only pray at the shrine once every hour.")
@@ -41,3 +40,9 @@ function rollFortune(arg) {
   var rng = seedrandom( Number(arg[0]), { entropy: true } );
   return answers[Math.floor(rng()*answers.length)];
 }
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: []
+};

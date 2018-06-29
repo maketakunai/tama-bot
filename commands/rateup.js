@@ -12,3 +12,9 @@ function randomImage() {
   var answers = ["https://i.imgur.com/t8buKew.jpg"]
   return answers[Math.floor(Math.random()*answers.length)];
 }
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: []
+};

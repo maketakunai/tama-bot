@@ -5,3 +5,9 @@ exports.run = async (client, message, args) => {
   }
   process.exit(1);
 };
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: []
+};

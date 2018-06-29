@@ -15,3 +15,9 @@ function randomImage() {
   "https://i.imgur.com/6j4SsWp.gif"]
   return answers[Math.floor(Math.random()*answers.length)];
 }
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: []
+};

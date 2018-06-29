@@ -21,3 +21,9 @@ function calcExp(x, y){
   var bonusExp = Math.ceil(totalExp/exp_bonus);
   return [normExp, bonusExp]
 }
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: ["xp"]
+};

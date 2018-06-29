@@ -19,3 +19,9 @@ function randomImage() {
   "https://cdn.discordapp.com/attachments/453297116526411787/453743299543564288/Dabbin_Gawain.png"]
   return answers[Math.floor(Math.random()*answers.length)];
 }
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: []
+};

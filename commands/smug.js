@@ -18,3 +18,9 @@ function randomImage() {
   "https://img.fireden.net/vg/image/1502/74/1502743497679.png"]
   return answers[Math.floor(Math.random()*answers.length)];
 }
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: []
+};

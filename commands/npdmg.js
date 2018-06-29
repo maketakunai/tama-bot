@@ -111,10 +111,16 @@ function findServant(classSearchResults, input){
         sName = sName.replace(/\W/g, '');
         sName = sName.toLowerCase();
         if (sName.search(input) != -1){
-          servantsFound.push(classSearchResults[key])//["link"])
+          servantsFound.push(classSearchResults[key])
         }
       }
     }
   }
   return servantsFound;
 }
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: ["npdamage","npdamages"]
+};

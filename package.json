@@ -13,6 +13,8 @@
     "gm": "^1.23.1",
     "google-spreadsheet-to-json": "^1.0.0",
     "merge-images": "^1.1.0",
+    "moment": "^2.22.2",
+    "moment-duration-format": "^2.2.2",
     "node-opus": "^0.3.0",
     "plotly": "^1.0.6",
     "seedrandom": "^2.4.3",
