@@ -18,7 +18,9 @@
     "node-opus": "^0.3.0",
     "plotly": "^1.0.6",
     "seedrandom": "^2.4.3",
-    "uws": "^10.148.1"
+    "snekfetch": "^4.0.4",
+    "uws": "^10.148.1",
+    "word-wrapper": "^1.0.7"
   },
   "devDependencies": {},
   "scripts": {

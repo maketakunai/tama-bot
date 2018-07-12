@@ -2,7 +2,7 @@ const talkedRecently = new Set();
 
 exports.run = (client, message, args) => {
   if (talkedRecently.has(message.author.id)){
-    message.channel.send(message.author.username + ", you can only ask a question once every 10 seconds.");
+    message.channel.send(message.author.username + ", you can only ask a question once every 5 seconds.");
     return;
   }
   else if (args.length == 0){
@@ -29,7 +29,7 @@ exports.run = (client, message, args) => {
     talkedRecently.add(message.author.id);
     setTimeout(() => {
       talkedRecently.delete(message.author.id);
-    }, 10000);
+    }, 5000);
     return;
   }
 };

@@ -1,27 +1,18 @@
-var counter = 0;
 exports.run = (client, message, args) => {
-  if (counter % 2 == 0){
-    message.channel.send({
-      "embed": {
-        "image": {
-        "url": "https://i.imgur.com/yOF8Zob.gif",
-        }
+  message.channel.send({
+    "embed": {
+      "image": {
+      "url": randomImage(),
       }
-    }).catch(console.error);
-    counter++;
-    return;
-  }
-  else {
-    message.channel.send({
-      "embed": {
-        "image": {
-        "url": "https://i.imgur.com/0RSPp9Y.jpg",
-        }
-      }
-    }).catch(console.error);
-    counter++;
-    return;
-  }
+    }
+  }).catch(console.error);
+}
+
+function randomImage() {
+  var answers = ["https://i.imgur.com/yOF8Zob.gif",
+  "https://i.imgur.com/0RSPp9Y.jpg",
+  "https://cdn.discordapp.com/attachments/328259707833810945/465944700524691476/DhixZaNWAAAUl0_.png"]
+  return answers[Math.floor(Math.random()*answers.length)];
 }
 
 exports.conf = {

@@ -30,12 +30,13 @@ exports.run = (client, message, args) => {
           "'!exp startlevel endlevel' to see # of cards required. ex)!exp 1 90\n" +
           "'!roll' to let me decide your gacha destiny.\n" +
           "'!omikuji (number)' to donate SQ to the shrine and receive a fortune.\n" +
-          "'!yolo' to do a single gacha pull. '!yolo stats' to see yolo roll stats.\n" +
-          "'!stats' '!changelog' to see info about the bot itself."
+          "'!yolo' to do a single gacha pull. '!yolo help' to see different banners.\n" +
+          "'!stats' to see info about the bot itself.\n" +
+          "'!rin (text)' to make rin say something."
         },
         {
           "name": "Fun Stuff",
-          "value": "!apple, !dab, !ded, !gacha, !haha, !hungry, !illya, !look, !padoru, !party, !rateup, !senpai, !smug, !sumanai, !ticket, !umu, !wait, !warning, !whale, !yorokobe, !5stars",
+          "value": "!apple, !dab, !ded, !gacha, !haha, !hungry, !illya, !look, !padoru, !party, !rateup, !senpai, !shock, !smug, !sumanai, !ticket, !umu, !wait, !warning, !whale, !yorokobe, !5stars",
         }
       ]
     }
