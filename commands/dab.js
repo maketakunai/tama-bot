@@ -26,3 +26,9 @@ exports.conf = {
   guildOnly: false,
   aliases: []
 };
+
+exports.help = {
+  name: 'dab',
+  description: `Randomly selects from 9 available images.`,
+  usage: '!dab'
+};

@@ -69,3 +69,9 @@ exports.conf = {
   guildOnly: false,
   aliases: []
 };
+
+exports.help = {
+  name: 'gate',
+  description: `Displays the current and next day's Chaldea Gate missions.`,
+  usage: '!gate'
+};

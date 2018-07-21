@@ -124,3 +124,9 @@ exports.conf = {
   guildOnly: false,
   aliases: ["npdamage","npdamages"]
 };
+
+exports.help = {
+  name: 'npdmg',
+  description: `Shows NP damage for a particular servant.`,
+  usage: '!npdmg [class] [servantname]'
+};

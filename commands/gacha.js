@@ -20,3 +20,9 @@ exports.conf = {
   guildOnly: false,
   aliases: []
 };
+
+exports.help = {
+  name: 'gacha',
+  description: `Gacha sucks ass.`,
+  usage: '!gacha'
+};

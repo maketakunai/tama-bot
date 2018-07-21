@@ -13,3 +13,9 @@ exports.conf = {
   guildOnly: false,
   aliases: []
 };
+
+exports.help = {
+  name: 'look',
+  description: `Don't look away.`,
+  usage: '!look'
+};

@@ -24,3 +24,9 @@ exports.conf = {
   guildOnly: false,
   aliases: []
 };
+
+exports.help = {
+  name: 'smug',
+  description: `Randomly selects from 7 available images.`,
+  usage: '!smug'
+};

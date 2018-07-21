@@ -96,6 +96,11 @@ exports.conf = {
   aliases: ["drop"]
 };
 
+exports.help = {
+  name: 'drops',
+  description: `Will show you the 5 best spots (if available) to grind for a particular item.`,
+  usage: '!drops [itemname]'
+};
 
 
 

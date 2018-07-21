@@ -88,3 +88,9 @@ exports.conf = {
   guildOnly: false,
   aliases: []
 };
+
+exports.help = {
+  name: 'servant',
+  description: `Search for a particular servant.`,
+  usage: '!servant [class] [servantname]'
+};

@@ -7,3 +7,9 @@ exports.conf = {
   guildOnly: false,
   aliases: []
 };
+
+exports.help = {
+  name: 'ping',
+  description: `ping pong mikon`,
+  usage: '!ping'
+};

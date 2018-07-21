@@ -16,3 +16,9 @@ exports.conf = {
   guildOnly: false,
   aliases: []
 };
+
+exports.help = {
+  name: 'yorokobe',
+  description: `The priest smiles.`,
+  usage: '!yorokobe'
+};

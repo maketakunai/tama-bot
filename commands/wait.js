@@ -16,3 +16,9 @@ exports.conf = {
   guildOnly: false,
   aliases: []
 };
+
+exports.help = {
+  name: 'wait',
+  description: `Sometimes you really do have to just wait and hope.`,
+  usage: '!wait'
+};

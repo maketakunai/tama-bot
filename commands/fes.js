@@ -37,3 +37,9 @@ exports.conf = {
   guildOnly: false,
   aliases: []
 };
+
+exports.help = {
+  name: 'fes',
+  description: `Randomly selects from 20 available images.`,
+  usage: '!fes'
+};

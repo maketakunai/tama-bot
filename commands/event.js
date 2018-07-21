@@ -1,7 +1,7 @@
 exports.run = (client, message, args) => {
   var eventExists;
   var getUTC = new Date().getTime();
-  var endTime = 1530158340*1000;
+  var endTime = 1532577540*1000;
 
   if (getUTC < endTime)
   {
@@ -15,13 +15,14 @@ exports.run = (client, message, args) => {
     message.channel.send({
       "embed": {
         "title":"The current event ends in " + elapsed_time[0] + " days, " + elapsed_time[1] + " hours, " + elapsed_time[2] + " minutes.",
-        "description": "You will regenerate " + elapsed_time[3] + " more AP and " + elapsed_time[4] + " more BP during this time.",
+        //"description": "You will regenerate " + elapsed_time[3] + " more AP and " + elapsed_time[4] + " more BP during this time.",
+        "description": "You will regenerate " + elapsed_time[3] + " more AP during this time.",
         "color": 8817876,
         "image": {
-        "url": "https://webview.fate-go.us/wp-content/uploads/2018/06/0613_onigashima/banner_20180627.png",
+        "url": "https://webview.fate-go.us/wp-content/uploads/2018/07/0717_freequestaphalf/banner_20180725.png",
         },
         "author": {
-          "name": "The Great Tale of Demons: Onigashima",
+          "name": "Free Quest AP Cost 1/2 Campaign",
         },
       }
     }).catch(console.error);
@@ -48,4 +49,10 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: []
+};
+
+exports.help = {
+  name: 'event',
+  description: `Shows remaining time on event, as well as available AP until it's over.`,
+  usage: '!event'
 };

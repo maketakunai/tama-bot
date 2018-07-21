@@ -13,3 +13,9 @@ exports.conf = {
   guildOnly: false,
   aliases: []
 };
+
+exports.help = {
+  name: 'affinity',
+  description: 'An affinity chart for FGO.',
+  usage: '!affinity'
+};

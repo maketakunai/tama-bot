@@ -29,3 +29,9 @@ exports.conf = {
   guildOnly: false,
   aliases: []
 };
+
+exports.help = {
+  name: 'ticket',
+  description: `Sometimes all it takes is 1 ticket. Cycles between 2 images.`,
+  usage: '!ticket'
+};

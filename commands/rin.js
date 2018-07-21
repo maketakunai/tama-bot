@@ -41,3 +41,9 @@ exports.conf = {
   guildOnly: false,
   aliases: []
 };
+
+exports.help = {
+  name: 'rin',
+  description: `Make approving Rin say something.`,
+  usage: '!rin [text]'
+};

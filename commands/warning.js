@@ -13,3 +13,9 @@ exports.conf = {
   guildOnly: false,
   aliases: []
 };
+
+exports.help = {
+  name: 'warning',
+  description: `Abby warning.`,
+  usage: '!warning'
+};

@@ -61,3 +61,9 @@ exports.conf = {
   guildOnly: false,
   aliases: ["grail"]
 };
+
+exports.help = {
+  name: 'grails',
+  description: `Shows currently available grails in NA/JP.`,
+  usage: '!grail'
+};

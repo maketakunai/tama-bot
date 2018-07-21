@@ -46,3 +46,9 @@ exports.conf = {
   guildOnly: false,
   aliases: []
 };
+
+exports.help = {
+  name: 'omikuji',
+  description: `Donates a specified number of SQ to the shrine for a blessing.`,
+  usage: '!omikuji [number]'
+};

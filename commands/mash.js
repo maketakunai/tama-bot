@@ -13,3 +13,9 @@ exports.conf = {
   guildOnly: false,
   aliases: []
 };
+
+exports.help = {
+  name: 'mash',
+  description: `Mash is cute.`,
+  usage: '!mash'
+};

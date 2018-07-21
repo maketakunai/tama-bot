@@ -23,3 +23,9 @@ exports.conf = {
   guildOnly: false,
   aliases: []
 };
+
+exports.help = {
+  name: 'roll',
+  description: `Ask tamabot if you should roll the gacha.`,
+  usage: '!roll'
+};

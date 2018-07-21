@@ -50,3 +50,9 @@ exports.conf = {
   guildOnly: false,
   aliases: []
 };
+
+exports.help = {
+  name: 'update',
+  description: `Updates tamabot with the latest spreadsheet info.`,
+  usage: '!update'
+};

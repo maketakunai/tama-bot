@@ -13,3 +13,9 @@ exports.conf = {
   guildOnly: false,
   aliases: []
 };
+
+exports.help = {
+  name: 'sumanai',
+  description: `Sumanai.`,
+  usage: '!sumanai'
+};

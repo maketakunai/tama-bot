@@ -23,3 +23,9 @@ exports.conf = {
   guildOnly: false,
   aliases: []
 };
+
+exports.help = {
+  name: 'illya',
+  description: `Randomly selects from 6 available images.`,
+  usage: '!illya'
+};

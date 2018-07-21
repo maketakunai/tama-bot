@@ -3796,5 +3796,29 @@
     "servantClass": "Rider",
     "image": "http://fate-go.cirnopedia.org/icons/servant/servant_2111.png",
     "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=211"
+  },
+  "212": {
+    "rarity": "5",
+    "name": "Napoleon",
+    "id": "212",
+    "servantClass": "Archer",
+    "image": "http://fate-go.cirnopedia.org/icons/servant/servant_2121.png",
+    "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=212"
+  },
+  "213": {
+    "rarity": "5",
+    "name": "Sigurd",
+    "id": "213",
+    "servantClass": "Saber",
+    "image": "http://fate-go.cirnopedia.org/icons/servant/servant_2131.png",
+    "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=213"
+  },
+  "214": {
+    "rarity": "4",
+    "name": "Valkyrie",
+    "id": "214",
+    "servantClass": "Lancer",
+    "image": "http://fate-go.cirnopedia.org/icons/servant/servant_2141.png",
+    "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=214"
   }
 }

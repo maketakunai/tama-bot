@@ -6,7 +6,7 @@ exports.run = (client, message, args) => {
     return;
   }
   else if (args.length == 0){
-    message.channel.send("Usage: '!davinci (type your yes/no question here)'");
+    message.channel.send("Usage: '!davinci [type your yes/no question here]'");
     return;
   }
   else {
@@ -62,4 +62,10 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: []
+};
+
+exports.help = {
+  name: 'davinci',
+  description: `You can ask Da Vinci a yes/no question. It's like a magic 8ball.`,
+  usage: '!davinci [your question here]'
 };

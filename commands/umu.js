@@ -20,3 +20,9 @@ exports.conf = {
   guildOnly: false,
   aliases: []
 };
+
+exports.help = {
+  name: 'umu',
+  description: `Randomly selects from 3 available images.`,
+  usage: '!umu'
+};

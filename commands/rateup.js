@@ -18,3 +18,9 @@ exports.conf = {
   guildOnly: false,
   aliases: []
 };
+
+exports.help = {
+  name: 'rateup',
+  description: `Rateup is a lie.`,
+  usage: '!rateup'
+};

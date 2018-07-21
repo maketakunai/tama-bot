@@ -34,3 +34,9 @@ exports.conf = {
   guildOnly: false,
   aliases: []
 };
+
+exports.help = {
+  name: 'whale',
+  description: `Randomly selects from 16 available images.`,
+  usage: '!whale'
+};

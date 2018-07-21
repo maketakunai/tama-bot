@@ -103,4 +103,12 @@ exports.conf = {
   aliases: []
 };
 
+exports.help = {
+  name: 'goon',
+  description: `Searches the spreadsheet for a person. You will need to !update first before searching if you've just added yourself.`,
+  usage: '!goon [name]'
+};
+
+
+
 //to be added later: search by discord name?

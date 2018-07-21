@@ -27,3 +27,9 @@ exports.conf = {
   guildOnly: false,
   aliases: ["xp"]
 };
+
+exports.help = {
+  name: 'exp',
+  description: `Shows you the number of exp cards necessary to level a servant from specified levels.`,
+  usage: '!exp [startlevel] [endlevel]'
+};

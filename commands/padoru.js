@@ -13,3 +13,9 @@ exports.conf = {
   guildOnly: false,
   aliases: []
 };
+
+exports.help = {
+  name: 'padoru',
+  description: `走れソリよー 風のようにー`,
+  usage: '!padoru'
+};

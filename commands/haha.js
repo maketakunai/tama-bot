@@ -40,3 +40,9 @@ exports.conf = {
   guildOnly: false,
   aliases: []
 };
+
+exports.help = {
+  name: 'haha',
+  description: `Cycles between 3 images of laughing Rin/Luvia.`,
+  usage: '!haha'
+};

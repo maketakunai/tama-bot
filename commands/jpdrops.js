@@ -96,3 +96,9 @@ exports.conf = {
   guildOnly: false,
   aliases: ["jpdrop", "dropsjp"]
 };
+
+exports.help = {
+  name: 'jpdrops',
+  description: `Will show you the 5 best spots (if available) to grind for a particular item on JP.`,
+  usage: '!jpdrops [itemname]'
+};

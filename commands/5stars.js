@@ -13,3 +13,9 @@ exports.conf = {
   guildOnly: false,
   aliases: []
 };
+
+exports.help = {
+  name: '5stars',
+  description: `It's an image.`,
+  usage: '!5stars'
+};

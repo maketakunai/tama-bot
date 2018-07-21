@@ -13,3 +13,9 @@ exports.conf = {
   guildOnly: false,
   aliases: []
 };
+
+exports.help = {
+  name: 'police',
+  description: `An image of seibacop.`,
+  usage: '!police'
+};

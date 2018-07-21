@@ -81,3 +81,9 @@ exports.conf = {
   guildOnly: false,
   aliases: []
 };
+
+exports.help = {
+  name: 'maint',
+  description: `Lets you know when maintenance is going to start/finish.`,
+  usage: '!maint'
+};

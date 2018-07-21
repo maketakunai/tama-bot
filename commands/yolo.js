@@ -105,6 +105,11 @@ exports.run = (client, message, args) => {
   //check the gach rates
   //console.log(r_intervals);
   //message.channel.send(`${testroll} was rolled.`).catch(console.error);
+  if (message.guild.id == 328226892798754819 && message.channel.id != 421357102229880842) {
+    let msg = "Please do yolo rolls in <#421357102229880842>.";
+    message.channel.send(msg);
+    return;
+  }
   if (talkedRecently.has(message.author.id)){
     message.channel.send(message.author.username + ", you can only use !yolo once every second.")
     return;
@@ -290,4 +295,10 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: []
+};
+
+exports.help = {
+  name: 'yolo',
+  description: `A single gacha roll.\nAvailable banners: cam2, sum1, sum2, prisma\n!yolo stats to see stats.`,
+  usage: '!yolo [banner]'
 };
