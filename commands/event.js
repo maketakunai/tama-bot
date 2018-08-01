@@ -19,7 +19,7 @@ exports.run = (client, message, args) => {
         "description": "You will regenerate " + elapsed_time[3] + " more AP during this time.",
         "color": 8817876,
         "image": {
-        "url": "https://webview.fate-go.us/wp-content/uploads/2018/07/0717_freequestaphalf/banner_20180725.png",
+        "url": "https://webview.fate-go.us/wp-content/uploads/2018/07/0724_summer1/banner_20180814.png",
         },
         "author": {
           "name": "Free Quest AP Cost 1/2 Campaign",

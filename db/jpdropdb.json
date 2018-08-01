@@ -342,4 +342,14 @@
 {"Item":"Berserker Piece","Number":2,"Area":"Chaldea (Wed) JP","Quest":"Berserker 30AP JP","AP_per_Run":30,"BP_AP":18.3,"AP_per_Drop":29.2,"Drop_Chance":102.8,"Image":""},
 {"Item":"Berserker Piece","Number":3,"Area":"Chaldea (Wed) JP","Quest":"Berserker 40AP JP","AP_per_Run":40,"BP_AP":19.7,"AP_per_Drop":47.3,"Drop_Chance":84.6,"Image":""},
 {"Item":"Berserker Piece","Number":4,"Area":"Chaldea (Wed) JP","Quest":"Berserker 10AP JP","AP_per_Run":10,"BP_AP":18.8,"AP_per_Drop":53,"Drop_Chance":18.9,"Image":""},
-{"Item":"Berserker Piece","Number":5,"Area":"America","Quest":"Charlotte","AP_per_Run":20,"BP_AP":45.4,"AP_per_Drop":71.2,"Drop_Chance":28.1,"Image":""}]
+{"Item":"Berserker Piece","Number":5,"Area":"America","Quest":"Charlotte","AP_per_Run":20,"BP_AP":45.4,"AP_per_Drop":71.2,"Drop_Chance":28.1,"Image":""},
+{"Item":"Giant's Ring","Number":1,"Area":"Götterdämmerung","Quest":"Giants' Flower Patio","AP_per_Run":20,"BP_AP":46.6,"AP_per_Drop":48.7,"Drop_Chance":41.1,"Image":"https://i.imgur.com/FJESpqX.png"},
+{"Item":"Giant's Ring","Number":2,"Area":"Götterdämmerung","Quest":"Knoll of Thin Ice","AP_per_Run":20,"BP_AP":46.6,"AP_per_Drop":67.4,"Drop_Chance":29.7,"Image":""},
+{"Item":"Giant's Ring","Number":3,"Area":"Götterdämmerung","Quest":"Ablazed Mansion","AP_per_Run":21,"BP_AP":47.8,"AP_per_Drop":80.7,"Drop_Chance":26,"Image":""},
+{"Item":"Giant's Ring","Number":4,"Area":"Götterdämmerung","Quest":"Heroes' Cellar","AP_per_Run":21,"BP_AP":45.5,"AP_per_Drop":82.4,"Drop_Chance":25.5,"Image":""},
+{"Item":"Giant's Ring","Number":5,"Area":"Götterdämmerung","Quest":"Northern Boundary","AP_per_Run":21,"BP_AP":49,"AP_per_Drop":88.4,"Drop_Chance":23.8,"Image":""},
+{"Item":"Aurora Steel","Number":1,"Area":"Götterdämmerung","Quest":"Neuschwanstein Castle","AP_per_Run":21,"BP_AP":46.7,"AP_per_Drop":52,"Drop_Chance":40.4,"Image":"https://i.imgur.com/b6JVWLs.png"},
+{"Item":"Aurora Steel","Number":2,"Area":"Götterdämmerung","Quest":"67th Settlement","AP_per_Run":21,"BP_AP":47.8,"AP_per_Drop":80.1,"Drop_Chance":26.2,"Image":""},
+{"Item":"Aurora Steel","Number":3,"Area":"Götterdämmerung","Quest":"Ablazed Mansion","AP_per_Run":21,"BP_AP":47.8,"AP_per_Drop":84,"Drop_Chance":25,"Image":""},
+{"Item":"Aurora Steel","Number":4,"Area":"Götterdämmerung","Quest":"23rd Settlement","AP_per_Run":21,"BP_AP":45.5,"AP_per_Drop":89.6,"Drop_Chance":23.4,"Image":""},
+{"Item":"Aurora Steel","Number":5,"Area":"Götterdämmerung","Quest":"Forgotten Temple","AP_per_Run":21,"BP_AP":49,"AP_per_Drop":94.6,"Drop_Chance":22.2,"Image":""}]

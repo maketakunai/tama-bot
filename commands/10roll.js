@@ -40,6 +40,7 @@ function roll3starserv (rateup, normgacha) {
 
 
 //make a roulette wheel out of all the gacha probabilities, then return servant chosen at random from the pool that was selected
+//tbh this probably should be rewritten a bit, but oh well
 function gacharoll (rates, r_intervals, rateup, normgacha, guaranteed) {
   let roll = Math.random()*100;
   if (roll > 0 && roll <= rates.servrateup[0]) { //rateup SSR servant

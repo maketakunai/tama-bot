@@ -22,7 +22,7 @@ exports.run = (client, message, args) => {
     counter++;
     return;
   }
-  else {
+  else if (counter == 2){
     message.channel.send({
       "embed": {
         "image": {
@@ -30,10 +30,23 @@ exports.run = (client, message, args) => {
         }
       }
     }).catch(console.error);
+    counter++;
+    return;
+  }
+  else {
+    message.channel.send({
+      "embed": {
+        "image": {
+        "url": "https://i.imgur.com/RxP7EVY.gifv",
+        }
+      }
+    }).catch(console.error);
     counter = 0;
     return;
   }
 }
+
+
 
 exports.conf = {
   enabled: true,

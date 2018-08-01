@@ -63,10 +63,10 @@ exports.run = (client, message, args) => {
           },
           {
             "name": "FGO Information",
-            "value": "affinity, event, gate, grails, drops, jpdrops, maint, exp",
+            "value": "affinity, event, gate, grails, drops, jpdrops, maint, exp, npdmg",
           },
           {
-            "name": "Community Stuff",
+            "name": "SomethingAwful Community Stuff",
             "value": "goon, update",
           },
           {
