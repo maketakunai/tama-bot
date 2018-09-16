@@ -114,6 +114,14 @@ function findServant(classSearchResults, input){
           servantsFound.push(classSearchResults[key])
         }
       }
+      if (parameter == "alias"){
+        var sAlias = classSearchResults[key]["alias"];
+        sAlias = sAlias.replace(/\W/g, '');
+        sAlias = sAlias.toLowerCase();
+        if (sAlias.search(input) != -1){
+          servantsFound.push(classSearchResults[key])
+        }
+      }
     }
   }
   return servantsFound;

@@ -75,7 +75,7 @@ exports.run = (client, message, args) => {
           },
           {
             "name": "Image reactions, memes, fun stuff",
-            "value": "apple, dab, ded, fes, gacha, haha, hungry, illya, look, padoru, party, police, rateup, rin, senpai, shock, smug, sumanai, ticket, umu, wait, warning, whale, yorokobe, 5stars",
+            "value": "apple, bb, dab, ded, fes, gacha, haha, hungry, illya, look, mash, padoru, party, police, rateup, rin, senpai, shock, smug, sumanai, ticket, umu, wait, warning, whale, yorokobe, 5stars",
           },
           {
             "name": "Bot related stuff",

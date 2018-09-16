@@ -114,6 +114,7 @@
     "item": "Archer Piece: 4\n\nArcher Piece: 8\nMeteor Horseshoe: 5\n\nArcher Monument: 4\nEvil Bone: 20\nPhoenix Feather: 3\n\nArcher Monument: 8\nPhoenix Feather: 6\nClaw of Chaos: 5"
   },
   "106": {
+    "alias": "Jalter",
     "rarity": "5",
     "attacks": "0102020303",
     "maxATK": "13,244",
@@ -171,6 +172,7 @@
     "item": "Rider Piece: 5\n\nRider Piece: 12\nMeteor Horseshoe: 8\n\nRider Monument: 5\nOctuplet Crystals: 5\nProof of Hero: 29\n\nRider Monument: 12\nOctuplet Crystals: 10\nWar Horse's Small Horn: 8"
   },
   "109": {
+    "alias": "Kerry",
     "rarity": "4",
     "attacks": "0101020203",
     "maxATK": "8,958",
@@ -266,6 +268,7 @@
     "item": "Caster Piece: 5\n\nCaster Piece: 12\nSeed of Yggdrassil: 9\n\nCaster Monument: 5\nOctuplet Crystals: 10\nPhoenix Feather: 4\n\nCaster Monument: 12\nPhoenix Feather: 8\nSpirit Root: 5\n"
   },
   "114": {
+    "alias": "Mama",
     "rarity": "5",
     "attacks": "0102020303",
     "maxATK": "11,556",
@@ -304,6 +307,7 @@
     "item": "Golden Bear Lighter: 1\n\nGolden Bear Lighter: 1\n\nGolden Bear Lighter: 1\n\nGolden Bear Lighter: 1"
   },
   "116": {
+    "alias": "Banana",
     "rarity": "4",
     "attacks": "0102030303",
     "maxATK": "9,636",
@@ -342,6 +346,7 @@
     "item": "Assassin Piece: 4\n\nAssassin Piece: 8\nEvil Bone: 15\n\nAssassin Monument: 4\nVoid's Dust: 13\nOctuplet Crystals: 4\n\nAssassin Monument: 8\nOctuplet Crystals: 7\nBlack Tallow: 5"
   },
   "118": {
+    "alias": "Uncle Man Diaz",
     "rarity": "5",
     "attacks": "0102020303",
     "maxATK": "11,971",
@@ -361,6 +366,7 @@
     "item": "Rider Piece: 5\n\nRider Piece: 12\nChain of Fools: 22\n\nRider Monument: 5\nSerpent Jewel: 8\nHeart of the Foreign God: 2\n\nRider Monument: 12\nHeart of the Foreign God: 4\nScarab of Wisdom: 5"
   },
   "119": {
+    "alias": "Artoria Pendragon",
     "rarity": "5",
     "attacks": "0101020303",
     "maxATK": "10,995",
@@ -551,6 +557,7 @@
     "item": "Lancer Piece: 5\n\nLancer Piece: 12\nPhoenix Feather: 6\n\nLancer Monument: 5\nSeed of Yggdrassil: 12\nWar Horse's Small Horn: 3\n\nLancer Monument: 12\nWar Horse's Small Horn: 6\nShell of Recollection: 12"
   },
   "129": {
+    "alias": "Artoria Pendragon",
     "rarity": "5",
     "attacks": "0101020203",
     "maxATK": "11,276",
@@ -703,6 +710,7 @@
     "item": "Caster Piece: 5\n\nCaster Piece: 12\nSeed of Yggdrassil: 9\n\nCaster Monument: 5\nForbidden Page: 10\nPhoenix Feather: 4\n\nCaster Monument: 12\nPhoenix Feather: 8\nScarab of Wisdom: 5\n"
   },
   "137": {
+    "alias": "Kuro",
     "rarity": "4",
     "attacks": "0101020203",
     "maxATK": "9,845",
@@ -779,6 +787,7 @@
     "item": "Lancer Piece: 4\n\nLancer Piece: 10\nProof of Hero: 18\n\nLancer Monument: 4\nChain of Fools: 24\nBlack Tallow: 3\n\nLancer Monument: 10\nBlack Tallow: 5\nDragon's Reverse Scale: 4"
   },
   "141": {
+    "alias": "Janta",
     "rarity": "4",
     "attacks": "0101020303",
     "maxATK": "9,261",
@@ -912,11 +921,12 @@
     "item": "Serpent Jewel: 8\nEvil Bone: 8\n\nDeadly Poison Stinger: 8\nChain of Fools: 8\n\nPrimordial Lanugo: 8\nVoid's Dust: 8\n\nCursed Beast Gallstone: 8\nClaw of Chaos: 8"
   },
   "148": {
+    "alias": "Fujimura Taiga",
     "rarity": "3",
     "attacks": "0101020303",
     "maxATK": "7,022",
     "id": "148",
-    "name": "Jaguar Warrior",
+    "name": "Jaguar Man",
     "servantClass": "Lancer",
     "cost": "7",
     "baseHP": "1,726",
@@ -969,11 +979,12 @@
     "item": "Saber Piece: 5\n\nSaber Piece: 12\nProof of Hero: 22\n\nSaber Monument: 5\nOctuplet Crystals: 10\nEternal Gear: 5\n\nSaber Monument: 12\nEternal Gear: 10\nHeart of the Foreign God:  5"
   },
   "154": {
+    "alias": "King Hassan",
     "rarity": "5",
     "attacks": "0102030303",
     "maxATK": "11,848",
     "id": "154",
-    "name": "\" First Hassan",
+    "name": "The Old Man of the Mountain",
     "servantClass": "Assassin",
     "cost": "16",
     "baseHP": "1,956",
@@ -988,6 +999,7 @@
     "item": "Assassin Piece: 5\n\nAssassin Piece: 12\nEvil Bone: 22\n\nAssassin Monument: 5\nChain of Fools: 29\nCursed Beast Gallstone: 2\n\nAssassin Monument: 12\nCursed Beast Gallstone: 4\nVoid's Dust: 24"
   },
   "155": {
+    "alias": "MHXA",
     "rarity": "5",
     "attacks": "0101020303",
     "maxATK": "11,113",
@@ -1007,6 +1019,7 @@
     "item": "Berserker Piece: 5\n\nBerserker Piece: 12\nDragon Fang: 18\n\nBerserker Monument: 5\nGreat Knight Medal: 20\nPrimordial Lanugo: 3\n\nBerserker Monument: 12\nPrimordial Lanugo: 6\nDragon's Reverse Scale: 5\n"
   },
   "156": {
+    "alias": "James Moriarty",
     "rarity": "5",
     "attacks": "0102020203",
     "maxATK": "11,781",
@@ -1045,6 +1058,7 @@
     "item": "Archer Piece: 4\n\nArcher Piece: 10\nChain of Fools: 18\n\nArcher Monument: 4\nEternal Gear: 8\nBlack Tallow: 3\n\nArcher Monument: 10\nBlack Tallow: 5\nMagic Cerebrospinal Fluid: 30"
   },
   "158": {
+    "alias": "Hessian Lobo",
     "rarity": "4",
     "attacks": "0101020203",
     "maxATK": "10,628",
@@ -1064,6 +1078,7 @@
     "item": "Evil Bone: 8\nGhost Lantern: 8\n\nBlack Tallow: 8\nVoid's Dust: 8\n\nTearstone of Blood: 8\nMagic Cerebrospinal Fluid: 8\n\nCursed Beast Gallstone: 8\nPrimordial Lanugo: 8"
   },
   "159": {
+    "alias": "Yan Qing",
     "rarity": "4",
     "attacks": "0101010203",
     "maxATK": "8,661",
@@ -1234,26 +1249,8 @@
     "desc": "The antagonist of the enlightened. The saint that appeared in the Deep Sea Virtual Paradise, SE.RA.PH. The one who employed the rare qualities as a messiah that she possessed only for her own sake, metamorphosing into something not-human. Her pledge, her hope was put to an end when she had just barely reached the shore. Kiara herself vanished at that time, but maybe due changing her way of thinking upon death, she left a portion of her power behind as an Alterego and accepted for it to be summoned by Chaldea in the future.\n\n 「It’s fine right, Chaldea.\n 　To throw oneself into battle at many ages, many places...\n 　I would also like to have a taste of that myself.」\n\n or so she says with a reserved smile. But, of course, her real intentions are nothing like ｢for the sake of humanity｣. One must be cautious, for even after becoming somewhat more mellow, her nature has not changed at all.",
     "item": "Saber Piece: 5\nCaster Piece: 5\n\nSaber Piece: 12\nCaster Piece: 12\n\nSaber Monument: 5\nCaster Monument: 5\n\nSaber Monument: 12\nCaster Monument: 12"
   },
-  "168": {
-    "rarity": "5",
-    "attacks": "0102020303",
-    "maxATK": "18,720",
-    "id": "168",
-    "name": "Beast III/R",
-    "servantClass": "Beast III",
-    "cost": "",
-    "baseHP": "16",
-    "baseATK": "2,745",
-    "maxHP": "",
-    "image": "http://fate-go.cirnopedia.org/icons/servant/servant_1681.png",
-    "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=168",
-    "note": "Enemy Servant Only\n",
-    "NP": "(Arts) Sukhavati Heaven's Hole \nThird Heterodoxy Pleasure Deva of Deliberate Overwhelming Joy\nDeal heavy damage to all enemies\nInflict NP Seal (1 turn)\nInflict Skill Seal (1 turn)\nRestore own HP\nTarget: All Enemies",
-    "alignment": "None",
-    "desc": "A new deva (god) calling herself Third Heterodoxy Pleasure Deva of Deliberate Overwhelming Joy, and one of the human vices that took shape in ｢FGO｣.\n\n The true boss of ｢Fate/EXTRA CCC｣. Over there, she used BB to absorb the Mooncell and metamorphose into a genuine demon. The Mara (horns) growing from her head is that of a heavenly demon. In other words, they indicate that this individual is the antagonist of the enlightened.",
-    "item": "None"
-  },
   "169": {
+    "alias": "Scheherazade",
     "rarity": "5",
     "attacks": "0102020203",
     "maxATK": "9,212",
@@ -1273,6 +1270,7 @@
     "item": "Caster Piece: 5\n\nCaster Piece: 12\nPhoenix Feather: 6\n\nCaster Monument: 5\nSerpent Jewel: 8\nLamp of Sealed Evil: 3\n\nCaster Monument: 12\nLamp of Sealed Evil: 6\nChichi Divine Wine: 5"
   },
   "170": {
+    "alias": "Wu Zetian",
     "rarity": "4",
     "attacks": "0101020303",
     "maxATK": "8,981",
@@ -1292,6 +1290,7 @@
     "item": "Assassin Piece: 4\n\nAssassin Piece: 10\nDeadly Poison Stinger: 15\n\nAssassin Monument: 4\nChain of Fools: 24\nBlack Tallow: 3\n\nAssassin Monument: 10\nBlack Tallow: 5\nCursed Beast Gallstone: 4\n"
   },
   "171": {
+    "alias": "Penthesilea",
     "rarity": "4",
     "attacks": "0102030303",
     "maxATK": "10,502",
@@ -1311,6 +1310,7 @@
     "item": "Berserker Piece: 4\n\nBerserker Piece: 10\nOctuplet Crystals: 6\n\nBerserker Monument: 4\nMeteor Horseshoe: 8\nTearstone of Blood: 3\n\nBerserker Monument: 10\nTearstone of Blood: 5\nSpirit Root: 4"
   },
   "172": {
+    "alias": "Christopher Columbus",
     "rarity": "3",
     "attacks": "0102020303",
     "maxATK": "6,552",
@@ -1444,6 +1444,7 @@
     "item": "Berserker Piece: 4\n\nBerserker Piece: 10\nMagic Cerebrospinal Fluid: 18\n\nBerserker Monument: 4\nChichi Divine Wine: 4\nDeadly Poison Stinger: 10\n\nBerserker Monument: 10\nDeadly Poison Stinger: 20\nClaw of Chaos: 6"
   },
   "179": {
+    "alias": "Artoria Pendragon [Alter]",
     "rarity": "5",
     "attacks": "0101020203",
     "maxATK": "10,776",
@@ -1539,6 +1540,7 @@
     "item": "Lancer Piece: 4\n\nLancer Piece: 10\nSerpent Jewel: 5\n\nLancer Monument: 4\nWar Horse's Small Horn: 5\nLamp of Sealed Evil: 3\n\nLancer Monument: 10\nLamp of Sealed Evil: 5\nChichi Divine Wine: 4\n"
   },
   "184": {
+    "alias": "Tomoe Gozen",
     "rarity": "4",
     "attacks": "0102020303",
     "maxATK": "9,946",
@@ -1558,6 +1560,7 @@
     "item": "Archer Piece: 4\n\nArcher Piece: 10\nMeteor Horseshoe: 6\n\nArcher Monument: 4\nPhoenix Feather: 7\nKotan Magatama: 4\n\nArcher Monument: 10\nKotan Magatama: 8\nBlack Tallow: 6"
   },
   "185": {
+    "alias": "Mochizuki Chiyome",
     "rarity": "4",
     "attacks": "0101020203",
     "maxATK": "8,510",
@@ -1691,6 +1694,7 @@
     "item": "B Pellet: 1\n\nB Pellet: 1\n\nB Pellet: 1\n\nB Pellet: 1"
   },
   "192": {
+    "alias": "Circe",
     "rarity": "4",
     "attacks": "0102020203",
     "maxATK": "8,671",
@@ -1729,6 +1733,7 @@
     "item": "Lancer Piece: 4\n\nLancer Piece: 10\nEternal Gear: 6\n\nLancer Monument: 4\nHomunculus Baby: 8\nClaw of Chaos: 3\n\nLancer Monument: 10\nClaw of Chaos: 5\nWar Horse's Small Horn: 6"
   },
   "194": {
+    "alias": "Queen of Sheba",
     "rarity": "4",
     "attacks": "0102020303",
     "maxATK": "8,629",
@@ -1843,6 +1848,7 @@
     "item": "Proof of Hero: 5\n\nDragon Fang: 5\n\nSeed of Yggdrassil: 5\n\nOctuplet Crystals: 5\n\nVoid's Dust: 5\n\nEternal Gear: 5\n\nPhoenix Feather: 5\n\nDragon's Reverse Scale:  5\n\nCrystallized Lore: 1"
   },
   "002": {
+    "alias": "Artoria Pendragon",
     "rarity": "5",
     "attacks": "0102020303",
     "maxATK": "11,221",
@@ -1862,6 +1868,7 @@
     "item": "Saber Piece: 5\n\nDragon Fang: 18\nSaber Piece: 12\n\nPhoenix Feather: 4\nProof of Hero: 29\nSaber Monument: 5\n\nPhoenix Feather: 8\nDragon's Reverse Scale: 5\nSaber Monument: 12"
   },
   "003": {
+    "alias": "Artoria Pendragon [Alter]",
     "rarity": "4",
     "attacks": "0102020303",
     "maxATK": "10,248",
@@ -1881,6 +1888,7 @@
     "item": "Saber Piece: 4\n\nDragon Fang: 15\nSaber Piece: 10\n\nDragon's Reverse Scale: 2\nClaw of Chaos: 5\nSaber Monument: 4\n\nDragon's Reverse Scale: 4\nHeart of the Foreign God: 4\nSaber Monument: 10"
   },
   "004": {
+    "alias": "Artoria Pendragon [Lily]",
     "rarity": "4",
     "attacks": "0102020303",
     "maxATK": "7,726",
@@ -2280,6 +2288,7 @@
     "item": "Rider Piece: 3\n\nProof of Hero: 11\nRider Piece: 6\n\nPhoenix Feather: 4\nForbidden Page: 3\nRider Monument: 3\n\nForbidden Page: 5\nMeteor Horseshoe: 6\nRider Monument: 6"
   },
   "025": {
+    "alias": "Blackbeard",
     "rarity": "2",
     "attacks": "0102020303",
     "maxATK": "6,188",
@@ -2508,6 +2517,7 @@
     "item": "Caster Piece: 2\n\nEvil Bone: 8\nCaster Piece: 4\n\nEternal Gear: 4\nForbidden Page: 2\nCaster Monument: 2\n\nForbidden Page: 4\nHeart of the Foreign God: 2\nCaster Monument: 4"
   },
   "037": {
+    "alias": "Waver",
     "rarity": "5",
     "attacks": "0102020203",
     "maxATK": "10,598",
@@ -3192,6 +3202,7 @@
     "item": "Saber Piece: 4\n\nProof of Hero: 15\nSaber Piece: 8\n\nOctuplet Crystals: 7\nHeart of the Foreign God: 2\nSaber Monument: 4\n\nMeteor Horseshoe: 8\nHeart of the Foreign God: 3\nSaber Monument: 8"
   },
   "073": {
+    "alias": "Artoria Pendragon [Santa Alter]",
     "rarity": "4",
     "attacks": "0102020303",
     "maxATK": "9,258",
@@ -3287,6 +3298,7 @@
     "item": "Archer Piece: 5\n\nVoid's Dust: 15\nArcher Piece: 12\n\nEternal Gear: 5\nForbidden Page: 10\nArcher Monument: 5\n\nGhost Lantern: 12\nEternal Gear: 10\nArcher Monument: 12"
   },
   "078": {
+    "alias": "Artoria Pendragon [Alter]",
     "rarity": "4",
     "attacks": "0101020303",
     "maxATK": "9,968",
@@ -3420,6 +3432,7 @@
     "item": "Lancer Piece: 5\n\nOctuplet Crystals: 8\nLancer Piece: 12\n\nPhoenix Feather: 4\nEternal Gear: 10\nLancer Monument: 5\n\nPhoenix Feather: 8\nHeart of the Foreign God: 5\nLancer Monument: 12"
   },
   "086": {
+    "alias": "MHX",
     "rarity": "5",
     "attacks": "0101020203",
     "maxATK": "11,761",
@@ -3610,6 +3623,7 @@
     "item": "Archer Piece: 4\n\nArcher Piece: 8\nSeed of Yggdrassil: 6\n\nArcher Monument: 4\nSerpent Jewel: 6\nDragon's Reverse Scale: 2\n\nArcher Monument: 8\nDragon's Reverse Scale: 3\nProof of Hero: 24"
   },
   "096": {
+    "alias": "Edmond Dantes",
     "rarity": "5",
     "attacks": "0101020303",
     "maxATK": "12,641",
@@ -3820,5 +3834,78 @@
     "servantClass": "Lancer",
     "image": "http://fate-go.cirnopedia.org/icons/servant/servant_2141.png",
     "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=214"
+  },
+  "215": {
+    "rarity": "5",
+    "name": "Scathach-Skadi",
+    "id": "215",
+    "servantClass": "Caster",
+    "image": "http://fate-go.cirnopedia.org/icons/servant/servant_2151.png",
+    "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=215"
+  },
+  "216": {
+    "rarity": "5",
+    "name": "Jeanne d'Arc",
+    "id": "216",
+    "servantClass": "Archer",
+    "image": "http://fate-go.cirnopedia.org/icons/servant/servant_2161.png",
+    "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=216"
+  },
+  "217": {
+    "rarity": "4",
+    "name": "Ibaraki Douji",
+    "id": "217",
+    "servantClass": "Lancer",
+    "image": "http://fate-go.cirnopedia.org/icons/servant/servant_2171.png",
+    "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=217"
+  },
+  "218": {
+    "rarity": "4",
+    "name": "Ushiwakamaru",
+    "id": "218",
+    "servantClass": "Assassin",
+    "image": "http://fate-go.cirnopedia.org/icons/servant/servant_2181.png",
+    "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=218"
+  },
+  "219": {
+    "rarity": "4",
+    "name": "Jeanne d'Arc [Alter]",
+    "id": "219",
+    "servantClass": "Berserker",
+    "image": "http://fate-go.cirnopedia.org/icons/servant/servant_2191.png",
+    "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=219"
+  },
+  "220": {
+    "rarity": "5",
+    "name": "BB",
+    "id": "220",
+    "servantClass": "MoonCancer",
+    "image": "http://fate-go.cirnopedia.org/icons/servant/servant_2201.png",
+    "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=220"
+  },
+  "221": {
+    "rarity": "4",
+    "name": "Queen Medb",
+    "id": "221",
+    "servantClass": "Saber",
+    "image": "http://fate-go.cirnopedia.org/icons/servant/servant_2211.png",
+    "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=221"
+  },
+  "222": {
+    "alias": "MHXX",
+    "rarity": "4",
+    "name": "Mysterious Heroine XX",
+    "id": "222",
+    "servantClass": "Foreigner",
+    "image": "http://fate-go.cirnopedia.org/icons/servant/servant_2221.png",
+    "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=222"
+  },
+  "223": {
+    "rarity": "4",
+    "name": "Diarmuid Ua Duibhne",
+    "id": "223",
+    "servantClass": "Saber",
+    "image": "http://fate-go.cirnopedia.org/icons/servant/servant_2231.png",
+    "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=223"
   }
 }

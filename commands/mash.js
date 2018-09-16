@@ -2,11 +2,17 @@ exports.run = (client, message, args) => {
   message.channel.send({
     "embed": {
       "image": {
-      "url": "https://i.imgur.com/Felg95E.gif",
+      "url": randomImage(),
       }
     }
   }).catch(console.error);
 }
+
+function randomImage() {
+  var answers = ["https://i.imgur.com/Felg95E.gif"]
+  return answers[Math.floor(Math.random()*answers.length)];
+}
+
 
 exports.conf = {
   enabled: true,

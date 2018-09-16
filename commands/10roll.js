@@ -170,81 +170,16 @@ exports.run = (client, message, args) => {
     }, 2000);
     return;
   }
-  else if (args[0] == "cam2" || args[0] == "camelot2"){
+  else if (args[0] == "story") {
     let rates = {
         servstandard: [ 1, 3, 40 ],
         cestandard: [ 4, 12, 40 ],
-        servrateup: [ 0.7, 2.4, 0 ], // only 1 servant on rateup
+        servrateup: [ 0, 0, 0 ], // 8, for 4+4 of two 3* servants; 2.4 for (1.2*2) of two 4* servants
         cerateup: [ 0, 0, 0 ]
         };
     let intervals = setIntervals(rates);
-    let normgacha = require("../db/gacha-standardpool.json"),
-        rateup = require("../db/rateup-camelot2.json");
-        //yoloroll = gacharoll(rates,intervals,rateup,normgacha);
-    //let url = `https://raw.githubusercontent.com/aister/nobuDB/master/images/${yoloroll}.png`;
-    const canvas = new Canvas(645, 438);
-    const ctx = canvas.getContext('2d');
-    const embed = {
-      "title":`${message.author.username}'s 10roll:`,
-      "color": 8817876,
-      "image": {
-      "url": "attachment://image.png"
-      },
-      "author": {
-        "name": `${rateup.name}`,
-      }
-    }
-    var rollz = [];
-    var rolla = [],
-        rollb = [];
-    var guaranteed = []; //3 star or above servant, 4 star CE met?
-    for (let a = 0; a < 5; a++){
-      let yoloroll1 = gacharoll(rates,intervals,rateup,normgacha,guaranteed);
-      let yoloroll2 = gacharoll(rates,intervals,rateup,normgacha,guaranteed);
-      rolla.push(`https://raw.githubusercontent.com/aister/nobuDB/master/images/${yoloroll1}.png`);
-      rollb.push(`https://raw.githubusercontent.com/aister/nobuDB/master/images/${yoloroll2}.png`);
-    }
-    if (guaranteed.includes(4) || guaranteed.includes(5) && guaranteed.includes(3)) {
-      rollz.push(rolla);
-      rollz.push(rollb);
-    } else {
-      rollb[3] = `https://raw.githubusercontent.com/aister/nobuDB/master/images/${roll3starserv(rateup, normgacha)}.png`
-      rollb[4] = `https://raw.githubusercontent.com/aister/nobuDB/master/images/${roll4starCE(rateup, normgacha)}.png`
-      rollz.push(rolla);
-      rollz.push(rollb);
-    }
-
-    let promises = [];
-    for (let i = 0; i < 5; i++){
-      for (let j = 0; j < 2; j++) {
-        promises.push(singleroll (rates,intervals,rateup,normgacha,ctx,rollz,i,j));
-      }
-    }
-    Promise.all(promises)
-      .then((results) => {
-        message.channel.send({
-        embed, files: [{attachment: canvas.toBuffer(), name: 'image.png'}]
-        }).catch(console.error);
-      })
-      .catch((e) => {
-        console.log(e);
-        message.channel.send(`Yikes! Something happened. Try rolling again.`);
-      })
-    talkedRecently.add(message.author.id);
-    setTimeout(() => {
-      talkedRecently.delete(message.author.id);
-    }, 10000);
-  }
-  else if (args[0] == "summer1" || args[0] == "sum1"){
-    let rates = {
-        servstandard: [ 1, 3, 40 ],
-        cestandard: [ 4, 12, 40 ],
-        servrateup: [ 0.7, 2.1, 0 ], // 8, for 4+4 of two 3* servants; 2.4 for (1.2*2) of two 4* servants
-        cerateup: [ 2.8, 4, 8 ]
-        };
-    let intervals = setIntervals(rates);
-    let normgacha = require("../db/gacha-standardpool.json"),
-        rateup = require("../db/rateup-summer.json");
+    let normgacha = require("../db/gacha-story.json"),
+        rateup = require("../db/rateup-blank.json");
         //yoloroll = gacharoll(rates,intervals,rateup,normgacha);
     //let url = `https://raw.githubusercontent.com/aister/nobuDB/master/images/${yoloroll}.png`;
     const canvas = new Canvas(645, 438);
@@ -496,7 +431,7 @@ exports.run = (client, message, args) => {
     }, 10000);
   }
   else {
-    message.channel.send("'!10roll (banner)' to 10roll the gacha.\nAvailable banners: cam2, sum1, sum2, prisma, nero\n");
+    message.channel.send("'!10roll (banner)' to 10roll the gacha.\nAvailable banners: story, sum2, prisma, nero\n");
     return;
   }
 };
@@ -509,6 +444,6 @@ exports.conf = {
 
 exports.help = {
   name: '10roll',
-  description: 'Does a 10roll of the gacha.\nAvailable banners: cam2, sum1, sum2, prisma, nero\n!10roll stats to see stats.',
+  description: 'Does a 10roll of the gacha.\nAvailable banners: story, sum2, prisma, nero\n!10roll stats to see stats.',
   usage: '!10roll [bannername]'
 };

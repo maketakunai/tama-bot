@@ -1,7 +1,7 @@
 exports.run = (client, message, args) => {
   var eventExists;
   var getUTC = new Date().getTime();
-  var endTime = 1532577540*1000;
+  var endTime = 1538020740*1000;
 
   if (getUTC < endTime)
   {
@@ -19,10 +19,10 @@ exports.run = (client, message, args) => {
         "description": "You will regenerate " + elapsed_time[3] + " more AP during this time.",
         "color": 8817876,
         "image": {
-        "url": "https://webview.fate-go.us/wp-content/uploads/2018/07/0724_summer1/banner_20180814.png",
+        "url": "https://webview.fate-go.us/wp-content/uploads/2018/09/0910_nero2/banner_20180925.png",
         },
         "author": {
-          "name": "Free Quest AP Cost 1/2 Campaign",
+          "name": "The Return of Nero Fest - Autumn 2018",
         },
       }
     }).catch(console.error);
