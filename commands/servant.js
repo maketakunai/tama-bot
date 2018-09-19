@@ -75,15 +75,17 @@ function findServant(classSearchResults, input){
         sName = sName.replace(/\W/g, '');
         sName = sName.toLowerCase();
         if (sName.search(input) != -1){
-          servantsFound.push(classSearchResults[key])
+          servantsFound.push(classSearchResults[key]);
+          break;
         }
       }
-      if (parameter == "alias"){
+      else if (parameter == "alias"){
         var sAlias = classSearchResults[key]["alias"];
         sAlias = sAlias.replace(/\W/g, '');
         sAlias = sAlias.toLowerCase();
         if (sAlias.search(input) != -1){
-          servantsFound.push(classSearchResults[key])
+          servantsFound.push(classSearchResults[key]);
+          break;
         }
       }
     }

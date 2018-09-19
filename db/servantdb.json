@@ -307,7 +307,6 @@
     "item": "Golden Bear Lighter: 1\n\nGolden Bear Lighter: 1\n\nGolden Bear Lighter: 1\n\nGolden Bear Lighter: 1"
   },
   "116": {
-    "alias": "Banana",
     "rarity": "4",
     "attacks": "0102030303",
     "maxATK": "9,636",
@@ -730,6 +729,7 @@
     "item": "Heart Bracelet: 1\n\nHeart Bracelet: 1\n\nHeart Bracelet: 1\n\nHeart Bracelet: 1"
   },
   "138": {
+    "alias": "Elizabeth Bathory [Brave]",
     "rarity": "4",
     "attacks": "0102020303",
     "maxATK": "9,899",
@@ -2155,6 +2155,7 @@
     "item": "Lancer Piece: 4\n\nClaw of Chaos: 3\nLancer Piece: 8\n\nSeed of Yggdrassil: 8\nOctuplet Crystals: 4\nLancer Monument: 4\n\nPhoenix Feather: 7\nOctuplet Crystals: 7\nLancer Monument: 8"
   },
   "018": {
+    "alias": "Elizabeth Bathory",
     "rarity": "4",
     "attacks": "0101020303",
     "maxATK": "9,122",
@@ -2974,6 +2975,7 @@
     "item": "Archer Piece: 5\n\nHeart of the Foreign God: 3\nArcher Piece: 12\n\nClaw of Chaos: 3\nSerpent Jewel: 8\nArcher Monument: 5\n\nPhoenix Feather: 10\nClaw of Chaos: 6\nArcher Monument: 12"
   },
   "061": {
+    "alias": "Elizabeth Bathory [Halloween]",
     "rarity": "4",
     "attacks": "0102020203",
     "maxATK": "8,616",
@@ -3868,6 +3870,7 @@
     "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=218"
   },
   "219": {
+    "alias": "Jalter",
     "rarity": "4",
     "name": "Jeanne d'Arc [Alter]",
     "id": "219",

@@ -15,7 +15,6 @@ exports.run = (client, message, args) => {
   delete require.cache[require.resolve('../db/goonDB.json')];
   delete require.cache[require.resolve('../db/jpgoonDB.json')];
   if (searchResult.length > 0) {
-    //message.channel.send("Mmhmm, nothing gets by these ears.");
     for (var j = 0; j < searchResult.length; j++){
       var embedColor = 6513663;
       var region = ":flag_us: NA";
@@ -87,9 +86,9 @@ function findGoon(input, nagoons, jpgoons){
     gName = gName.replace(/[\W_]+/g, '');
     gName = gName.toLowerCase();
     var fgoName = result[i].fgoName;
-    fgo_Name = fgoName.replace(/[\W_]+/g, '');
-    fgo_Name = fgoName.toLowerCase();
-    if (gName.search(input) != -1 || fgo_Name.search(input) != -1 || result[i].friendId == input){
+    fgoName = fgoName.replace(/[\W_]+/g, '');
+    fgoName = fgoName.toLowerCase();
+    if (gName.search(input) != -1 || fgoName.search(input) != -1 || result[i].friendId == input){
       goonsFound.push(result[i]);
     }
   }
