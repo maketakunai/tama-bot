@@ -3,7 +3,7 @@ var eventGrails = 5;
 var jpStoryGrails1 = 10;
 var jpStoryGrails2 = 4;
 var jpStoryGrails3 = 2;
-var jpEventGrails = 15;
+var jpEventGrails = 16;
 
 
 exports.run = (client, message, args) => {
@@ -43,12 +43,12 @@ exports.run = (client, message, args) => {
         },
         {
           "name": "Events that give grails",
-          "value": "Halloween 2015\nDa Vinci\nFate/Zero Collaboration\nOnigashima\nSummer 2016\nHalloween 2016\nGudaGuda Meiji Ishin",
+          "value": "Halloween 2015\nDa Vinci\nFate/Zero Collaboration\nOnigashima\nSummer 2016\nHalloween 2016\nGudaGuda Meiji Ishin\nCCC Collaboration",
           "inline": true
         },
         {
           "name": "delicious grails",
-          "value": "CCC Collaboration\nSummer 2017\nHalloween 2017\nValentine's 2018\nApocrypha Collaboration\nGudaGuda Teito Seihai Kitan\nSummer 2018 (x2)",
+          "value": "Summer 2017\nHalloween 2017\nValentine's 2018\nApocrypha Collaboration\nGudaGuda Teito Seihai Kitan\nSummer 2018 (x2)\nBattle in NY 2018",
           "inline": true
         }
       ]

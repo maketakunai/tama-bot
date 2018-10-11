@@ -1,9 +1,10 @@
 exports.run = (client, message, args) => {
   var eventExists;
   var getUTC = new Date().getTime();
-  var endTime = 1538020740*1000;
+  var startTime = 1538636400*1000;
+  var endTime = 1539835140*1000;
 
-  if (getUTC < endTime)
+  if (getUTC < endTime && getUTC > startTime)
   {
     eventExists = 1;
   }
@@ -19,10 +20,10 @@ exports.run = (client, message, args) => {
         "description": "You will regenerate " + elapsed_time[3] + " more AP during this time.",
         "color": 8817876,
         "image": {
-        "url": "https://webview.fate-go.us/wp-content/uploads/2018/09/0910_nero2/banner_20180925.png",
+        "url": "https://fate-go.us/images/event_20181017.png",
         },
         "author": {
-          "name": "The Return of Nero Fest - Autumn 2018",
+          "name": "Revival: The Adventure of Singing Pumpkin Castle - Mad Party 2017 - Lite",
         },
       }
     }).catch(console.error);

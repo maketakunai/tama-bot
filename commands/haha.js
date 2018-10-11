@@ -37,7 +37,7 @@ exports.run = (client, message, args) => {
     message.channel.send({
       "embed": {
         "image": {
-        "url": "https://i.imgur.com/RxP7EVY.gifv",
+        "url": "https://i.imgur.com/RxP7EVY.gif",
         }
       }
     }).catch(console.error);
@@ -51,7 +51,7 @@ exports.run = (client, message, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: []
+  aliases: ["save"]
 };
 
 exports.help = {

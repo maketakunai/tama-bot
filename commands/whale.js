@@ -25,7 +25,8 @@ function randomImage() {
   "https://i.imgur.com/ZnAlruh.jpg",
   "https://i.imgur.com/ghrLAGng.jpg",
   "https://i.imgur.com/iqGZ7tR.jpg",
-  "https://i.imgur.com/GJe88e5.jpg"]
+  "https://i.imgur.com/GJe88e5.jpg",
+  "https://i.imgur.com/2PSDB1W.jpg"]
   return answers[Math.floor(Math.random()*answers.length)];
 }
 
@@ -37,6 +38,6 @@ exports.conf = {
 
 exports.help = {
   name: 'whale',
-  description: `Randomly selects from 16 available images.`,
+  description: `Randomly selects from a pool of available images.`,
   usage: '!whale'
 };

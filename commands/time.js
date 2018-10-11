@@ -14,7 +14,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'JST',
-  description: 'Displays the local time in Japan.',
-  usage: '!jst'
+  name: 'time',
+  description: 'Displays the server times for NA and JP.',
+  usage: '!time'
 };

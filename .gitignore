@@ -8,3 +8,5 @@ tama-bot.json
 package-lock.json
 to-do.txt
 .DS_Store
+change.py
+.vscode

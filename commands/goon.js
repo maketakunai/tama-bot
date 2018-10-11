@@ -3,7 +3,7 @@ exports.run = (client, message, args) => {
   let nagoons = require('../db/goonDB.json');
   let jpgoons = require('../db/jpgoonDB.json');
 
-  if (args.length > 6 || args.length == 0){
+  if (args.length > 10 || args.length == 0){
     message.channel.send("Stop, stop please! To search the goon spreadsheet, please type '!goon (name)'.")
     return;
   }
