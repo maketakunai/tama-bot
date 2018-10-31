@@ -2,7 +2,7 @@ exports.run = (client, message, args) => {
   message.channel.send({
     "embed": {
       "image": {
-      "url": "https://cdn.discordapp.com/attachments/421357102229880842/494252191096242199/Ozy.png",
+      "url": "https://i.imgur.com/N2L6KAy.png",
       }
     }
   }).catch(console.error);
@@ -11,11 +11,11 @@ exports.run = (client, message, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: []
+  aliases: ["medb"]
 };
 
 exports.help = {
-  name: 'ozy',
-  description: 'uncle man diaz',
-  usage: '!ozy'
+  name: 'wut',
+  description: `It's an image.`,
+  usage: '!wut'
 };

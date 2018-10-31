@@ -17,7 +17,7 @@ function randomImage() {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: []
+  aliases: ["senpai"]
 };
 
 exports.help = {

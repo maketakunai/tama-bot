@@ -8,13 +8,14 @@ exports.run = (client, message, args) => {
   }).catch(console.error);
 }
 
+var answers = ["https://i.imgur.com/cNaYhSI.png",
+"https://i.imgur.com/vKu4JPA.png",
+"https://i.imgur.com/yN2qqaA.jpg",
+"https://i.imgur.com/njNDJGf.jpg",
+"https://i.imgur.com/6Y5LriH.gif",
+"https://i.imgur.com/ANSi6aL.gif"]
+
 function randomImage() {
-  var answers = ["https://i.imgur.com/cNaYhSI.png",
-                 "https://i.imgur.com/vKu4JPA.png",
-                 "https://i.imgur.com/yN2qqaA.jpg",
-                 "https://i.imgur.com/njNDJGf.jpg",
-                 "https://i.imgur.com/6Y5LriH.gif",
-                 "https://i.imgur.com/ANSi6aL.gif"]
   return answers[Math.floor(Math.random()*answers.length)];
 }
 
@@ -26,6 +27,6 @@ exports.conf = {
 
 exports.help = {
   name: 'illya',
-  description: `Randomly selects from 6 available images.`,
+  description: `Randomly selects from ${answers.length} available images.`,
   usage: '!illya'
 };

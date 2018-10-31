@@ -23,11 +23,11 @@ exports.run = (client, message, args) => {
           },
           {
             "name": "FGO Information",
-            "value": "affinity, ce, event, gate, grails, drops, jpdrops, maint, exp, npdmg, time",
+            "value": "affinity, ce, event, jpevent, gate, grails, drops, jpdrops, maint, exp, npdmg, time, servant, riyo",
           },
           {
             "name": "SomethingAwful Community Stuff",
-            "value": "goon, update",
+            "value": "goon, update, spreadsheet",
           },
           {
             "name": "Gacha / Letting tamabot decide",
@@ -35,7 +35,7 @@ exports.run = (client, message, args) => {
           },
           {
             "name": "Image reactions, memes, fun stuff",
-            "value": "apple, bb, dab, ded, fes, gacha, haha, hungry, illya, look, mash, ozy, padoru, party, police, rateup, rin, shock, smug, sumanai, ticket, umu, wait, warning, whale, yorokobe, 5stars",
+            "value": "apple, bb, dab, ded, fes, gacha, haha, hassan, hungry, illya, look, mash, ozy, padoru, party, police, rateup, rin, shock, smug, sumanai, ticket, umu, wait, warning, whale, wut, yorokobe, 5stars",
           },
           {
             "name": "Bot related stuff",

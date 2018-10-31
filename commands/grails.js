@@ -1,9 +1,9 @@
 var storyGrails = 7;
-var eventGrails = 5;
+var eventGrails = 6;
 var jpStoryGrails1 = 10;
 var jpStoryGrails2 = 4;
 var jpStoryGrails3 = 2;
-var jpEventGrails = 16;
+var jpEventGrails = 17;
 
 
 exports.run = (client, message, args) => {
@@ -48,7 +48,7 @@ exports.run = (client, message, args) => {
         },
         {
           "name": "delicious grails",
-          "value": "Summer 2017\nHalloween 2017\nValentine's 2018\nApocrypha Collaboration\nGudaGuda Teito Seihai Kitan\nSummer 2018 (x2)\nBattle in NY 2018",
+          "value": "Summer 2017\nHalloween 2017\nValentine's 2018\nApocrypha Collaboration\nGudaGuda Teito Seihai Kitan\nSummer 2018 (x2)\nBattle in NY 2018\nHalloween 2018 ONILAND",
           "inline": true
         }
       ]

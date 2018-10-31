@@ -1,10 +1,10 @@
 exports.run = (client, message, args) => {
   var eventExists, beforeEvent;
   var getUTC = new Date().getTime();
-  var startTime = 1540450800*1000;
-  var endTime = 1541685540*1000;
-  var eventurl = "https://webview.fate-go.us/wp-content/uploads/2018/10/1017_hcc2018/banner_20181108_b3pc1.png";
-  var eventname = "Halloween Comeback! Super☆Ghouls 'n Pumpkins - The Seeds of Adventure";
+  var startTime = 1540371600*1000;
+  var endTime = 1541563140*1000;
+  var eventurl = "https://news.fate-go.jp/wp-content/uploads/2018/halloween2018_e2nck/top_banner.png";
+  var eventname = "Mysterious Country ONILAND";
 
   if (getUTC < endTime && getUTC > startTime)
   {
@@ -72,11 +72,11 @@ function timeconverter(endTime){
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: []
+  aliases: ["eventjp"]
 };
 
 exports.help = {
-  name: 'event',
+  name: 'jpevent',
   description: `Shows remaining time on event, as well as available AP until it's over.`,
-  usage: '!event'
+  usage: '!jpevent'
 };

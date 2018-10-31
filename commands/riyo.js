@@ -10,33 +10,36 @@ exports.run = (client, message, args) => {
   searchString = searchString.replace(/\W/g, '');
   console.log(`Searching for ${searchString}...`);
   if (classSearch.length == 0){
-    message.channel.send("Stop, stop please! Please type '!riyo (class) (servantname)' to search for a particular servant.\nThe available servant classes are: Saber, Archer, Lancer, Rider, Caster, Assassin, Berserker, Shielder, Ruler, Avenger, MoonCancer, AlterEgo, Foreigner\nYou can also try !riyo (servantnumber)")
+    message.channel.send("Stop, stop please! Please type '!riyo (class) (servantname)' to search for a particular servant.\nThe available servant classes are: Saber, Archer, Lancer, Rider, Caster, Assassin, Berserker, Shielder, Ruler, Avenger, MoonCancer, AlterEgo, Foreigner")
     return;
   }
   var servantSearch = findServant(classSearch, searchString);
 
   if (servantSearch.length > 0) {
-    for (var j = 0; j < servantSearch.length; j++){
-      message.channel.send({
-        "embed": {
-          "color": 16756224,
-          "thumbnail": {
-            "url": `${servantSearch[j]["image"]}`
-          },
-          "image": {
-          "url": ""
-          },
-          "author": {
-            "name": ``,
-          },
-          "fields": [
-            {
+    for (var j = 0; j < servantSearch.length; j++) {
+      if (servantSearch[j]["aprilfools"] != "null") {
+        message.channel.send({
+          "embed": {
+            "color": 16756224,
+            //"thumbnail": {
+            //  "url": `${servantSearch[j]["image"]}`
+            //},
+            "image": {
+            "url": `${servantSearch[j]["aprilfools"]}`
+            },
+            "author": {
               "name": `${servantSearch[j]["name"]}`,
-              "value": `${servantSearch[j]["link"]}`
             }
-          ]
-        }
-      }).catch(console.error);
+            //"fields": [
+              //{
+                //"name": `${servantSearch[j]["name"]}`
+                //"value": `${servantSearch[j]["link"]}`
+              //}
+            //]
+          }
+        }).catch(console.error); 
+      }
+      else message.channel.send(`Riyo April Fools art is unavailable for ${servantSearch[j]["servantClass"]} ${servantSearch[j]["name"]}.`).catch(console.error);
     }
   }
   else
@@ -92,5 +95,5 @@ exports.conf = {
 exports.help = {
   name: 'riyo',
   description: `Find a particular servant's april fool artwork.`,
-  usage: '!riyo [class] [servantname] OR !riyo [servantnumber]'
+  usage: '!riyo [class] [servantname]'
 };

@@ -8,10 +8,13 @@ exports.run = (client, message, args) => {
   }).catch(console.error);
 }
 
+var answers = ["https://i.imgur.com/bgbPF0n.gif",
+"https://i.imgur.com/hVyeLi4.gif",
+"https://i.imgur.com/zgUp8Er.gif",
+"https://cdn.discordapp.com/attachments/328226993361649674/489896387241181184/image0.png",
+"https://i.redd.it/5hwi1okm7zl11.jpg"]
+
 function randomImage() {
-  var answers = ["https://i.imgur.com/bgbPF0n.gif",
-  "https://i.imgur.com/hVyeLi4.gif",
-  "https://i.imgur.com/zgUp8Er.gif"]
   return answers[Math.floor(Math.random()*answers.length)];
 }
 
@@ -23,6 +26,6 @@ exports.conf = {
 
 exports.help = {
   name: 'umu',
-  description: `Randomly selects from 3 available images.`,
+  description: `Randomly selects from ${answers.length} available images.`,
   usage: '!umu'
 };
