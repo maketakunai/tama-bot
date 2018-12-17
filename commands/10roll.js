@@ -131,7 +131,7 @@ exports.run = (client, message, args) => {
   }
   if (args[0]) {args[0] = args[0].toLowerCase();}
   if (talkedRecently.has(message.author.id)){
-    message.channel.send(message.author.username + ", you can only use !10roll once every 10 seconds.")
+    message.channel.send(message.author.username + ", you can only use !10roll once every 5 seconds.")
     return;
   }
 
@@ -178,8 +178,8 @@ exports.run = (client, message, args) => {
         cerateup: [ 0, 0, 0 ]
         };
     let intervals = setIntervals(rates);
-    let normgacha = require("../db/gacha-story.json"),
-        rateup = require("../db/rateup-blank.json");
+    let normgacha = require("../db/gacha/gacha-story.json"),
+        rateup = require("../db/gacha/rateup-blank.json");
         //yoloroll = gacharoll(rates,intervals,rateup,normgacha);
     //let url = `https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/${yoloroll}.png`;
     const canvas = new Canvas(645, 438);
@@ -233,72 +233,7 @@ exports.run = (client, message, args) => {
     talkedRecently.add(message.author.id);
     setTimeout(() => {
       talkedRecently.delete(message.author.id);
-    }, 10000);
-  }
-  else if (args[0] == "halloween" || args[0] == "hween") {
-    let rates = {
-        servstandard: [ 1, 3, 40 ],
-        cestandard: [ 4, 12, 40 ],
-        servrateup: [ 0.7, 1.5, 0 ], // 1 5*, 1 4*
-        cerateup: [ 2.8, 4, 8 ]
-        };
-    let intervals = setIntervals(rates);
-    let normgacha = require("../db/gacha-standardpool.json"),
-        rateup = require("../db/rateup-halloween.json");
-        //yoloroll = gacharoll(rates,intervals,rateup,normgacha);
-    //let url = `https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/${yoloroll}.png`;
-    const canvas = new Canvas(645, 438);
-    const ctx = canvas.getContext('2d');
-    const embed = {
-      "title":`${message.author.username}'s 10roll:`,
-      "color": 8817876,
-      "image": {
-      "url": "attachment://image.png"
-      },
-      "author": {
-        "name": `${rateup.name}`,
-      }
-    }
-    var rollz = [];
-    var rolla = [],
-        rollb = [];
-    var guaranteed = []; //3 star or above servant, 4 star CE met?
-    for (let a = 0; a < 5; a++){
-      let yoloroll1 = gacharoll(rates,intervals,rateup,normgacha,guaranteed);
-      let yoloroll2 = gacharoll(rates,intervals,rateup,normgacha,guaranteed);
-      rolla.push(`https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/${yoloroll1}.png`);
-      rollb.push(`https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/${yoloroll2}.png`);
-    }
-    if (guaranteed.includes(4) || guaranteed.includes(5) && guaranteed.includes(3)) {
-      rollz.push(rolla);
-      rollz.push(rollb);
-    } else {
-      rollb[3] = `https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/${roll3starserv(rateup, normgacha)}.png`
-      rollb[4] = `https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/${roll4starCE(rateup, normgacha)}.png`
-      rollz.push(rolla);
-      rollz.push(rollb);
-    }
-
-    let promises = [];
-    for (let i = 0; i < 5; i++){
-      for (let j = 0; j < 2; j++) {
-        promises.push(singleroll (rates,intervals,rateup,normgacha,ctx,rollz,i,j));
-      }
-    }
-    Promise.all(promises)
-      .then((results) => {
-        message.channel.send({
-        embed, files: [{attachment: canvas.toBuffer(), name: 'image.png'}]
-        }).catch(console.error);
-      })
-      .catch((e) => {
-        console.log(e);
-        message.channel.send(`Yikes! Something happened. Try rolling again.`);
-      })
-    talkedRecently.add(message.author.id);
-    setTimeout(() => {
-      talkedRecently.delete(message.author.id);
-    }, 10000);
+    }, 5000);
   }
   else if (args[0] == "babylonia1" || args[0] == "baby1") {
     let rates = {
@@ -308,8 +243,8 @@ exports.run = (client, message, args) => {
         cerateup: [ 2.8, 4, 8 ]
         };
     let intervals = setIntervals(rates);
-    let normgacha = require("../db/gacha-standardpool.json"),
-        rateup = require("../db/rateup-babylonia1.json");
+    let normgacha = require("../db/gacha/gacha-standardpool.json"),
+        rateup = require("../db/gacha/rateup-babylonia1.json");
         //yoloroll = gacharoll(rates,intervals,rateup,normgacha);
     //let url = `https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/${yoloroll}.png`;
     const canvas = new Canvas(645, 438);
@@ -363,7 +298,7 @@ exports.run = (client, message, args) => {
     talkedRecently.add(message.author.id);
     setTimeout(() => {
       talkedRecently.delete(message.author.id);
-    }, 10000);
+    }, 5000);
   }
   else if (args[0] == "babylonia2" || args[0] == "baby2") {
     let rates = {
@@ -373,8 +308,8 @@ exports.run = (client, message, args) => {
         cerateup: [ 0, 0, 0 ]
         };
     let intervals = setIntervals(rates);
-    let normgacha = require("../db/gacha-standardpool-baby2.json"),
-        rateup = require("../db/rateup-babylonia2.json");
+    let normgacha = require("../db/gacha/gacha-standardpool-baby2.json"),
+        rateup = require("../db/gacha/rateup-babylonia2.json");
         //yoloroll = gacharoll(rates,intervals,rateup,normgacha);
     //let url = `https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/${yoloroll}.png`;
     const canvas = new Canvas(645, 438);
@@ -428,7 +363,7 @@ exports.run = (client, message, args) => {
     talkedRecently.add(message.author.id);
     setTimeout(() => {
       talkedRecently.delete(message.author.id);
-    }, 10000);
+    }, 5000);
   }
   else if (args[0] == "christmas" || args[0] == "xmas") {
     let rates = {
@@ -438,8 +373,8 @@ exports.run = (client, message, args) => {
         cerateup: [ 2.8, 4, 8 ]
         };
     let intervals = setIntervals(rates);
-    let normgacha = require("../db/gacha-standardpool-baby2.json"),
-        rateup = require("../db/rateup-christmas.json");
+    let normgacha = require("../db/gacha/gacha-standardpool-baby2.json"),
+        rateup = require("../db/gacha/rateup-christmas.json");
         //yoloroll = gacharoll(rates,intervals,rateup,normgacha);
     //let url = `https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/${yoloroll}.png`;
     const canvas = new Canvas(645, 438);
@@ -493,7 +428,7 @@ exports.run = (client, message, args) => {
     talkedRecently.add(message.author.id);
     setTimeout(() => {
       talkedRecently.delete(message.author.id);
-    }, 10000);
+    }, 5000);
   }
   else if (args[0] == "solomon") {
     let rates = {
@@ -503,8 +438,8 @@ exports.run = (client, message, args) => {
         cerateup: [ 0, 0, 0 ]
         };
     let intervals = setIntervals(rates);
-    let normgacha = require("../db/gacha-standardpool-baby2.json"),
-        rateup = require("../db/rateup-solomon.json");
+    let normgacha = require("../db/gacha/gacha-standardpool-baby2.json"),
+        rateup = require("../db/gacha/rateup-solomon.json");
         //yoloroll = gacharoll(rates,intervals,rateup,normgacha);
     //let url = `https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/${yoloroll}.png`;
     const canvas = new Canvas(645, 438);
@@ -558,10 +493,140 @@ exports.run = (client, message, args) => {
     talkedRecently.add(message.author.id);
     setTimeout(() => {
       talkedRecently.delete(message.author.id);
-    }, 10000);
+    }, 5000);
+  }
+  else if (args[0] == "newyear") {
+    let rates = {
+        servstandard: [ 1, 3, 40 ],
+        cestandard: [ 4, 12, 40 ],
+        servrateup: [ 0.7, 0, 0 ], // 1 5*
+        cerateup: [ 2.8, 4, 8 ]
+        };
+    let intervals = setIntervals(rates);
+    let normgacha = require("../db/gacha/gacha-standardpool-baby2.json"),
+        rateup = require("../db/gacha/rateup-ny2017.json");
+        //yoloroll = gacharoll(rates,intervals,rateup,normgacha);
+    //let url = `https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/${yoloroll}.png`;
+    const canvas = new Canvas(645, 438);
+    const ctx = canvas.getContext('2d');
+    const embed = {
+      "title":`${message.author.username}'s 10roll:`,
+      "color": 8817876,
+      "image": {
+      "url": "attachment://image.png"
+      },
+      "author": {
+        "name": `${rateup.name}`,
+      }
+    }
+    var rollz = [];
+    var rolla = [],
+        rollb = [];
+    var guaranteed = []; //3 star or above servant, 4 star CE met?
+    for (let a = 0; a < 5; a++){
+      let yoloroll1 = gacharoll(rates,intervals,rateup,normgacha,guaranteed);
+      let yoloroll2 = gacharoll(rates,intervals,rateup,normgacha,guaranteed);
+      rolla.push(`https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/${yoloroll1}.png`);
+      rollb.push(`https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/${yoloroll2}.png`);
+    }
+    if (guaranteed.includes(4) || guaranteed.includes(5) && guaranteed.includes(3)) {
+      rollz.push(rolla);
+      rollz.push(rollb);
+    } else {
+      rollb[3] = `https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/${roll3starserv(rateup, normgacha)}.png`
+      rollb[4] = `https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/${roll4starCE(rateup, normgacha)}.png`
+      rollz.push(rolla);
+      rollz.push(rollb);
+    }
+
+    let promises = [];
+    for (let i = 0; i < 5; i++){
+      for (let j = 0; j < 2; j++) {
+        promises.push(singleroll (rates,intervals,rateup,normgacha,ctx,rollz,i,j));
+      }
+    }
+    Promise.all(promises)
+      .then((results) => {
+        message.channel.send({
+        embed, files: [{attachment: canvas.toBuffer(), name: 'image.png'}]
+        }).catch(console.error);
+      })
+      .catch((e) => {
+        console.log(e);
+        message.channel.send(`Yikes! Something happened. Try rolling again.`);
+      })
+    talkedRecently.add(message.author.id);
+    setTimeout(() => {
+      talkedRecently.delete(message.author.id);
+    }, 5000);
+  }
+  else if (args[0] == "hassan") {
+    let rates = {
+        servstandard: [ 1, 3, 40 ],
+        cestandard: [ 4, 12, 40 ],
+        servrateup: [ 0.7, 0, 0 ], // 1 5*
+        cerateup: [ 0, 0, 0 ]
+        };
+    let intervals = setIntervals(rates);
+    let normgacha = require("../db/gacha/gacha-standardpool-baby2.json"),
+        rateup = require("../db/gacha/rateup-hassan.json");
+        //yoloroll = gacharoll(rates,intervals,rateup,normgacha);
+    //let url = `https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/${yoloroll}.png`;
+    const canvas = new Canvas(645, 438);
+    const ctx = canvas.getContext('2d');
+    const embed = {
+      "title":`${message.author.username}'s 10roll:`,
+      "color": 8817876,
+      "image": {
+      "url": "attachment://image.png"
+      },
+      "author": {
+        "name": `${rateup.name}`,
+      }
+    }
+    var rollz = [];
+    var rolla = [],
+        rollb = [];
+    var guaranteed = []; //3 star or above servant, 4 star CE met?
+    for (let a = 0; a < 5; a++){
+      let yoloroll1 = gacharoll(rates,intervals,rateup,normgacha,guaranteed);
+      let yoloroll2 = gacharoll(rates,intervals,rateup,normgacha,guaranteed);
+      rolla.push(`https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/${yoloroll1}.png`);
+      rollb.push(`https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/${yoloroll2}.png`);
+    }
+    if (guaranteed.includes(4) || guaranteed.includes(5) && guaranteed.includes(3)) {
+      rollz.push(rolla);
+      rollz.push(rollb);
+    } else {
+      rollb[3] = `https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/${roll3starserv(rateup, normgacha)}.png`
+      rollb[4] = `https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/${roll4starCE(rateup, normgacha)}.png`
+      rollz.push(rolla);
+      rollz.push(rollb);
+    }
+
+    let promises = [];
+    for (let i = 0; i < 5; i++){
+      for (let j = 0; j < 2; j++) {
+        promises.push(singleroll (rates,intervals,rateup,normgacha,ctx,rollz,i,j));
+      }
+    }
+    Promise.all(promises)
+      .then((results) => {
+        message.channel.send({
+        embed, files: [{attachment: canvas.toBuffer(), name: 'image.png'}]
+        }).catch(console.error);
+      })
+      .catch((e) => {
+        console.log(e);
+        message.channel.send(`Yikes! Something happened. Try rolling again.`);
+      })
+    talkedRecently.add(message.author.id);
+    setTimeout(() => {
+      talkedRecently.delete(message.author.id);
+    }, 5000);
   }
   else {
-    message.channel.send("'!10roll (banner)' to 10roll the gacha.\nAvailable banners: story, halloween, babylonia1 (baby1), babylonia2 (baby2), christmas (xmas), solomon\n");
+    message.channel.send("'!10roll (banner)' to 10roll the gacha.\nAvailable banners: story, halloween, babylonia1 (baby1), babylonia2 (baby2), christmas (xmas), solomon, newyear, hassan\n");
     return;
   }
 };
@@ -574,6 +639,6 @@ exports.conf = {
 
 exports.help = {
   name: '10roll',
-  description: 'Does a 10roll of the gacha.\nAvailable banners: story, halloween, babylonia1, babylonia2, christmas, solomon\n!10roll stats to see stats.',
+  description: 'Does a 10roll of the gacha.\nAvailable banners: story, babylonia1, babylonia2, christmas, solomon, newyear, hassan\n!10roll stats to see stats.',
   usage: '!10roll [bannername]'
 };

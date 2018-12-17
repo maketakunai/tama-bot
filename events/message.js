@@ -5,6 +5,14 @@ module.exports = (client, message) => {
 
   const args = message.content.slice(client.config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
+  if (command.length < 2) {
+    return;
+  }
+
+  if (!client.commands.get(command) && !client.commands.get(client.aliases.get(command))){
+    message.channel.send(`Command ${command} does not exist. \`!help\` for a list of commands.`);
+    return;
+  }
   const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command));
 
   if (!cmd) return;

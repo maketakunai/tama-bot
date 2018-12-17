@@ -13,6 +13,9 @@ exports.run = (client, message, args) => {
         "image": {
         "url": ""
         },
+        "footer": {
+          "text": `Created by ${myname}#${disc}. Let me know if you have any suggestions.`
+        },
         "author": {
           "name": "Mikonー♪ Your reliable Shrine Maiden Fox is here to help!",
         },
@@ -23,7 +26,7 @@ exports.run = (client, message, args) => {
           },
           {
             "name": "FGO Information",
-            "value": "affinity, ce, event, jpevent, gate, grails, drops, jpdrops, maint, exp, npdmg, time, servant, riyo",
+            "value": "apcost, affinity, ce, event, jpevent, gate, grails, drops, jpdrops, maint, exp, npdmg, npcalc, time, servant, servinfo, riyo",
           },
           {
             "name": "SomethingAwful Community Stuff",
@@ -35,15 +38,11 @@ exports.run = (client, message, args) => {
           },
           {
             "name": "Image reactions, memes, fun stuff",
-            "value": "apple, bb, dab, ded, fes, gacha, haha, hassan, hungry, illya, look, mash, ozy, padoru, party, police, rateup, rin, shock, smug, sumanai, ticket, umu, wait, warning, whale, wut, yorokobe, 5stars",
+            "value": "apple, bb, dab, ded, fes, gacha, haha, hassan, hungry, illya, lewd, look, mash, olga, ozy, padoru, party, police, rateup, rin, roman, shock, slap, smug, sumanai, taiga, ticket, umu, wait, warning, whale, wut, yorokobe, 5stars",
           },
           {
             "name": "Bot related stuff",
             "value": "invite, stats, ping"
-          },
-          {
-            "name": "Creator",
-            "value": `${myname}#${disc}. Let me know if you have any suggestions.`
           }
         ]
       }

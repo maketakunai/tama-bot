@@ -1,10 +1,10 @@
 exports.run = (client, message, args) => {
   var eventExists, beforeEvent;
   var getUTC = new Date().getTime();
-  var startTime = 1540450800*1000;
-  var endTime = 1541685540*1000;
-  var eventurl = "https://webview.fate-go.us/wp-content/uploads/2018/10/1017_hcc2018/banner_20181108_b3pc1.png";
-  var eventname = "Halloween Comeback! Super☆Ghouls 'n Pumpkins - The Seeds of Adventure";
+  var startTime = 1545375600*1000;
+  var endTime = 1546326000*1000;
+  var eventurl = "https://pbs.twimg.com/media/DuPQ_DfXcAUXnmQ.png";
+  var eventname = "Final Singularity: The Grand Temple of Time Solomon";
 
   if (getUTC < endTime && getUTC > startTime)
   {

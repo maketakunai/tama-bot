@@ -8,15 +8,8 @@ exports.run = (client, message, args) => {
   }).catch(console.error);
 }
 
-var answers = ["https://i.imgur.com/cNaYhSI.png",
-"https://i.imgur.com/vKu4JPA.png",
-"https://i.imgur.com/yN2qqaA.jpg",
-"https://i.imgur.com/njNDJGf.jpg",
-"https://i.imgur.com/6Y5LriH.gif",
-"https://i.imgur.com/ANSi6aL.gif",
-"https://cdn.discordapp.com/attachments/378997929500868610/497677994773708820/spin.gif",
-"http://i.imgur.com/DynAaeT.jpg",
-"https://i.imgur.com/J6kb6Ob.png"]
+var answers = ["https://cdn.discordapp.com/attachments/520082066197708810/522864221780836367/brynnosebleed.jpg",
+"https://cdn.discordapp.com/attachments/328226993361649674/515880222017585162/dangerous_beast.png"]
 
 function randomImage() {
   return answers[Math.floor(Math.random()*answers.length)];
@@ -29,7 +22,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'illya',
+  name: 'lewd',
   description: `Randomly selects from ${answers.length} available images.`,
-  usage: '!illya'
+  usage: '!lewd'
 };

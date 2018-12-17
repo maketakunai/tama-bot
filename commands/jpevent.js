@@ -1,10 +1,10 @@
 exports.run = (client, message, args) => {
   var eventExists, beforeEvent;
   var getUTC = new Date().getTime();
-  var startTime = 1540371600*1000;
-  var endTime = 1541563140*1000;
-  var eventurl = "https://news.fate-go.jp/wp-content/uploads/2018/halloween2018_e2nck/top_banner.png";
-  var eventname = "Mysterious Country ONILAND";
+  var startTime = 1544605200*1000;
+  var endTime = 1545710340*1000;
+  var eventurl = "https://news.fate-go.jp/wp-content/uploads/2018/christmas2018_full_aqloj/top_banner.png";
+  var eventname = "「クリスマス2018 ホーリー･サンバ･ナイト ～雪降る遺跡と少女騎士～」";
 
   if (getUTC < endTime && getUTC > startTime)
   {

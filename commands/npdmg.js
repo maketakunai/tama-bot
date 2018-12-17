@@ -1,5 +1,6 @@
 const servantList = require("../db/servantdb.json");
 const dmglist = require("../db/npdamage.json")
+const emoji = require("../db/emoji.json")
 exports.run = (client, message, args) => {
   //var searchResult = findServant(searchString);
   var classSearch = checkServantClass(args[0]);
@@ -37,17 +38,17 @@ exports.run = (client, message, args) => {
           "fields": [
             {
               "name": "Class",
-              "value": `${dmglist[foundID].Class}`,
+              "value": `${emoji[dmglist[foundID].Class]} ${dmglist[foundID].Class}`,
               "inline": true
             },
             {
               "name": "Rarity",
-              "value": `${dmglist[foundID].Rarity}`,
+              "value": `${dmglist[foundID].Rarity}★`,
               "inline": true
             },
             {
               "name": "NP Type",
-              "value": `${dmglist[foundID].Type}`,
+              "value": `${emoji[dmglist[foundID].Type]} ${dmglist[foundID].Type}`,
               "inline": true
             },
             {

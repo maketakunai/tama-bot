@@ -1,8 +1,8 @@
-var storyGrails = 7;
+var storyGrails = 9;
 var eventGrails = 6;
 var jpStoryGrails1 = 10;
 var jpStoryGrails2 = 4;
-var jpStoryGrails3 = 2;
+var jpStoryGrails3 = 3;
 var jpEventGrails = 17;
 
 

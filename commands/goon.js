@@ -56,7 +56,7 @@ exports.run = (client, message, args) => {
     }
   }
   else
-    message.channel.send("Sorry, I couldn't find that person. Please try again, or use a search term longer than two characters.");
+    message.channel.send(`Sorry, I couldn't find that person. Please try again, or use a search term longer than two characters.\nIf you've just added yourself to the !spreadsheet, don't forget to !update.`);
 };
 
 function validURL(str) {
