@@ -12,7 +12,7 @@ exports.run = (client, message, args) => {
   searchString = searchString.replace(/\W/g, '');
   console.log(`Searching for ${searchString}...`);
   if (classSearch.length == 0){
-    message.channel.send("Stop, stop please! Please type '!npdmg (class) (servantname)' to search for a particular servant.\nThe available servant classes are: Saber, Archer, Lancer, Rider, Caster, Assassin, Berserker, Shielder, Ruler, Avenger, MoonCancer, AlterEgo, Foreigner")
+    message.channel.send("Stop, stop please! Please type '!servinfo (class) (servantname)' to search for a particular servant.\nThe available servant classes are: Saber, Archer, Lancer, Rider, Caster, Assassin, Berserker, Shielder, Ruler, Avenger, MoonCancer, AlterEgo, Foreigner")
     return;
   }
   var servantSearch = findServant(classSearch, searchString);

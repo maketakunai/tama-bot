@@ -1,8 +1,8 @@
 exports.run = (client, message, args) => {
   var inMaint, beforeMaint, endMaint;
   var getUTC = Number(new Date().getTime());
-  var startTime = 1544068800*1000;
-  var endTime = 1544079600*1000;
+  var startTime = 1547697600*1000;
+  var endTime = 1547708400*1000;
   if (getUTC < endTime && getUTC < startTime)
   {
     beforeMaint = 1;

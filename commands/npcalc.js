@@ -180,7 +180,7 @@ exports.help = {
   '--carddown BAQ card % debuff(s) on the target.\n'+
   '--npup     NP damage buff % on the servant. ex) --npup 10\n'+
   '--spatk    Special attack % mods, like vs. Divine. ex) --spatk 100\n'+
-  '--flatatk  Any flat attack mods, like what Waver gives. ex) --flatatk 100\n'+
+  '--flatatk  Any flat attack mods, like Divinity. ex) --flatatk 100\n'+
   '--esadv    Earth or Sky advantage. Yes or no. Defaults to neutral.',
   usage: '!npcalc --atk 9876 --np 600 --type quick ...'
 };

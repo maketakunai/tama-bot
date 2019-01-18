@@ -1,73 +1,84 @@
-const dropList = require("../db/jpdropdb.json");
+
 const Fuse = require('fuse.js')
 
 exports.run = (client, message, args) => {
-  console.log('JPDrops called.');
   if (args.length < 1){
     message.channel.send("This is way too easy♪ Here's your drop rate spreadsheet!").catch(console.error);
     message.channel.send("https://docs.google.com/spreadsheets/d/1_SlTjrVRTgHgfS7sRqx4CeJMqlz687HdSlYqiW-JvQA/edit#gid=525320539").catch(console.error);
   }
   else {
     var searchString = args.join(' ');
-
-    console.log(`Searching dropdb for ${searchString}...`);
     var searchResult = findDrop(searchString);
-    console.log(`${searchResult.length} items found`);
     if (searchResult.length > 0 && searchResult.length <= 5) {
-
+          for (var x = 0; x < 5; x++){
+            if (!searchResult[x].number){
+              searchResult[x].number = "";
+            }
+            if (!searchResult[x].area){
+              searchResult[x].area = "";
+            }
+            if (!searchResult[x].quest){
+              searchResult[x].quest = "";
+            }
+            if (!searchResult[x].ap_per_run){
+              searchResult[x].ap_per_run = 0;
+            }
+            if (!searchResult[x].bp_ap){
+              searchResult[x].bp_ap = 0;
+            }
+            if (!searchResult[x].ap_per_drop){
+              searchResult[x].ap_per_drop = 0;
+            }
+            if (!searchResult[x].drop_chance){
+              searchResult[x].drop_chance = 0;
+            }
+          }
           message.channel.send({
             "embed": {
               "color": 3102891,
               "thumbnail": {
-                "url": `${searchResult[0].Image}`
+                "url": `${searchResult[0].image}`
               },
               "author": {
-                "name": `${searchResult[0].Item}`,
+                "name": `${searchResult[0].item}`,
               },
               "fields": [
                 {
-                  "name": `Drop area ${searchResult[0].Number}: ${searchResult[0].Area}, ${searchResult[0].Quest}`,
-                  "value": `AP: ${searchResult[0].AP_per_Run}, BP/AP: ${searchResult[0].BP_AP}, AP/drop: ${searchResult[0].AP_per_Drop}, Drop%: ${searchResult[0].Drop_Chance}`
+                  "name": `Drop area ${searchResult[0].number}: ${searchResult[0].area}, ${searchResult[0].quest}`,
+                  "value": `AP: ${searchResult[0].ap_per_run}, BP/AP: ${searchResult[0].bp_ap.toFixed(1)}, AP/drop: ${searchResult[0].ap_per_drop.toFixed(1)}, Drop%: ${searchResult[0].drop_chance.toFixed(1)}`
                 },
                 {
-                  "name": `Drop area ${searchResult[1].Number}: ${searchResult[1].Area}, ${searchResult[1].Quest}`,
-                  "value": `AP: ${searchResult[1].AP_per_Run}, BP/AP: ${searchResult[1].BP_AP}, AP/drop: ${searchResult[1].AP_per_Drop}, Drop%: ${searchResult[1].Drop_Chance}`
+                  "name": `Drop area ${searchResult[1].number}: ${searchResult[1].area}, ${searchResult[1].quest}`,
+                  "value": `AP: ${searchResult[1].ap_per_run}, BP/AP: ${searchResult[1].bp_ap.toFixed(1)}, AP/drop: ${searchResult[1].ap_per_drop.toFixed(1)}, Drop%: ${searchResult[1].drop_chance.toFixed(1)}`
                 },
                 {
-                  "name": `Drop area ${searchResult[2].Number}: ${searchResult[2].Area}, ${searchResult[2].Quest}`,
-                  "value": `AP: ${searchResult[2].AP_per_Run}, BP/AP: ${searchResult[2].BP_AP}, AP/drop: ${searchResult[2].AP_per_Drop}, Drop%: ${searchResult[2].Drop_Chance}`
+                  "name": `Drop area ${searchResult[2].number}: ${searchResult[2].area}, ${searchResult[2].quest}`,
+                  "value": `AP: ${searchResult[2].ap_per_run}, BP/AP: ${searchResult[2].bp_ap.toFixed(1)}, AP/drop: ${searchResult[2].ap_per_drop.toFixed(1)}, Drop%: ${searchResult[2].drop_chance.toFixed(1)}`
                 },
                 {
-                  "name": `Drop area ${searchResult[3].Number}: ${searchResult[3].Area}, ${searchResult[3].Quest}`,
-                  "value": `AP: ${searchResult[3].AP_per_Run}, BP/AP: ${searchResult[3].BP_AP}, AP/drop: ${searchResult[3].AP_per_Drop}, Drop%: ${searchResult[3].Drop_Chance}`
+                  "name": `Drop area ${searchResult[3].number}: ${searchResult[3].area}, ${searchResult[3].quest}`,
+                  "value": `AP: ${searchResult[3].ap_per_run}, BP/AP: ${searchResult[3].bp_ap.toFixed(1)}, AP/drop: ${searchResult[3].ap_per_drop.toFixed(1)}, Drop%: ${searchResult[3].drop_chance.toFixed(1)}`
                 },
                 {
-                  "name": `Drop area ${searchResult[4].Number}: ${searchResult[4].Area}, ${searchResult[4].Quest}`,
-                  "value": `AP: ${searchResult[4].AP_per_Run}, BP/AP: ${searchResult[4].BP_AP}, AP/drop: ${searchResult[4].AP_per_Drop}, Drop%: ${searchResult[4].Drop_Chance}`
-                },
+                  "name": `Drop area ${searchResult[4].number}: ${searchResult[4].area}, ${searchResult[4].quest}`,
+                  "value": `AP: ${searchResult[4].ap_per_run}, BP/AP: ${searchResult[4].bp_ap.toFixed(1)}, AP/drop: ${searchResult[4].ap_per_drop.toFixed(1)}, Drop%: ${searchResult[4].drop_chance.toFixed(1)}`
+                }
               ]
             }
           }
-        )//}
-      //}
-    }
-    else if (searchResult.length > 5){
-      message.channel.send("Too many matches found. Please try to be more specific.");
-    }
-    else if (searchResult.length == 0){
-      message.channel.send("Sorry, I couldn't find that item. Please try again, be more specific, or use a search term longer than two characters.");
-    }
+        )
+      }
   }
 }
 
 function findDrop(input){
-  console.log(`Searching ${dropList.length} entries...`);
+  var dropList = require("../db/jpdropdb.json");
   var itemsFound = [];
   if (input == "" || input.length < 3){
     return itemsFound;
   }
   var options = {
-    id: "Item",
+    id: "item",
     shouldSort: true,
     findAllMatches: true,
     threshold: 0.6,
@@ -75,16 +86,14 @@ function findDrop(input){
     distance: 100,
     maxPatternLength: 32,
     minMatchCharLength: 3,
-    keys: ["Item"]
+    keys: ["item"]
   };
   var fuse1 = new Fuse(dropList, options);
   var result = fuse1.search(input);
 
   for (var i = 0; i < dropList.length; i++){
-    var itemName = dropList[i].Item;
-
+    var itemName = dropList[i].item;
     if (itemName.search(result[0]) != -1 && itemName.length == result[0].length){
-      console.log(`${dropList[i].Item}...`)
       itemsFound.push(dropList[i]);
     }
   }
@@ -99,6 +108,6 @@ exports.conf = {
 
 exports.help = {
   name: 'jpdrops',
-  description: `Will show you the 5 best spots (if available) to grind for a particular item on JP.`,
+  description: `Will show you the 5 best spots (if available) to grind for a particular item on JP. '!update drops' to update the drop info.`,
   usage: '!jpdrops [itemname]'
 };

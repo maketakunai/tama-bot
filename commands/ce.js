@@ -1,8 +1,8 @@
-const ceList = require("../db/ce_imgs.json");
+const ceList = require("../db/ce_cirno.json");
 
 exports.run = (client, message, args) => {
   var tempargs = args;
-  console.log(tempargs);
+  console.log(tempargs, args);
   var searchString = args.join('');
   searchString = searchString.toLowerCase();
   searchString = searchString.replace(/\W/g, '');
@@ -20,53 +20,54 @@ exports.run = (client, message, args) => {
         "embed": {
           "color": 16756224,
           "thumbnail": {
-            "url": `${ceSearch[j]["Image"]}`
-          },
-          "image": {
-          "url": ""
+            "url": `${ceSearch[j]["image"]}`
           },
           "author": {
-            "name": `${ceSearch[j]["Name"]}`
+            "name": `${ceSearch[j]["name_eng"]}\n${ceSearch[j]["name_jp"]}`,
+            "url": `${ceSearch[j]["full_img"]}`
+          },
+          "footer": {
+            "text": `Click on the CE name above for a link to the full image!`
           },
           "fields": [
             {
               "name": "Number",
-              "value": `${ceSearch[j]["Number"]}`,
+              "value": `${ceSearch[j]["number"]}`,
               "inline": true
             },
             {
               "name": "Rarity",
-              "value": `${ceSearch[j]["Rarity"]}`,
+              "value": `${ceSearch[j]["rarity"]}`,
               "inline": true
             },
             {
-              "name": "Min HP",
-              "value": `${ceSearch[j]["Min HP"]}`,
+              "name": "Base HP",
+              "value": `${ceSearch[j]["base_hp"]}`,
               "inline": true
             },
             {
               "name": "Max HP",
-              "value": `${ceSearch[j]["Max HP"]}`,
+              "value": `${ceSearch[j]["max_hp"]}`,
               "inline": true
             },
             {
-              "name": "Min ATK",
-              "value": `${ceSearch[j]["Min Atk"]}`,
+              "name": "Base ATK",
+              "value": `${ceSearch[j]["base_atk"]}`,
               "inline": true
             },
             {
               "name": "Max ATK",
-              "value": `${ceSearch[j]["Max Atk"]}`,
+              "value": `${ceSearch[j]["max_atk"]}`,
               "inline": true
             },
             {
               "name": `Effects`,
-              "value": `${ceSearch[j]["Effect(s)"]}`,
+              "value": `${ceSearch[j]["effects"]}`,
               "inline": false
             },
             {
               "name": `Obtained`,
-              "value": `${ceSearch[j]["Obtained"]}`,
+              "value": `${ceSearch[j]["obtained"]}`,
               "inline": false
             }
           ]
@@ -74,69 +75,16 @@ exports.run = (client, message, args) => {
       }).catch(console.error);
     }
   }
-  else if (ceSearch.length > 5) {
-    message.channel.send("Too many results found. Showing first 5 results; please try to be more specific.")
-    for (var j = 0; j < 5; j++){
-      message.channel.send({
-        "embed": {
-          "color": 16756224,
-          "thumbnail": {
-            "url": `${ceSearch[j]["Image"]}`
-          },
-          "image": {
-          "url": ""
-          },
-          "author": {
-            "name": `${ceSearch[j]["Name"]}`
-          },
-          "fields": [
-            {
-              "name": "Number",
-              "value": `${ceSearch[j]["Number"]}`,
-              "inline": true
-            },
-            {
-              "name": "Rarity",
-              "value": `${ceSearch[j]["Rarity"]}`,
-              "inline": true
-            },
-            {
-              "name": "Min HP",
-              "value": `${ceSearch[j]["Min HP"]}`,
-              "inline": true
-            },
-            {
-              "name": "Max HP",
-              "value": `${ceSearch[j]["Max HP"]}`,
-              "inline": true
-            },
-            {
-              "name": "Min ATK",
-              "value": `${ceSearch[j]["Min Atk"]}`,
-              "inline": true
-            },
-            {
-              "name": "Max ATK",
-              "value": `${ceSearch[j]["Max Atk"]}`,
-              "inline": true
-            },
-            {
-              "name": `Effects`,
-              "value": `${ceSearch[j]["Effect(s)"]}`,
-              "inline": false
-            },
-            {
-              "name": `Obtained`,
-              "value": `${ceSearch[j]["Obtained"]}`,
-              "inline": false
-            }
-          ]
-        }
-      }).catch(console.error);
+  else if (ceSearch.length > 5 && ceSearch.length < 21) {
+    var results = "";
+    for (var j = 0; j < ceSearch.length; j++){
+      results += `${ceSearch[j]["number"]}: ${ceSearch[j]["name_eng"]}\n`
     }
+    message.channel.send(`${ceSearch.length} results found. Please try to be more specific. You can also search by CE number.\n${results}`).catch(console.error);
   }
-  else
-    message.channel.send("Sorry, I couldn't find that CE. Please try again, or use a search term longer than three characters.");
+  else if (ceSearch.length >= 21){
+    message.channel.send(`${ceSearch.length} results found. Please try to be more specific. You can also search by CE number.`).catch(console.error);
+  }
 }
 
 
@@ -156,16 +104,16 @@ function findCE(input, args){
       ceFound.push(ceList[key]);
     }
     for (var parameter in ceList[key]){
-      if (parameter == "Name"){
-        var ceName = ceList[key]["Name"];
+      if (parameter == "name_eng"){
+        var ceName = ceList[key]["name_eng"];
         ceName = ceName.replace(/\W/g, '');
         ceName = ceName.toLowerCase();
         if (ceName.search(input) != -1){
           ceFound.push(ceList[key]);
         }
       }
-      if (parameter == "Effect(s)" && bond == "bond" && ceList[key]["Obtained"].toLowerCase().indexOf(bond) != -1 && tempargs.length > 2){
-        var ceDesc = ceList[key]["Effect(s)"];
+      if (parameter == "effects" && bond == "bond" && ceList[key]["obtained"].toLowerCase().indexOf(bond) != -1 && tempargs.length > 2){
+        var ceDesc = ceList[key]["effects"];
         ceDesc = ceDesc.replace(/\W/g, '');
         ceDesc = ceDesc.toLowerCase();
         if (ceDesc.search(tempargs) != -1){
@@ -177,10 +125,36 @@ function findCE(input, args){
   return ceFound;
 }
 
+/*
+function findCE(input, args){
+  var ceFound = [];
+  if (input == ""){
+    return ceFound;
+  }
+  var tempargs = args;
+  tempargs = tempargs.join('');
+  tempargs = tempargs.toLowerCase();
+  tempargs = tempargs.replace(/\W/g, '');
+  for (var key in ceList){
+    if (Number(input) == Number(key)) {ceFound.push(ceList[key]);}
+    for (var parameter in ceList[key]){
+      if (parameter == "name_eng"){
+        var ceName = ceList[key]["name_eng"];
+        ceName = ceName.replace(/\W/g, '');
+        ceName = ceName.toLowerCase();
+        if (ceName.search(input) != -1){
+          ceFound.push(ceList[key]);
+        }
+      }
+    }
+  }
+  return ceFound;
+}*/
+
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: []
+  aliases: [""]
 };
 
 exports.help = {

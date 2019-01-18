@@ -21,7 +21,9 @@ var answers = ["https://i.imgur.com/sSIu82q.png",
 "https://i.imgur.com/hJK8mQH.png",
 "https://i.imgur.com/OhXKHbq.png",
 "https://i.imgur.com/TlMZlFo.jpg",
-"https://cdn.discordapp.com/attachments/328226993361649674/519581883223375874/cursedarmdab.png"]
+"https://cdn.discordapp.com/attachments/328226993361649674/519581883223375874/cursedarmdab.png",
+"https://i.imgur.com/ivX2P7f.gif",
+"https://cdn.discordapp.com/attachments/522576189349691395/535718136356274176/c5fpn5219qu11_1.png"]
 
 function randomImage() {
   return answers[Math.floor(Math.random()*answers.length)];

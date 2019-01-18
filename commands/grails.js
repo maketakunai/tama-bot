@@ -1,9 +1,10 @@
-var storyGrails = 9;
+var storyGrails = 10;
+var storyGrails2 = 0;
 var eventGrails = 6;
 var jpStoryGrails1 = 10;
 var jpStoryGrails2 = 4;
 var jpStoryGrails3 = 3;
-var jpEventGrails = 17;
+var jpEventGrails = 19;
 
 
 exports.run = (client, message, args) => {
@@ -34,8 +35,12 @@ exports.run = (client, message, args) => {
           "value": `${jpEventGrails}`,
         },
         {
-          "name": "Grails obtained from clearing Story in NA",
+          "name": "Grails obtained from clearing Story in NA (part 1)",
           "value": `${storyGrails}`,
+        },
+        {
+          "name": "Grails obtained from clearing Story in NA (part 1.5)",
+          "value": `${storyGrails2}`,
         },
         {
           "name": "Grails obtained from clearing Events in NA",
@@ -43,12 +48,12 @@ exports.run = (client, message, args) => {
         },
         {
           "name": "Events that give grails",
-          "value": "Halloween 2015\nDa Vinci\nFate/Zero Collaboration\nOnigashima\nSummer 2016\nHalloween 2016\nGudaGuda Meiji Ishin\nCCC Collaboration",
+          "value": "Halloween 2015\nDa Vinci\nFate/Zero Collaboration\nOnigashima\nSummer 2016\nHalloween 2016\nGudaGuda Meiji Ishin\nCCC Collaboration\nSummer 2017",
           "inline": true
         },
         {
           "name": "delicious grails",
-          "value": "Summer 2017\nHalloween 2017\nValentine's 2018\nApocrypha Collaboration\nGudaGuda Teito Seihai Kitan\nSummer 2018 (x2)\nBattle in NY 2018\nHalloween 2018 ONILAND",
+          "value": "Halloween 2017\nValentine's 2018\nApocrypha Collaboration\nGudaGuda Teito Seihai Kitan\nSummer 2018 (x2)\nBattle in NY 2018\nHalloween 2018 ONILAND\nChristmas 2018\nNew Years 2019",
           "inline": true
         }
       ]

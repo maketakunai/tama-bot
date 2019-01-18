@@ -7,16 +7,17 @@ exports.run = (client, message, args) => {
     const canvas = new Canvas(750, 750);
     const ctx = canvas.getContext('2d');
     const img_bg = new Canvas.Image();
-    ctx.font = '100px "Armalite Rifle"';
+    //ctx.font = '100px "Armalite Rifle"';
+    ctx.font = '100px "DeathRattle BB"';
 
     var fsize = 100;
-    if (args[0] == '-fs' || args[0] == 'fs') {
+    if (args[0] === '-fs' || args[0] === 'fs' || args[0] === '--fs') {
       args.shift();
-      ctx.font = args[0]+'px "Armalite Rifle"';
+      ctx.font = args[0]+'px "DeathRattle BB"';
       //console.log(ctx.font);
       fsize = args.shift();
       if (!Number(fsize)){
-        ctx.font = '100px "Armalite Rifle"';
+        ctx.font = '100px "DeathRattle BB"';
         fsize = 100;
       }
     }
@@ -24,12 +25,18 @@ exports.run = (client, message, args) => {
     args = args.join(' ');
     args = `${args}`.trim();
 
-    var text = wrap(args, {width: 12});
-    if (Number(fsize) >= 200){
-      text = wrap(args, {width: 7});
+    var text = wrap(args, {width: 18});
+    if (Number(fsize) >= 200 && Number(fsize) < 400){
+      text = wrap(args, {width: 10});
+    }
+    else if (Number(fsize) >= 400){
+      text = wrap(args, {width: 8});
+    }
+    else if (Number(fsize) >= 60 && Number(fsize) < 100) {
+      text = wrap(args, {width: 30});
     }
     else if (Number(fsize) < 60){
-      text = wrap(args, {width: 25});
+      text = wrap(args, {width: 35});
     }
     var lines = text.split(/\r|\r\n|\n/);
     var count = lines.length;

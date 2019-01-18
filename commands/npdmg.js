@@ -22,21 +22,29 @@ exports.run = (client, message, args) => {
       for (var x = 0; x < dmglist.length; x++){
         if (dmglist[x].ID == servnum) {var foundID = x;}
       }
-
+      var upgrade = "-";
+      if (dmglist[foundID].Upgrade){
+        upgrade = `${emoji["NP"]}`;
+      }
       message.channel.send({
         "embed": {
+          "description": `${emoji[dmglist[foundID].Type]} ${dmglist[foundID].Type}, ${dmglist[foundID].Target}, Upgrade: ${upgrade}`,
+          "title": `${servantSearch[j]["name"]}, ${dmglist[foundID].Rarity} ★ ${emoji[dmglist[foundID].Class]} ${dmglist[foundID].Class}`,
           "color": 16756224,
           "thumbnail": {
             "url": `${servantSearch[j]["image"]}`
           },
+          "footer": {
+          "text": `'!help npdmg' to see notes about damage values.`
+          },
           "image": {
           "url": ""
           },
-          "author": {
-            "name": `${servantSearch[j]["name"]}`
-          },
+          /*"author": {
+            "name": ``
+          },*/
           "fields": [
-            {
+            /*{
               "name": "Class",
               "value": `${emoji[dmglist[foundID].Class]} ${dmglist[foundID].Class}`,
               "inline": true
@@ -47,15 +55,20 @@ exports.run = (client, message, args) => {
               "inline": true
             },
             {
-              "name": "NP Type",
-              "value": `${emoji[dmglist[foundID].Type]} ${dmglist[foundID].Type}`,
+              "name": "NP Upgrade",
+              "value": `${upgrade}`,
+              "inline": true
+            },
+            {
+              "name": "NP Type / Target",
+              "value": `${emoji[dmglist[foundID].Type]} ${dmglist[foundID].Type}, ${dmglist[foundID].Target}`,
               "inline": true
             },
             {
               "name": "NP Target",
               "value": `${dmglist[foundID].Target}`,
               "inline": true
-            },
+            },*/
             {
               "name": "NP Damage",
               "value": `NP1: ${dmglist[foundID].NP1}\nNP2: ${dmglist[foundID].NP2}\nNP3: ${dmglist[foundID].NP3}\nNP4: ${dmglist[foundID].NP4}\nNP5: ${dmglist[foundID].NP5}\n`,
@@ -65,12 +78,12 @@ exports.run = (client, message, args) => {
               "name": `Special: ${dmglist[foundID].SpecialEffect}` ,
               "value": `NP1: ${dmglist[foundID].SE1}\nNP2: ${dmglist[foundID].SE2}\nNP3: ${dmglist[foundID].SE3}\nNP4: ${dmglist[foundID].SE4}\nNP5: ${dmglist[foundID].SE5}\n`,
               "inline": true
-            },
-            {
+            }
+            /*{
               "name": `Notes on damage values`,
               "value": `Max level, +1000 fous, without grails.\nDamage values shown are vs. neutral targets.\nSelf buffs are added at level 10.\nPassive skills are applied.\n100% overcharge only.\nClass attack multipliers and traits are included.\nClass triangle mods are not included.\nInterludes and strengthening quests are included.`,
               "inline": false
-            }
+            }*/
           ]
         }
       }).catch(console.error);
@@ -138,6 +151,6 @@ exports.conf = {
 
 exports.help = {
   name: 'npdmg',
-  description: `Shows NP damage for a particular servant.`,
+  description: `Shows NP damage for a particular servant.\nMax level, +1000 fous, without grails.\nDamage values shown are vs. neutral targets.\nSelf buffs are added at level 10.\nPassive skills are applied.\n100% overcharge only.\nClass attack multipliers and traits are included.\nClass triangle mods are not included.\nInterludes and strengthening quests are included.`,
   usage: '!npdmg [class] [servantname]'
 };

@@ -1668,6 +1668,26 @@
     "rarity": "4",
     "servantClass": "Berserker"
   },
+  "083": {
+    "aprilfools": "null",
+    "rarity": "5",
+    "attacks": "0102020203",
+    "maxATK": "14,259",
+    "id": "083",
+    "name": "Solomon",
+    "servantClass": "Caster",
+    "cost": "",
+    "baseHP": "16",
+    "baseATK": "2,091",
+    "maxHP": "",
+    "image": "http://fate-go.cirnopedia.org/icons/servant/servant_0831.png",
+    "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=083",
+    "note": "Enemy Servant Only\n",
+    "NP": "(Arts) Ars Almadel Salomonis\nThe Time of Birth Has Come, He is the One Who Masters All\nDeal heavy damage to all enemies\nTarget: All Enemies",
+    "alignment": "Lawful Good",
+    "desc": "An individual from 1011~931 BC.\nThe Third King of Ancient Israel.\nThe great king who made Ancient Israel prosper the most.\nEmploying 72 demon gods, and also the first individual who build the Temple of Israel.\nHe performed excellent political measures as a king, but beside that also have many anecdotes as a magus.",
+    "item": "None"
+  },
   "084": {
     "NP": "(Buster) Pashupata\nDark Hand of the Destruction God\nDeal heavy damage to all enemies [Level]\nLow chance to inflict Death\nAdditional chance to inflict Death Divine enemies\nDecrease DEF (3 turns) [Overcharge]\nTarget: All Enemies",
     "alignment": "Lawful Neutral",
@@ -2146,7 +2166,8 @@
     "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=107",
     "maxATK": "5,683",
     "maxHP": "7,981",
-    "name": "Angra Mainyu",
+    "name": "Aŋra Mainiiu",
+    "alias":"Angra Mainyu",
     "note": "Friend Point Summon Only\n",
     "rarity": "0",
     "servantClass": "Avenger"
@@ -2980,6 +3001,26 @@
     "rarity": "3",
     "servantClass": "Lancer"
   },
+  "149": {
+    "aprilfools": "null",
+    "rarity": "5",
+    "attacks": "0102020303",
+    "maxATK": "18,720",
+    "id": "149",
+    "name": "Tiamat",
+    "servantClass": "Beast II",
+    "cost": "",
+    "baseHP": "16",
+    "baseATK": "2,745",
+    "maxHP": "",
+    "image": "http://fate-go.cirnopedia.org/icons/servant/servant_1491.png",
+    "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=149",
+    "note": "Enemy Servant Only\n",
+    "NP": "(Arts) Nammu Duranki\nChildren, Obey the Law of Creation\nDeal heavy damage to all enemies\nNegate buffs (1 time)\nTarget: All Enemies",
+    "alignment": "Chaotic Evil",
+    "desc": "One of the genesis deities from Mesopotamian Mythology. The gods were produced by the fresh water that is Abzû, and the salt water that is Tiamat. Afterwards, those children gods rose in revolt against the primordial father Abzû and obtained supremacy over the world. At that time, Tiamat gently approved of her children’s actions. An evidence that the love for her children won over the love for her husband.\n\n However, the gods pointed their blades even to their mother Tiamat. Tiamat grieved, went mad and gave birth to 11 magical beasts as her new children to confront the gods. At the end of the struggle, Tiamat and her 11 magical beasts were defeated It has been said that the gods teared her corpse in two, creating heavens and earth, thus establishing the ceremony of genesis of the human world.",
+    "item": "None"
+  },
   "150": {
     "NP": "(Arts) Garden of Avalon\nEternally Secluded Utopia\nRestore HP of all allies per turn (5 turns) [Level]\nIncrease NP gauge of all allies per turn (5 turns)\nGain Critical Stars per turn (5 turns) [Overcharge]\nTarget: All Allies / Self",
     "alignment": "Lawful Good",
@@ -2999,6 +3040,46 @@
     "note": "Limited Pickup Summon Only\n",
     "rarity": "5",
     "servantClass": "Caster"
+  },
+  "151": {
+    "aprilfools": "null",
+    "rarity": "5",
+    "attacks": "0101020303",
+    "maxATK": "688,560",
+    "id": "151",
+    "name": "Goetia",
+    "servantClass": "Beast I",
+    "cost": "",
+    "baseHP": "16",
+    "baseATK": "11,400",
+    "maxHP": "",
+    "image": "http://fate-go.cirnopedia.org/icons/servant/servant_1511.png",
+    "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=151",
+    "note": "Enemy Servant Only\n",
+    "NP": "(Arts) Ars Almadel Salomonis\nThe Time of Birth Has Come, He is the One Who Masters All\nDeal heavy damage to all enemies\nDecrease Quick, Arts or Buster Card Performance at random (1 turn)\nTarget: All Enemies",
+    "alignment": "None",
+    "desc": "The aggregate-body of the 72 demons. After King Solomon’s death, the 72 demons that were sealed away inside his corpse awakened to their own ideology, swindled Solomon’s name (although, from their point of view, they are the true King of Magecraft Solomon) and embarked on a new venture to convert the entire mankind into energy. \n\n To begin with, the 72 demons were “a system to efficiently promote proper reason” invented by the founder of (human) magic, Solomon. Said system grieved and raged against the relationship between King Solomon and humans, becoming a curse that takes action to conquer “the imperfectness of humans” that King Solomon continued to ignore. \n\n Its name is Humanity's Foundation Incineration Formula, Goetia. A magic with its own will that was devised in order to attain true wisdom, and is now attempting to reach the origin while making use of the entire human history.",
+    "item": "None"
+  },
+  "152": {
+    "aprilfools": "https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/aprilfools/1700100c.png",
+    "rarity": "5",
+    "attacks": "0102020303",
+    "maxATK": "10,650",
+    "id": "152",
+    "name": "Solomon",
+    "servantClass": "Caster",
+    "cost": "16",
+    "baseHP": "2,091",
+    "baseATK": "1,645",
+    "maxHP": "14,259",
+    "image": "http://fate-go.cirnopedia.org/icons/servant/servant_1521.png",
+    "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=152",
+    "note": "NPC Servant Only\n",
+    "NP": "(Buster) Ars Nova\nThe Time for Farewell has Come, He is the One Who Lets Go of the World\nDeal significant damage to a single enemy that ignores DEF\nInflict Burn (5 turn) [Overcharge]\nTarget: Enemy",
+    "alignment": "None",
+    "desc": "An individual from 1011~931 BC. The Third King of Ancient Israel The great king who made Ancient Israel prosper the most. Employing 72 demons, he is also the first individual to build the Temple of Israel. He performed excellent political measures as a king, but beside that also possess many anecdotes as a magus.",
+    "item": "None"
   },
   "153": {
     "NP": "(Buster) Rikudou Gorin Kurikara Tenshou\nFive Cycles of the Six Realms Kurikara Heavenly Phenomenon\nIncrease NP Strength (1 turn) [Overcharge]\nDeal significant damage to a single enemy [Level]\nRemove buffs\nTarget: Enemy",
@@ -3022,7 +3103,7 @@
   },
   "154": {
     "NP": "(Buster) Azrael\nAngel of Death\nDeal significant damage to a single enemy [Level]\nHigh chance to inflict Death [Overcharge]\nTarget: Enemy",
-    "alias": "King Hassan",
+    "alias": "King Hassan, First Hassan",
     "alignment": "Lawful Evil",
     "aprilfools": "https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/aprilfools/154.png",
     "attacks": "0102030303",
@@ -4224,5 +4305,23 @@
     "servantClass": "Ruler",
     "image": "http://fate-go.cirnopedia.org/icons/servant/servant_2331.png",
     "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=233"
+  },
+  "234": {
+    "aprilfools": "null",
+    "rarity": "5",
+    "name": "Beni-Enma",
+    "id": "234",
+    "servantClass": "Saber",
+    "image": "http://fate-go.cirnopedia.org/icons/servant/servant_2341.png",
+    "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=234"
+  },
+  "235": {
+    "aprilfools": "null",
+    "rarity": "5",
+    "name": "Li Shuwen",
+    "id": "235",
+    "servantClass": "Assassin",
+    "image": "http://fate-go.cirnopedia.org/icons/servant/servant_2351.png",
+    "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=235"
   }
 }

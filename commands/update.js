@@ -3,9 +3,48 @@ const fs = require('fs');
 const config = require("../config.json");
 
 exports.run = (client, message, args) => {
+  if (args[0] === "drops") {
+    message.channel.send("Updating Tamabot's drop info... Please wait.");
+    gsjson({
+      spreadsheetId: '15uuRx7exiJ5skkx9vGu5x6hfSFbmn1i9GmU7EVNtP90',
+      credentials: config.creds
+    }).then(function(result) {
+        console.log(result.length);
+        return new Promise(function(resolve, reject) {
+          fs.writeFile('./db/dropdb.json', JSON.stringify(result), function(err){
+            if (err) reject (err);
+            else resolve(result);
+          });
+        });
+    }).then(function(result){
+        message.channel.send("Tamabot's NA drops have been updated.");
+    }).catch(function(err) {
+        console.log(err.message);
+        console.log(err.stack);
+        return;
+    });
+    gsjson({
+      spreadsheetId: '1B4W5e_gF--rN14q0RNlkwCfxPIs4Is0QGukV52EoXR8',
+      credentials: config.creds
+    }).then(function(result) {
+        console.log(result.length);
+        return new Promise(function(resolve, reject) {
+          fs.writeFile('./db/jpdropdb.json', JSON.stringify(result), function(err){
+            if (err) reject (err);
+            else resolve(result);
+          });
+        });
+    }).then(function(result){
+        message.channel.send("Tamabot's JP drops have been updated.");
+    }).catch(function(err) {
+        console.log(err.message);
+        console.log(err.stack);
+        return;
+    });
+    return;
+  }
 
   message.channel.send("Updating Tamabot with the latest spreadsheet info... Please wait.");
-
   gsjson({
     spreadsheetId: config.spreadsheet,
     credentials: config.creds
@@ -53,6 +92,6 @@ exports.conf = {
 
 exports.help = {
   name: 'update',
-  description: `Updates tamabot with the latest spreadsheet info.`,
-  usage: '!update'
+  description: `Updates tamabot with the latest spreadsheet info. Use 'drops' to update drop information.`,
+  usage: '!update, !update drops'
 };

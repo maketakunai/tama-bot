@@ -1,10 +1,10 @@
 exports.run = (client, message, args) => {
   var eventExists, beforeEvent;
   var getUTC = new Date().getTime();
-  var startTime = 1545375600*1000;
-  var endTime = 1546326000*1000;
-  var eventurl = "https://pbs.twimg.com/media/DuPQ_DfXcAUXnmQ.png";
-  var eventname = "Final Singularity: The Grand Temple of Time Solomon";
+  var startTime = 1547708400*1000;
+  var endTime = 1548302340*1000;
+  var eventurl = "https://webview.fate-go.us/wp-content/uploads/2019/01/0114_does_moon/banner_20190123_d7yv3.png";
+  var eventname = "[Limited Time] Revival: Does Moon Goddess Dream of Dumplings? - Lite";
 
   if (getUTC < endTime && getUTC > startTime)
   {
