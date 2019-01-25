@@ -1,6 +1,6 @@
 const request = require('request');
 const cheerio = require('cheerio');
-const url = 'https://webview.fate-go.us/iframe/maintenance/';
+const url = 'https://news.fate-go.jp/maintenance/';
 const moment = require('moment-timezone');
 exports.run = (client, message, args) => {
 
@@ -10,13 +10,17 @@ exports.run = (client, message, args) => {
     links = $('a');
     $(links).each(function(i, link){
       var href = $(link).attr('href');
-      array.push(href);
+      if (href.match(/^\/[0-9].*\/$/g) != null){
+        array.push(href);
+      }
     });
-    console.log(array);
-    var newurl = 'https://webview.fate-go.us' + array[0];
+    var newurl = 'https://news.fate-go.jp' + array[0];
     request(newurl, function(err, resp, body){
       $ = cheerio.load(body);
-      var times = $('p:contains("Date & Time")').text().match(/\S*\d+\S*/g).map(function (v) {return v;});
+      var times = $('p:contains("■日時")').text().match(/\S*\d+\S*/g).map(function (v) {return v;});
+      var temp = times.pop().split("～");
+      times.push.apply(times, temp);
+      console.log(times);
       maintCalc(times, message);
     });
   });
@@ -26,9 +30,13 @@ function maintCalc(times, message) {
   var inMaint, beforeMaint, endMaint;
   var getUTC = Number(new Date().getTime());
   var sTime = `${times[0]} ${times[1]}`;
-  var eTime = `${times[2]} ${times[3]}`;
-  var startTime = moment.tz(sTime, "America/Los_Angeles").format('x');
-  var endTime = moment.tz(eTime, "America/Los_Angeles").format('x');
+  var eTime = `${times[0]} ${times[2]}`;
+  moment.locale('ja');
+  var m = moment(sTime, 'YYYY-MM-DD(ddd) hh:mm');
+  var n = moment(eTime, 'YYYY-MM-DD(ddd) hh:mm');
+  var startTime = moment.tz(m, "Asia/Tokyo").format('x');
+  var endTime = moment.tz(n, "Asia/Tokyo").format('x');
+
   console.log(startTime, endTime);
 
   if (getUTC < endTime && getUTC < startTime)
@@ -44,14 +52,14 @@ function maintCalc(times, message) {
     endMaint = 1;
   }
 
-  var elapsed_time = timeconverter(startTime, endTime);
+  var elapsed_time = timeconverter(startTime, endTime, getUTC);
   if (beforeMaint){
     message.channel.send({
       "embed": {
-        "title":"Scheduled FGO Maintenance",
+        "title":"Scheduled JP FGO Maintenance",
         "description": "Maintenance begins in " + elapsed_time[0] + " days, " + elapsed_time[1] + " hours, " + elapsed_time[2] + " minutes.\n" +
                        "Maintenance ends in " + elapsed_time[3] + " days, " + elapsed_time[4] + " hours, " + elapsed_time[5] + " minutes.\n",
-        "color": 8817876,
+        "color": 7347577,
         "image": {
         "url": randomImage(),
         },
@@ -62,10 +70,10 @@ function maintCalc(times, message) {
   else if (inMaint){
     message.channel.send({
       "embed": {
-        "title":"Scheduled FGO Maintenance",
+        "title":"Scheduled JP FGO Maintenance",
         "description": "Maintenance has begun.\n" +
                        "Maintenance ends in " + elapsed_time[3] + " days, " + elapsed_time[4] + " hours, " + elapsed_time[5] + " minutes.\n",
-        "color": 8817876,
+        "color": 7347577,
         "image": {
         "url": randomImage(),
         },
@@ -75,8 +83,8 @@ function maintCalc(times, message) {
   else {
     message.channel.send({
       "embed": {
-        "color": 8817876,
         "title":`The last maintenance was:\n${sTime} to ${eTime}`,
+        "color": 7347577,
         "image": {
         "url": randomImage(),
         }
@@ -85,8 +93,8 @@ function maintCalc(times, message) {
   }
 }
 
-function timeconverter(sTime, eTime){
-  var utc = new Date().getTime();
+function timeconverter(sTime, eTime, utc){
+  //var utc = new Date().getTime();
 
   var time_diff_start = (sTime - utc);
   var time_diff_end = (eTime - utc);
@@ -117,12 +125,11 @@ function randomImage() {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: []
+  aliases: ["maintjp"]
 };
 
-
 exports.help = {
-  name: 'maint',
-  description: `Lets you know when maintenance is going to start/finish.`,
-  usage: '!maint'
+  name: 'jpmaint',
+  description: 'scrapes maintenance times from fgo website',
+  usage: '!jpmaint'
 };

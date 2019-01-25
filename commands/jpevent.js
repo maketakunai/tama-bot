@@ -1,10 +1,10 @@
 exports.run = (client, message, args) => {
   var eventExists, beforeEvent;
   var getUTC = new Date().getTime();
-  var startTime = 1546268400*1000;
-  var endTime = 1547524740*1000;
-  var eventurl = "https://news.fate-go.jp/wp-content/uploads/2019/enmatei_iusrz/top_banner.png";
-  var eventname = "「雀のお宿の活動日誌～閻魔亭繁盛記～」";
+  var startTime = 1548234000*1000;
+  var endTime = 1549425540*1000;
+  var eventurl = "https://news.fate-go.jp/wp-content/uploads/2019/prisma_re_install_full_wkinc/top_banner.png";
+  var eventname = "「復刻版:魔法少女紀行 ～プリズマ･コーズ～ -Re-install-」";
 
   if (getUTC < endTime && getUTC > startTime)
   {

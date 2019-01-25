@@ -9,6 +9,7 @@ exports.run = (client, message, args) => {
   else {
     var searchString = args.join(' ');
     var searchResult = findDrop(searchString);
+    delete require.cache[require.resolve('../db/dropdb.json')];
     if (searchResult.length > 0 && searchResult.length <= 5) {
           for (var x = 0; x < 5; x++){
             if (!searchResult[x].number){

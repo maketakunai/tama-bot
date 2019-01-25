@@ -47,14 +47,38 @@ exports.run = (client, message, args) => {
           rates = rateup.rates;
       rollten(rates, normgacha, rateup, message);
       break;
+    case "shinjuku1":
+      var normgacha = require("../db/gacha/gacha-standardpool.json"),
+          rateup = require("../db/gacha/rateup-shinjuku1.json"),
+          rates = rateup.rates;
+      rollten(rates, normgacha, rateup, message);
+      break;
+    case "shinjuku2":
+      var normgacha = require("../db/gacha/gacha-standardpool.json"),
+          rateup = require("../db/gacha/rateup-shinjuku2.json"),
+          rates = rateup.rates;
+      rollten(rates, normgacha, rateup, message);
+      break;
+    case "assli":
+      var normgacha = require("../db/gacha/gacha-standardpoolJP.json"),
+          rateup = require("../db/gacha/rateup-assli.json"),
+          rates = rateup.rates;
+      rollten(rates, normgacha, rateup, message);
+      break;
     case "story":
       var normgacha = require("../db/gacha/gacha-story.json"),
           rateup = require("../db/gacha/rateup-blank.json"),
           rates = rateup.rates;
       rollten(rates, normgacha, rateup, message);
       break;
+    case "storyjp":
+      var normgacha = require("../db/gacha/gacha-storyJP.json"),
+          rateup = require("../db/gacha/rateup-blankJP.json"),
+          rates = rateup.rates;
+      rollten(rates, normgacha, rateup, message);
+      break;
     default:
-      message.channel.send("'!10roll (banner)' to 10roll the gacha. '10roll reset' to reset your stats.\nAvailable banners: dantes, davinci, mhxa, story\n");
+      message.channel.send("'!10roll (banner)' to 10roll the gacha. '10roll reset' to reset your stats.\nAvailable banners: assli, dantes, davinci, mhxa, shinjuku1, shinjuku2, story, storyjp\n");
       break;
   }
 };
@@ -167,7 +191,7 @@ function singleroll (rates,intervals,rateup,normgacha,ctx,rollz,i,j) {
       snek.get(rollz[j][i]).then(r => {
         var card = new Canvas.Image();
         card.onload = function () {
-          ctx.drawImage(card, i*129, j*219);
+          ctx.drawImage(card, i*129, j*220);
         }
         card.src = r.body;
         resolve ('ok');
@@ -181,7 +205,7 @@ function singleroll (rates,intervals,rateup,normgacha,ctx,rollz,i,j) {
 function rollten (rates, normgacha, rateup, message){
   var rollstats = [0,0,0,0,0,0];
   var intervals = setIntervals(rates);
-  const canvas = new Canvas(645, 438);
+  const canvas = new Canvas(645, 440);
   const ctx = canvas.getContext('2d');
   var userid = message.author.id;
   var rollz = [];
@@ -253,25 +277,21 @@ function rollten (rates, normgacha, rateup, message){
   var sumtotal = rollstats.map(function (num, idx) { return num + totalrollstats[idx]; });
   totalrollstats = sumtotal;
 
-  if (!userstats.userid) {
-    userstats.userid = {userid};
-    userstats.userid.stats = [0,0,0,0,0,0];
-    userstats.userid.stats = rollstats;
-    console.log("mystats", userstats.userid.stats)
+  if (!userstats[userid]) {
+    userstats[userid] = {userid};
+    userstats[userid].stats = [0,0,0,0,0,0];
+    userstats[userid].stats = rollstats;
+    console.log("mystats", userstats[userid].stats)
     console.log(rollstats);
   }
-  else if (userstats.userid) {
-    var sumtotal = rollstats.map(function (num, idx) { return num + userstats.userid.stats[idx]; });
-    userstats.userid.stats = sumtotal;
-    console.log("mystats", userstats.userid.stats)
+  else if (userstats[userid]) {
+    var sumtotal = rollstats.map(function (num, idx) { return num + userstats[userid].stats[idx]; });
+    userstats[userid].stats = sumtotal;
+    console.log("mystats", userstats[userid].stats)
   }
-  var rolltotal = userstats.userid.stats.reduce((a, b) => a + b, 0);
-  var myservants = `5★: ${userstats.userid.stats[0]}, ${(userstats.userid.stats[0]*100/rolltotal).toFixed(1)}%
-                    4★: ${userstats.userid.stats[1]}, ${(userstats.userid.stats[1]*100/rolltotal).toFixed(1)}%
-                    3★: ${userstats.userid.stats[2]}, ${(userstats.userid.stats[2]*100/rolltotal).toFixed(1)}%`;
-  var myces = `5★: ${userstats.userid.stats[3]}, ${(userstats.userid.stats[3]*100/rolltotal).toFixed(1)}%
-               4★: ${userstats.userid.stats[4]}, ${(userstats.userid.stats[4]*100/rolltotal).toFixed(1)}%
-               3★: ${userstats.userid.stats[5]}, ${(userstats.userid.stats[5]*100/rolltotal).toFixed(1)}%`;
+  var rolltotal = userstats[userid].stats.reduce((a, b) => a + b, 0);
+  var myservants = `5★: ${userstats[userid].stats[0]}, ${(userstats[userid].stats[0]*100/rolltotal).toFixed(1)}%\n4★: ${userstats[userid].stats[1]}, ${(userstats[userid].stats[1]*100/rolltotal).toFixed(1)}%\n3★: ${userstats[userid].stats[2]}, ${(userstats[userid].stats[2]*100/rolltotal).toFixed(1)}%`;
+  var myces = `5★: ${userstats[userid].stats[3]}, ${(userstats[userid].stats[3]*100/rolltotal).toFixed(1)}%\n4★: ${userstats[userid].stats[4]}, ${(userstats[userid].stats[4]*100/rolltotal).toFixed(1)}%\n3★: ${userstats[userid].stats[5]}, ${(userstats[userid].stats[5]*100/rolltotal).toFixed(1)}%`;
   const embed = {
     "title":`${message.author.username}'s 10roll & stats over ${rolltotal} rolls:`,
     "color": 8817876,
@@ -321,12 +341,12 @@ function rollten (rates, normgacha, rateup, message){
 
 function reset (message) {
   var userid = message.author.id;
-  if (!userstats.userid) {
+  if (!userstats[userid]) {
     message.channel.send(message.author.username + ", you don't have any roll stats to reset.");
     return;
   }
   else {
-    userstats.userid.stats = [0,0,0,0,0,0];
+    userstats[userid].stats = [0,0,0,0,0,0];
     message.channel.send(message.author.username + ", your roll session stats have been reset.");
     return;
   }
@@ -376,6 +396,6 @@ exports.conf = {
 
 exports.help = {
   name: '10roll',
-  description: 'Does a 10roll of the gacha.\nAvailable banners: story, dantes, davinci, mhxa\n!10roll stats to see stats.',
+  description: 'Does a 10roll of the gacha.\nAvailable banners: story, storyjp, assli, dantes, davinci, mhxa, shinjuku1, shinjuku2\n!10roll stats to see stats.',
   usage: '!10roll [bannername]'
 };

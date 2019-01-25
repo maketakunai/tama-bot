@@ -4323,5 +4323,14 @@
     "servantClass": "Assassin",
     "image": "http://fate-go.cirnopedia.org/icons/servant/servant_2351.png",
     "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=235"
+  },
+  "236": {
+    "aprilfools": "null",
+    "rarity": "4",
+    "name": "Miyu Edelfelt",
+    "id": "236",
+    "servantClass": "Caster",
+    "image": "http://fate-go.cirnopedia.org/icons/servant/servant_2361.png",
+    "link": "http://fate-go.cirnopedia.org/servant_profile.php?servant=236"
   }
 }
