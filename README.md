@@ -21,3 +21,22 @@ The `plotly` stuff is only necessary if you want to show yolo/10roll stats.
 
 ## Commands
 To make a new command, create a commandname.js file in the commands folder.
+A simple command template is shown below:
+```
+exports.run = (client, message, args) => {
+  message.channel.send("this is a template").catch(console.error);
+}
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: ["mycmd"]
+};
+
+exports.help = {
+  name: 'mycommand',
+  description: 'description goes here',
+  usage: '!mycommand'
+};
+```
+If a user types `!help mycommand` the bot should then spit out what you have under `exports.help`.
