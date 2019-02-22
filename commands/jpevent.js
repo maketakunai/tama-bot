@@ -1,10 +1,10 @@
 exports.run = (client, message, args) => {
-  var eventExists, beforeEvent;
-  var getUTC = new Date().getTime();
-  var startTime = 1548234000*1000;
-  var endTime = 1549425540*1000;
-  var eventurl = "https://news.fate-go.jp/wp-content/uploads/2019/prisma_re_install_full_wkinc/top_banner.png";
-  var eventname = "「復刻版:魔法少女紀行 ～プリズマ･コーズ～ -Re-install-」";
+  let eventExists, beforeEvent;
+  let getUTC = new Date().getTime();
+  let startTime = 1549443600*1000;
+  let endTime = 1550635140*1000;
+  let eventurl = "https://news.fate-go.jp/wp-content/uploads/2019/valentine2019_ifdlq/top_banner.png";
+  let eventname = "「バレンタイン2019 ボイス＆レター･これくしょん！～紫式部と7つの呪本～」";
 
   if (getUTC < endTime && getUTC > startTime)
   {
@@ -17,8 +17,8 @@ exports.run = (client, message, args) => {
   }
   else {beforeEvent = 0;}
 
-  var to_begin = timeconverter(startTime);
-  var elapsed_time = timeconverter(endTime);
+  let to_begin = timeconverter(startTime);
+  let elapsed_time = timeconverter(endTime);
 
   if (eventExists){
     message.channel.send({
@@ -56,16 +56,16 @@ exports.run = (client, message, args) => {
 }
 
 function timeconverter(endTime){
-  var utc = new Date().getTime();
-  var eventEndTime = endTime;
-  var time_diff = (eventEndTime - utc);
-  var secs = time_diff / 1000;
-  var mins = Math.floor(secs / 60);
-  var hours = Math.floor(mins / 60);
-  var days = Math.floor(hours / 24);
-  var APRegen = Math.floor(mins / 5);
-  var BPRegen = hours;
-  var time_until = [days, hours%24, mins%60, APRegen, BPRegen];
+  let utc = new Date().getTime();
+  let eventEndTime = endTime;
+  let time_diff = (eventEndTime - utc);
+  let secs = time_diff / 1000;
+  let mins = Math.floor(secs / 60);
+  let hours = Math.floor(mins / 60);
+  let days = Math.floor(hours / 24);
+  let APRegen = Math.floor(mins / 5);
+  let BPRegen = hours;
+  let time_until = [days, hours%24, mins%60, APRegen, BPRegen];
   return time_until;
 }
 

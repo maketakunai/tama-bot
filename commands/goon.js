@@ -1,7 +1,7 @@
 exports.run = (client, message, args) => {
 
-  let nagoons = require('../db/goonDB.json');
-  let jpgoons = require('../db/jpgoonDB.json');
+  let nagoons = require('../data/goonDB.json');
+  let jpgoons = require('../data/jpgoonDB.json');
 
   if (args.length > 10 || args.length == 0){
     message.channel.send("Stop, stop please! To search the goon spreadsheet, please type '!goon (name)'.")
@@ -12,8 +12,8 @@ exports.run = (client, message, args) => {
   searchString = searchString.replace(/[\W_]+/g, '');
   console.log(`Searching for ${searchString}...`);
   let searchResult = findGoon(searchString, nagoons, jpgoons);
-  delete require.cache[require.resolve('../db/goonDB.json')];
-  delete require.cache[require.resolve('../db/jpgoonDB.json')];
+  delete require.cache[require.resolve('../data/goonDB.json')];
+  delete require.cache[require.resolve('../data/jpgoonDB.json')];
   if (searchResult.length > 0) {
     for (var j = 0; j < searchResult.length; j++){
       var embedColor = 6513663;
@@ -82,9 +82,15 @@ function findGoon(input, nagoons, jpgoons){
     return goonsFound;
   }
   for (var i = 0; i < result.length; i++){
+    if (!result[i].saName){
+      result[i].saName = "Silly goon failed to fill out this field"
+    }
     var gName = result[i].saName;
     gName = gName.replace(/[\W_]+/g, '');
     gName = gName.toLowerCase();
+    if (!result[i].fgoName){
+      result[i].fgoName = "Silly goon failed to fill out this field"
+    }
     var fgoName = result[i].fgoName;
     fgoName = fgoName.replace(/[\W_]+/g, '');
     fgoName = fgoName.toLowerCase();

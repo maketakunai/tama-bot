@@ -1,4 +1,4 @@
-const gatedb = require("../db/gatedb.json");
+const gatedb = require("../data/gatedb.json");
 
 exports.run = (client, message, args) => {
   var utcTime = new Date();

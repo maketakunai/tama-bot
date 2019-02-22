@@ -1,0 +1,20 @@
+{
+  "name": "Chaldea Boys Collection 2017 Pickup Summon",
+  "desc": "",
+  "servants": {
+    "3": [ "" ],
+    "4": [ "" ],
+    "5": [ "160" ]
+  },
+  "ce": {
+    "3": [ "556","557","558" ],
+    "4": [ "553","554","555" ],
+    "5": [ "550","551","552" ]
+  },
+  "rates": {
+      "servstandard": [ 1, 3, 40 ],
+      "cestandard": [ 4, 12, 40 ],
+      "servrateup": [ 0.7, 0, 0 ],
+      "cerateup": [ 2.8, 4, 16 ]
+  }
+}

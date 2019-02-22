@@ -1,8 +1,8 @@
-const servantList = require("../db/servantdb.json")
-const newList = require("../db/new_servdb.json")
-const dmgList = require("../db/npdamage.json")
-const emoji = require("../db/emoji.json")
-const skills = require("../db/skills.json")
+const servantList = require("../data/servantdb.json")
+const newList = require("../data/new_servdb.json")
+const dmgList = require("../data/npdamage.json")
+const emoji = require("../data/emoji.json")
+const skills = require("../data/skills.json")
 
 exports.run = (client, message, args) => {
       message.channel.send({

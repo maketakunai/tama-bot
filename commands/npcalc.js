@@ -3,7 +3,7 @@ const minimist = require('minimist');
 exports.run = (client, message, args) => {
   var input = minimist(args, {
     string: ['atk', 'np', 'type', 'class', 'atkup', 'defdown', 'cardup',
-    'carddown', 'npup', 'spatk', 'flatatk', 'adv', 'esadv']
+    'carddown', 'npup', 'spatk', 'npsp', 'flatatk', 'adv', 'esadv']
   });
 
   if (input["atk"] === undefined || input["np"] === undefined ||
@@ -22,6 +22,7 @@ exports.run = (client, message, args) => {
   var carddown = isValue(input["carddown"]);
   var npup = isValue(input["npup"]);
   var spatk = isValue(input["spatk"]);
+  var npsp = isValue(input["npsp"]);
   var flatatk = isFixedValue(input["flatatk"]);
   var adv = advantageCalc(input["adv"]);
   var esadv = attributeCalc(input["esadv"]);
@@ -29,7 +30,8 @@ exports.run = (client, message, args) => {
   var total = Number(atk) * np * type * adv * classdmg * 0.23 *
       (1 + atkup + defdown) *
       (1 + cardup + carddown) *
-      (1 + npup + spatk) * esadv + Number(flatatk);
+      (1 + npup + spatk) *
+      (1 + npsp) * esadv + Number(flatatk);
 
 
 
@@ -62,7 +64,7 @@ exports.run = (client, message, args) => {
           },
           {
             "name": `NP Damage:`,
-            "value": `${Math.round(total)}`
+            "value": `Low: ${Math.round(0.9*total)}, Avg: ${Math.round(total)}, High: ${Math.round(1.1*total)}`
           }
         ]
       }
@@ -179,6 +181,7 @@ exports.help = {
   '--cardup   BAQ card % buff(s) on the servant. ex) --cardup 20\n'+
   '--carddown BAQ card % debuff(s) on the target.\n'+
   '--npup     NP damage buff % on the servant. ex) --npup 10\n'+
+  '--npsp     Bonus special attack % mods on the NP. ex) --npbonus 150\n'+
   '--spatk    Special attack % mods, like vs. Divine. ex) --spatk 100\n'+
   '--flatatk  Any flat attack mods, like Divinity. ex) --flatatk 100\n'+
   '--esadv    Earth or Sky advantage. Yes or no. Defaults to neutral.',

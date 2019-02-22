@@ -1,4 +1,4 @@
-const ceList = require("../db/ce_cirno.json");
+const ceList = require("../data/ce_cirno.json");
 
 exports.run = (client, message, args) => {
   var tempargs = args;
@@ -63,11 +63,6 @@ exports.run = (client, message, args) => {
             {
               "name": `Effects`,
               "value": `${ceSearch[j]["effects"]}`,
-              "inline": false
-            },
-            {
-              "name": `Obtained`,
-              "value": `${ceSearch[j]["obtained"]}`,
               "inline": false
             }
           ]

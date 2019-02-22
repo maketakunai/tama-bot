@@ -28,14 +28,15 @@ exports.run = (client, message, args) => {
 
 function maintCalc(times, message) {
   var inMaint, beforeMaint, endMaint;
-  var getUTC = Number(new Date().getTime());
+  var getUTC = Number(moment().unix()*1000);
   var sTime = `${times[0]} ${times[1]}`;
   var eTime = `${times[0]} ${times[2]}`;
   moment.locale('ja');
   var m = moment(sTime, 'YYYY-MM-DD(ddd) hh:mm');
   var n = moment(eTime, 'YYYY-MM-DD(ddd) hh:mm');
-  var startTime = moment.tz(m, "Asia/Tokyo").format('x');
-  var endTime = moment.tz(n, "Asia/Tokyo").format('x');
+  var offset = 32400000;
+  var startTime = moment.tz(m, "Asia/Tokyo").format('x') - offset;
+  var endTime = moment.tz(n, "Asia/Tokyo").format('x') - offset;
 
   console.log(startTime, endTime);
 
@@ -83,7 +84,7 @@ function maintCalc(times, message) {
   else {
     message.channel.send({
       "embed": {
-        "title":`The last maintenance was:\n${sTime} to ${eTime}`,
+        "title":`The last maintenance was:\n${sTime} to ${eTime} (JST)`,
         "color": 7347577,
         "image": {
         "url": randomImage(),
@@ -116,7 +117,9 @@ var answers = ["https://i.imgur.com/guwcFbn.jpg",
 "https://i.imgur.com/jSriYCP.jpg",
 "https://i.imgur.com/RXeKUL7.jpg",
 "https://i.imgur.com/nMrE5J9.jpg",
-"https://i.imgur.com/zCWPkTx.jpg"]
+"https://i.imgur.com/zCWPkTx.jpg",
+"https://i.imgur.com/IVS0B6Z.jpg",
+"https://i.imgur.com/N0yP6JQ.jpg"]
 
 function randomImage() {
   return answers[Math.floor(Math.random()*answers.length)];

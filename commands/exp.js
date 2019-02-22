@@ -1,6 +1,6 @@
 const exp_normal = 27000;
 const exp_bonus = 32400;
-const expChart = require("../db/exp.json");
+const expChart = require("../data/exp.json");
 
 exports.run = (client, message, args) => {
   if (args.length == 0){

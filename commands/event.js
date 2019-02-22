@@ -1,10 +1,10 @@
 exports.run = (client, message, args) => {
   var eventExists, beforeEvent;
   var getUTC = new Date().getTime();
-  var startTime = 1547708400*1000;
-  var endTime = 1548302340*1000;
-  var eventurl = "https://webview.fate-go.us/wp-content/uploads/2019/01/0114_does_moon/banner_20190123_d7yv3.png";
-  var eventname = "[Limited Time] Revival: Does Moon Goddess Dream of Dumplings? - Lite";
+  var startTime = 1549522800*1000;
+  var endTime = 1550721540*1000;
+  var eventurl = "https://webview.fate-go.us/wp-content/uploads/2019/02/0204_val2019/banner_20190220_e7yh1.png";
+  var eventname = "Revival: Chocolate Lady's Commotion -Valentine's 2018- Expanded";
 
   if (getUTC < endTime && getUTC > startTime)
   {

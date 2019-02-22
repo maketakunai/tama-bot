@@ -11,7 +11,7 @@ exports.run = (client, message, args) => {
     }).then(function(result) {
         console.log(result.length);
         return new Promise(function(resolve, reject) {
-          fs.writeFile('./db/dropdb.json', JSON.stringify(result), function(err){
+          fs.writeFile('./data/dropdb.json', JSON.stringify(result), function(err){
             if (err) reject (err);
             else resolve(result);
           });
@@ -29,7 +29,7 @@ exports.run = (client, message, args) => {
     }).then(function(result) {
         console.log(result.length);
         return new Promise(function(resolve, reject) {
-          fs.writeFile('./db/jpdropdb.json', JSON.stringify(result), function(err){
+          fs.writeFile('./data/jpdropdb.json', JSON.stringify(result), function(err){
             if (err) reject (err);
             else resolve(result);
           });
@@ -51,7 +51,7 @@ exports.run = (client, message, args) => {
   }).then(function(result) {
       console.log(result.length);
       return new Promise(function(resolve, reject) {
-        fs.writeFile('./db/goonDB.json', JSON.stringify(result), function(err){
+        fs.writeFile('./data/goonDB.json', JSON.stringify(result), function(err){
           if (err) reject (err);
           else resolve(result);
         });
@@ -70,7 +70,7 @@ exports.run = (client, message, args) => {
   }).then(function(result) {
       console.log(result.length);
       return new Promise(function(resolve, reject) {
-        fs.writeFile('./db/jpgoonDB.json', JSON.stringify(result), function(err){
+        fs.writeFile('./data/jpgoonDB.json', JSON.stringify(result), function(err){
           if (err) reject (err);
           else resolve(result);
         });

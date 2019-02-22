@@ -1,4 +1,5 @@
-const servantList = require("../db/servantdb.json");
+const servantList = require("../data/servant_db.json");
+const emoji = require("../data/emoji.json");
 
 exports.run = (client, message, args) => {
 
@@ -16,12 +17,16 @@ exports.run = (client, message, args) => {
   var servantSearch = findServant(classSearch, searchString);
 
   if (servantSearch.length > 0) {
+
     for (var j = 0; j < servantSearch.length; j++){
+      let servnum = pad(servantSearch[j].id, 3);
+      let imgurl = `http://fate-go.cirnopedia.org/icons/servant/servant_`+ servnum +`1.png`;
+      let cirno = `http://fate-go.cirnopedia.org/servant_profile.php?servant=` + servnum;
       message.channel.send({
         "embed": {
           "color": 16756224,
           "thumbnail": {
-            "url": `${servantSearch[j]["image"]}`
+            "url": `${imgurl}`
           },
           "image": {
           "url": ""
@@ -31,8 +36,8 @@ exports.run = (client, message, args) => {
           },
           "fields": [
             {
-              "name": `${servantSearch[j]["name"]}`,
-              "value": `${servantSearch[j]["link"]}`
+              "name": `${servantSearch[j].name}, ${servantSearch[j].rarity} ★ ${emoji[servantSearch[j].class]} ${servantSearch[j].class}`,
+              "value": `${cirno}`
             }
           ]
         }
@@ -45,52 +50,37 @@ exports.run = (client, message, args) => {
 
 function checkServantClass(input){
   console.log(`Searching ${Object.keys(servantList).length} entries...`);
-  var classResults = [];
-  var cleanedInput = input.toLowerCase();
-  for (var key in servantList){
-    for (var parameter in servantList[key]){
-      if (parameter == "servantClass"){
-        var cName = servantList[key]["servantClass"];
-        cName = cName.toLowerCase();
-        if (cName.search(cleanedInput) != -1){
-          classResults.push(servantList[key]);
-        }
-      }
+  let classResults = [];
+  let cleanedInput = input.toLowerCase();
+  for (let i = 0; i < servantList.length; i++){
+    if (servantList[i].class.toLowerCase().replace(/\s/g, '').search(cleanedInput) != -1){
+      classResults.push(servantList[i]);
     }
   }
   return classResults;
 }
 
-
-
 function findServant(classSearchResults, input){
-  var servantsFound = [];
+  let servantsFound = [];
   if (input == "" || input.length < 2){
     return servantsFound;
   }
-  for (var key in classSearchResults){
-    for (var parameter in classSearchResults[key]){
-      if (parameter == "name"){
-        var sName = classSearchResults[key]["name"];
-        sName = sName.replace(/\W/g, '');
-        sName = sName.toLowerCase();
-        if (sName.search(input) != -1){
-          servantsFound.push(classSearchResults[key]);
-          break;
-        }
-      }
-      else if (parameter == "alias"){
-        var sAlias = classSearchResults[key]["alias"];
-        sAlias = sAlias.replace(/\W/g, '');
-        sAlias = sAlias.toLowerCase();
-        if (sAlias.search(input) != -1){
-          servantsFound.push(classSearchResults[key]);
-          break;
-        }
-      }
+  for (let i = 0; i < classSearchResults.length; i++){
+    let sName = classSearchResults[i].name;
+    let sAlias = classSearchResults[i].alias;
+    sAlias = sAlias.replace(/\W/g, '').toLowerCase();
+    sName = sName.replace(/\W/g, '').toLowerCase();
+    if ((sName.search(input) != -1) || (sAlias.search(input) != -1)){
+      servantsFound.push(classSearchResults[i]);
     }
   }
   return servantsFound;
+}
+
+function pad(n, width, z) {
+  z = z || '0';
+  n = n + '';
+  return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
 }
 
 exports.conf = {

@@ -1,8 +1,8 @@
-const servantList = require("../db/servantdb.json")
-const newList = require("../db/new_servdb.json")
-const dmgList = require("../db/npdamage.json")
-const emoji = require("../db/emoji.json")
-const itememoji = require("../db/item-emoji.json")
+const servantList = require("../data/servant_db.json")
+//const newList = require("../data/new_servdb.json")
+//const dmgList = require("../data/npdamage.json")
+const emoji = require("../data/emoji.json")
+const itememoji = require("../data/item-emoji.json")
 
 exports.run = (client, message, args) => {
   //var searchResult = findServant(searchString);
@@ -23,37 +23,32 @@ exports.run = (client, message, args) => {
   }
   if (servantSearch.length > 0) {
     for (var j = 0; j < servantSearch.length; j++){
-      var servnum = servantSearch[j]["id"];
-      for (var x = 0; x < newList.length; x++){
-        if (newList[x].id == servnum) {var foundID = x;}
-      }
-      for (var z = 0; z < dmgList.length; z++){
-        if (dmgList[z].ID == servnum) {var dmgID = z;}
-      }
-
-      var ascensionmats = newList[foundID].ascension.split(';');
-      //console.log(ascensionmats);
+      //replace the material names with the discord emoji markdown thingies
+      var ascensionmats = servantSearch[j].ascension.split(';');
       for (var k = 0; k < ascensionmats.length; k++){
         for (var key in itememoji) {
           ascensionmats[k] = ascensionmats[k].replace(key, itememoji[key]);
-          //.console.log(key, itememoji[key]);
         }
       }
-      var skillmats = newList[foundID].skillmats.split(';');
+      var skillmats = servantSearch[j].skillmats.split(';');
       for (var m = 0; m < skillmats.length; m++){
         for (var key in itememoji) {
           skillmats[m] = skillmats[m].replace(key, itememoji[key]);
         }
       }
 
-      console.log(skillmats);
+      //generate url for embed image
+      let servnum = pad(servantSearch[j].id, 3);
+      let imgurl = `http://fate-go.cirnopedia.org/icons/servant/servant_`+ servnum +`1.png`;
+
+      //console.log(skillmats);
       message.channel.send({
         "embed": {
           "color": 000000,
           "thumbnail": {
-            "url": `${servantSearch[j]["image"]}`
+            "url": `${imgurl}`
           },
-          "title": `${servantSearch[j]["name"]}, ${newList[foundID].rarity} ★ ${emoji[newList[foundID].class]} ${newList[foundID].class}`,
+          "title": `${servantSearch[j].name}, ${servantSearch[j].rarity} ★ ${emoji[servantSearch[j].class]} ${servantSearch[j].class}`,
           "fields": [
             {
               "name": "Ascensions",
@@ -74,52 +69,37 @@ exports.run = (client, message, args) => {
 
 function checkServantClass(input){
   console.log(`Searching ${Object.keys(servantList).length} entries...`);
-  var classResults = [];
-  var cleanedInput = input.toLowerCase();
-  for (var key in servantList){
-    for (var parameter in servantList[key]){
-      if (parameter == "servantClass"){
-        var cName = servantList[key]["servantClass"];
-        cName = cName.toLowerCase();
-        if (cName.search(cleanedInput) != -1){
-          classResults.push(servantList[key]);
-        }
-      }
+  let classResults = [];
+  let cleanedInput = input.toLowerCase();
+  for (let i = 0; i < servantList.length; i++){
+    if (servantList[i].class.toLowerCase().search(cleanedInput) != -1){
+      classResults.push(servantList[i]);
     }
   }
   return classResults;
 }
 
-
-
 function findServant(classSearchResults, input){
-  var servantsFound = [];
+  let servantsFound = [];
   if (input == "" || input.length < 2){
     return servantsFound;
   }
-  for (var key in classSearchResults){
-    for (var parameter in classSearchResults[key]){
-      if (parameter == "name"){
-        var sName = classSearchResults[key]["name"];
-        sName = sName.replace(/\W/g, '');
-        sName = sName.toLowerCase();
-        if (sName.search(input) != -1){
-          servantsFound.push(classSearchResults[key]);
-          break;
-        }
-      }
-      else if (parameter == "alias"){
-        var sAlias = classSearchResults[key]["alias"];
-        sAlias = sAlias.replace(/\W/g, '');
-        sAlias = sAlias.toLowerCase();
-        if (sAlias.search(input) != -1){
-          servantsFound.push(classSearchResults[key]);
-          break;
-        }
-      }
+  for (let i = 0; i < classSearchResults.length; i++){
+    let sName = classSearchResults[i].name;
+    let sAlias = classSearchResults[i].alias;
+    sAlias = sAlias.replace(/\W/g, '').toLowerCase();
+    sName = sName.replace(/\W/g, '').toLowerCase();
+    if ((sName.search(input) != -1) || (sAlias.search(input) != -1)){
+      servantsFound.push(classSearchResults[i]);
     }
   }
   return servantsFound;
+}
+
+function pad(n, width, z) {
+  z = z || '0';
+  n = n + '';
+  return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
 }
 
 exports.conf = {

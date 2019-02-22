@@ -9,7 +9,7 @@ exports.run = (client, message, args) => {
   else {
     var searchString = args.join(' ');
     var searchResult = findDrop(searchString);
-    delete require.cache[require.resolve('../db/jpdropdb.json')];
+    delete require.cache[require.resolve('../data/jpdropdb.json')];
     if (searchResult.length > 0 && searchResult.length <= 5) {
           for (var x = 0; x < 5; x++){
             if (!searchResult[x].number){
@@ -73,7 +73,7 @@ exports.run = (client, message, args) => {
 }
 
 function findDrop(input){
-  var dropList = require("../db/jpdropdb.json");
+  var dropList = require("../data/jpdropdb.json");
   var itemsFound = [];
   if (input == "" || input.length < 3){
     return itemsFound;

@@ -1,4 +1,4 @@
-const stageList = require("../db/singularityap.json");
+const stageList = require("../data/singularityap.json");
 
 exports.run = (client, message, args) => {
 

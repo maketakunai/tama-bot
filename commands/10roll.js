@@ -29,56 +29,74 @@ exports.run = (client, message, args) => {
     case "stats":
       showstats(message);
       break;
-    case "dantes":
-      var normgacha = require("../db/gacha/gacha-standardpool.json"),
-          rateup = require("../db/gacha/rateup-dantes.json"),
-          rates = rateup.rates;
-      rollten(rates, normgacha, rateup, message);
-      break;
     case "davinci":
-      var normgacha = require("../db/gacha/gacha-standardpool.json"),
-          rateup = require("../db/gacha/rateup-davinci.json"),
+      var normgacha = require("../data/gacha/gacha-standardpool.json"),
+          rateup = require("../data/gacha/rateup-davinci.json"),
           rates = rateup.rates;
       rollten(rates, normgacha, rateup, message);
       break;
     case "mhxa":
-      var normgacha = require("../db/gacha/gacha-valentinepool.json"),
-          rateup = require("../db/gacha/rateup-mhxa.json"),
+      var normgacha = require("../data/gacha/gacha-valentinepool.json"),
+          rateup = require("../data/gacha/rateup-mhxa.json"),
           rates = rateup.rates;
       rollten(rates, normgacha, rateup, message);
       break;
     case "shinjuku1":
-      var normgacha = require("../db/gacha/gacha-standardpool.json"),
-          rateup = require("../db/gacha/rateup-shinjuku1.json"),
+      var normgacha = require("../data/gacha/gacha-standardpool.json"),
+          rateup = require("../data/gacha/rateup-shinjuku1.json"),
           rates = rateup.rates;
       rollten(rates, normgacha, rateup, message);
       break;
     case "shinjuku2":
-      var normgacha = require("../db/gacha/gacha-standardpool.json"),
-          rateup = require("../db/gacha/rateup-shinjuku2.json"),
+      var normgacha = require("../data/gacha/gacha-standardpool.json"),
+          rateup = require("../data/gacha/rateup-shinjuku2.json"),
           rates = rateup.rates;
       rollten(rates, normgacha, rateup, message);
       break;
-    case "assli":
-      var normgacha = require("../db/gacha/gacha-standardpoolJP.json"),
-          rateup = require("../db/gacha/rateup-assli.json"),
+    case "cbc":
+      var normgacha = require("../data/gacha/gacha-cbcpool.json"),
+          rateup = require("../data/gacha/rateup-cbc.json"),
+          rates = rateup.rates;
+      rollten(rates, normgacha, rateup, message);
+      break;
+    case "gudaguda":
+      var normgacha = require("../data/gacha/gacha-standardpool.json"),
+          rateup = require("../data/gacha/rateup-gudameiji.json"),
+          rates = rateup.rates;
+      rollten(rates, normgacha, rateup, message);
+      break;
+    case "ccc1":
+      var normgacha = require("../data/gacha/gacha-standardpool.json"),
+          rateup = require("../data/gacha/rateup-ccc1.json"),
+          rates = rateup.rates;
+      rollten(rates, normgacha, rateup, message);
+      break;
+    case "ccc2":
+      var normgacha = require("../data/gacha/gacha-standardpool.json"),
+          rateup = require("../data/gacha/rateup-ccc2.json"),
+          rates = rateup.rates;
+      rollten(rates, normgacha, rateup, message);
+      break;
+    case "murasaki":
+      var normgacha = require("../data/gacha/gacha-valentinepoolJP.json"),
+          rateup = require("../data/gacha/rateup-valentine2019.json"),
           rates = rateup.rates;
       rollten(rates, normgacha, rateup, message);
       break;
     case "story":
-      var normgacha = require("../db/gacha/gacha-story.json"),
-          rateup = require("../db/gacha/rateup-blank.json"),
+      var normgacha = require("../data/gacha/gacha-story.json"),
+          rateup = require("../data/gacha/rateup-blank.json"),
           rates = rateup.rates;
       rollten(rates, normgacha, rateup, message);
       break;
     case "storyjp":
-      var normgacha = require("../db/gacha/gacha-storyJP.json"),
-          rateup = require("../db/gacha/rateup-blankJP.json"),
+      var normgacha = require("../data/gacha/gacha-storyJP.json"),
+          rateup = require("../data/gacha/rateup-blankJP.json"),
           rates = rateup.rates;
       rollten(rates, normgacha, rateup, message);
       break;
     default:
-      message.channel.send("'!10roll (banner)' to 10roll the gacha. '10roll reset' to reset your stats.\nAvailable banners: assli, dantes, davinci, mhxa, shinjuku1, shinjuku2, story, storyjp\n");
+      message.channel.send("'!10roll (banner)' to 10roll the gacha. '10roll reset' to reset your stats.\nAvailable banners: cbc, ccc1, ccc2, davinci, gudaguda, mhxa, shinjuku1, shinjuku2, story, storyjp, murasaki\n");
       break;
   }
 };
@@ -290,10 +308,12 @@ function rollten (rates, normgacha, rateup, message){
     console.log("mystats", userstats[userid].stats)
   }
   var rolltotal = userstats[userid].stats.reduce((a, b) => a + b, 0);
+  var quartz = 30 * Number(rolltotal)/10;
+  var dollars = 0.4789 * quartz;
   var myservants = `5★: ${userstats[userid].stats[0]}, ${(userstats[userid].stats[0]*100/rolltotal).toFixed(1)}%\n4★: ${userstats[userid].stats[1]}, ${(userstats[userid].stats[1]*100/rolltotal).toFixed(1)}%\n3★: ${userstats[userid].stats[2]}, ${(userstats[userid].stats[2]*100/rolltotal).toFixed(1)}%`;
   var myces = `5★: ${userstats[userid].stats[3]}, ${(userstats[userid].stats[3]*100/rolltotal).toFixed(1)}%\n4★: ${userstats[userid].stats[4]}, ${(userstats[userid].stats[4]*100/rolltotal).toFixed(1)}%\n3★: ${userstats[userid].stats[5]}, ${(userstats[userid].stats[5]*100/rolltotal).toFixed(1)}%`;
   const embed = {
-    "title":`${message.author.username}'s 10roll & stats over ${rolltotal} rolls:`,
+    "title":`${message.author.username}'s total stats: ${rolltotal/10}x 10rolls, ${quartz} <:quartz:526188417743323139>`,// $${dollars.toFixed(2)} spent`,
     "color": 8817876,
     "image": {
     "url": "attachment://image.png"
@@ -396,6 +416,6 @@ exports.conf = {
 
 exports.help = {
   name: '10roll',
-  description: 'Does a 10roll of the gacha.\nAvailable banners: story, storyjp, assli, dantes, davinci, mhxa, shinjuku1, shinjuku2\n!10roll stats to see stats.',
+  description: 'Does a 10roll of the gacha.\nAvailable banners: story, storyjp, cbc, ccc1, ccc2, davinci, gudaguda, mhxa, shinjuku1, shinjuku2, murasaki\n!10roll stats to see stats.',
   usage: '!10roll [bannername]'
 };
