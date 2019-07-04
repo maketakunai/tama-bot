@@ -12,6 +12,7 @@ exports.run = (client, message, args) => {
       let href = $(link).attr('href');
       array.push(href);
     });
+    let eventActive = 0;
     for (let x = 0; x < array.length; x++){
       let newurl = 'https://webview.fate-go.us' + array[x];
       request(newurl, function(err, resp, body){
@@ -19,15 +20,19 @@ exports.run = (client, message, args) => {
         if ($('p:contains("Event Period")').text().match(/\S*\d+\S*/g)){
           let times = $('p:contains("Event Period")').text().match(/\S*\d+\S*/g).map(function (v) {return v;});
           let eventInfo = { time : times, img : 'https://webview.fate-go.us'+$('img').attr('src')}
-          eventCalc(eventInfo, message);
+          //eventActive += 1;
+          eventCalc(eventInfo, message, eventActive);
         }
       });
     }
+    /*if (!eventActive) {
+      message.channel.send("There is no event going on at this time.").catch(console.error);
+    }*/
   });
 };
 
-function eventCalc(eventInfo, message) {
-  let inEvent, beforeEvent, endEvent;
+function eventCalc(eventInfo, message, eventActive) {
+  let inEvent, beforeEvent, endEvent = 0;
   let getUTC = Number(moment().unix()*1000);
   let sTime = `${eventInfo.time[0]} ${eventInfo.time[1]}`;
   let eTime = `2019-${eventInfo.time[2]} ${eventInfo.time[3]}`;
@@ -42,6 +47,7 @@ function eventCalc(eventInfo, message) {
   else if (getUTC < endTime && getUTC > startTime)
   {
     inEvent = 1;
+    eventActive += 1;
   }
   else
   {
@@ -77,9 +83,9 @@ function eventCalc(eventInfo, message) {
   else if (endEvent){
     return;
   }
-  else {
+  /*else {
     message.channel.send("There is no event going on at this time.").catch(console.error);
-  }
+  }*/
 }
 
 function timeconverter(endTime, utc){

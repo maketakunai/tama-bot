@@ -45,7 +45,7 @@ exports.run = (client, message, args) => {
             "description": `Friend ID: ${searchResult[j].friendId}\nRegion: ${region}\nNote: ${searchResult[j].note}`,
             "color": embedColor,
             "image": {
-            "url": `${searchResult[j].servantSupportList}`,
+              "url": `${searchResult[j].servantSupportList}`,
             },
             "author": {
               "name": `SA Name: ${searchResult[j].saName}`,

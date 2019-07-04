@@ -2,7 +2,10 @@ const servantList = require("../data/servant_db.json");
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 exports.run = (client, message, args) => {
-
+  if (args.length == 0) {
+    message.channel.send("Stop, stop please! Please type '!portrait (number) (class) (servantname)' to search for a particular servant.\nThe available servant classes are: Saber, Archer, Lancer, Rider, Caster, Assassin, Berserker, Shielder, Ruler, Avenger, MoonCancer, AlterEgo, Foreigner")
+    return;
+  }
   let classSearch = checkServantClass(args[1]);
   let ascensionNumber = args.shift();
   let searchString = args.shift()
@@ -72,14 +75,16 @@ function findServant(classSearchResults, input){
   }
   for (let i = 0; i < classSearchResults.length; i++){
     let sName = classSearchResults[i].name;
-    let sAlias = classSearchResults[i].alias;
-    sAlias = sAlias.replace(/\W/g, '').toLowerCase();
+    let sAlias = classSearchResults[i].alias.split(',');
     sName = sName.replace(/\W/g, '').toLowerCase();
-    if ((sName.search(input) != -1) || (sAlias.search(input) != -1)){
-      servantsFound.push(classSearchResults[i]);
+    for (let j = 0; j < sAlias.length; j++){
+      sAlias[j] = sAlias[j].replace(/\W/g, '').toLowerCase();
+      if ((sName.search(input) != -1) || (sAlias[j].search(input) != -1)){
+        servantsFound.push(classSearchResults[i]);
+        break;
+      }
     }
   }
-
   return servantsFound;
 }
 

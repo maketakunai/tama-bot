@@ -26,11 +26,11 @@ exports.run = (client, message, args) => {
           },
           {
             "name": "FGO Information",
-            "value": "apcost, affinity, cc, ce, event, jpevent, gate, grails, drops, jpdrops, maint, mats, exp, npdmg, npcalc, portrait, time, servant, servinfo, riyo",
+            "value": "apcost, affinity, cc, ce, event, jpevent, gate, grails, drops, jpdrops, maint, mats, exp, npdmg, npcalc, portrait, time, servant, servinfo, sprite, riyo",
           },
           {
             "name": "SomethingAwful Community Stuff",
-            "value": "goon, update, spreadsheet",
+            "value": "goon, update, spreadsheet, roles",
           },
           {
             "name": "Gacha / Letting tamabot decide",
@@ -38,7 +38,7 @@ exports.run = (client, message, args) => {
           },
           {
             "name": "Image reactions, memes, fun stuff",
-            "value": "apple, bb, dab, ded, fes, gacha, haha, hassan, hungry, illya, lewd, look, mash, murasaki, olga, ozy, padoru, party, police, rateup, rin, roman, save, shock, slap, smug, sumanai, taiga, tamapop, ticket, umu, wait, warning, whale, wut, yorokobe, 5stars",
+            "value": "aaaaa, apple, bananapop, bb, dancevinci, dab, ded, fes, gacha, haha, hassan, hungry, illya, lewd, look, math, mash, murasaki, olga, ozy, padoru, party, police, rateup, rin, roman, save, shock, slap, smug, sumanai, taiga, tamapop, ticket, umu, wait, warning, whale, wut, yorokobe, 5stars",
           },
           {
             "name": "Bot related stuff",

@@ -18,7 +18,7 @@ exports.run = (client, message, args) => {
       let newurl = 'https://news.fate-go.jp' + array[x];
       request(newurl, function(err, resp, body){
         $ = cheerio.load(body);
-        if ($('p:contains("イベント開催期間")').text().match(/\S*\d+\S*/g)){
+        if ($("title").text().indexOf("開催") != -1 && $('p:contains("イベント開催期間")').text().match(/\S*\d+\S*/g)){
           let times = $('p:contains("イベント開催期間")').text().match(/\S*\d+\S*/g).map(function (v) {return v;});
           let temp = times[1].split("～");
           let newTimes = [times[0], temp[0], temp[1], times[2].substring(0,5)];
@@ -64,7 +64,7 @@ function eventCalc(eventInfo, message) {
         "title":"This event ends in " + elapsed_time[0] + " days, " + elapsed_time[1] + " hours, " + elapsed_time[2] + " minutes.",
         //"description": "You will regenerate " + elapsed_time[3] + " more AP and " + elapsed_time[4] + " more BP during this time.",
         "description": "You will regenerate " + elapsed_time[3] + " more AP during this time.",
-        "color": 8817876,
+        "color": 0000000,
         "image": {
         "url": eventInfo.img,
         }
@@ -76,7 +76,7 @@ function eventCalc(eventInfo, message) {
     message.channel.send({
       "embed": {
         "title":"This event begins in " + to_begin[0] + " days, " + to_begin[1] + " hours, " + to_begin[2] + " minutes.",
-        "color": 8817876,
+        "color": 0000000,
         "image": {
         "url": eventInfo.img,
         }

@@ -1,10 +1,10 @@
 {
-  "name": "8 Million DL Commemoration Summon",
+  "name": "Agartha Pickup Summon 1",
   "desc": "",
   "servants": {
-    "3": [ "017", "023", "031" ],
-    "4": [ "" ],
-    "5": [ "127" ]
+    "3": [ "" ],
+    "4": [ "170", "171" ],
+    "5": [ "169" ]
   },
   "ce": {
     "3": [ "" ],
@@ -14,7 +14,7 @@
   "rates": {
       "servstandard": [ 1, 3, 40 ],
       "cestandard": [ 4, 12, 40 ],
-      "servrateup": [ 0.7, 0, 12 ],
+      "servrateup": [ 0.7, 2.4, 0 ],
       "cerateup": [ 0, 0, 0 ]
   }
 }

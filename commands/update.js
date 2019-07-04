@@ -6,7 +6,7 @@ exports.run = (client, message, args) => {
   if (args[0] === "drops") {
     message.channel.send("Updating Tamabot's drop info... Please wait.");
     gsjson({
-      spreadsheetId: '15uuRx7exiJ5skkx9vGu5x6hfSFbmn1i9GmU7EVNtP90',
+      spreadsheetId: config.nadrops,
       credentials: config.creds
     }).then(function(result) {
         console.log(result.length);
@@ -24,7 +24,7 @@ exports.run = (client, message, args) => {
         return;
     });
     gsjson({
-      spreadsheetId: '1B4W5e_gF--rN14q0RNlkwCfxPIs4Is0QGukV52EoXR8',
+      spreadsheetId: config.jpdrops,
       credentials: config.creds
     }).then(function(result) {
         console.log(result.length);

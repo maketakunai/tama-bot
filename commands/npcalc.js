@@ -1,33 +1,33 @@
 const minimist = require('minimist');
 
 exports.run = (client, message, args) => {
-  var input = minimist(args, {
+  let input = minimist(args, {
     string: ['atk', 'np', 'type', 'class', 'atkup', 'defdown', 'cardup',
     'carddown', 'npup', 'spatk', 'npsp', 'flatatk', 'adv', 'esadv']
   });
 
   if (input["atk"] === undefined || input["np"] === undefined ||
   input["type"] === undefined || input["class"] === undefined) {
-    message.channel.send(`Please check that you have the correct options and try again. \`!help npcalc\``);
+    message.channel.send(`\`!help npcalc\` Try the np calc at https://maketakunai.github.io/`);
     return;
   }
-  //Check for and initialize all vars.
-  var atk = isFixedValue(input["atk"]);
-  var np = isValue(input["np"]);
-  var type = cardDmg(input["type"]);
-  var classdmg = classDmg(input["class"]);
-  var atkup = isValue(input["atkup"]);
-  var defdown = isValue(input["defdown"]);
-  var cardup = isValue(input["cardup"]);
-  var carddown = isValue(input["carddown"]);
-  var npup = isValue(input["npup"]);
-  var spatk = isValue(input["spatk"]);
-  var npsp = isValue(input["npsp"]);
-  var flatatk = isFixedValue(input["flatatk"]);
-  var adv = advantageCalc(input["adv"]);
-  var esadv = attributeCalc(input["esadv"]);
+  //Check for and initialize all variables.
+  let atk = isFixedValue(input["atk"]);
+  let np = isValue(input["np"]);
+  let type = cardDmg(input["type"]);
+  let classdmg = classDmg(input["class"]);
+  let atkup = isValue(input["atkup"]);
+  let defdown = isValue(input["defdown"]);
+  let cardup = isValue(input["cardup"]);
+  let carddown = isValue(input["carddown"]);
+  let npup = isValue(input["npup"]);
+  let spatk = isValue(input["spatk"]);
+  let npsp = isValue(input["npsp"] - 100) || 0;
+  let flatatk = isFixedValue(input["flatatk"]);
+  let adv = advantageCalc(input["adv"]);
+  let esadv = attributeCalc(input["esadv"]);
 
-  var total = Number(atk) * np * type * adv * classdmg * 0.23 *
+  let total = Number(atk) * np * type * adv * classdmg * 0.23 *
       (1 + atkup + defdown) *
       (1 + cardup + carddown) *
       (1 + npup + spatk) *
@@ -38,8 +38,8 @@ exports.run = (client, message, args) => {
   //console.log(input);
   //console.log(total);
 
-  var userinput = '';
-  for (var key in input) {
+  let userinput = '';
+  for (let key in input) {
     if (key === '_'){
       continue;
     }
@@ -73,7 +73,7 @@ exports.run = (client, message, args) => {
 };
 
 function isValue(input){
-  var value;
+  let value;
   if (input === undefined){
     value = 0;
   }
@@ -83,7 +83,7 @@ function isValue(input){
 }
 
 function isFixedValue(input){
-  var value;
+  let value;
   if (input === undefined){
     value = 0;
   }
@@ -93,7 +93,7 @@ function isFixedValue(input){
 }
 
 function classDmg(input){
-  var classVal = 1;
+  let classVal = 1;
   if (input === undefined){
     return classVal;
   }
@@ -114,7 +114,7 @@ function classDmg(input){
 }
 
 function cardDmg(input){
-  var cardVal = 0;
+  let cardVal = 0;
   if (input === undefined){
     return cardVal;
   }
@@ -131,7 +131,7 @@ function cardDmg(input){
 }
 
 function advantageCalc(input){
-  var adv = 1;
+  let adv = 1;
   if (input === undefined){
     return adv;
   }
@@ -148,7 +148,7 @@ function advantageCalc(input){
 }
 
 function attributeCalc(input){
-  var attVal = 1;
+  let attVal = 1;
   if (input === undefined){
     return attVal;
   }

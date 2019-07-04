@@ -11,6 +11,8 @@
 {"singularity":"Agartha","alias":["Epic of Remnant 2", "EOR 2"],"total_ap":917,"total_nodes":42,"total_chaps":16,"completion_time":3.18,"image":"Agartha"},
 {"singularity":"Shimosa","alias":["Epic of Remnant 3", "EOR 3", "Shimousa"],"total_ap":821,"total_nodes":51,"total_chaps":16,"completion_time":3.2,"image":"Shimosa"},
 {"singularity":"Salem","alias":["Epic of Remnant 4", "EOR 4"],"total_ap":646,"total_nodes":37,"total_chaps":10,"completion_time":2.24,"image":"Salem"},
-{"singularity":"Anastasia","alias":["Cosmos in the Lostbelt 1", "LB 1", "Part 2"],"total_ap":879,"total_nodes":51,"total_chaps":23,"completion_time":3.05,"image":"Anastasia"},
-{"singularity":"Goetterdaemmerung","alias":["Cosmos in the Lostbelt 2", "LB 2", "Part 2"],"total_ap":970,"total_nodes":67,"total_chaps":18,"completion_time":3.37,"image":"Goetterdaemmerung"},
-{"singularity":"SIN","alias":["Cosmos in the Lostbelt 3", "LB 3", "Part 2"],"total_ap":755,"total_nodes":38,"total_chaps":16,"completion_time":2.62,"image":"SIN"}]
+{"singularity":"Anastasia","alias":["Lostbelt 1", "LB 1", "Part 2"],"total_ap":879,"total_nodes":51,"total_chaps":23,"completion_time":3.05,"image":"Anastasia"},
+{"singularity":"Goetterdaemmerung","alias":["Lostbelt 2", "LB 2", "Part 2"],"total_ap":970,"total_nodes":67,"total_chaps":18,"completion_time":3.37,"image":"Goetterdaemmerung"},
+{"singularity":"SIN","alias":["Lostbelt 3", "LB 3", "Part 2"],"total_ap":853,"total_nodes":42,"total_chaps":16,"completion_time":2.96,"image":"SIN"},
+{"singularity":"Yuga Kshetra","alias":["Lostbelt 4", "LB 4", "Part 2"],"total_ap":880,"total_nodes":70,"total_chaps":20,"completion_time":3.06,"image":"Yuga"},
+{"singularity":"Atlantis","alias":["Lostbelt 5", "LB 5", "Part 2"],"total_ap":0,"total_nodes":0,"total_chaps":0,"completion_time":0,"image":"Atlantis"}]

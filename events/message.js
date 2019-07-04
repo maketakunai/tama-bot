@@ -10,7 +10,7 @@ module.exports = (client, message) => {
   }
 
   if (!client.commands.get(command) && !client.commands.get(client.aliases.get(command))){
-    message.channel.send(`Command ${command} does not exist. \`!help\` for a list of commands.`);
+    message.channel.send(`Command ${command} does not exist. \`!help\` for a list of commands.`).then(m => m.delete(5000));
     return;
   }
   const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command));

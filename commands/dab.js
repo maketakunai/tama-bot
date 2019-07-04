@@ -8,7 +8,7 @@ exports.run = (client, message, args) => {
   }).catch(console.error);
 }
 
-var answers = ["https://i.imgur.com/sSIu82q.png",
+const answers = ["https://i.imgur.com/sSIu82q.png",
 "https://i.imgur.com/MTJasGq.png",
 "https://i.imgur.com/MkA9Dyc.png",
 "https://i.imgur.com/YOxclxo.png",
@@ -23,7 +23,14 @@ var answers = ["https://i.imgur.com/sSIu82q.png",
 "https://i.imgur.com/TlMZlFo.jpg",
 "https://cdn.discordapp.com/attachments/328226993361649674/519581883223375874/cursedarmdab.png",
 "https://i.imgur.com/ivX2P7f.gif",
-"https://cdn.discordapp.com/attachments/522576189349691395/535718136356274176/c5fpn5219qu11_1.png"]
+"https://cdn.discordapp.com/attachments/522576189349691395/535718136356274176/c5fpn5219qu11_1.png",
+"https://cdn.discordapp.com/attachments/125022883109011457/554039107781787648/tumblr_po35wcwOBf1uvi4xwo2_1280.png",
+"https://i.imgur.com/tfrgCsM.png",
+"https://i.imgur.com/3USmy3C.png",
+"https://i.imgur.com/5DKuvv9.jpg",
+"https://i.imgur.com/elAuoM5.jpg",
+"https://i.imgur.com/mM9fdav.jpg",
+"https://i.imgur.com/gKOlg6D.png"]
 
 function randomImage() {
   return answers[Math.floor(Math.random()*answers.length)];

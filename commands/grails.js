@@ -1,10 +1,11 @@
-var storyGrails = 10;
-var storyGrails2 = 0;
-var eventGrails = 6;
-var jpStoryGrails1 = 10;
-var jpStoryGrails2 = 4;
-var jpStoryGrails3 = 3;
-var jpEventGrails = 20;
+let storyGrails = 10;
+let storyGrails2 = 2;
+let storyGrails3 = 0;
+let eventGrails = 8;
+let jpStoryGrails1 = 10;
+let jpStoryGrails2 = 4;
+let jpStoryGrails3 = 4;
+let jpEventGrails = 25;
 
 
 exports.run = (client, message, args) => {
@@ -15,45 +16,33 @@ exports.run = (client, message, args) => {
         "url": "https://cirnopedia.org/fate-go/icons/item/item_006.png"
       },
       "author": {
-        "name": "Grail Information",
+        "name": "Grail Information for JP/NA",
       },
       "fields": [
         {
-          "name": "Grails obtained from clearing Story in JP (part 1)",
-          "value": `${jpStoryGrails1}`,
+          "name": "Grails obtained from clearing Story (part 1)",
+          "value": `Total: ${jpStoryGrails1}\nNA: ${storyGrails}`,
         },
         {
-          "name": "Grails obtained from clearing Story in JP (part 1.5)",
-          "value": `${jpStoryGrails2}`,
+          "name": "Grails obtained from clearing Story (part 1.5)",
+          "value": `Total: ${jpStoryGrails2}\nNA: ${storyGrails2}`,
         },
         {
-          "name": "Grails obtained from clearing Story in JP (part 2)",
-          "value": `${jpStoryGrails3}`,
+          "name": "Grails obtained from clearing Story (part 2)",
+          "value": `Total: ${jpStoryGrails3}\nNA: ${storyGrails3}`,
         },
         {
-          "name": "Grails obtained from clearing Events in JP",
-          "value": `${jpEventGrails}`,
-        },
-        {
-          "name": "Grails obtained from clearing Story in NA (part 1)",
-          "value": `${storyGrails}`,
-        },
-        {
-          "name": "Grails obtained from clearing Story in NA (part 1.5)",
-          "value": `${storyGrails2}`,
-        },
-        {
-          "name": "Grails obtained from clearing Events in NA",
-          "value": `${eventGrails}`,
+          "name": "Grails obtained from clearing Events",
+          "value": `Total: ${jpEventGrails}\nNA: ${eventGrails}`,
         },
         {
           "name": "Events that give grails",
-          "value": "Halloween 2015\nDa Vinci\nFate/Zero Collaboration\nOnigashima\nSummer 2016\nHalloween 2016\nGudaGuda Meiji Ishin\nCCC Collaboration\nSummer 2017\nHalloween 2017",
+          "value": "Halloween 2015\nDa Vinci\nFate/Zero Collaboration\nOnigashima\nSummer 2016\nHalloween 2016\nGudaGuda Meiji Restoration\nCCC Collaboration\nSummer 2017\nHalloween 2017\nValentine's 2018\nApocrypha Collaboration",
           "inline": true
         },
         {
           "name": "delicious grails",
-          "value": "Valentine's 2018\nApocrypha Collaboration\nGudaGuda Teito Seihai Kitan\nSummer 2018 (x2)\nBattle in NY 2018\nHalloween 2018 ONILAND\nChristmas 2018\nNew Years 2019\nValentine's 2019",
+          "value": "GudaGuda Teito Seihai Kitan\nSummer 2018 (x2)\nBattle in NY 2018\nHalloween 2018 ONILAND\nChristmas 2018\nNew Years 2019\nValentine's 2019\nCCC Rerun (+1)\nCBC 2019\nTokugawa Labyrinth\nCase Files Collaboration\nA Study at Meiho Manor",
           "inline": true
         }
       ]
@@ -70,5 +59,5 @@ exports.conf = {
 exports.help = {
   name: 'grails',
   description: `Shows currently available grails in NA/JP.`,
-  usage: '!grail'
+  usage: '!grails'
 };

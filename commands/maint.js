@@ -12,7 +12,7 @@ exports.run = (client, message, args) => {
       var href = $(link).attr('href');
       array.push(href);
     });
-    console.log(array);
+    //console.log(array);
     var newurl = 'https://webview.fate-go.us' + array[0];
     request(newurl, function(err, resp, body){
       $ = cheerio.load(body);
@@ -25,11 +25,16 @@ exports.run = (client, message, args) => {
 function maintCalc(times, message) {
   var inMaint, beforeMaint, endMaint;
   var getUTC = Number(moment().unix()*1000);
+  if (times[2].search('2019-') == -1){
+    //console.log('blalbalbalbalbab');
+    times[2] = '2019-' + times[2];
+  }
   var sTime = `${times[0]} ${times[1]}`;
   var eTime = `${times[2]} ${times[3]}`;
+  //console.log(sTime, eTime);
   var startTime = moment.tz(sTime, "America/Los_Angeles").format('x');
   var endTime = moment.tz(eTime, "America/Los_Angeles").format('x');
-  console.log(startTime, endTime, getUTC);
+  //console.log(startTime, endTime, getUTC);
 
   if (getUTC < endTime && getUTC < startTime)
   {
@@ -48,7 +53,7 @@ function maintCalc(times, message) {
   if (beforeMaint){
     message.channel.send({
       "embed": {
-        "title":`Scheduled FGO Maintenance\n${sTime} to ${eTime} (PST)`,
+        "title":`Scheduled FGO Maintenance\n${sTime} to ${eTime} (PDT)`,
         "description": "Maintenance begins in " + elapsed_time[0] + " days, " + elapsed_time[1] + " hours, " + elapsed_time[2] + " minutes.\n" +
                        "Maintenance ends in " + elapsed_time[3] + " days, " + elapsed_time[4] + " hours, " + elapsed_time[5] + " minutes.\n",
         "color": 8817876,
@@ -62,7 +67,7 @@ function maintCalc(times, message) {
   else if (inMaint){
     message.channel.send({
       "embed": {
-        "title":`Scheduled FGO Maintenance\n${sTime} to ${eTime} (PST)`,
+        "title":`Scheduled FGO Maintenance\n${sTime} to ${eTime} (PDT)`,
         "description": "Maintenance has begun.\n" +
                        "Maintenance ends in " + elapsed_time[3] + " days, " + elapsed_time[4] + " hours, " + elapsed_time[5] + " minutes.\n",
         "color": 8817876,
@@ -76,7 +81,7 @@ function maintCalc(times, message) {
     message.channel.send({
       "embed": {
         "color": 8817876,
-        "title":`The last maintenance was:\n${sTime} to ${eTime} (PST)`,
+        "title":`The last maintenance was:\n${sTime} to ${eTime} (PDT)`,
         "image": {
         "url": randomImage(),
         }
@@ -110,7 +115,8 @@ var answers = ["https://i.imgur.com/guwcFbn.jpg",
 "https://i.imgur.com/nMrE5J9.jpg",
 "https://i.imgur.com/zCWPkTx.jpg",
 "https://i.imgur.com/IVS0B6Z.jpg",
-"https://i.imgur.com/N0yP6JQ.jpg"]
+"https://i.imgur.com/N0yP6JQ.jpg",
+"https://i.imgur.com/Zn3ko1c.jpg"]
 
 function randomImage() {
   return answers[Math.floor(Math.random()*answers.length)];

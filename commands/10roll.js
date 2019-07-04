@@ -7,8 +7,8 @@ const snek = require("snekfetch")
 const Canvas = require('canvas-prebuilt');
 const util = require('util');
 
-var totalrollstats = [0,0,0,0,0,0]; // in order from SSR, SR, R servants to ces
-var userstats = {};
+let totalrollstats = [0,0,0,0,0,0]; // in order from SSR, SR, R servants to ces
+let userstats = {};
 
 exports.run = (client, message, args) => {
   if (message.guild.id == 328226892798754819 && message.channel.id != 421357102229880842) {
@@ -29,33 +29,15 @@ exports.run = (client, message, args) => {
     case "stats":
       showstats(message);
       break;
-    case "davinci":
+    case "luckybag":
       var normgacha = require("../data/gacha/gacha-standardpool.json"),
-          rateup = require("../data/gacha/rateup-davinci.json"),
+          rateup = require("../data/gacha/rateup-luckybag.json"),
           rates = rateup.rates;
-      rollten(rates, normgacha, rateup, message);
+      rollten(rates, normgacha, rateup, message, args[0]);
       break;
-    case "mhxa":
-      var normgacha = require("../data/gacha/gacha-valentinepool.json"),
-          rateup = require("../data/gacha/rateup-mhxa.json"),
-          rates = rateup.rates;
-      rollten(rates, normgacha, rateup, message);
-      break;
-    case "shinjuku1":
+    case "agartha":
       var normgacha = require("../data/gacha/gacha-standardpool.json"),
-          rateup = require("../data/gacha/rateup-shinjuku1.json"),
-          rates = rateup.rates;
-      rollten(rates, normgacha, rateup, message);
-      break;
-    case "shinjuku2":
-      var normgacha = require("../data/gacha/gacha-standardpool.json"),
-          rateup = require("../data/gacha/rateup-shinjuku2.json"),
-          rates = rateup.rates;
-      rollten(rates, normgacha, rateup, message);
-      break;
-    case "cbc":
-      var normgacha = require("../data/gacha/gacha-cbcpool.json"),
-          rateup = require("../data/gacha/rateup-cbc.json"),
+          rateup = require("../data/gacha/rateup-agartha.json"),
           rates = rateup.rates;
       rollten(rates, normgacha, rateup, message);
       break;
@@ -77,9 +59,21 @@ exports.run = (client, message, args) => {
           rates = rateup.rates;
       rollten(rates, normgacha, rateup, message);
       break;
-    case "murasaki":
-      var normgacha = require("../data/gacha/gacha-valentinepoolJP.json"),
-          rateup = require("../data/gacha/rateup-valentine2019.json"),
+    case "summer1":
+      var normgacha = require("../data/gacha/gacha-standardpool.json"),
+          rateup = require("../data/gacha/rateup-summer1.json"),
+          rates = rateup.rates;
+      rollten(rates, normgacha, rateup, message);
+      break;
+    case "summer2":
+      var normgacha = require("../data/gacha/gacha-standardpool.json"),
+          rateup = require("../data/gacha/rateup-summer2.json"),
+          rates = rateup.rates;
+      rollten(rates, normgacha, rateup, message);
+      break;
+    case "holmes":
+      var normgacha = require("../data/gacha/gacha-standardpool.json"),
+          rateup = require("../data/gacha/rateup-anniversary.json"),
           rates = rateup.rates;
       rollten(rates, normgacha, rateup, message);
       break;
@@ -96,7 +90,7 @@ exports.run = (client, message, args) => {
       rollten(rates, normgacha, rateup, message);
       break;
     default:
-      message.channel.send("'!10roll (banner)' to 10roll the gacha. '10roll reset' to reset your stats.\nAvailable banners: cbc, ccc1, ccc2, davinci, gudaguda, mhxa, shinjuku1, shinjuku2, story, storyjp, murasaki\n");
+      message.channel.send("'!10roll (banner)' to 10roll the gacha. '10roll reset' to reset your stats.\nAvailable banners: agartha, ccc1, ccc2, gudaguda, holmes, summer1, summer2, story, storyjp, luckybag\n");
       break;
   }
 };
@@ -129,6 +123,15 @@ function roll3starserv (rateup, normgacha) {
   if (roll > 0 && roll <= normgacha['servants']['3'].length/total * 100) {
     return 'S/'+normgacha['servants']['3'][Math.floor(Math.random()*normgacha['servants']['3'].length)];
   } else return 'S/'+rateup['servants']['3'][Math.floor(Math.random()*rateup['servants']['3'].length)];
+}
+
+function roll5starserv (rateup, normgacha, rollstats) {
+  let roll = Math.random()*100;
+  let total = rateup['servants']['5'].length;
+  rollstats[0] += 1;
+  if (roll > 0 && roll <= rateup['servants']['5'].length/total * 100) {
+    return 'S/'+rateup['servants']['5'][Math.floor(Math.random()*rateup['servants']['5'].length)];
+  }
 }
 
 //make a roulette wheel out of all the gacha probabilities, then return servant chosen at random from the pool that was selected
@@ -205,47 +208,61 @@ function gacharoll (rates, r_intervals, rateup, normgacha, guaranteed, rollstats
 
 function singleroll (rates,intervals,rateup,normgacha,ctx,rollz,i,j) {
   return myPromise = new Promise(function (resolve, reject){
-    if (true) {
+    resolve(
       snek.get(rollz[j][i]).then(r => {
         var card = new Canvas.Image();
         card.onload = function () {
-          ctx.drawImage(card, i*129, j*220);
+          ctx.drawImage(card, i*129, j*219);
         }
         card.src = r.body;
-        resolve ('ok');
       })
-    } else {
-      reject('failed');
-    }
+    );
+    reject(new Error("failed"));
   })
 }
 
-function rollten (rates, normgacha, rateup, message){
-  var rollstats = [0,0,0,0,0,0];
-  var intervals = setIntervals(rates);
+function rollten (rates, normgacha, rateup, message, args){
+  let rollstats = [0,0,0,0,0,0];
+  let intervals = setIntervals(rates);
   const canvas = new Canvas(645, 440);
   const ctx = canvas.getContext('2d');
-  var userid = message.author.id;
-  var rollz = [];
-  var rolla = [],
+  let userid = message.author.id;
+  let rollz = [];
+  let rolla = [],
       rollb = [];
-  var guaranteeda = [],//3 star or above servant, 4 star CE met?
+  let guaranteeda = [],//3 star or above servant, 4 star CE met?
       guaranteedb = [];
-  for (var a = 0; a < 5; a++){
-    var yoloroll1 = gacharoll(rates,intervals,rateup,normgacha,guaranteeda,rollstats);
-    var yoloroll2 = gacharoll(rates,intervals,rateup,normgacha,guaranteedb,rollstats);
-    rolla.push(`https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/${yoloroll1}.png`);
-    rollb.push(`https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/${yoloroll2}.png`);
+
+  if (args === "luckybag"){
+    rolla[0] = `https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/${roll5starserv(rateup, normgacha, rollstats)}.png`
+    for (let a = 1; a < 5; a++){
+      let yoloroll1 = gacharoll(rates,intervals,rateup,normgacha,guaranteeda,rollstats);
+      rolla.push(`https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/${yoloroll1}.png`);
+    }
+    for (let a = 0; a < 5; a++){
+      let yoloroll2 = gacharoll(rates,intervals,rateup,normgacha,guaranteedb,rollstats);
+      rollb.push(`https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/${yoloroll2}.png`);
+    }
   }
-  var guaranteed = [];
+  else {
+    for (let a = 0; a < 5; a++){
+      let yoloroll1 = gacharoll(rates,intervals,rateup,normgacha,guaranteeda,rollstats);
+      let yoloroll2 = gacharoll(rates,intervals,rateup,normgacha,guaranteedb,rollstats);
+      rolla.push(`https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/${yoloroll1}.png`);
+      rollb.push(`https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/${yoloroll2}.png`);
+    }
+  }
+
+
+  let guaranteed = [];
   guaranteed = guaranteeda.concat(guaranteedb);
   if ( (guaranteed.includes("c4") && (guaranteed.includes("s3")||guaranteed.includes("s4")||guaranteed.includes("s5"))) ||
        (guaranteed.includes("c5") && (guaranteed.includes("s3")||guaranteed.includes("s4")||guaranteed.includes("s5"))) ) {
-    console.log("succ", guaranteed);
+    //console.log("succ", guaranteed);
     rollz.push(rolla);
     rollz.push(rollb);
   } else {
-    console.log("failed", guaranteed);
+    //console.log("failed", guaranteed);
     rollb[3] = `https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/${roll3starserv(rateup, normgacha)}.png`
     rollb[4] = `https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/${roll4starCE(rateup, normgacha)}.png`
     rollz.push(rolla);
@@ -292,26 +309,26 @@ function rollten (rates, normgacha, rateup, message){
     }
   }
 
-  var sumtotal = rollstats.map(function (num, idx) { return num + totalrollstats[idx]; });
+  let sumtotal = rollstats.map(function (num, idx) { return num + totalrollstats[idx]; });
   totalrollstats = sumtotal;
 
   if (!userstats[userid]) {
     userstats[userid] = {userid};
     userstats[userid].stats = [0,0,0,0,0,0];
     userstats[userid].stats = rollstats;
-    console.log("mystats", userstats[userid].stats)
-    console.log(rollstats);
+    //console.log("mystats", userstats[userid].stats)
+    //console.log(rollstats);
   }
   else if (userstats[userid]) {
-    var sumtotal = rollstats.map(function (num, idx) { return num + userstats[userid].stats[idx]; });
+    let sumtotal = rollstats.map(function (num, idx) { return num + userstats[userid].stats[idx]; });
     userstats[userid].stats = sumtotal;
-    console.log("mystats", userstats[userid].stats)
+    //console.log("mystats", userstats[userid].stats)
   }
-  var rolltotal = userstats[userid].stats.reduce((a, b) => a + b, 0);
-  var quartz = 30 * Number(rolltotal)/10;
-  var dollars = 0.4789 * quartz;
-  var myservants = `5★: ${userstats[userid].stats[0]}, ${(userstats[userid].stats[0]*100/rolltotal).toFixed(1)}%\n4★: ${userstats[userid].stats[1]}, ${(userstats[userid].stats[1]*100/rolltotal).toFixed(1)}%\n3★: ${userstats[userid].stats[2]}, ${(userstats[userid].stats[2]*100/rolltotal).toFixed(1)}%`;
-  var myces = `5★: ${userstats[userid].stats[3]}, ${(userstats[userid].stats[3]*100/rolltotal).toFixed(1)}%\n4★: ${userstats[userid].stats[4]}, ${(userstats[userid].stats[4]*100/rolltotal).toFixed(1)}%\n3★: ${userstats[userid].stats[5]}, ${(userstats[userid].stats[5]*100/rolltotal).toFixed(1)}%`;
+  let rolltotal = userstats[userid].stats.reduce((a, b) => a + b, 0);
+  let quartz = 30 * Number(rolltotal)/10;
+  let dollars = 0.4789 * quartz;
+  let myservants = `5★: ${userstats[userid].stats[0]}, ${(userstats[userid].stats[0]*100/rolltotal).toFixed(1)}%\n4★: ${userstats[userid].stats[1]}, ${(userstats[userid].stats[1]*100/rolltotal).toFixed(1)}%\n3★: ${userstats[userid].stats[2]}, ${(userstats[userid].stats[2]*100/rolltotal).toFixed(1)}%`;
+  let myces = `5★: ${userstats[userid].stats[3]}, ${(userstats[userid].stats[3]*100/rolltotal).toFixed(1)}%\n4★: ${userstats[userid].stats[4]}, ${(userstats[userid].stats[4]*100/rolltotal).toFixed(1)}%\n3★: ${userstats[userid].stats[5]}, ${(userstats[userid].stats[5]*100/rolltotal).toFixed(1)}%`;
   const embed = {
     "title":`${message.author.username}'s total stats: ${rolltotal/10}x 10rolls, ${quartz} <:quartz:526188417743323139>`,// $${dollars.toFixed(2)} spent`,
     "color": 8817876,
@@ -337,9 +354,9 @@ function rollten (rates, normgacha, rateup, message){
       }
     ]
   }
-  var promises = [];
-  for (var i = 0; i < 5; i++){
-    for (var j = 0; j < 2; j++) {
+  let promises = [];
+  for (let i = 0; i < 5; i++){
+    for (let j = 0; j < 2; j++) {
       promises.push(singleroll (rates,intervals,rateup,normgacha,ctx,rollz,i,j));
     }
   }
@@ -351,7 +368,7 @@ function rollten (rates, normgacha, rateup, message){
     })
     .catch((e) => {
       console.log(e);
-      message.channel.send(`Yikes! Something happened. Try rolling again.`);
+      message.channel.send(`Yikes! An error occurred. Try rolling again.`);
     })
   talkedRecently.add(message.author.id);
   setTimeout(() => {
@@ -360,7 +377,7 @@ function rollten (rates, normgacha, rateup, message){
 }
 
 function reset (message) {
-  var userid = message.author.id;
+  let userid = message.author.id;
   if (!userstats[userid]) {
     message.channel.send(message.author.username + ", you don't have any roll stats to reset.");
     return;
@@ -377,7 +394,7 @@ function showstats(message){
   let hours = (currTime / (1000*60*60)).toFixed(1);
   message.channel.send(totalrollstats.reduce((a, b) => a + b, 0) + ` total rolls across all servers since last restart ${hours} hours ago.`);
 
-  var data = [{
+  let data = [{
     x:["5* Servant","4* Servant","3* Servant","5* CE","4* CE","3* CE"],
     y:totalrollstats, type: 'bar',
     text:totalrollstats,
@@ -391,7 +408,7 @@ function showstats(message){
       }
     }
   }];
-  var layout = {fileopt : "overwrite", filename : "simple-node-example"};
+  let layout = {fileopt : "overwrite", filename : "simple-node-example"};
 
   plotly.plot(data, layout, function (err, msg) {
     if (err) return console.log(err);
@@ -416,6 +433,6 @@ exports.conf = {
 
 exports.help = {
   name: '10roll',
-  description: 'Does a 10roll of the gacha.\nAvailable banners: story, storyjp, cbc, ccc1, ccc2, davinci, gudaguda, mhxa, shinjuku1, shinjuku2, murasaki\n!10roll stats to see stats.',
+  description: 'Does a 10roll of the gacha.\nAvailable banners: story, storyjp, agartha, holmes, ccc1, ccc2, gudaguda, summer1, summer2, luckybag\n!10roll stats to see stats.',
   usage: '!10roll [bannername]'
 };

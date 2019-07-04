@@ -1,9 +1,8 @@
-
 const Fuse = require('fuse.js')
 
 exports.run = (client, message, args) => {
   if (args.length < 1){
-    message.channel.send("This is way too easy♪ Here's your drop rate spreadsheet!").catch(console.error);
+    //message.channel.send("This is way too easy♪ Here's your drop rate spreadsheet!").catch(console.error);
     message.channel.send("https://docs.google.com/spreadsheets/d/1_SlTjrVRTgHgfS7sRqx4CeJMqlz687HdSlYqiW-JvQA/edit#gid=525320539").catch(console.error);
   }
   else {
@@ -42,6 +41,9 @@ exports.run = (client, message, args) => {
               },
               "author": {
                 "name": `${searchResult[0].item}`,
+              },
+              "footer": {
+                "text": `Warning: NA droprates may not be accurate due to small sample size.`
               },
               "fields": [
                 {
@@ -86,7 +88,7 @@ function findDrop(input){
     location: 0,
     distance: 100,
     maxPatternLength: 32,
-    minMatchCharLength: 3,
+    minMatchCharLength: 1,
     keys: ["item"]
   };
   var fuse1 = new Fuse(dropList, options);

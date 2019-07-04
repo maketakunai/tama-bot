@@ -7,12 +7,20 @@ exports.run = (client, message, args) => {
     const canvas = new Canvas(500, 280);
     const ctx = canvas.getContext('2d');
     const img_bg = new Canvas.Image();
-    ctx.font = "bold 18px Arial";
+    ctx.font = '18px "FOT\-Fate_Go Skip"';
 
-    for (let i = 0; i < args.length; i++){
-      if (args[i] == message.mentions.members.first()) args[i] = message.mentions.members.first().displayName;
-      console.log(args[i]);
+    var fsize = 18;
+    if (args[0] === '-fs' || args[0] === 'fs' || args[0] === '--fs') {
+      args.shift();
+      ctx.font = args[0] + 'px "FOT\-Fate_Go Skip"';
+      //console.log(ctx.font);
+      fsize = args.shift();
+      if (!Number(fsize)){
+        ctx.font = '18px "FOT\-Fate_Go Skip"';
+        fsize = 18;
+      }
     }
+
     args = args.join(' ');
     args = `${args}`.trim();
 
@@ -47,6 +55,3 @@ exports.help = {
   description: 'will superimpose your text onto a picture of olga.',
   usage: 'olga [insert text here]'
 };
-
-
-

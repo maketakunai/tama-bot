@@ -1,14 +1,20 @@
 {
-  "name": "Summer! Sea! Development! FGO Summer 2",
+  "name": "Death Jail Summer Escape Pickup Summon",
   "desc": "",
   "servants": {
     "3": [ "" ],
-    "4": [ "130" , "135" ],
-    "5": [ "129" ]
+    "4": [ "180", "181" ],
+    "5": [ "179" ]
   },
   "ce": {
-    "3": [ "298" ],
-    "4": [ "297" ],
-    "5": [ "295" ]
+    "3": [ "654" ],
+    "4": [ "653" ],
+    "5": [ "652" ]
+  },
+  "rates": {
+      "servstandard": [ 1, 3, 40 ],
+      "cestandard": [ 4, 12, 40 ],
+      "servrateup": [ 0.7, 2.4, 0 ],
+      "cerateup": [ 2.8, 4, 8 ]
   }
 }
