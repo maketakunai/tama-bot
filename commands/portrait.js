@@ -1,5 +1,6 @@
 const servantList = require("../data/servant_db.json");
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+const emoji = require("../data/emoji.json");
 
 exports.run = (client, message, args) => {
   if (args.length == 0) {
@@ -18,38 +19,53 @@ exports.run = (client, message, args) => {
     return;
   }
   let servantSearch = findServant(classSearch, searchString);
+  let responseList = [];
+  let numList = [];
 
-
-  if (servantSearch.length > 0 && servantSearch.length < 6) {
-    for (let j = 0; j < servantSearch.length; j++) {
+  if (servantSearch.length == 1){
+    for (let j = 0; j < servantSearch.length; j++){
       let servnum = pad(servantSearch[j].id, 3);
-      let imgurl = `https://cirnopedia.org/fate-go/icons/servant_card/`+ servnum + ascensionNumber + `.jpg`;
-      let name = `${servantSearch[j].name}`;
-      let desc = '';
-      if (servantSearch[j].hiddenname) {
-        //name = `${servantSearch[j].name}/||${servantSearch[j].alias}||`
-        desc = `||${servantSearch[j].alias}||`;
-      }
-      let exists = imageExists(imgurl);
-      if (exists){
-        message.channel.send({
-          "embed": {
-            "title": `${servantSearch[j].name}`,
-            "description": desc,
-            "color": 16756224,
-            "image": {
-            "url": `${imgurl}`
+      showPortrait(servantSearch[j], ascensionNumber, servnum, message);
+    }
+    return;
+  }
+  else if (servantSearch.length > 1) {
+    for (let i = 0; i < servantSearch.length; i++){
+      let servnum = pad(servantSearch[i].id, 3);
+      numList.push(servnum);
+      let serv = `${servnum}: ${servantSearch[i].name}, ${servantSearch[i].rarity} ★ ${emoji[servantSearch[i].class]} ${servantSearch[i].class}`
+      responseList.push(serv);
+    }
+
+    message.channel.send(`Reply with the ID number of the servant you want (example:\`001\`), or type \`showall\` to show all:\n${responseList.join('\r\n')}`)
+      .then(() => {
+        numList.push('showall');
+        message.channel.awaitMessages(response => numList.indexOf(response.content) != -1, {
+        max: 1,
+        time: 15000,
+        errors: ['time'],
+      })
+      .then((collected) => {
+        if (collected.first().content == 'showall') {
+          for (let j = 0; j < servantSearch.length; j++){
+            let servnum = pad(servantSearch[j].id, 3);
+            showPortrait(servantSearch[j], ascensionNumber, servnum, message);
+          }
+        }
+        else {
+          for (let j = 0; j < servantSearch.length; j++){
+            if (Number(collected.first().content) == Number(servantSearch[j].id)){
+              let servnum = pad(servantSearch[j].id, 3);
+              showPortrait(servantSearch[j], ascensionNumber, servnum, message);
             }
           }
-        }).catch(console.error);
-      }
-      else
-        message.channel.send(`Sorry, it doesn't look like ascension artwork ${ascensionNumber} exists for ${servantSearch[j].name} (${servnum}).`);
-
-    }
+        }
+      })
+      .catch(() => {
+        message.channel.send(message.author.username +', you did not respond within the time limit. Please try searching again.');
+      });
+    });
   }
-  else if (servantSearch.length >= 6)
-    message.channel.send("Too many results found. Please try to be more specific.");
   else
     message.channel.send("Sorry, I couldn't find that servant. Please try again, or use a search term longer than two characters.");
 }
@@ -66,7 +82,6 @@ function checkServantClass(input){
   }
   return classResults;
 }
-
 
 function findServant(classSearchResults, input){
   let servantsFound = [];
@@ -88,6 +103,31 @@ function findServant(classSearchResults, input){
   return servantsFound;
 }
 
+function showPortrait(servantSearch, ascensionNumber, servnum, message) {
+  let name = `${servantSearch.name}`;
+  let desc = '';
+  if (servantSearch.hiddenname) {
+    //name = `${servantSearch[j].name}/||${servantSearch[j].alias}||`
+    desc = `||${servantSearch.alias}||`;
+  }
+  let imgurl = `https://cirnopedia.org/fate-go/icons/servant_card/`+ servnum + ascensionNumber + `.jpg`;
+  console.log(imgurl);
+  let exists = imageExists(imgurl);
+  if (exists){
+    message.channel.send({
+      "embed": {
+        "title": `${servantSearch.name}`,
+        "description": desc,
+        "color": 000000,
+        "image": {
+        "url": `${imgurl}`
+        }
+      }
+    }).catch(console.error);
+  }
+  else
+    message.channel.send(`<:mikon:585658891808014337> Oops, it looks like ascension artwork ${ascensionNumber} for ${servantSearch.name} doesn't exist!`);
+}
 
 function pad(n, width, z) {
   z = z || '0';

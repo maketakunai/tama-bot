@@ -76,7 +76,7 @@ exports.run = (client, message, args) => {
       let serv = `${servnum}: ${servantSearch[i].name}, ${servantSearch[i].rarity} ★ ${emoji[servantSearch[i].class]} ${servantSearch[i].class}`
       responseList.push(serv);
     }
-    message.channel.send(`Reply with the ID number of the servant you want(example:\`001\`), or type \`showall\` to show all:\n${responseList.join('\r\n')}\nYou can also search via servant ID (example: \`!servinfo 123\`)`)
+    message.channel.send(`Reply with the ID number of the servant you want(example:\`001\`), or type \`showall\` to show all:\n${responseList.join('\r\n')}`)
       .then(() => {
         numList.push('showall');
         message.channel.awaitMessages(response => numList.indexOf(response.content) != -1, {

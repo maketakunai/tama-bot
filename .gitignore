@@ -2,6 +2,7 @@ node_modules
 res
 data/goonDB.json
 data/jpgoonDB.json
+data/master.json
 commands_old
 config.json
 tama-bot.json

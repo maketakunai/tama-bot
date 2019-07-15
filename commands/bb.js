@@ -7,7 +7,7 @@ exports.run = (client, message, args) => {
     const canvas = new Canvas(500, 366);
     const ctx = canvas.getContext('2d');
     const img_bg = new Canvas.Image();
-    ctx.font = "bold 18px Arial";
+    ctx.font = "18px Arial";
 
     /*var fsize = 0;
     if (args[0] == '-fs') {
@@ -22,11 +22,11 @@ exports.run = (client, message, args) => {
     var fsize = 18;
     if (args[0] === '-fs' || args[0] === 'fs' || args[0] === '--fs') {
       args.shift();
-      ctx.font = 'bold '+ args[0]+'px "Arial"';
+      ctx.font = args[0]+'px "Arial"';
       //console.log(ctx.font);
       fsize = args.shift();
       if (!Number(fsize)){
-        ctx.font = 'bold 18px "Arial"';
+        ctx.font = '18px "Arial"';
         fsize = 18;
       }
     }

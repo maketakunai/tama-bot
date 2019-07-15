@@ -116,7 +116,7 @@ function printServantData(servantSearch, j, message){
     "embed": {
       "description": `${emoji[type]} ${type}, ${servantSearch[j].nptarget}, Upgrade: ${upgrade}`,
       "title": title,
-      "color": 16756224,
+      "color": 0000000,
       "thumbnail": {
         "url": `${imgurl}`
       },

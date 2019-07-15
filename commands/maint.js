@@ -4,36 +4,39 @@ const url = 'https://webview.fate-go.us/iframe/maintenance/';
 const moment = require('moment-timezone');
 exports.run = (client, message, args) => {
 
-  var array = [];
+  let array = [];
   request(url, function(err, resp, body){
     $ = cheerio.load(body);
     links = $('a');
     $(links).each(function(i, link){
-      var href = $(link).attr('href');
+      let href = $(link).attr('href');
       array.push(href);
     });
     //console.log(array);
-    var newurl = 'https://webview.fate-go.us' + array[0];
+    let newurl = 'https://webview.fate-go.us' + array[0];
     request(newurl, function(err, resp, body){
       $ = cheerio.load(body);
-      var times = $('p:contains("Date & Time")').text().match(/\S*\d+\S*/g).map(function (v) {return v;});
-      maintCalc(times, message);
+      let times = $('p:contains("Date & Time")').text().match(/\S*\d+\S*/g).map(function (v) {return v;});
+      maintCalc(times, message, newurl);
     });
   });
 };
 
-function maintCalc(times, message) {
-  var inMaint, beforeMaint, endMaint;
-  var getUTC = Number(moment().unix()*1000);
+function maintCalc(times, message, newurl) {
+  let inMaint, beforeMaint, endMaint;
+  let getUTC = Number(moment().unix()*1000);
+  //silly NA team and their silly non-ISO time formatting making me do more work
   if (times[2].search('2019-') == -1){
-    //console.log('blalbalbalbalbab');
     times[2] = '2019-' + times[2];
   }
-  var sTime = `${times[0]} ${times[1]}`;
-  var eTime = `${times[2]} ${times[3]}`;
+  if (times[3].length != 5){
+    times[3] = '0'+times[3];
+  }
+  let sTime = `${times[0]} ${times[1]}`;
+  let eTime = `${times[2]} ${times[3]}`;
   //console.log(sTime, eTime);
-  var startTime = moment.tz(sTime, "America/Los_Angeles").format('x');
-  var endTime = moment.tz(eTime, "America/Los_Angeles").format('x');
+  let startTime = moment.tz(sTime, "America/Los_Angeles").format('x');
+  let endTime = moment.tz(eTime, "America/Los_Angeles").format('x');
   //console.log(startTime, endTime, getUTC);
 
   if (getUTC < endTime && getUTC < startTime)
@@ -49,12 +52,13 @@ function maintCalc(times, message) {
     endMaint = 1;
   }
 
-  var elapsed_time = timeconverter(startTime, endTime);
+  let elapsed_time = timeconverter(startTime, endTime);
   if (beforeMaint){
     message.channel.send({
       "embed": {
         "title":`Scheduled FGO Maintenance\n${sTime} to ${eTime} (PDT)`,
-        "description": "Maintenance begins in " + elapsed_time[0] + " days, " + elapsed_time[1] + " hours, " + elapsed_time[2] + " minutes.\n" +
+        "description": `${newurl}\n` +
+                       "Maintenance begins in " + elapsed_time[0] + " days, " + elapsed_time[1] + " hours, " + elapsed_time[2] + " minutes.\n" +
                        "Maintenance ends in " + elapsed_time[3] + " days, " + elapsed_time[4] + " hours, " + elapsed_time[5] + " minutes.\n",
         "color": 8817876,
         "image": {
@@ -68,7 +72,8 @@ function maintCalc(times, message) {
     message.channel.send({
       "embed": {
         "title":`Scheduled FGO Maintenance\n${sTime} to ${eTime} (PDT)`,
-        "description": "Maintenance has begun.\n" +
+        "description": `${newurl}\n` +
+                       "Maintenance has begun.\n" +
                        "Maintenance ends in " + elapsed_time[3] + " days, " + elapsed_time[4] + " hours, " + elapsed_time[5] + " minutes.\n",
         "color": 8817876,
         "image": {
@@ -82,6 +87,7 @@ function maintCalc(times, message) {
       "embed": {
         "color": 8817876,
         "title":`The last maintenance was:\n${sTime} to ${eTime} (PDT)`,
+        "description": `${newurl}`,
         "image": {
         "url": randomImage(),
         }
@@ -91,31 +97,31 @@ function maintCalc(times, message) {
 }
 
 function timeconverter(sTime, eTime){
-  var utc = new Date().getTime();
+  let utc = new Date().getTime();
 
-  var time_diff_start = (sTime - utc);
-  var time_diff_end = (eTime - utc);
-  var s_secs = time_diff_start / 1000;
-  var s_mins = Math.floor(s_secs / 60);
-  var s_hours = Math.floor(s_mins / 60);
-  var s_days = Math.floor(s_hours / 24);
-  var e_secs = time_diff_end / 1000;
-  var e_mins = Math.floor(e_secs / 60);
-  var e_hours = Math.floor(e_mins / 60);
-  var e_days = Math.floor(e_hours / 24);
+  let time_diff_start = (sTime - utc);
+  let time_diff_end = (eTime - utc);
+  let s_secs = time_diff_start / 1000;
+  let s_mins = Math.floor(s_secs / 60);
+  let s_hours = Math.floor(s_mins / 60);
+  let s_days = Math.floor(s_hours / 24);
+  let e_secs = time_diff_end / 1000;
+  let e_mins = Math.floor(e_secs / 60);
+  let e_hours = Math.floor(e_mins / 60);
+  let e_days = Math.floor(e_hours / 24);
 
-  var time_until = [s_days, s_hours%24, s_mins%60, e_days, e_hours%24, e_mins%60];
+  let time_until = [s_days, s_hours%24, s_mins%60, e_days, e_hours%24, e_mins%60];
   return time_until;
 }
 
-var answers = ["https://i.imgur.com/guwcFbn.jpg",
-"https://i.imgur.com/rqeRG1m.jpg",
-"https://i.imgur.com/jSriYCP.jpg",
-"https://i.imgur.com/RXeKUL7.jpg",
-"https://i.imgur.com/nMrE5J9.jpg",
+let answers = ["https://i.imgur.com/guwcFbn.jpg",
+"https://i.imgur.com/PxNrk8U.jpg",
+"https://i.imgur.com/TjLTF0Y.png",
+"https://i.imgur.com/I4KCHvb.png",
+"https://i.imgur.com/CGy0Ose.png",
 "https://i.imgur.com/zCWPkTx.jpg",
-"https://i.imgur.com/IVS0B6Z.jpg",
-"https://i.imgur.com/N0yP6JQ.jpg",
+"https://i.imgur.com/xYWzZYh.png",
+"https://i.imgur.com/2HFXLdr.png",
 "https://i.imgur.com/Zn3ko1c.jpg"]
 
 function randomImage() {

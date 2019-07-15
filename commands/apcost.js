@@ -21,9 +21,9 @@ exports.run = (client, message, args) => {
       let imgurl = `https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/singularity/${stageSearch[j]["image"]}.png`
       message.channel.send({
         "embed": {
-          "color": 16756224,
-          "image": {
-          "url": imgurl
+          "color": 0000000,
+          "thumbnail": {
+            "url": imgurl,
           },
           "author": {
             "name": `${stageSearch[j]["singularity"]}`,

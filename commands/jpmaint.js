@@ -21,16 +21,17 @@ exports.run = (client, message, args) => {
       let temp = times.pop().split("～");
       times.push.apply(times, temp);
       console.log(times);
-      maintCalc(times, message);
+      maintCalc(times, message, newurl);
     });
   });
 };
 
-function maintCalc(times, message) {
+function maintCalc(times, message, newurl) {
   let inMaint, beforeMaint, endMaint;
   let getUTC = Number(moment().unix()*1000);
   let sTime = `${times[0]} ${times[1]}`;
   let eTime = `${times[0]} ${times[2]}`;
+  //console.log(sTime, eTime);
   moment.locale('ja');
   let m = moment(sTime, 'YYYY-MM-DD(ddd) hh:mm');
   let n = moment(eTime, 'YYYY-MM-DD(ddd) hh:mm');
@@ -38,7 +39,7 @@ function maintCalc(times, message) {
   let startTime = moment.tz(m, "Asia/Tokyo").format('x') - offset;
   let endTime = moment.tz(n, "Asia/Tokyo").format('x') - offset;
 
-  console.log(startTime, endTime);
+  //console.log(startTime, endTime);
 
   if (getUTC < endTime && getUTC < startTime)
   {
@@ -58,7 +59,8 @@ function maintCalc(times, message) {
     message.channel.send({
       "embed": {
         "title":"Scheduled JP FGO Maintenance",
-        "description": "Maintenance begins in " + elapsed_time[0] + " days, " + elapsed_time[1] + " hours, " + elapsed_time[2] + " minutes.\n" +
+        "description": `${newurl}\n` +
+                       "Maintenance begins in " + elapsed_time[0] + " days, " + elapsed_time[1] + " hours, " + elapsed_time[2] + " minutes.\n" +
                        "Maintenance ends in " + elapsed_time[3] + " days, " + elapsed_time[4] + " hours, " + elapsed_time[5] + " minutes.\n",
         "color": 7347577,
         "image": {
@@ -72,7 +74,8 @@ function maintCalc(times, message) {
     message.channel.send({
       "embed": {
         "title":"Scheduled JP FGO Maintenance",
-        "description": "Maintenance has begun.\n" +
+        "description": `${newurl}\n` +
+                       "Maintenance has begun.\n" +
                        "Maintenance ends in " + elapsed_time[3] + " days, " + elapsed_time[4] + " hours, " + elapsed_time[5] + " minutes.\n",
         "color": 7347577,
         "image": {
@@ -84,7 +87,8 @@ function maintCalc(times, message) {
   else {
     message.channel.send({
       "embed": {
-        "title":`The last maintenance was:\n${sTime} to ${eTime} (JST)`,
+        "title":`The last maintenance was:\n${times[0]} ${times[1]} (JST)`,
+        "description":`${newurl}\n`,
         "color": 7347577,
         "image": {
         "url": randomImage(),
@@ -113,13 +117,13 @@ function timeconverter(sTime, eTime, utc){
 }
 
 let answers = ["https://i.imgur.com/guwcFbn.jpg",
-"https://i.imgur.com/rqeRG1m.jpg",
-"https://i.imgur.com/jSriYCP.jpg",
-"https://i.imgur.com/RXeKUL7.jpg",
-"https://i.imgur.com/nMrE5J9.jpg",
+"https://i.imgur.com/PxNrk8U.jpg",
+"https://i.imgur.com/TjLTF0Y.png",
+"https://i.imgur.com/I4KCHvb.png",
+"https://i.imgur.com/CGy0Ose.png",
 "https://i.imgur.com/zCWPkTx.jpg",
-"https://i.imgur.com/IVS0B6Z.jpg",
-"https://i.imgur.com/N0yP6JQ.jpg",
+"https://i.imgur.com/xYWzZYh.png",
+"https://i.imgur.com/2HFXLdr.png",
 "https://i.imgur.com/Zn3ko1c.jpg"]
 
 function randomImage() {

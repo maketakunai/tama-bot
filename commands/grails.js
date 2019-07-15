@@ -5,7 +5,7 @@ let eventGrails = 8;
 let jpStoryGrails1 = 10;
 let jpStoryGrails2 = 4;
 let jpStoryGrails3 = 4;
-let jpEventGrails = 25;
+let jpEventGrails = 26;
 
 
 exports.run = (client, message, args) => {
@@ -42,7 +42,7 @@ exports.run = (client, message, args) => {
         },
         {
           "name": "delicious grails",
-          "value": "GudaGuda Teito Seihai Kitan\nSummer 2018 (x2)\nBattle in NY 2018\nHalloween 2018 ONILAND\nChristmas 2018\nNew Years 2019\nValentine's 2019\nCCC Rerun (+1)\nCBC 2019\nTokugawa Labyrinth\nCase Files Collaboration\nA Study at Meiho Manor",
+          "value": "GudaGuda Teito Seihai Kitan\nSummer 2018 (x2)\nBattle in NY 2018\nHalloween 2018 ONILAND\nChristmas 2018\nNew Years 2019\nValentine's 2019\nCCC Rerun (+1)\nCBC 2019\nTokugawa Labyrinth\nCase Files Collaboration\nA Study at Meiho Manor\nGudaGuda Final Honnoji",
           "inline": true
         }
       ]

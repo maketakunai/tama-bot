@@ -7,11 +7,11 @@ exports.run = (client, message, args) => {
     message.channel.send("https://docs.google.com/spreadsheets/d/1_SlTjrVRTgHgfS7sRqx4CeJMqlz687HdSlYqiW-JvQA/edit#gid=525320539").catch(console.error);
   }
   else {
-    var searchString = args.join(' ');
-    var searchResult = findDrop(searchString);
+    let searchString = args.join(' ');
+    let searchResult = findDrop(searchString);
     delete require.cache[require.resolve('../data/jpdropdb.json')];
     if (searchResult.length > 0 && searchResult.length <= 5) {
-          for (var x = 0; x < 5; x++){
+          for (let x = 0; x < 5; x++){
             if (!searchResult[x].number){
               searchResult[x].number = "";
             }
@@ -73,12 +73,17 @@ exports.run = (client, message, args) => {
 }
 
 function findDrop(input){
-  var dropList = require("../data/jpdropdb.json");
-  var itemsFound = [];
+  let dropList = require("../data/jpdropdb.json");
+  let itemsFound = [];
   if (input == "" || input.length < 3){
     return itemsFound;
   }
-  var options = {
+  for (item in dropList){
+    if (dropList[item].aliases){
+      dropList[item].aliases = dropList[item].aliases.split(",");
+    }
+  }
+  let options = {
     id: "item",
     shouldSort: true,
     findAllMatches: true,
@@ -87,13 +92,16 @@ function findDrop(input){
     distance: 100,
     maxPatternLength: 32,
     minMatchCharLength: 3,
-    keys: ["item"]
+    keys: [
+      "item",
+      "aliases"
+    ]
   };
-  var fuse1 = new Fuse(dropList, options);
-  var result = fuse1.search(input);
+  let fuse1 = new Fuse(dropList, options);
+  let result = fuse1.search(input);
 
-  for (var i = 0; i < dropList.length; i++){
-    var itemName = dropList[i].item;
+  for (let i = 0; i < dropList.length; i++){
+    let itemName = dropList[i].item;
     if (itemName.search(result[0]) != -1 && itemName.length == result[0].length){
       itemsFound.push(dropList[i]);
     }

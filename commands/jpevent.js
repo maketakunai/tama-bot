@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 const url = 'https://news.fate-go.jp/';
 const moment = require('moment-timezone');
 exports.run = (client, message, args) => {
-
+  message.channel.send("The following is a list of current or upcoming JP events:");
   const array = [];
   request(url, function(err, resp, body){
     $ = cheerio.load(body);

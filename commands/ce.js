@@ -8,7 +8,7 @@ exports.run = (client, message, args) => {
     message.channel.send(`No results found.\nPlease try '!ce (CE name)' or '!ce (CE number) or '!ce --bond (servant name)' or '!ce --effect (effect1, effect2, ...)' \nNumbers need leading zeroes up to 100. ex)'!ce 007'`)
     return;
   }
-  if (ceSearch.length > 0 && ceSearch.length < 3) {
+  if (ceSearch.length > 0 && ceSearch.length <= 3) {
     for (let j = 0; j < ceSearch.length; j++){
       let paddedNum = pad(ceSearch[j].number, 3);
       let imgSmall = 'https://cirnopedia.org/fate-go/icons/essence_sample/craft_essence_'+paddedNum+'.png';
