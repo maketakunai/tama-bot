@@ -35,6 +35,6 @@ exports.conf = {
 
 exports.help = {
   name: 'slap',
-  description: 'Berserker Atalante slaps someone. Testing 123',
+  description: 'Berserker Atalante slaps someone. You need to @ someone to make it work.',
   usage: '!slap @user'
 };
