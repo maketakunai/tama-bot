@@ -1,5 +1,8 @@
 const emoji = require("../data/emoji.json")
 const servantList = require("../data/servant_db.json");
+const lastUpdated = "08/14/2019"
+const master = require("../data/master.json")
+
 exports.run = (client, message, args) => {
   if ( Number(args[0]) && (args.length == 1)){
     for (let i = 0; i < servantList.length; i++){
@@ -10,7 +13,7 @@ exports.run = (client, message, args) => {
     }
   }
   if (args.length == 0) {
-    message.channel.send("Stop, stop please! Please type \`!npdmg (class) (servantname)\` to search for a particular servant.\nThe available servant classes are: Saber, Archer, Lancer, Rider, Caster, Assassin, Berserker, Shielder, Ruler, Avenger, MoonCancer, AlterEgo, Foreigner")
+    message.channel.send("Stop, stop please! Please type \`!npdmg (class) (servantname)\` to search for a particular servant.\nThe available servant classes are: Saber, Archer, Lancer, Rider, Caster, Assassin, Berserker, Shielder, Ruler, Avenger, MoonCancer, AlterEgo, Foreigner").then(m => m.delete(20000));
     return;
   }
   let classSearch = checkServantClass(args[0]);
@@ -19,7 +22,7 @@ exports.run = (client, message, args) => {
   searchString = searchString.replace(/\W/g, '').toLowerCase();
   console.log(`Searching for ${searchString}...`);
   if (classSearch.length == 0){
-    message.channel.send("Stop, stop please! Please type \`!npdmg (class) (servantname)\` to search for a particular servant.\nYou can also search using the servant number. Example: \`!npdmg 007\`\nThe available servant classes are: Saber, Archer, Lancer, Rider, Caster, Assassin, Berserker, Shielder, Ruler, Avenger, MoonCancer, AlterEgo, Foreigner")
+    message.channel.send("Stop, stop please! Please type \`!npdmg (class) (servantname)\` to search for a particular servant.\nYou can also search using the servant number. Example: \`!npdmg 007\`\nThe available servant classes are: Saber, Archer, Lancer, Rider, Caster, Assassin, Berserker, Shielder, Ruler, Avenger, MoonCancer, AlterEgo, Foreigner").then(m => m.delete(20000));
     return;
   }
   let servantSearch = findServant(classSearch, searchString);
@@ -42,7 +45,8 @@ exports.run = (client, message, args) => {
     }
 
     message.channel.send(`Reply with the ID number of the servant you want (example:\`001\`), or type \`showall\` to show all:\n${responseList.join('\r\n')}\nYou can also search via servant ID (example: \`!npdmg 123\`)`)
-      .then(() => {
+      .then(m => {
+        m.delete(20000);
         numList.push('showall');
         message.channel.awaitMessages(response => numList.indexOf(response.content) != -1, {
         max: 1,
@@ -76,7 +80,16 @@ exports.run = (client, message, args) => {
 function printServantData(servantSearch, j, message){
   //generate url for embed image
   let servnum = pad(servantSearch[j].id, 3);
-  let imgurl = `http://fate-go.cirnopedia.org/icons/servant/servant_`+ servnum +`1.png`;
+  //let imgurl = `http://fate-go.cirnopedia.org/icons/servant/servant_`+ servnum +`1.png`;
+
+  let imgurl = "";
+  for (let i = 0; i < master.mstSvt.length; i++){ //lets iterate through mstSvt and find the game ID for a servant
+    if ( master.mstSvt[i].combineLimitId ){ //so if that ID first exists,
+      if ( Number(master.mstSvt[i].collectionNo) == Number(servantSearch[j].id) ) { //then check for a match with servant number
+        imgurl = 'https://kazemai.github.io/fgo-vz/common/images/icon/faces/'+master.mstSvt[i].id+'0.png';
+      }
+    }
+  }
 
   //check to see if there's an NP upgrade
   let upgrade = "-";
@@ -121,7 +134,7 @@ function printServantData(servantSearch, j, message){
         "url": `${imgurl}`
       },
       "footer": {
-      "text": `'!help npdmg' to see notes about damage values.`
+      "text": `Last updated ${lastUpdated}. '!help npdmg'`
       },
       "image": {
       "url": ""
@@ -160,16 +173,30 @@ function checkServantClass(input){
 
 function findServant(classSearchResults, input){
   let servantsFound = [];
+  let exactMatchFound = 0;
+  let r = new RegExp("\\b"+input+"\\b");
   if (input == "" || input.length < 2){
     return servantsFound;
   }
   for (let i = 0; i < classSearchResults.length; i++){
     let sName = classSearchResults[i].name;
     let sAlias = classSearchResults[i].alias;
-    sAlias = sAlias.replace(/\W/g, '').toLowerCase();
-    sName = sName.replace(/\W/g, '').toLowerCase();
-    if ((sName.search(input) != -1) || (sAlias.search(input) != -1)){
+    sAlias = sAlias.toLowerCase();
+    sName = sName.toLowerCase();
+    if ((sName.search(r) != -1) || (sAlias.search(r) != -1)){
       servantsFound.push(classSearchResults[i]);
+      exactMatchFound = 1;
+    }
+  }
+  if (!exactMatchFound) {
+    for (let i = 0; i < classSearchResults.length; i++){
+      let sName = classSearchResults[i].name;
+      let sAlias = classSearchResults[i].alias;
+      sAlias = sAlias.replace(/\W/g, '').toLowerCase();
+      sName = sName.replace(/\W/g, '').toLowerCase();
+      if ((sName.search(input) != -1) || (sAlias.search(input) != -1)){
+        servantsFound.push(classSearchResults[i]);
+      }
     }
   }
 

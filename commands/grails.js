@@ -1,7 +1,7 @@
 let storyGrails = 10;
 let storyGrails2 = 2;
 let storyGrails3 = 0;
-let eventGrails = 8;
+let eventGrails = 9;
 let jpStoryGrails1 = 10;
 let jpStoryGrails2 = 4;
 let jpStoryGrails3 = 4;
@@ -37,7 +37,7 @@ exports.run = (client, message, args) => {
         },
         {
           "name": "Events that give grails",
-          "value": "Halloween 2015\nDa Vinci\nFate/Zero Collaboration\nOnigashima\nSummer 2016\nHalloween 2016\nGudaGuda Meiji Restoration\nCCC Collaboration\nSummer 2017\nHalloween 2017\nValentine's 2018\nApocrypha Collaboration",
+          "value": `Halloween 2015\nDa Vinci\nFate/Zero Collaboration\nOnigashima\nSummer 2016\nHalloween 2016\nGudaGuda Meiji Restoration\nCCC Collaboration\n→ Summer 2017 ←\nHalloween 2017\nValentine's 2018\nApocrypha Collaboration`,
           "inline": true
         },
         {

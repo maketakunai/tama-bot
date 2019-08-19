@@ -30,8 +30,8 @@ function maintCalc(times, message, newurl) {
   let inMaint, beforeMaint, endMaint;
   let getUTC = Number(moment().unix()*1000);
   let sTime = `${times[0]} ${times[1]}`;
-  let eTime = `${times[0]} ${times[2]}`;
-  //console.log(sTime, eTime);
+  let eTime = `${times[0]} ${times[2].substring(0,5)}`;
+  console.log(getUTC, sTime, eTime);
   moment.locale('ja');
   let m = moment(sTime, 'YYYY-MM-DD(ddd) hh:mm');
   let n = moment(eTime, 'YYYY-MM-DD(ddd) hh:mm');
@@ -39,7 +39,7 @@ function maintCalc(times, message, newurl) {
   let startTime = moment.tz(m, "Asia/Tokyo").format('x') - offset;
   let endTime = moment.tz(n, "Asia/Tokyo").format('x') - offset;
 
-  //console.log(startTime, endTime);
+  console.log(startTime, endTime);
 
   if (getUTC < endTime && getUTC < startTime)
   {

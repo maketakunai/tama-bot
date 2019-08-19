@@ -3,7 +3,7 @@ const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const emoji = require("../data/emoji.json");
 
 exports.run = (client, message, args) => {
-  if (args.length == 0) {
+  if (args.length == 0 || args.length == 1 || args.length == 2) {
     message.channel.send("Stop, stop please! Please type '!portrait (number) (class) (servantname)' to search for a particular servant.\nThe available servant classes are: Saber, Archer, Lancer, Rider, Caster, Assassin, Berserker, Shielder, Ruler, Avenger, MoonCancer, AlterEgo, Foreigner")
     return;
   }

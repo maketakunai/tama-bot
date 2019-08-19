@@ -1,0 +1,20 @@
+{
+  "name": "[Heaven's Feel] Movie Launch Commemoration Pickup Summon",
+  "desc": "",
+  "servants": {
+    "3": [ "017","023","031" ],
+    "4": [ "183" ],
+    "5": [ "002" ]
+  },
+  "ce": {
+    "3": [ "668" ],
+    "4": [ "667" ],
+    "5": [ "666" ]
+  },
+  "rates": {
+      "servstandard": [ 1, 3, 40 ],
+      "cestandard": [ 4, 12, 40 ],
+      "servrateup": [ 0.7, 1.5, 12 ],
+      "cerateup": [ 2.8, 4, 8 ]
+  }
+}

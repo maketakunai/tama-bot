@@ -81,10 +81,12 @@ function printServantMats(servantSearch, j, message) {
   let ascensionMats = [];
   let skillMats = [];
   let gameID = 0;
+  let imgurl = '';
   for (let i = 0; i < master.mstSvt.length; i++){ //lets iterate through mstSvt and find the game ID for a servant
     if ( master.mstSvt[i].combineLimitId ){ //so if that ID first exists,
       if ( Number(master.mstSvt[i].collectionNo) == Number(servantSearch[j].id) ) { //then check for a match with servant number
         gameID = master.mstSvt[i].combineLimitId; //assign the game ID
+        imgurl = 'https://kazemai.github.io/fgo-vz/common/images/icon/faces/'+master.mstSvt[i].id+'0.png';
       }
     }
   }
@@ -156,7 +158,7 @@ function printServantMats(servantSearch, j, message) {
   }*/
   //generate url for embed image
   let servnum = pad(servantSearch[j].id, 3);
-  let imgurl = `http://fate-go.cirnopedia.org/icons/servant/servant_`+ servnum +`1.png`;
+  //let imgurl = `http://fate-go.cirnopedia.org/icons/servant/servant_`+ servnum +`1.png`;
   if (servantSearch[j].costume) {
     message.channel.send({
       "embed": {

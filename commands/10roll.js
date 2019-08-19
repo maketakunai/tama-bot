@@ -9,6 +9,7 @@ const util = require('util');
 
 let totalrollstats = [0,0,0,0,0,0]; // in order from SSR, SR, R servants to ces
 let userstats = {};
+let banners = ['summer1', 'summer2', 'nerofest', 'kyomaf', 'parvati', 'shimosa1', 'shimosa2', 'halloween', 'story', 'storyjp'];
 
 exports.run = (client, message, args) => {
   if (message.guild.id == 328226892798754819 && message.channel.id != 421357102229880842) {
@@ -22,6 +23,7 @@ exports.run = (client, message, args) => {
     return;
   }
 
+
   switch(args[0]) {
     case "reset":
       reset(message);
@@ -29,7 +31,7 @@ exports.run = (client, message, args) => {
     case "stats":
       showstats(message);
       break;
-    case "luckybag":
+    /*case "luckybag":
       var normgacha = require("../data/gacha/gacha-standardpool.json"),
           rateup = require("../data/gacha/rateup-luckybag.json"),
           rates = rateup.rates;
@@ -58,7 +60,7 @@ exports.run = (client, message, args) => {
           rateup = require("../data/gacha/rateup-ccc2.json"),
           rates = rateup.rates;
       rollten(rates, normgacha, rateup, message);
-      break;
+      break;*/
     case "summer1":
       var normgacha = require("../data/gacha/gacha-standardpool.json"),
           rateup = require("../data/gacha/rateup-summer1.json"),
@@ -71,9 +73,39 @@ exports.run = (client, message, args) => {
           rates = rateup.rates;
       rollten(rates, normgacha, rateup, message);
       break;
-    case "holmes":
+    case "nerofest":
       var normgacha = require("../data/gacha/gacha-standardpool.json"),
-          rateup = require("../data/gacha/rateup-anniversary.json"),
+          rateup = require("../data/gacha/rateup-nerofest.json"),
+          rates = rateup.rates;
+      rollten(rates, normgacha, rateup, message);
+      break;
+    case "kyomaf":
+      var normgacha = require("../data/gacha/gacha-standardpool.json"),
+          rateup = require("../data/gacha/rateup-kyomaf.json"),
+          rates = rateup.rates;
+      rollten(rates, normgacha, rateup, message);
+      break;
+    case "parvati":
+      var normgacha = require("../data/gacha/gacha-standardpool.json"),
+          rateup = require("../data/gacha/rateup-parvati.json"),
+          rates = rateup.rates;
+      rollten(rates, normgacha, rateup, message);
+      break;
+    case "shimosa1":
+      var normgacha = require("../data/gacha/gacha-standardpool.json"),
+          rateup = require("../data/gacha/rateup-shimosa1.json"),
+          rates = rateup.rates;
+      rollten(rates, normgacha, rateup, message);
+      break;
+    case "shimosa2":
+      var normgacha = require("../data/gacha/gacha-standardpool.json"),
+          rateup = require("../data/gacha/rateup-shimosa2.json"),
+          rates = rateup.rates;
+      rollten(rates, normgacha, rateup, message);
+      break;
+    case "halloween":
+      var normgacha = require("../data/gacha/gacha-standardpool.json"),
+          rateup = require("../data/gacha/rateup-halloween.json"),
           rates = rateup.rates;
       rollten(rates, normgacha, rateup, message);
       break;
@@ -90,7 +122,7 @@ exports.run = (client, message, args) => {
       rollten(rates, normgacha, rateup, message);
       break;
     default:
-      message.channel.send("'!10roll (banner)' to 10roll the gacha. '10roll reset' to reset your stats.\nAvailable banners: agartha, ccc1, ccc2, gudaguda, holmes, summer1, summer2, story, storyjp, luckybag\n");
+      message.channel.send(`'!10roll (banner)' to 10roll the gacha. '10roll reset' to reset your stats.\nAvailable banners: ${banners.join(', ')}\n`);
       break;
   }
 };
@@ -433,6 +465,6 @@ exports.conf = {
 
 exports.help = {
   name: '10roll',
-  description: 'Does a 10roll of the gacha.\nAvailable banners: story, storyjp, agartha, holmes, ccc1, ccc2, gudaguda, summer1, summer2, luckybag\n!10roll stats to see stats.',
+  description: `Does a 10roll of the gacha.\nAvailable banners: ${banners.join(', ')}\n!10roll stats to see stats.`,
   usage: '!10roll [bannername]'
 };
