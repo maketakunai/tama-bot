@@ -38,7 +38,7 @@ exports.run = (client, message, args) => {
           },
           {
             "name": "Image reactions, memes, fun stuff",
-            "value": "aaaaa, apple, bananapop, bb, buster, dancevinci, dab, ded, fes, gacha, haha, hassan, hungry, illya, lewd, look, math, mash, murasaki, olga, ozy, padoru, party, police, rateup, rin, roman, save, shock, slap, smug, sumanai, taiga, tamapop, ticket, umu, wait, warning, whale, wut, yorokobe, 5stars",
+            "value": "aaaaa, apple, bananapop, bb, buster, dancevinci, dab, ded, fes, gacha, haha, hassan, hungry, illya, lewd, look, math, mash, murasaki, olga, ozy, padoru, party, police, quartz, rateup, rin, robonasu, roman, rub, save, shock, slap, smug, sumanai, taiga, tamapop, ticket, umu, wait, warning, whale, wut, yorokobe, 5stars",
           },
           {
             "name": "Bot related stuff",

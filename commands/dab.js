@@ -32,7 +32,9 @@ const answers = ["https://i.imgur.com/sSIu82q.png",
 "https://i.imgur.com/mM9fdav.jpg",
 "https://i.imgur.com/gKOlg6D.png",
 "https://i.imgur.com/56LXpWY.jpg",
-"https://i.imgur.com/9Xs2Tl7.png"]
+"https://i.imgur.com/9Xs2Tl7.png",
+"https://i.imgur.com/4Vticsa.png",
+"https://i.imgur.com/zvoNjmF.png"]
 
 function randomImage() {
   return answers[Math.floor(Math.random()*answers.length)];

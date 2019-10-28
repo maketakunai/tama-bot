@@ -16,7 +16,8 @@ var answers = ["https://i.imgur.com/cNaYhSI.png",
 "https://i.imgur.com/ANSi6aL.gif",
 "https://cdn.discordapp.com/attachments/378997929500868610/497677994773708820/spin.gif",
 "http://i.imgur.com/DynAaeT.jpg",
-"https://i.imgur.com/J6kb6Ob.png"]
+"https://i.imgur.com/J6kb6Ob.png",
+"https://i.imgur.com/3BqLA5h.png"]
 
 function randomImage() {
   return answers[Math.floor(Math.random()*answers.length)];

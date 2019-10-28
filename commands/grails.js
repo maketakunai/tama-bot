@@ -1,11 +1,11 @@
 let storyGrails = 10;
-let storyGrails2 = 2;
+let storyGrails2 = 3;
 let storyGrails3 = 0;
-let eventGrails = 9;
+let eventGrails = 10;
 let jpStoryGrails1 = 10;
 let jpStoryGrails2 = 4;
 let jpStoryGrails3 = 4;
-let jpEventGrails = 26;
+let jpEventGrails = 28;
 
 
 exports.run = (client, message, args) => {
@@ -20,29 +20,33 @@ exports.run = (client, message, args) => {
       },
       "fields": [
         {
-          "name": "Grails obtained from clearing Story (part 1)",
+          "name": "Story (part 1)",
           "value": `Total: ${jpStoryGrails1}\nNA: ${storyGrails}`,
-        },
-        {
-          "name": "Grails obtained from clearing Story (part 1.5)",
-          "value": `Total: ${jpStoryGrails2}\nNA: ${storyGrails2}`,
-        },
-        {
-          "name": "Grails obtained from clearing Story (part 2)",
-          "value": `Total: ${jpStoryGrails3}\nNA: ${storyGrails3}`,
-        },
-        {
-          "name": "Grails obtained from clearing Events",
-          "value": `Total: ${jpEventGrails}\nNA: ${eventGrails}`,
-        },
-        {
-          "name": "Events that give grails",
-          "value": `Halloween 2015\nDa Vinci\nFate/Zero Collaboration\nOnigashima\nSummer 2016\nHalloween 2016\nGudaGuda Meiji Restoration\nCCC Collaboration\n→ Summer 2017 ←\nHalloween 2017\nValentine's 2018\nApocrypha Collaboration`,
           "inline": true
         },
         {
-          "name": "delicious grails",
-          "value": "GudaGuda Teito Seihai Kitan\nSummer 2018 (x2)\nBattle in NY 2018\nHalloween 2018 ONILAND\nChristmas 2018\nNew Years 2019\nValentine's 2019\nCCC Rerun (+1)\nCBC 2019\nTokugawa Labyrinth\nCase Files Collaboration\nA Study at Meiho Manor\nGudaGuda Final Honnoji",
+          "name": "Story (part 1.5)",
+          "value": `Total: ${jpStoryGrails2}\nNA: ${storyGrails2}`,
+          "inline": true
+        },
+        {
+          "name": "Story (part 2)",
+          "value": `Total: ${jpStoryGrails3}\nNA: ${storyGrails3}`,
+          "inline": true
+        },
+        {
+          "name": "Event Grails",
+          "value": `Total: ${jpEventGrails}\nNA: ${eventGrails}`,
+          "inline": true
+        },
+        {
+          "name": "Events that give grails",
+          "value": `Halloween 2015\nDa Vinci\nFate/Zero Collaboration\nOnigashima\nSummer 2016\nHalloween 2016\nGudaGuda Meiji Restoration\nCCC Collaboration\nSummer 2017\n→ Halloween 2017 ←\nValentine's 2018\nApocrypha Collaboration\nGudaGuda Teito Seihai Kitan`,
+          "inline": true
+        },
+        {
+          "name": "Events (cont'd)",
+          "value": "Summer 2018 (x2)\nBattle in NY 2018\nHalloween 2018 ONILAND\nChristmas 2018\nNew Years 2019\nValentine's 2019\nCCC Rerun (+1)\nCBC 2019\nTokugawa Labyrinth\nCase Files Collaboration\nA Study at Meiho Manor\nGudaGuda Final Honnoji\nSummer 2019\nBattle in NY 2019",
           "inline": true
         }
       ]

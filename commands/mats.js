@@ -15,7 +15,7 @@ exports.run = (client, message, args) => {
     }
   }
   if (args.length == 0) {
-    message.channel.send("Stop, stop please! Please type '!mats (class) (servantname)' to search for a particular servant.\nThe available servant classes are: Saber, Archer, Lancer, Rider, Caster, Assassin, Berserker, Shielder, Ruler, Avenger, MoonCancer, AlterEgo, Foreigner")
+    message.channel.send("Stop, stop please! Please type '!mats (class) (servantname)' to search for a particular servant.\nThe available servant classes are: Saber, Archer, Lancer, Rider, Caster, Assassin, Berserker, Shielder, Ruler, Avenger, MoonCancer, AlterEgo, Foreigner").then(m => m.delete(20000));
     return;
   }
 
@@ -26,7 +26,7 @@ exports.run = (client, message, args) => {
   searchString = searchString.replace(/\W/g, '').toLowerCase();
   //console.log(`Searching for ${searchString}...`);
   if (classSearch.length == 0){
-    message.channel.send("Stop, stop please! Please type '!mats (class) (servantname)' to search for a particular servant.\nThe available servant classes are: Saber, Archer, Lancer, Rider, Caster, Assassin, Berserker, Shielder, Ruler, Avenger, MoonCancer, AlterEgo, Foreigner")
+    message.channel.send("Stop, stop please! Please type '!mats (class) (servantname)' to search for a particular servant.\nThe available servant classes are: Saber, Archer, Lancer, Rider, Caster, Assassin, Berserker, Shielder, Ruler, Avenger, MoonCancer, AlterEgo, Foreigner").then(m => m.delete(20000));
     return;
   }
   let servantSearch = findServant(classSearch, searchString);
@@ -47,7 +47,8 @@ exports.run = (client, message, args) => {
       responseList.push(serv);
     }
     message.channel.send(`Reply with the ID number of the servant you want(example:\`001\`), or type \`showall\` to show all:\n${responseList.join('\r\n')}\nYou can also search via servant ID (example: \`!mats 123\`)`)
-      .then(() => {
+      .then( m => {
+        m.delete(20000);
         numList.push('showall');
         message.channel.awaitMessages(response => numList.indexOf(response.content) != -1, {
         max: 1,
@@ -91,14 +92,20 @@ function printServantMats(servantSearch, j, message) {
     }
   }
   //get all the ascension mats, then put into key/value pairs depending on ascension level (0 thru 3)
-  for (let k = 0; k < master.mstCombineLimit.length; k++){
-    if (master.mstCombineLimit[k] && gameID == master.mstCombineLimit[k].id) {
-      for (let j = 0; j < master.mstCombineLimit[k].itemIds.length; j++){
-        ascensionMats.push({
-          key: `${master.mstCombineLimit[k].svtLimit}`,
-          value: ` ${master.mstCombineLimit[k].itemIds[j]} x${master.mstCombineLimit[k].itemNums[j]}`
-        })
+  //mash is a special case because no ascension mats
+  if (servantSearch[j].id == 1) {
+    ascensionMats = [{key:0, value:'Story Unlock: 2nd Singularity: Septem'}, {key:1, value:'Story Unlock: 4th Singularity: London'}, {key:2, value:'Story Unlock: 6th Singularity: Camelot'}, {key:3, value:'Story Unlock: 7th Singularity: Babylonia'}]
+  }
+  else {
+    for (let k = 0; k < master.mstCombineLimit.length; k++){
+      if (master.mstCombineLimit[k] && gameID == master.mstCombineLimit[k].id) {
+        for (let j = 0; j < master.mstCombineLimit[k].itemIds.length; j++){
+          ascensionMats.push({
+            key: `${master.mstCombineLimit[k].svtLimit}`,
+            value: ` ${master.mstCombineLimit[k].itemIds[j]} x${master.mstCombineLimit[k].itemNums[j]}`
+          })
 
+        }
       }
     }
   }

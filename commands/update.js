@@ -43,7 +43,28 @@ exports.run = (client, message, args) => {
     });
     return;
   }
-
+  /*else if (args[0] === "servantinfo") {
+    message.channel.send("Updating Tamabot's servant info... Please wait.");
+    gsjson({
+      spreadsheetId: config.servantinfo,
+      credentials: config.creds
+    }).then(function(result) {
+        console.log(result.length);
+        return new Promise(function(resolve, reject) {
+          fs.writeFile('./data/servant_db.json', JSON.stringify(result,null,'\t'), function(err){
+            if (err) reject (err);
+            else resolve(result);
+          });
+        });
+    }).then(function(result){
+        message.channel.send("Tamabot's servant info has been updated.");
+    }).catch(function(err) {
+        console.log(err.message);
+        console.log(err.stack);
+        return;
+    });
+    return;
+  }*/
   message.channel.send("Updating Tamabot with the latest spreadsheet info... Please wait.");
   gsjson({
     spreadsheetId: config.spreadsheet,

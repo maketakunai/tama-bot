@@ -1,6 +1,6 @@
 const emoji = require("../data/emoji.json")
 const servantList = require("../data/servant_db.json");
-const lastUpdated = "08/14/2019"
+const lastUpdated = "09/04/2019"
 const master = require("../data/master.json")
 
 exports.run = (client, message, args) => {
@@ -84,7 +84,7 @@ function printServantData(servantSearch, j, message){
 
   let imgurl = "";
   for (let i = 0; i < master.mstSvt.length; i++){ //lets iterate through mstSvt and find the game ID for a servant
-    if ( master.mstSvt[i].combineLimitId ){ //so if that ID first exists,
+    if ( master.mstSvt[i].cvId ){ //so if that ID first exists,
       if ( Number(master.mstSvt[i].collectionNo) == Number(servantSearch[j].id) ) { //then check for a match with servant number
         imgurl = 'https://kazemai.github.io/fgo-vz/common/images/icon/faces/'+master.mstSvt[i].id+'0.png';
       }
@@ -119,6 +119,14 @@ function printServantData(servantSearch, j, message){
   }
   else {specialdmg = servantSearch[j].specialnpdmg.split(',');}
 
+  //add in NP damage multipliers to embed
+  let multipliers = '';
+  if (servantSearch[j].npmultiplier){
+    let multarr = servantSearch[j].npmultiplier.split(',')
+    multipliers = `${multarr[0]}%, ${multarr[1]}%, ${multarr[2]}%, ${multarr[3]}%, ${multarr[4]}%`
+  }
+  else multipliers = 'Non-damaging NP'
+
   //check to see if servant has a hidden true name from EoR - broken on android, disable for now!~
   let title = `${servantSearch[j].name}, ${servantSearch[j].rarity} ★ ${emoji[servantSearch[j].class]} ${servantSearch[j].class}`;
   //if (servantSearch[j].hiddenname) {
@@ -127,7 +135,7 @@ function printServantData(servantSearch, j, message){
 
   message.channel.send({
     "embed": {
-      "description": `${emoji[type]} ${type}, ${servantSearch[j].nptarget}, Upgrade: ${upgrade}`,
+      "description": `${emoji[type]} ${type}, ${servantSearch[j].nptarget}, Upgrade: ${upgrade}\n${multipliers}`,
       "title": title,
       "color": 0000000,
       "thumbnail": {

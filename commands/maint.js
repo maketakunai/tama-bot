@@ -25,6 +25,20 @@ exports.run = (client, message, args) => {
 function maintCalc(times, message, newurl) {
   let inMaint, beforeMaint, endMaint;
   let getUTC = Number(moment().unix()*1000);
+  //if dumb NA maintenance changes their end time to TBD do this instead of crashing
+  if (!times[2]) {
+    message.channel.send({
+      "embed": {
+        "color": 8817876,
+        "title":`The maintenance on ${times[0]} ${times[1]} has probably been extended.`,
+        "description": `${newurl}`,
+        "image": {
+        "url": randomImage(),
+        }
+      }
+    });
+    return;
+  }
   //silly NA team and their silly non-ISO time formatting making me do more work
   if (times[2].search('2019-') == -1){
     times[2] = '2019-' + times[2];

@@ -6,7 +6,7 @@ const emoji = require('../data/emoji.json');
 
 exports.run = (client, message, args) => {
   if (args.length == 0) {
-    message.channel.send("Stop, stop please! Please type '!sprite (number) (class) (servantname)' to search for a particular servant.\nThe available servant classes are: Saber, Archer, Lancer, Rider, Caster, Assassin, Berserker, Shielder, Ruler, Avenger, MoonCancer, AlterEgo, Foreigner")
+    message.channel.send("Stop, stop please! Please type '!sprite (number) (class) (servantname)' to search for a particular servant.\nThe available servant classes are: Saber, Archer, Lancer, Rider, Caster, Assassin, Berserker, Shielder, Ruler, Avenger, MoonCancer, AlterEgo, Foreigner").then(m => m.delete(10000));
     return;
   }
   let classSearch = checkServantClass(args[1]);
@@ -17,7 +17,7 @@ exports.run = (client, message, args) => {
   searchString = searchString.replace(/\W/g, '');
   //console.log(`Searching for ${searchString}...`);
   if (classSearch.length == 0){
-    message.channel.send("Stop, stop please! Please type '!sprite (number) (class) (servantname)' to search for a particular servant.\nThe available servant classes are: Saber, Archer, Lancer, Rider, Caster, Assassin, Berserker, Shielder, Ruler, Avenger, MoonCancer, AlterEgo, Foreigner")
+    message.channel.send("Stop, stop please! Please type '!sprite (number) (class) (servantname)' to search for a particular servant.\nThe available servant classes are: Saber, Archer, Lancer, Rider, Caster, Assassin, Berserker, Shielder, Ruler, Avenger, MoonCancer, AlterEgo, Foreigner").then(m => m.delete(10000));
     return;
   }
   let servantSearch = findServant(classSearch, searchString);
@@ -77,7 +77,8 @@ exports.run = (client, message, args) => {
       responseList.push(serv);
     }
     message.channel.send(`Reply with the ID number of the servant you want(example:\`001\`), or type \`showall\` to show all:\n${responseList.join('\r\n')}`)
-      .then(() => {
+      .then( m => {
+        m.delete(20000);
         numList.push('showall');
         message.channel.awaitMessages(response => numList.indexOf(response.content) != -1, {
         max: 1,

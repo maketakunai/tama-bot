@@ -1,5 +1,6 @@
 const servantList = require("../data/servant_db.json")
 const emoji = require("../data/emoji.json")
+const master = require("../data/master.json")
 
 exports.run = (client, message, args) => {
   if ( Number(args[0]) && (args.length == 1)){
@@ -43,7 +44,8 @@ exports.run = (client, message, args) => {
       responseList.push(serv);
     }
     message.channel.send(`Reply with the ID number of the servant you want(example:\`001\`), or type \`showall\` to show all:\n${responseList.join('\r\n')}\nYou can also search via servant ID (example: \`!servinfo 123\`)`)
-      .then(() => {
+      .then( m => {
+        m.delete(20000);
         numList.push('showall');
         message.channel.awaitMessages(response => numList.indexOf(response.content) != -1, {
         max: 1,
@@ -87,7 +89,15 @@ function checkServantClass(input){
 
 function printServantInfo(servantSearch, j, message) {
   let servnum = pad(servantSearch[j].id, 3);
-  let imgurl = `http://fate-go.cirnopedia.org/icons/servant/servant_`+ servnum +`1.png`;
+  //let imgurl = `http://fate-go.cirnopedia.org/icons/servant/servant_`+ servnum +`1.png`;
+  let imgurl = "";
+  for (let i = 0; i < master.mstSvt.length; i++){ //lets iterate through mstSvt and find the game ID for a servant
+    if ( master.mstSvt[i].cvId ){ //so if that ID first exists,
+      if ( Number(master.mstSvt[i].collectionNo) == Number(servantSearch[j].id) ) { //then check for a match with servant number
+        imgurl = 'https://kazemai.github.io/fgo-vz/common/images/icon/faces/'+master.mstSvt[i].id+'0.png';
+      }
+    }
+  }
   let deck = ``;
   for (let y = 0; y < 5; y++){
     switch (servantSearch[j].deck[y]){
@@ -166,12 +176,22 @@ function printServantInfo(servantSearch, j, message) {
         },
         {
           "name": "NP Gain",
-          "value": `On attack: ${npgen[0]}%\nOn defense: ${npgen[1]}%`,
+          "value": `${emoji["NpChargeAtk"]}On attack: ${(npgen[0]*1).toFixed(2)}%\n${emoji["NpChargeDef"]}On defense: ${(npgen[1]*1).toFixed(2)}%`,
           "inline": true
         },
         {
           "name": "Crit Stars",
-          "value": `Generation: ${stars[1]}%\nAbsorption: ${stars[0]}`,
+          "value": `${emoji["StarGen"]}Generation: ${(stars[1]*1).toFixed(2)}%\n${emoji["StarAbsorb"]}Absorption: ${stars[0]}`,
+          "inline": true
+        },
+        {
+          "name": "Attribute",
+          "value": `${servantSearch[j].attribute}`,
+          "inline": true
+        },
+        {
+          "name": `Death Rate`,
+          "value": `${servantSearch[j].deathrate.toFixed(2)}%`,
           "inline": true
         },
         {
