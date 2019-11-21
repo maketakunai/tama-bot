@@ -43,6 +43,9 @@ exports.run = (client, message, args) => {
               "author": {
                 "name": `${searchResult[0].item}`,
               },
+              "footer": {
+                "text": `'!update drops' to update drop sheet.`
+              },
               "fields": [
                 {
                   "name": `Drop area ${searchResult[0].number}: ${searchResult[0].area}, ${searchResult[0].quest}`,

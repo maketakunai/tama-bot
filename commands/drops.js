@@ -43,7 +43,7 @@ exports.run = (client, message, args) => {
                 "name": `${searchResult[0].item}`,
               },
               "footer": {
-                "text": `Warning: NA droprates may not be accurate due to small sample size.`
+                "text": `'!update drops' to update drop sheet.`
               },
               "fields": [
                 {

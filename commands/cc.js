@@ -1,7 +1,10 @@
 const ccList = require("../data/command_codes.json");
 
 exports.run = (client, message, args) => {
-
+  if ( args.length == 0 ) {
+    message.channel.send(`Please try '!cc (cc name)' or '!cc (cc number) or '!cc --effect (effect1, effect2, ...)'`).then(m => m.delete(15000));
+    return;
+  }
   let ccSearch = findcc(args);
   let responseList = [];
   let numList = [];

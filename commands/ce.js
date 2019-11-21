@@ -1,19 +1,26 @@
 const ceList = require("../data/ce_cirno.json");
 
 exports.run = (client, message, args) => {
-
+  if ( args.length == 0 ) {
+    message.channel.send(`Please try '!ce (CE name)' or '!ce (CE number) or '!ce --bond (servant name)' or '!ce --effect (effect1, effect2, ...)' or '!ce --art (search terms)'\nNumbers need leading zeroes up to 100. ex)'!ce 007'`).then(m => m.delete(15000));
+    return;
+  }
+  let art = 0;
+  if (args[0].toLowerCase() == "-art" || args[0].toLowerCase() == "--art") {
+    args.shift();
+    art = 1;
+  }
   let ceSearch = findCE(args);
   let responseList = [];
   let numList = [];
-
   if (ceSearch.length == 0){
-    message.channel.send(`No results found.\nPlease try '!ce (CE name)' or '!ce (CE number) or '!ce --bond (servant name)' or '!ce --effect (effect1, effect2, ...)' \nNumbers need leading zeroes up to 100. ex)'!ce 007'`).then(m => m.delete(15000));
+    message.channel.send(`No results found.\nPlease try '!ce (CE name)' or '!ce (CE number) or '!ce --bond (servant name)' or '!ce --effect (effect1, effect2, ...)' or '!ce --art (search terms)'\nNumbers need leading zeroes up to 100. ex)'!ce 007'`).then(m => m.delete(15000));
     return;
   }
 
   if (ceSearch.length == 1){
     for (let j = 0; j < ceSearch.length; j++){
-      printCE(ceSearch, j, message);
+      printCE(ceSearch, j, message, art);
     }
     return;
   }
@@ -36,13 +43,13 @@ exports.run = (client, message, args) => {
       .then((collected) => {
         if (collected.first().content.toLowerCase() == 'showall') {
           for (let j = 0; j < ceSearch.length; j++){
-            printCE(ceSearch, j, message);
+            printCE(ceSearch, j, message, art);
           }
         }
         else {
           for (let j = 0; j < ceSearch.length; j++){
             if (Number(collected.first().content) == Number(ceSearch[j].number)){
-              printCE(ceSearch, j, message);
+              printCE(ceSearch, j, message, art);
             }
           }
         }
@@ -60,7 +67,7 @@ exports.run = (client, message, args) => {
 }
 
 
-function printCE(ceSearch, j, message){
+function printCE(ceSearch, j, message, art){
   let paddedNum = pad(ceSearch[j].number, 3);
   let imgSmall = 'https://cirnopedia.org/fate-go/icons/essence_sample/craft_essence_'+paddedNum+'.png';
   let imgBig = 'https://cirnopedia.org/fate-go/icons/essence/craft_essence_'+paddedNum+'.jpg';
@@ -68,54 +75,71 @@ function printCE(ceSearch, j, message){
   if (ceSearch[j].obtained){
     obtained = ceSearch[j].obtained;
   }
-  message.channel.send({
-    "embed": {
-      "color": 00000000,
-      "thumbnail": {
-        "url": `${imgSmall}`
-      },
-      "author": {
-        "name": `${ceSearch[j].name_eng}  |  ${ceSearch[j].rarity} [#${paddedNum}]\n${ceSearch[j].name_jp}`,
-        "url": `${imgBig}`
-      },
-      "footer": {
-        "text": `Click on the CE name above for a link to the full image!`
-      },
-      "fields": [
-        {
-          "name": "Base / Max HP",
-          "value": `${ceSearch[j].base_hp} / ${ceSearch[j].max_hp}`,
-          "inline": true
+  if (art) {
+    message.channel.send({
+      "embed": {
+        "color": 00000000,
+        "author": {
+          "name": `${ceSearch[j].name_eng}  |  ${ceSearch[j].rarity} [#${paddedNum}]\n${ceSearch[j].name_jp}`
         },
-        {
-          "name": "Base / Max ATK",
-          "value": `${ceSearch[j].base_atk} / ${ceSearch[j].max_atk}`,
-          "inline": true
-        },
-        {
-          "name": `Effects`,
-          "value": `${ceSearch[j].effects}`,
-          "inline": false
-        },
-        {
-          "name": `Obtained`,
-          "value": `${obtained}`,
-          "inline": false
+        "image": {
+        "url": imgBig
         }
-      ]
-    }
-  }).catch(console.error);
+      }
+    });
+    return;
+  }
+  else {
+    message.channel.send({
+      "embed": {
+        "color": 00000000,
+        "thumbnail": {
+          "url": `${imgSmall}`
+        },
+        "author": {
+          "name": `${ceSearch[j].name_eng}  |  ${ceSearch[j].rarity} [#${paddedNum}]\n${ceSearch[j].name_jp}`,
+          "url": `${imgBig}`
+        },
+        "footer": {
+          "text": `Click on the CE name above for a link to the full image!`
+        },
+        "fields": [
+          {
+            "name": "Base / Max HP",
+            "value": `${ceSearch[j].base_hp} / ${ceSearch[j].max_hp}`,
+            "inline": true
+          },
+          {
+            "name": "Base / Max ATK",
+            "value": `${ceSearch[j].base_atk} / ${ceSearch[j].max_atk}`,
+            "inline": true
+          },
+          {
+            "name": `Effects`,
+            "value": `${ceSearch[j].effects}`,
+            "inline": false
+          },
+          {
+            "name": `Obtained`,
+            "value": `${obtained}`,
+            "inline": false
+          }
+        ]
+      }
+    }).catch(console.error);
+  }
 }
 
 
 
 function findCE(input){
-  console.log(input);
+  //console.log(input);
   let ceFound = [];
   if (input == ""){
     return ceFound;
   }
   let bond, effect = 0;
+
   if (input[0].toLowerCase() == "-bond" || input[0].toLowerCase() == "--bond") {
     input.shift();
     bond = 1;
@@ -124,7 +148,6 @@ function findCE(input){
     input.shift();
     effect = 1;
   }
-  //console.log(input);
 
   for (let x = 0; x < ceList.length; x++){
     if (Number(input) == ceList[x].number){
@@ -156,10 +179,8 @@ function findCE(input){
       //}
     }
   }
-
-  //console.log(ceFound);
   return ceFound;
-
+  //console.log(ceFound);
 }
 
 
@@ -184,5 +205,5 @@ exports.conf = {
 exports.help = {
   name: 'ce',
   description: `Shows CE information.`,
-  usage: '!ce [ce name] or !ce [ce number] or !ce --bond [servant name] or !ce --effect [effect1, effect2, effect3...]\nYou need leading zeroes for numbers under 100. ex) !ce 007'
+  usage: '!ce [ce name] or !ce [ce number] or !ce --bond [servant name] or !ce --effect [effect1, effect2, effect3...] or !ce --art [search term]\nYou need leading zeroes for numbers under 100. ex) !ce 007'
 };
