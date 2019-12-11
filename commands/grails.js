@@ -1,11 +1,11 @@
 let storyGrails = 10;
-let storyGrails2 = 3;
+let storyGrails2 = 4;
 let storyGrails3 = 0;
 let eventGrails = 10;
 let jpStoryGrails1 = 10;
 let jpStoryGrails2 = 4;
 let jpStoryGrails3 = 4;
-let jpEventGrails = 29;
+let jpEventGrails = 30;
 
 
 exports.run = (client, message, args) => {
@@ -41,7 +41,7 @@ exports.run = (client, message, args) => {
         },
         {
           "name": "Events that give grails",
-          "value": `Halloween 2015\nDa Vinci\nFate/Zero Collaboration\nOnigashima\nSummer 2016\nHalloween 2016\nGudaGuda Meiji Restoration\nCCC Collaboration\nSummer 2017\n→ Halloween 2017 ←\nValentine's 2018\nApocrypha Collaboration\nGudaGuda Teito Seihai Kitan\nSummer 2018 (x2)\nBattle in NY 2018\nHalloween 2018 ONILAND\nChristmas 2018\nNew Years 2019\nValentine's 2019\nCCC Rerun (+1)\nCBC 2019\nTokugawa Labyrinth\nCase Files Collaboration\nA Study at Meiho Manor\nGudaGuda Final Honnoji\nSummer 2019\nBattle in NY 2019\nSaber Wars II`,
+          "value": `Halloween 2015\nDa Vinci\nFate/Zero Collaboration\nOnigashima\nSummer 2016\nHalloween 2016\nGudaGuda Meiji Restoration\nCCC Collaboration\nSummer 2017\n→ Halloween 2017 ←\nValentine's 2018\nApocrypha Collaboration\nGudaGuda Teito Seihai Kitan\nSummer 2018 (x2)\nBattle in NY 2018\nHalloween 2018 ONILAND\nChristmas 2018\nNew Years 2019\nValentine's 2019\nCCC Rerun (+1)\nCBC 2019\nTokugawa Labyrinth\nCase Files Collaboration\nA Study at Meiho Manor\nGudaGuda Final Honnoji\nSummer 2019\nBattle in NY 2019\nSaber Wars II\nChristmas 2019`,
           "inline": true
         }
       ]

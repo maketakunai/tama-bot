@@ -90,7 +90,7 @@ function checkServantClass(input){
 function printServantInfo(servantSearch, j, message) {
 
   if ( !servantSearch[j].youtube ) {
-    message.channel.send("Sorry, it doesn't look like I have a link to that NP video.").then(m => m.delete(15000));;
+    message.channel.send(`Sorry, it doesn't look like I have a link to ${servantSearch[j].class} ${servantSearch[j].name}'s NP video.`).then(m => m.delete(15000));;
     return;
   }
 
