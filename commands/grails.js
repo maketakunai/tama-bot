@@ -1,11 +1,11 @@
-let storyGrails = 10;
-let storyGrails2 = 4;
-let storyGrails3 = 0;
-let eventGrails = 10;
-let jpStoryGrails1 = 10;
-let jpStoryGrails2 = 4;
-let jpStoryGrails3 = 4;
-let jpEventGrails = 30;
+const storyGrails = 10;
+const storyGrails2 = 4;
+const storyGrails3 = 0;
+const eventGrails = 10;
+const jpStoryGrails1 = 10;
+const jpStoryGrails2 = 4;
+const jpStoryGrails3 = 5;
+const jpEventGrails = 31;
 
 
 exports.run = (client, message, args) => {

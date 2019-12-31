@@ -55,7 +55,7 @@ function eventCalc(eventInfo, message, eventActive) {
   let inEvent, beforeEvent, endEvent = 0;
   let getUTC = Number(moment().unix()*1000);
   let sTime = `${eventInfo.time[0]} ${eventInfo.time[1]}`;
-  let eTime = `2019-${eventInfo.time[2]} ${eventInfo.time[3]}`;
+  let eTime = `2020-${eventInfo.time[2]} ${eventInfo.time[3]}`;
   let startTime = moment.tz(sTime, "America/Los_Angeles").format('x');
   let endTime = moment.tz(eTime, "America/Los_Angeles").format('x');
   //console.log(startTime, endTime, getUTC);

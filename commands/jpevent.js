@@ -35,7 +35,7 @@ function eventCalc(eventInfo, message) {
   let inEvent, beforeEvent, endEvent;
   let getUTC = Number(moment().unix()*1000);
   let sTime = `${eventInfo.time[0]} ${eventInfo.time[1]}`;
-  let eTime = `2019年${eventInfo.time[2]} ${eventInfo.time[3]}`;
+  let eTime = `2020年${eventInfo.time[2]} ${eventInfo.time[3]}`;
   moment.locale('ja');
   let m = moment(sTime, 'YYYY-MM-DD(ddd) hh:mm');
   let n = moment(eTime, 'YYYY-MM-DD(ddd) hh:mm');
