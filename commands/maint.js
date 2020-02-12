@@ -40,8 +40,8 @@ function maintCalc(times, message, newurl) {
     return;
   }
   //silly NA team and their silly non-ISO time formatting making me do more work
-  if (times[2].search('2019-') == -1){
-    times[2] = '2019-' + times[2];
+  if (times[2].search('2020-') == -1){
+    times[2] = '2020-' + times[2];
   }
   if (times[3].length != 5){
     times[3] = '0'+times[3];

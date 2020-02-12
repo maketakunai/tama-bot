@@ -1,6 +1,7 @@
 const request = require('request');
 const cheerio = require('cheerio');
 const url = 'https://news.fate-go.jp/';
+const url2 = 'https://news.fate-go.jp/page/2/'
 const moment = require('moment-timezone');
 exports.run = (client, message, args) => {
   message.channel.send("The following is a list of current or upcoming JP events:");
@@ -16,6 +17,31 @@ exports.run = (client, message, args) => {
     });
     for (let x = 0; x < array.length; x++){
       let newurl = 'https://news.fate-go.jp' + array[x];
+      request(newurl, function(err, resp, body){
+        $ = cheerio.load(body);
+        if ($("title").text().indexOf("開催") != -1 && $('p:contains("イベント開催期間")').text().match(/\S*\d+\S*/g)){
+          let times = $('p:contains("イベント開催期間")').text().match(/\S*\d+\S*/g).map(function (v) {return v;});
+          let temp = times[1].split("～");
+          let newTimes = [times[0], temp[0], temp[1], times[2].substring(0,5)];
+          //need to change this later to search for alt="TOPバナー" and get img link from that instead
+          let eventInfo = { time : newTimes, img : 'https://news.fate-go.jp'+$('img').eq(4).attr('src')}
+          eventCalc(eventInfo, message);
+        }
+      });
+    }
+  });
+  const array2 = [];
+  request(url2, function(err, resp, body){
+    $ = cheerio.load(body);
+    links = $('a');
+    $(links).each(function(i, link){
+      let href = $(link).attr('href');
+      if (href.match(/^\/[0-9].*\/$/g) != null){
+        array2.push(href);
+      }
+    });
+    for (let x = 0; x < array2.length; x++){
+      let newurl = 'https://news.fate-go.jp' + array2[x];
       request(newurl, function(err, resp, body){
         $ = cheerio.load(body);
         if ($("title").text().indexOf("開催") != -1 && $('p:contains("イベント開催期間")').text().match(/\S*\d+\S*/g)){

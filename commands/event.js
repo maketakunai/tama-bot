@@ -27,6 +27,7 @@ exports.run = (client, message, args) => {
       });
     }
   });
+
   const array2 = [];
   request(url2, function(err, resp, body){
     $ = cheerio.load(body);
@@ -40,6 +41,7 @@ exports.run = (client, message, args) => {
       let newurl = 'https://webview.fate-go.us' + array2[x];
       request(newurl, function(err, resp, body){
         $ = cheerio.load(body);
+
         if ($('p:contains("Event Period")').text().match(/\S*\d+\S*/g)){
           let times = $('p:contains("Event Period")').text().match(/\S*\d+\S*/g).map(function (v) {return v;});
           let eventInfo = { time : times, img : 'https://webview.fate-go.us'+$('img').attr('src')}
@@ -55,7 +57,7 @@ function eventCalc(eventInfo, message, eventActive) {
   let inEvent, beforeEvent, endEvent = 0;
   let getUTC = Number(moment().unix()*1000);
   let sTime = `${eventInfo.time[0]} ${eventInfo.time[1]}`;
-  let eTime = `2020-${eventInfo.time[2]} ${eventInfo.time[3]}`;
+  let eTime = `${eventInfo.time[0].slice(0,5)}${eventInfo.time[2]} ${eventInfo.time[3]}`;
   let startTime = moment.tz(sTime, "America/Los_Angeles").format('x');
   let endTime = moment.tz(eTime, "America/Los_Angeles").format('x');
   //console.log(startTime, endTime, getUTC);

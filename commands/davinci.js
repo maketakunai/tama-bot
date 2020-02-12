@@ -16,7 +16,8 @@ exports.run = (client, message, args) => {
       "embed": {
         "color": 16777215,
         "thumbnail": {
-          "url": "https://i.imgur.com/IjRae6R.png"
+          //"url": "https://i.imgur.com/IjRae6R.png"
+          "url": "https://i.imgur.com/7JPNXir.png"
         },
         "fields": [
           {

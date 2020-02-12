@@ -133,7 +133,8 @@ function printServantInfo(servantSearch, j, message) {
   let attack = servantSearch[j].attack.split(',');
   let description = ``;
   if (servantSearch[j].hiddenname) {
-    description = `True name: ||${servantSearch[j].alias}||`
+    let alias = servantSearch[j].alias.split(',');
+    description = `True name: ||${alias[0]}||`
   }
   message.channel.send({
     "embed": {
