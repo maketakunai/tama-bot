@@ -109,7 +109,7 @@ function showPortrait(servantSearch, servnum, message) {
     //name = `${servantSearch[j].name}/||${servantSearch[j].alias}||`
     desc = `||${servantSearch.alias.split(',')[0]}||`;
   }
-  let imgurl = `https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/aprilfools/`+ servnum + `.png`;
+  let imgurl = `https://raw.githubusercontent.com/maketakunai/tama-bot/master/images/aprilfools/`+ servnum + `.png`;
   //console.log(imgurl);
   let exists = imageExists(imgurl);
   if (exists){
