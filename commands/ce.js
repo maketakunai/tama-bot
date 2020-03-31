@@ -37,7 +37,7 @@ exports.run = (client, message, args) => {
         numList.push('showall');
         message.channel.awaitMessages(response => numList.indexOf(response.content) != -1, {
         max: 1,
-        time: 20000,
+        time: 25000,
         errors: ['time'],
       })
       .then((collected) => {

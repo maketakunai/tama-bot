@@ -1,11 +1,13 @@
 const storyGrails = 10;
 const storyGrails2 = 4;
-const storyGrails3 = 0;
+const storyGrails3 = 1;
 const eventGrails = 11;
 const jpStoryGrails1 = 10;
 const jpStoryGrails2 = 4;
 const jpStoryGrails3 = 5;
 const jpEventGrails = 34;
+const naTotalGrails = storyGrails + storyGrails2 + storyGrails3 + eventGrails;
+const jpTotalGrails = jpStoryGrails1 + jpStoryGrails2 + jpStoryGrails3 + jpEventGrails;
 
 
 exports.run = (client, message, args) => {
@@ -37,6 +39,11 @@ exports.run = (client, message, args) => {
         {
           "name": "Event Grails",
           "value": `Total: ${jpEventGrails}\nNA: ${eventGrails}`,
+          "inline": true
+        },
+        {
+          "name": "Total Grails",
+          "value": `Total: ${jpTotalGrails}\nNA: ${naTotalGrails}`,
           "inline": true
         },
         {

@@ -48,11 +48,11 @@ exports.run = (client, message, args) => {
     }
     message.channel.send(`Reply with the ID number of the servant you want(example:\`001\`), or type \`showall\` to show all:\n${responseList.join('\r\n')}\nYou can also search via servant ID (example: \`!mats 123\`)`)
       .then( m => {
-        m.delete(20000);
+        m.delete(25000);
         numList.push('showall');
         message.channel.awaitMessages(response => numList.indexOf(response.content) != -1, {
         max: 1,
-        time: 15000,
+        time: 25000,
         errors: ['time'],
       })
       .then((collected) => {

@@ -1,9 +1,10 @@
 const servantList = require("../data/servant_db.json");
-const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const emoji = require("../data/emoji.json");
+const master = require("../data/master.json")
+const Jimp = require('jimp');
 
 exports.run = (client, message, args) => {
-  if (args.length == 0 || args.length == 1 || args.length == 2) {
+  if (args.length == 0) {
     message.channel.send("Stop, stop please! Please type '!portrait (number) (class) (servantname)' to search for a particular servant.\nThe available servant classes are: Saber, Archer, Lancer, Rider, Caster, Assassin, Berserker, Shielder, Ruler, Avenger, MoonCancer, AlterEgo, Foreigner")
     return;
   }
@@ -24,8 +25,7 @@ exports.run = (client, message, args) => {
 
   if (servantSearch.length == 1){
     for (let j = 0; j < servantSearch.length; j++){
-      let servnum = pad(servantSearch[j].id, 3);
-      showPortrait(servantSearch[j], ascensionNumber, servnum, message);
+      showPortrait(servantSearch, j, ascensionNumber, message);
     }
     return;
   }
@@ -38,25 +38,24 @@ exports.run = (client, message, args) => {
     }
 
     message.channel.send(`Reply with the ID number of the servant you want (example:\`001\`), or type \`showall\` to show all:\n${responseList.join('\r\n')}`)
-      .then(() => {
+      .then( m => {
+        m.delete(25000);
         numList.push('showall');
         message.channel.awaitMessages(response => numList.indexOf(response.content) != -1, {
         max: 1,
-        time: 15000,
+        time: 25000,
         errors: ['time'],
       })
       .then((collected) => {
         if (collected.first().content == 'showall') {
           for (let j = 0; j < servantSearch.length; j++){
-            let servnum = pad(servantSearch[j].id, 3);
-            showPortrait(servantSearch[j], ascensionNumber, servnum, message);
+            showPortrait(servantSearch, j, ascensionNumber, message);
           }
         }
         else {
           for (let j = 0; j < servantSearch.length; j++){
             if (Number(collected.first().content) == Number(servantSearch[j].id)){
-              let servnum = pad(servantSearch[j].id, 3);
-              showPortrait(servantSearch[j], ascensionNumber, servnum, message);
+              showPortrait(servantSearch, j, ascensionNumber, message);
             }
           }
         }
@@ -103,30 +102,88 @@ function findServant(classSearchResults, input){
   return servantsFound;
 }
 
-function showPortrait(servantSearch, ascensionNumber, servnum, message) {
-  let name = `${servantSearch.name}`;
+function showPortrait(servantSearch, j, ascensionNumber, message) {
+
+
+  let name = `${servantSearch[j].name}`;
   let desc = '';
-  if (servantSearch.hiddenname) {
+  if (servantSearch[j].hiddenname) {
     //name = `${servantSearch[j].name}/||${servantSearch[j].alias}||`
-    desc = `||${servantSearch.alias}||`;
+    desc = `||${servantSearch[j].alias}||`;
   }
-  let imgurl = `https://cirnopedia.org/fate-go/icons/servant_card/`+ servnum + ascensionNumber + `.jpg`;
-  console.log(imgurl);
-  let exists = imageExists(imgurl);
-  if (exists){
-    message.channel.send({
-      "embed": {
-        "title": `${servantSearch.name}`,
-        "description": desc,
-        "color": 000000,
-        "image": {
-        "url": `${imgurl}`
-        }
+
+  let imgurl = "";
+  let imgLetter = "";
+  let cropDims = []; //x, y, w, h
+  let idAdd = 0;
+
+  //determine which half of kazemai image to use and crop
+  if (ascensionNumber == 1) {
+    imgLetter = 'a';
+    cropDims = [0, 0, 512, 724]
+  }
+  else if (ascensionNumber == 2) {
+    imgLetter = 'a';
+    cropDims = [512, 0, 512, 724]
+  }
+  else if (ascensionNumber == 3) {
+    imgLetter = 'b';
+    cropDims = [0, 0, 512, 724]
+  }
+  else if (ascensionNumber == 4) {
+    imgLetter = 'b';
+    cropDims = [512, 0, 512, 724]
+  }
+  else if (ascensionNumber == 5) {
+    imgLetter = 'a';
+    cropDims = [0, 0, 512, 724]
+    idAdd = 30;
+  }
+  else if (ascensionNumber == 6) {
+    imgLetter = 'a';
+    cropDims = [0, 0, 512, 724]
+    idAdd = 40;
+  }
+  else if (ascensionNumber == 7) {
+    imgLetter = 'a';
+    cropDims = [0, 0, 512, 724]
+    idAdd = 50;
+  }
+
+
+  for (let i = 0; i < master.mstSvt.length; i++){ //lets iterate through mstSvt and find the game ID for a servant
+    if ( master.mstSvt[i].cvId ){ //so if that cv ID first exists (servant, so we dont get confused with CEs),
+      if ( Number(master.mstSvt[i].collectionNo) == Number(servantSearch[j].id) ) { //then check for a match with servant number
+        imgurl = 'https://kazemai.github.io/fgo-vz/common/images/CharaGraph/'+Number(master.mstSvt[i].id+idAdd)+imgLetter+'.png';
       }
-    }).catch(console.error);
+    }
   }
-  else
-    message.channel.send(`<:mikon:585658891808014337> Oops, it looks like ascension artwork ${ascensionNumber} for ${servantSearch.name} doesn't exist!`);
+  //console.log(imgurl);
+
+
+  const embed = {
+    "title": name,
+    "description": desc,
+    "color": 000000,
+    "image": {
+    "url": "attachment://image.png"
+    }
+  }
+
+  Jimp.read(imgurl)
+    .then(image => {
+      image.crop(cropDims[0], cropDims[1], cropDims[2], cropDims[3]);
+      image.getBuffer(Jimp.MIME_PNG, (err, buffer) =>{
+        message.channel.send({
+          embed, files: [{attachment: buffer, name: 'image.png'}]
+          }).catch(console.error);
+      })
+    })
+    .catch(err => {
+      //console.log(err)
+      message.channel.send(`Oops! Sorry, I couldn't find portrait ${ascensionNumber} for ${name}.`)
+    })
+
 }
 
 function pad(n, width, z) {
@@ -134,17 +191,6 @@ function pad(n, width, z) {
   n = n + '';
   return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
 }
-
-function imageExists(image_url){
-
-  var http = new XMLHttpRequest();
-
-  http.open('HEAD', image_url, false);
-  http.send();
-
-  return http.status != 404;
-}
-
 
 exports.conf = {
   enabled: true,
