@@ -3,8 +3,12 @@ const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const emoji = require("../data/emoji.json");
 
 exports.run = (client, message, args) => {
-  if ( args.length == 0 || args.length == 1 ) {
+  if ( args.length == 0 ) {
     message.channel.send("Stop, stop please! Please type '!riyo (class) (servantname)' to search for a particular servant.\nThe available servant classes are: Saber, Archer, Lancer, Rider, Caster, Assassin, Berserker, Shielder, Ruler, Avenger, MoonCancer, AlterEgo, Foreigner")
+    return;
+  }
+  else if ( !isNaN(args[0]) ) {
+    showByNumber(args[0], message);
     return;
   }
   let classSearch = checkServantClass(args[0]);
@@ -69,6 +73,26 @@ exports.run = (client, message, args) => {
     message.channel.send("Sorry, I couldn't find that servant. Please try again, or use a search term longer than two characters.");
 }
 
+
+function showByNumber(input, message) {
+  let name = servantList[input].name;
+  let imgurl = `https://raw.githubusercontent.com/maketakunai/tama-bot/master/images/aprilfools/`+ input + `.png`;
+  let exists = imageExists(imgurl);
+  if (exists){
+    message.channel.send({
+      "embed": {
+        "title": `${servantSearch.name}`,
+        "description": desc,
+        "color": 000000,
+        "image": {
+        "url": `${imgurl}`
+        }
+      }
+    }).catch(console.error);
+  }
+  else
+    message.channel.send(`Riyo April Fools art is unavailable for ${servantSearch.class} ${servantSearch.name}.`).catch(console.error);
+}
 
 function checkServantClass(input){
   console.log(`Searching ${Object.keys(servantList).length} entries...`);
