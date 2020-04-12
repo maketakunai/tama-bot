@@ -1,10 +1,10 @@
 {
-  "name": "Anastasia Pickup Summon 1",
+  "name": "Goetterdaemmerung Pickup Summon",
   "desc": "",
   "servants": {
-    "3": [ "203" ],
-    "4": [ "202" ],
-    "5": [ "201" ]
+    "3": [ "" ],
+    "4": [ "214" ],
+    "5": [ "213" ]
   },
   "ce": {
     "3": [ "" ],
@@ -14,7 +14,7 @@
   "rates": {
       "servstandard": [ 1, 3, 40 ],
       "cestandard": [ 4, 12, 40 ],
-      "servrateup": [ 0.7, 1.5, 4 ],
+      "servrateup": [ 0.7, 1.5, 0 ],
       "cerateup": [ 0, 0, 0 ]
   }
 }

@@ -1,20 +1,20 @@
 {
-  "name": "Da Vinci + 7 Fake Heroic Spirits Pickup Summon",
+  "name": "Napoleon Pickup Summon",
   "desc": "",
   "servants": {
     "3": [ "" ],
     "4": [ "" ],
-    "5": [ "127", "106" ]
+    "5": [ "212" ]
   },
   "ce": {
     "3": [ "" ],
-    "4": [ "182","183","184" ],
+    "4": [ "" ],
     "5": [ "" ]
   },
   "rates": {
       "servstandard": [ 1, 3, 40 ],
       "cestandard": [ 4, 12, 40 ],
-      "servrateup": [ 0.8, 0, 0 ],
-      "cerateup": [ 0, 4, 0 ]
+      "servrateup": [ 0.7, 0, 0 ],
+      "cerateup": [ 0, 0, 0 ]
   }
 }

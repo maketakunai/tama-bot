@@ -4,7 +4,7 @@ const emoji = require("../data/emoji.json");
 
 exports.run = (client, message, args) => {
   if ( args.length == 0 ) {
-    message.channel.send("Stop, stop please! Please type '!riyo (class) (servantname)' to search for a particular servant.\nThe available servant classes are: Saber, Archer, Lancer, Rider, Caster, Assassin, Berserker, Shielder, Ruler, Avenger, MoonCancer, AlterEgo, Foreigner")
+    message.channel.send("Stop, stop please! Please type '!riyo (class) (servantname)' to search for a particular servant.\nThe available servant classes are: Saber, Archer, Lancer, Rider, Caster, Assassin, Berserker, Shielder, Ruler, Avenger, MoonCancer, AlterEgo, Foreigner.\nYou can also search by servant number (282 to 287 for Learning with Manga)").then(m => m.delete(20000));
     return;
   }
   else if ( !isNaN(args[0]) ) {
@@ -18,7 +18,7 @@ exports.run = (client, message, args) => {
   searchString = searchString.replace(/\W/g, '');
   //console.log(`Searching for ${searchString}...`);
   if (classSearch.length == 0){
-    message.channel.send("Stop, stop please! Please type '!riyo (class) (servantname)' to search for a particular servant.\nThe available servant classes are: Saber, Archer, Lancer, Rider, Caster, Assassin, Berserker, Shielder, Ruler, Avenger, MoonCancer, AlterEgo, Foreigner")
+    message.channel.send("Stop, stop please! Please type '!riyo (class) (servantname)' to search for a particular servant.\nThe available servant classes are: Saber, Archer, Lancer, Rider, Caster, Assassin, Berserker, Shielder, Ruler, Avenger, MoonCancer, AlterEgo, Foreigner.\nYou can also search by servant number (282 to 287 for Learning with Manga)").then(m => m.delete(20000));
     return;
   }
   let servantSearch = findServant(classSearch, searchString);
@@ -41,11 +41,12 @@ exports.run = (client, message, args) => {
     }
 
     message.channel.send(`Reply with the ID number of the servant you want (example:\`001\`), or type \`showall\` to show all:\n${responseList.join('\r\n')}`)
-      .then(() => {
+      .then(m => {
+        m.delete(25000);
         numList.push('showall');
         message.channel.awaitMessages(response => numList.indexOf(response.content) != -1, {
         max: 1,
-        time: 15000,
+        time: 25000,
         errors: ['time'],
       })
       .then((collected) => {
@@ -65,23 +66,82 @@ exports.run = (client, message, args) => {
         }
       })
       .catch(() => {
-        message.channel.send(message.author.username +', you did not respond within the time limit. Please try searching again.');
+        message.channel.send(message.author.username +', you did not respond within the time limit. Please try searching again.').then(m => m.delete(20000));
       });
     });
   }
   else
-    message.channel.send("Sorry, I couldn't find that servant. Please try again, or use a search term longer than two characters.");
+    message.channel.send("Sorry, I couldn't find that servant. Please try again, or use a search term longer than two characters.").then(m => m.delete(20000));
 }
 
 
 function showByNumber(input, message) {
-  let name = servantList[input].name;
-  let imgurl = `https://raw.githubusercontent.com/maketakunai/tama-bot/master/images/aprilfools/`+ input + `.png`;
+  let servNum = input-1;
+  let name = '';
+
+  if (Number(input) == 1) { //special case mashu
+    let desc = ''
+    let imgurl = `https://raw.githubusercontent.com/maketakunai/tama-bot/master/images/aprilfools/001a.png`;
+    message.channel.send({
+      "embed": {
+        "title": `${servantList[servNum].name}`,
+        "description": desc,
+        "color": 000000,
+        "image": {
+        "url": `${imgurl}`
+        }
+      }
+    }).catch(console.error);
+    let imgurl2 = `https://raw.githubusercontent.com/maketakunai/tama-bot/master/images/aprilfools/001b.png`;
+    message.channel.send({
+      "embed": {
+        "title": `${servantList[servNum].name} Ortinax`,
+        "description": desc,
+        "color": 000000,
+        "image": {
+        "url": `${imgurl2}`
+        }
+      }
+    }).catch(console.error);
+    return;
+  }
+
+
+  switch(input) {
+    case "282":
+      name = 'Riyo Assassin'
+      break;
+    case "283":
+      name = 'Riyo Rider'
+      break;
+    case "284":
+      name = 'Riyo Lancer'
+      break;
+    case "285":
+      name = 'Riyo Archer'
+      break;
+    case "286":
+      name = 'Riyo Caster'
+      break;
+    case "287":
+      name = 'Riyo Saber'
+      break;
+    default:
+      try {
+        name = servantList[servNum].name;
+      }
+      catch(err) {
+        message.channel.send(`Riyo April Fools art is unavailable for servant ${input}.\nThe Learning with Manga servants are 282 through 287.`).then(m => m.delete(20000));
+        return;
+      }
+  }
+  let desc = '';
+  let imgurl = `https://raw.githubusercontent.com/maketakunai/tama-bot/master/images/aprilfools/`+ pad(input,3) + `.png`;
   let exists = imageExists(imgurl);
   if (exists){
     message.channel.send({
       "embed": {
-        "title": `${servantSearch.name}`,
+        "title": `${name}`,
         "description": desc,
         "color": 000000,
         "image": {
@@ -91,7 +151,7 @@ function showByNumber(input, message) {
     }).catch(console.error);
   }
   else
-    message.channel.send(`Riyo April Fools art is unavailable for ${servantSearch.class} ${servantSearch.name}.`).catch(console.error);
+    message.channel.send(`Riyo April Fools art is unavailable for servant ${input}.\nThe Learning with Manga servants are 282 through 287.`).then(m => m.delete(20000));
 }
 
 function checkServantClass(input){
@@ -133,8 +193,35 @@ function showPortrait(servantSearch, servnum, message) {
     //name = `${servantSearch[j].name}/||${servantSearch[j].alias}||`
     desc = `||${servantSearch.alias.split(',')[0]}||`;
   }
+
+  if (servnum == 001) { //special case mashu
+    let imgurl = `https://raw.githubusercontent.com/maketakunai/tama-bot/master/images/aprilfools/`+ servnum + `a.png`;
+    message.channel.send({
+      "embed": {
+        "title": `${servantSearch.name}`,
+        "description": desc,
+        "color": 000000,
+        "image": {
+        "url": `${imgurl}`
+        }
+      }
+    }).catch(console.error);
+    let imgurl2 = `https://raw.githubusercontent.com/maketakunai/tama-bot/master/images/aprilfools/`+ servnum + `b.png`;
+    message.channel.send({
+      "embed": {
+        "title": `${servantSearch.name} Ortinax`,
+        "description": desc,
+        "color": 000000,
+        "image": {
+        "url": `${imgurl2}`
+        }
+      }
+    }).catch(console.error);
+    return;
+  }
+
   let imgurl = `https://raw.githubusercontent.com/maketakunai/tama-bot/master/images/aprilfools/`+ servnum + `.png`;
-  //console.log(imgurl);
+
   let exists = imageExists(imgurl);
   if (exists){
     message.channel.send({
@@ -149,7 +236,7 @@ function showPortrait(servantSearch, servnum, message) {
     }).catch(console.error);
   }
   else
-    message.channel.send(`Riyo April Fools art is unavailable for ${servantSearch.class} ${servantSearch.name}.`).catch(console.error);
+    message.channel.send(`Riyo April Fools art is unavailable for ${servantSearch.class} ${servantSearch.name}.`).then(m => m.delete(20000));
 }
 
 
@@ -179,6 +266,6 @@ exports.conf = {
 
 exports.help = {
   name: 'riyo',
-  description: `Find a particular servant's april fool artwork.`,
-  usage: '!riyo [class] [servantname]'
+  description: `Find a particular servant's april fool artwork. Search by number (282 through 287) for Learning with Manga.`,
+  usage: '!riyo [class] [servant_name] or !riyo [servant_number]'
 };

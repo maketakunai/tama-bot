@@ -18,7 +18,7 @@ exports.run = (client, message, args) => {
 
   if (stageSearch.length > 0) {
     for (var j = 0; j < stageSearch.length; j++){
-      let imgurl = `https://raw.githubusercontent.com/maketakunai/fgo-test/master/images/singularity/${stageSearch[j]["image"]}.png`
+      let imgurl = `https://raw.githubusercontent.com/maketakunai/tama-bot/master/images/singularity/${stageSearch[j]["image"]}.png`
       message.channel.send({
         "embed": {
           "color": 0000000,

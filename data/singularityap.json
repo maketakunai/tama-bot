@@ -15,4 +15,5 @@
 {"singularity":"Goetterdaemmerung","alias":["Lostbelt 2", "LB 2", "Part 2"],"total_ap":970,"total_nodes":67,"total_chaps":18,"completion_time":3.37,"image":"Arc202"},
 {"singularity":"SIN","alias":["Lostbelt 3", "LB 3", "Part 2"],"total_ap":853,"total_nodes":42,"total_chaps":16,"completion_time":2.96,"image":"Arc203"},
 {"singularity":"Yuga Kshetra","alias":["Lostbelt 4", "LB 4", "Part 2"],"total_ap":904,"total_nodes":69,"total_chaps":20,"completion_time":3.14,"image":"Arc204"},
-{"singularity":"Atlantis","alias":["Lostbelt 5", "LB 5", "Part 2"],"total_ap":882,"total_nodes":82,"total_chaps":26,"completion_time":3.06,"image":"Arc205"}]
+{"singularity":"Atlantis","alias":["Lostbelt 5-1", "LB 5-1", "Part 2"],"total_ap":882,"total_nodes":82,"total_chaps":26,"completion_time":3.06,"image":"Arc2051"},
+{"singularity":"Olympus","alias":["Lostbelt 5-2", "LB 5-2", "Part 2"],"total_ap":890,"total_nodes":83,"total_chaps":27,"completion_time":3.09,"image":"Arc2052"}]

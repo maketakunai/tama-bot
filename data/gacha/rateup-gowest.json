@@ -1,15 +1,15 @@
 {
-  "name": "Valentine 2017 Pickup Summon Female Servants",
+  "name": "Go West Rerun Pickup Summon",
   "desc": "",
   "servants": {
     "3": [ "" ],
     "4": [ "" ],
-    "5": [ "155" ]
+    "5": [ "113" ]
   },
   "ce": {
-    "3": [ "425" ],
-    "4": [ "423" ],
-    "5": [ "421" ]
+    "3": [ "229" ],
+    "4": [ "228" ],
+    "5": [ "226" ]
   },
   "rates": {
       "servstandard": [ 1, 3, 40 ],

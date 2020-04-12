@@ -1,15 +1,15 @@
 {
-  "name": "Semiramis Pickup Summon",
+  "name": "Fate/Grand Order 3rd Anniversary Pickup Summon",
   "desc": "",
   "servants": {
     "3": [ "" ],
     "4": [ "" ],
-    "5": [ "199" ]
+    "5": [ "215" ]
   },
   "ce": {
-    "3": [ "715" ],
-    "4": [ "714" ],
-    "5": [ "713" ]
+    "3": [ "860" ],
+    "4": [ "859" ],
+    "5": [ "858" ]
   },
   "rates": {
       "servstandard": [ 1, 3, 40 ],
