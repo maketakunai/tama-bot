@@ -1,4 +1,6 @@
-const ceList = require("../data/ce_cirno.json");
+const ceList = require("../data/wikia_ce.json")
+const master = require("../data/master.json")
+const skill_icons = require("../data/emoji_skill.json")
 
 exports.run = (client, message, args) => {
   if ( args.length == 0 ) {
@@ -24,9 +26,9 @@ exports.run = (client, message, args) => {
     }
     return;
   }
-  else if (ceSearch.length > 1 && ceSearch.length < 25) {
+  else if (ceSearch.length > 1 && ceSearch.length < 50) {
     for (let i = 0; i < ceSearch.length; i++){
-      let ceNum = pad(ceSearch[i].number, 4);
+      let ceNum = pad(ceSearch[i].id, 4);
       numList.push(ceNum);
       let serv = `${ceNum}: ${ceSearch[i].rarity}, ${ceSearch[i].name_eng}`
       responseList.push(serv);
@@ -48,33 +50,75 @@ exports.run = (client, message, args) => {
         }
         else {
           for (let j = 0; j < ceSearch.length; j++){
-            if (Number(collected.first().content) == Number(ceSearch[j].number)){
+            if (Number(collected.first().content) == Number(ceSearch[j].id)){
               printCE(ceSearch, j, message, art);
             }
           }
         }
       })
       .catch(() => {
-        message.channel.send(message.author.username +', you did not respond within the time limit. Please try searching again.');
+        message.channel.send(message.author.username +', you did not respond within the time limit. Please try searching again.').then(m => m.delete(15000));
       });
     });
   }
-  else if (ceSearch.length >= 25) {
-    message.channel.send(`${ceSearch.length} results found. Please try to be more specific. You can also search by CE number.`).catch(console.error);
+  else if (ceSearch.length >= 50) {
+    message.channel.send(`${ceSearch.length} results found. Please try to be more specific. You can also search by CE number.`).then(m => m.delete(15000));
   }
   else
-    message.channel.send("Sorry, I couldn't find that CE. Please try again, or use a search term longer than two characters.");
+    message.channel.send("Sorry, I couldn't find that CE. Please try again, or use a search term longer than two characters.").then(m => m.delete(15000));
 }
 
 
 function printCE(ceSearch, j, message, art){
-  let paddedNum = pad(ceSearch[j].number, 3);
-  let imgSmall = 'https://cirnopedia.org/fate-go/icons/essence_sample/craft_essence_'+paddedNum+'.png';
-  let imgBig = 'https://cirnopedia.org/fate-go/icons/essence/craft_essence_'+paddedNum+'.jpg';
-  let obtained = 'Information not available';
-  if (ceSearch[j].obtained){
-    obtained = ceSearch[j].obtained;
+  let paddedNum = pad(ceSearch[j].id, 4);
+
+  //let imgurl = `http://fate-go.cirnopedia.org/icons/servant/servant_`+ servnum +`1.png`;
+  let idSearch = '';
+  let imgSmall = '';
+  let imgBig = '';
+  let skillId = '';
+  let emojiId = '';
+  let ej = '';
+  for (let i = 0; i < master.mstSvt.length; i++){ //lets iterate through mstSvt and find the game ID for a servant
+    //if ( master.mstSvt[i].cvId ){ //so if that cv ID first exists (servant, so we dont get confused with CEs),
+      if ( Number(master.mstSvt[i].collectionNo) == Number(ceSearch[j].id) ) { //then check for a match with servant number
+        imgSmall = 'https://kazemai.github.io/fgo-vz/common/images/icon/faces/'+master.mstSvt[i].id+'.png';
+        imgBig = 'https://kazemai.github.io/fgo-vz/common/images/CharaGraph/'+master.mstSvt[i].id+'a.png';
+        idSearch = master.mstSvt[i].id
+      }
   }
+  //console.log(idSearch)
+  sk_results = []
+  for (let j = 0; j < master.mstSvtSkill.length; j++) {
+    if (idSearch == master.mstSvtSkill[j].svtId) {
+      let temp = master.mstSvtSkill[j].skillId
+      sk_results.push(Number(temp))
+    }
+  }
+  //console.log(sk_results)
+  skillId = Math.min(...sk_results)
+  //console.log(skillId)
+  for (let k = 0; k < master.mstSkill.length; k++) {
+    if (skillId == master.mstSkill[k].id) {
+      emojiId = master.mstSkill[k].iconId
+    }
+  }
+  //console.log(emojiId)
+  for (let key in skill_icons) {
+    if (key.indexOf(emojiId) != -1 ) {
+      ej = skill_icons[key]
+    }
+  }
+
+  let mlbfx = ''
+
+  if (ceSearch[j].mlb) {
+    mlbfx = `${ej} ${ceSearch[j].mlb}`
+  }
+  else {
+    mlbfx = `${ej} N/A`
+  }
+
   if (art) {
     message.channel.send({
       "embed": {
@@ -106,22 +150,27 @@ function printCE(ceSearch, j, message, art){
         "fields": [
           {
             "name": "Base / Max HP",
-            "value": `${ceSearch[j].base_hp} / ${ceSearch[j].max_hp}`,
+            "value": `${ceSearch[j].hp[0]} / ${ceSearch[j].hp[1]}`,
             "inline": true
           },
           {
             "name": "Base / Max ATK",
-            "value": `${ceSearch[j].base_atk} / ${ceSearch[j].max_atk}`,
+            "value": `${ceSearch[j].atk[0]} / ${ceSearch[j].atk[1]}`,
             "inline": true
           },
           {
-            "name": `Effects`,
-            "value": `${ceSearch[j].effects}`,
+            "name": `Normal Effect(s)`,
+            "value": `${ej} ${ceSearch[j].effect}`,
             "inline": false
           },
           {
-            "name": `Obtained`,
-            "value": `${obtained}`,
+            "name": `Max Limit Break Effect(s)`,
+            "value": `${mlbfx}`,
+            "inline": false
+          },
+          {
+            "name": `Artist`,
+            "value": `${ceSearch[j].illustrator}`,
             "inline": false
           }
         ]
@@ -150,13 +199,15 @@ function findCE(input){
   }
 
   for (let x = 0; x < ceList.length; x++){
-    if (Number(input) == ceList[x].number){
+    if (Number(input) == ceList[x].id){
       ceFound.push(ceList[x]);
     }
     if (bond) {
-      if (ceList[x].obtained.toLowerCase().replace(/\W/g, '').indexOf("bond") != -1 &&
-      ceList[x].effects.toLowerCase().replace(/\W/g, '').indexOf( input.join('').toLowerCase().replace(/\W/g, '') ) != -1) {
-        ceFound.push(ceList[x]);
+      if (ceList[x].effect) {
+        if (ceList[x].effect.toLowerCase().replace(/\W/g, '').indexOf( input.join('').toLowerCase().replace(/\W/g, '') ) != -1) {
+          ceFound.push(ceList[x]);
+        }
+
       }
     }
   }
@@ -164,8 +215,10 @@ function findCE(input){
   if (effect) {
     input = input.join('').toLowerCase();
     for (let y = 0; y < ceList.length; y++){
-      if (filter(ceList[y].effects.toLowerCase().replace(/\W/g, ''),input) == true) {
-        ceFound.push(ceList[y]);
+      if (ceList[y].effect){
+        if (filter(ceList[y].effect.toLowerCase().replace(/\W/g, ''),input) == true) {
+          ceFound.push(ceList[y]);
+        }
       }
     }
   }
@@ -174,13 +227,9 @@ function findCE(input){
       if (ceList[z].name_eng.toLowerCase().replace(/\W/g, '').indexOf( input.join('').toLowerCase().replace(/\W/g, '') ) != -1) {
         ceFound.push(ceList[z]);
       }
-      //else if (ceList[z].name_jp.toString().indexOf( input.toString() ) != -1) {
-        //ceFound.push(ceList[z]);
-      //}
     }
   }
   return ceFound;
-  //console.log(ceFound);
 }
 
 
@@ -205,5 +254,5 @@ exports.conf = {
 exports.help = {
   name: 'ce',
   description: `Shows CE information.`,
-  usage: '!ce [ce name] or !ce [ce number] or !ce --bond [servant name] or !ce --effect [effect1, effect2, effect3...] or !ce --art [search term]\nYou need leading zeroes for numbers under 100. ex) !ce 007'
+  usage: '!ce [ce name] or !ce [ce number] or !ce --bond [servant name] or !ce --effect [effect1, effect2, effect3...] or !ce --art [search term]\nCE data taken from the FGO wikia.'
 };
