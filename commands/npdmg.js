@@ -1,6 +1,6 @@
 const emoji = require("../data/emoji.json")
 const servantList = require("../data/servant_db.json");
-const lastUpdated = "04/16/2020"
+const lastUpdated = "05/04/2020"
 const master = require("../data/master.json")
 
 exports.run = (client, message, args) => {
