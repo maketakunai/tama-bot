@@ -4209,7 +4209,7 @@
       "100",
       "100"
     ],
-    "illustrator": "?",
+    "illustrator": "---",
     "effect": "When equipped on Sasaki Kojirō, \nIncrease Party's Quick Card performance by 15% while he's on the field.\n"
   },
   {
@@ -5203,7 +5203,7 @@
       "0",
       "0"
     ],
-    "illustrator": "ShakaP (DELiGHTWORKS)",
+    "illustrator": "Shaka P (DELiGHTWORKS)",
     "effect": "Grants Guts status for 1 time. (Revives with 1 HP.)\n Increases NP generation rate by 15%.\n",
     "mlb": "Grants Guts status for 1 time. (Revives with 1 HP.)\n Increases NP generation rate by 20%.\n"
   },
@@ -9906,7 +9906,7 @@
       "500",
       "2000"
     ],
-    "illustrator": "Redjuice",
+    "illustrator": "redjuice",
     "effect": "Increases Buster performance by 15%.\nIncreases NP generation rate by 15%.\n",
     "mlb": "Increases Buster performance by 20%.\nIncreases NP generation rate by 20%.\n"
   },
@@ -10908,7 +10908,7 @@
     "mlb": "Increases Mystic Code EXP gained by 50.\n"
   },
   {
-    "id": "625",
+    "id": "626",
     "rarity": "4★",
     "name_jp": "英霊正装: メフィストフェレス",
     "name_eng": "Heroic Spirit Formal Dress: Mephistopheles",
@@ -11436,7 +11436,7 @@
       "250",
       "1000"
     ],
-    "illustrator": "ShakaP (DELiGHTWORKS)",
+    "illustrator": "Shaka P (DELiGHTWORKS)",
     "effect": "Increases Arts performance by 8%.\nIncreases NP damage by 8%.\nStarts battle with 30% NP gauge.\n",
     "mlb": "Increases Arts performance by 10%.\nIncreases NP damage by 10%.\nStars battle with 50% NP gauge.\n"
   },
@@ -12422,7 +12422,7 @@
       "500",
       "2000"
     ],
-    "illustrator": "ShakaP (DELiGHTWORKS)",
+    "illustrator": "Shaka P (DELiGHTWORKS)",
     "effect": "Increases critical damage by 10%.\nIncreases critical star generation rate by 10%.\nStarts battle with 30% NP gauge.\n",
     "mlb": "Increases critical damage by 15%.\nIncreases critical star generation rate by 15%.\nStarts battle with 50% NP gauge.\n"
   },
@@ -13524,7 +13524,7 @@
       "200",
       "1000"
     ],
-    "illustrator": "honojiro towoji",
+    "illustrator": "Honojiro Towoji",
     "effect": "Increases Arts performance by 5%.\nIncreases NP generation rate by 3%.\n",
     "mlb": "Increases Arts performance by 8%.\nIncreases NP generation rate by 5%.\n"
   },
@@ -15252,7 +15252,7 @@
       "0",
       "0"
     ],
-    "illustrator": "ShakaP (DELiGHTWORKS)",
+    "illustrator": "Shaka P (DELiGHTWORKS)",
     "effect": "Charges NP gauge by 4% every turn.\nIncreases NP damage by 15%.\nReduces damage taken by 100.\n",
     "mlb": "Charges NP gauge by 5% every turn.\nIncreases NP damage by 20%.\nReduces damage taken by 200.\n"
   },
@@ -15663,7 +15663,7 @@
       "500",
       "2000"
     ],
-    "illustrator": "Jakobee",
+    "illustrator": "Jako",
     "effect": "Increases Buster performance by 20%.\nIncreases NP generation rate by 10%.\n",
     "mlb": "Increases Buster performance by 25%.\nIncreases NP generation rate by 15%.\n"
   },
@@ -16021,23 +16021,6 @@
     ],
     "illustrator": "—",
     "effect": "When equipped on Xiang Yu,\nIncreases party's Buster and Quick performance by 10% while he is on the field.\n"
-  },
-  {
-    "id": "917",
-    "rarity": "4★",
-    "name_jp": "我が毒杯、我が仮面",
-    "name_eng": "My Mask, My Cup of Poisoned Alcohol​",
-    "cost": "9",
-    "hp": [
-      "100",
-      "100"
-    ],
-    "atk": [
-      "100",
-      "100"
-    ],
-    "illustrator": "—",
-    "effect": "When equipped on Lanling Wang,\nIncreases party's Arts performance and NP generation rate by 10% while he is on the field.\n"
   },
   {
     "id": "917",
@@ -17061,6 +17044,23 @@
     "effect": "Increases  points by +10%\n"
   },
   {
+    "id": "976",
+    "rarity": "4★",
+    "name_jp": "美貌を隠す仮面",
+    "name_eng": "Beauty-Concealing Mask",
+    "cost": "3",
+    "hp": [
+      "0",
+      "0"
+    ],
+    "atk": [
+      "0",
+      "0"
+    ],
+    "illustrator": "—",
+    "effect": "Increases  points by +10%\n"
+  },
+  {
     "id": "977",
     "rarity": "4★",
     "name_jp": "パンダ",
@@ -17280,7 +17280,7 @@
       "100"
     ],
     "illustrator": "Sakuma Mitsuro",
-    "effect": "When equipped on Kingprotea,\nIncreases own Buster performance by 20%, further increases own Buster performance by 20% when Proliferation status is active and reduce party's Quick performance by 10% [Demerit] while she is on the field.\n"
+    "effect": "When equipped on Kingprotea,\nIncreases own Buster performance by 20%,\nIncreases own attack by 20% when Proliferation status is active,\nReduce party's Quick performance by 10% [Demerit] while she is on the field.\n"
   },
   {
     "id": "990",
@@ -18859,7 +18859,7 @@
       "200",
       "750"
     ],
-    "illustrator": "HOTOSOUKA",
+    "illustrator": "hotosoka",
     "effect": "Increases Quick and Buster performance by 6%.\nCharges NP gauge by 4% every turn.\n",
     "mlb": "Increases Quick and Buster performance by 8%.\nCharges NP gauge by 5% every turn.\n"
   },
@@ -18964,7 +18964,7 @@
       "100",
       "100"
     ],
-    "illustrator": "Studio A",
+    "illustrator": "Tsuzuki Neko",
     "effect": "When equipped on Gareth, \n Increases party's Buster performance by 10% and\nCritical damage by 15% while she is on the field.\n"
   },
   {
@@ -19157,7 +19157,7 @@
       "500",
       "2000"
     ],
-    "illustrator": "ShakaP (DELiGHTWORKS)",
+    "illustrator": "Shaka P (DELiGHTWORKS)",
     "effect": "Increases NP damage by 10%.\nIncreases critical damage of Arts Cards by 15%.\nStarts battle with 30% NP gauge.\n",
     "mlb": "Increases NP damage by 15%.\nIncreases critical damage of Arts Cards by 20%.\nStarts battle with 50% NP gauge.\n"
   },
@@ -19210,7 +19210,7 @@
       "100",
       "100"
     ],
-    "illustrator": "都筑襧己",
+    "illustrator": "Tsuzuki Neko",
     "effect": "When equipped on Osakabehime (Archer),\nIncreases party's Arts and Buster performance by 10% while she is on the field.\n"
   },
   {
@@ -20649,7 +20649,7 @@
       "0",
       "0"
     ],
-    "illustrator": "Zap",
+    "illustrator": "Zap.",
     "effect": "Increase  drops by 10%\n"
   },
   {
@@ -21208,5 +21208,146 @@
     ],
     "illustrator": "moryo",
     "effect": "When equipped on Romulus-Quirinus,\nIncreases the attack of Roman allies by 20% while he is on the field.\n"
+  },
+  {
+    "id": "1214",
+    "rarity": "5★",
+    "name_jp": "フリー・シーティング",
+    "name_eng": "Free Seating",
+    "cost": "12",
+    "hp": [
+      "0",
+      "0"
+    ],
+    "atk": [
+      "500",
+      "2000"
+    ],
+    "illustrator": "hotosoka",
+    "effect": "Increases QP gained by 1%.\nIncreases Mystic Code EXP gained by 1%.\n",
+    "mlb": "Increases QP gained by 5%.\nIncreases Mystic Code EXP gained by 5%.\n"
+  },
+  {
+    "id": "1215",
+    "rarity": "5★",
+    "name_jp": "ミッション･スタート",
+    "name_eng": "Mission Start",
+    "cost": "12",
+    "hp": [
+      "0",
+      "0"
+    ],
+    "atk": [
+      "500",
+      "2000"
+    ],
+    "illustrator": "Reoen",
+    "effect": "Increases Arts and Quick performance by 8%.\nIncreases critical damage by 8%.\nStarts battle with 40% NP gauge.\n",
+    "mlb": "Increases Arts and Quick performance by 10%.\nIncreases critical damage by 10%.\nStarts battle with 50% NP gauge.\n"
+  },
+  {
+    "id": "1216",
+    "rarity": "4★",
+    "name_jp": "トーナメント･スター",
+    "name_eng": "Tournament Star",
+    "cost": "9",
+    "hp": [
+      "320",
+      "1200"
+    ],
+    "atk": [
+      "200",
+      "750"
+    ],
+    "illustrator": "Taho",
+    "effect": "Increases Arts performance by 8%.\nReduces damage taken by 300.\n",
+    "mlb": "Increases Arts performance by 10%.\nReduces damage taken by 400.\n"
+  },
+  {
+    "id": "1217",
+    "rarity": "3★",
+    "name_jp": "ミックス･ジュース",
+    "name_eng": "Mix Juice",
+    "cost": "5",
+    "hp": [
+      "0",
+      "0"
+    ],
+    "atk": [
+      "200",
+      "1000"
+    ],
+    "illustrator": "Isshoku (Shiki)",
+    "effect": "Increases Buster performance by 3%.\nRecovers 50 HP every turn.\n",
+    "mlb": "Increases Buster performance by 5%.\nRecovers 100 HP every turn.\n"
+  },
+  {
+    "id": "1218",
+    "rarity": "5★",
+    "name_jp": "見上げた空の星に",
+    "name_eng": "Looking Up at the Starry Sky",
+    "cost": "12",
+    "hp": [
+      "400",
+      "1600"
+    ],
+    "atk": [
+      "250",
+      "1000"
+    ],
+    "illustrator": "Rella",
+    "effect": "Increases Quick performance by 8%.\nIncreases NP generation rate by 8%.\nGains 3 critical stars per turn.\n",
+    "mlb": "Increases Quick performance by 10%.\nIncreases NP generation rate by 10%.\nGains 4 critical stars per turn.\n"
+  },
+  {
+    "id": "1219",
+    "rarity": "4★",
+    "name_jp": "タイタンⅢEロケット",
+    "name_eng": "Titan IIIE Rocket",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Tatsuyo",
+    "effect": "When equipped on Voyager,\nIncreases party's damage against Sky enemies by 20% while he is on the field.\n"
+  },
+  {
+    "id": "1220",
+    "rarity": "4★",
+    "name_jp": "宮廷の琴の音",
+    "name_eng": "Sound of the Imperial Court's Koto",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Sakuma Mitsuro",
+    "effect": "When equipped on Kijyo Kōyō,\nIncreases party's Quick and Buster performance by 10% while she is on the field.\n"
+  },
+  {
+    "id": "1221",
+    "rarity": "4★",
+    "name_jp": "コードロン・シムーン",
+    "name_eng": "Caudron Simoun",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "—",
+    "effect": "When equipped on Utsumi Erice,\nIncreases party's Quick and Arts performance by 10% while she is on the field.\n"
   }
 ]

@@ -1,12 +1,24 @@
 const servantList = require("../data/servant_db.json");
+const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const emoji = require("../data/emoji.json");
 const master = require("../data/master.json")
 const Jimp = require('jimp');
+const sizeOf = require('image-size');
+const url = require('url');
+const https = require('https');
 
 exports.run = (client, message, args) => {
   if (args.length == 0) {
     message.channel.send("Stop, stop please! Please type '!portrait (number) (class) (servantname)' to search for a particular servant.\nThe available servant classes are: Saber, Archer, Lancer, Rider, Caster, Assassin, Berserker, Shielder, Ruler, Avenger, MoonCancer, AlterEgo, Foreigner")
     return;
+  }
+  if ( typeof Number(args[1]) == 'number' ){
+    for (let i = 0; i < servantList.length; i++) {
+      if (servantList[i].id == Number(args[1])) {
+        showPortrait(servantList, i, args[0], message)
+        return;
+      }
+    }
   }
   let classSearch = checkServantClass(args[1]);
   let ascensionNumber = args.shift();
@@ -117,39 +129,39 @@ function showPortrait(servantSearch, j, ascensionNumber, message) {
   let cropDims = []; //x, y, w, h
   let idAdd = 0;
 
+
   //determine which half of kazemai image to use and crop
   if (ascensionNumber == 1) {
     imgLetter = 'a';
-    cropDims = [0, 0, 512, 724]
+    //cropDims = [0, 0, 512, 724]
   }
   else if (ascensionNumber == 2) {
     imgLetter = 'a';
-    cropDims = [512, 0, 512, 724]
+    //cropDims = [512, 0, 512, 724]
   }
   else if (ascensionNumber == 3) {
     imgLetter = 'b';
-    cropDims = [0, 0, 512, 724]
+    //cropDims = [0, 0, 512, 724]
   }
   else if (ascensionNumber == 4) {
     imgLetter = 'b';
-    cropDims = [512, 0, 512, 724]
+    //cropDims = [512, 0, 512, 724]
   }
   else if (ascensionNumber == 5) {
     imgLetter = 'a';
-    cropDims = [0, 0, 512, 724]
+    //cropDims = [0, 0, 512, 724]
     idAdd = 30;
   }
   else if (ascensionNumber == 6) {
     imgLetter = 'a';
-    cropDims = [0, 0, 512, 724]
+    //cropDims = [0, 0, 512, 724]
     idAdd = 40;
   }
   else if (ascensionNumber == 7) {
     imgLetter = 'a';
-    cropDims = [0, 0, 512, 724]
+    //cropDims = [0, 0, 512, 724]
     idAdd = 50;
   }
-
 
   for (let i = 0; i < master.mstSvt.length; i++){ //lets iterate through mstSvt and find the game ID for a servant
     if ( master.mstSvt[i].cvId ){ //so if that cv ID first exists (servant, so we dont get confused with CEs),
@@ -158,32 +170,132 @@ function showPortrait(servantSearch, j, ascensionNumber, message) {
       }
     }
   }
-  //console.log(imgurl);
 
-
-  const embed = {
-    "title": name,
-    "description": desc,
-    "color": 000000,
-    "image": {
-    "url": "attachment://image.png"
-    }
+  if (!imageExists(imgurl)){
+    message.channel.send(`Oops! Sorry, I couldn't find portrait ${ascensionNumber} for ${name}.`)
+    return;
   }
 
-  Jimp.read(imgurl)
-    .then(image => {
-      image.crop(cropDims[0], cropDims[1], cropDims[2], cropDims[3]);
-      image.getBuffer(Jimp.MIME_PNG, (err, buffer) =>{
-        message.channel.send({
-          embed, files: [{attachment: buffer, name: 'image.png'}]
-          }).catch(console.error);
-      })
-    })
-    .catch(err => {
-      //console.log(err)
-      message.channel.send(`Oops! Sorry, I couldn't find portrait ${ascensionNumber} for ${name}.`)
-    })
+  let options = url.parse(imgurl);
 
+  https.get(options, function (response) {
+    let chunks = [];
+    response.on('data', function (chunk) {
+      chunks.push(chunk);
+    }).on('end', function() {
+      let buffer = Buffer.concat(chunks);
+      imgSize = sizeOf(buffer);
+      //console.log(imgSize)
+      if (ascensionNumber == 1) {
+        cropDims = [0, 0, imgSize.width/2, imgSize.height]
+        if (imgSize.width == 1014) {
+          cropDims[2] = imgSize.width/2 - 10
+        }
+      }
+      else if (ascensionNumber == 2) {
+        cropDims = [imgSize.width/2, 0, imgSize.width/2, imgSize.height]
+      }
+      else if (ascensionNumber == 3) {
+        cropDims = [0, 0, imgSize.width/2, imgSize.height]
+        if (imgSize.width == 1014) {
+          cropDims[2] = imgSize.width/2 - 10
+        }
+      }
+      else if (ascensionNumber == 4) {
+        cropDims = [imgSize.width/2, 0, imgSize.width/2, imgSize.height]
+      }
+      else if (ascensionNumber == 5) {
+        cropDims = [0, 0, imgSize.width, imgSize.height]
+      }
+      else if (ascensionNumber == 6) {
+        cropDims = [0, 0, imgSize.width, imgSize.height]
+      }
+      else if (ascensionNumber == 7) {
+        cropDims = [0, 0, imgSize.width, imgSize.height]
+      }
+
+      //console.log(cropDims)
+      const embed = {
+        "title": name,
+        "description": desc,
+        "color": 000000,
+        "image": {
+        "url": "attachment://image.png"
+        }
+      }
+
+      Jimp.read(imgurl)
+        .then(image => {
+          image.crop(cropDims[0], cropDims[1], cropDims[2], cropDims[3]);
+          image.getBuffer(Jimp.MIME_PNG, (err, buffer) =>{
+            message.channel.send({
+              embed, files: [{attachment: buffer, name: 'image.png'}]
+              })
+          })
+        })
+        .catch(err => {
+          console.log(err)
+          message.channel.send(`Oops! Sorry, I couldn't find portrait ${ascensionNumber} for ${name}.`)
+        })
+    });
+  });
+}
+
+
+
+function getDims (imgurl, ascensionNumber) {
+  cropDims = []
+  let options = url.parse(imgurl);
+  https.get(options, function (response) {
+    let chunks = [];
+    response.on('data', function (chunk) {
+      chunks.push(chunk);
+    }).on('end', function() {
+      let buffer = Buffer.concat(chunks);
+      imgSize = sizeOf(buffer);
+
+      if (ascensionNumber == 1) {
+        //cropDims = [0, 0, 512, 724]
+        cropDims = [0, 0, imgSize.width/2, imgSize.height]
+      }
+      else if (ascensionNumber == 2) {
+        //cropDims = [512, 0, 512, 724]
+        cropDims = [imgSize.width/2, 0, imgSize.width/2, imgSize.height]
+      }
+      else if (ascensionNumber == 3) {
+        //cropDims = [0, 0, 512, 724]
+        cropDims = [0, 0, imgSize.width/2, imgSize.height]
+      }
+      else if (ascensionNumber == 4) {
+        //cropDims = [512, 0, 512, 724]
+        cropDims = [imgSize.width/2, 0, imgSize.width/2, imgSize.height]
+      }
+      else if (ascensionNumber == 5) {
+        //cropDims = [0, 0, 512, 724]
+        cropDims = [0, 0, imgSize.width/2, imgSize.height]
+      }
+      else if (ascensionNumber == 6) {
+        //cropDims = [0, 0, 512, 724]
+        cropDims = [0, 0, imgSize.width/2, imgSize.height]
+      }
+      else if (ascensionNumber == 7) {
+        //cropDims = [0, 0, 512, 724]
+        cropDims = [0, 0, imgSize.width/2, imgSize.height]
+      }
+      return cropDims
+    });
+  });
+
+}
+
+function imageExists(image_url){
+
+  var http = new XMLHttpRequest();
+
+  http.open('HEAD', image_url, false);
+  http.send();
+
+  return http.status != 404;
 }
 
 function pad(n, width, z) {

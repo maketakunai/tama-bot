@@ -81,7 +81,7 @@ function printCE(ceSearch, j, message, art){
   let ej = '';
   for (let i = 0; i < master.mstSvt.length; i++){ //lets iterate through mstSvt and find the game ID for a servant
     //if ( master.mstSvt[i].cvId ){ //so if that cv ID first exists (servant, so we dont get confused with CEs),
-      if ( Number(master.mstSvt[i].collectionNo) == Number(ceSearch[j].id) ) { //then check for a match with servant number
+      if ( Number(master.mstSvt[i].collectionNo) == Number(ceSearch[j].id) && !master.mstSvt[i].cvId ) { //then check for a match with servant number
         imgSmall = 'https://kazemai.github.io/fgo-vz/common/images/icon/faces/'+master.mstSvt[i].id+'.png';
         imgBig = 'https://kazemai.github.io/fgo-vz/common/images/CharaGraph/'+master.mstSvt[i].id+'a.png';
         idSearch = master.mstSvt[i].id

@@ -1,13 +1,19 @@
 const servantList = require("../data/servant_db.json");
-const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-const request = require('request');
-const cheerio = require('cheerio');
 const emoji = require('../data/emoji.json');
 
 exports.run = (client, message, args) => {
   if (args.length == 0) {
     message.channel.send("Stop, stop please! Please type '!sprite (number) (class) (servantname)' to search for a particular servant.\nThe available servant classes are: Saber, Archer, Lancer, Rider, Caster, Assassin, Berserker, Shielder, Ruler, Avenger, MoonCancer, AlterEgo, Foreigner").then(m => m.delete(10000));
     return;
+  }
+
+  if ( typeof Number(args[1]) == 'number' ){
+    for (let i = 0; i < servantList.length; i++) {
+      if (servantList[i].id == Number(args[1])) {
+        showSprite(servantList[i], args[0], message)
+        return
+      }
+    }
   }
   let classSearch = checkServantClass(args[1]);
   let ascensionNumber = args.shift();
@@ -26,46 +32,7 @@ exports.run = (client, message, args) => {
 
   if (servantSearch.length == 1){
     for (let j = 0; j < servantSearch.length; j++){
-      let servnum = pad(servantSearch[j].id, 3);
-      if (servnum == '001' && ascensionNumber == 4) {
-        ascensionNumber = 'Extra';
-      }
-      else if (servnum == '001' && ascensionNumber == 5){
-        ascensionNumber = 'Ortenaus';
-      }
-      if (servantSearch[j].costume == 1 && ascensionNumber == 4){
-        ascensionNumber = 'B';
-      }
-      else if (servantSearch[j].costume == 2 && ascensionNumber == 4){
-        ascensionNumber = 'Extra';
-      }
-      else if (servantSearch[j].costume == 2 && ascensionNumber == 5){
-        ascensionNumber = 'Extra_2';
-      }
-      let servstring = `Sprite_Servant_`+ servnum + '_' + ascensionNumber + `.png`;
-      let imgurl = `https://grandorder.wiki/File:`+servstring;
-      let array = [];
-      request(imgurl, function(err, resp, body){
-        $ = cheerio.load(body);
-        links = $('a');
-        $(links).each(function(){
-          var link = $(this).attr('href');
-          array.push(link);
-        });
-
-        for (let x = 7; x < array.length; x++){
-          if (array[x].indexOf('/' + servstring) != -1){
-            showSprite(array[x], servantSearch[j], ascensionNumber, servnum, message);
-            return;
-          }
-          else
-          {
-            message.channel.send(`Sorry, it doesn't look like sprite artwork ${ascensionNumber} exists for ${servantSearch[j].name} (${servnum}).`);
-            return;
-          }
-        }
-      });
-      //printServantInfo(servantSearch, j, message);
+      showSprite(servantSearch[j], ascensionNumber, message);
     }
     return;
   }
@@ -76,102 +43,26 @@ exports.run = (client, message, args) => {
       let serv = `${servnum}: ${servantSearch[i].name}, ${servantSearch[i].rarity} ★ ${emoji[servantSearch[i].class]} ${servantSearch[i].class}`
       responseList.push(serv);
     }
-    message.channel.send(`Reply with the ID number of the servant you want(example:\`001\`), or type \`showall\` to show all:\n${responseList.join('\r\n')}`)
+
+    message.channel.send(`Reply with the ID number of the servant you want (example:\`001\`), or type \`showall\` to show all:\n${responseList.join('\r\n')}`)
       .then( m => {
-        m.delete(20000);
+        m.delete(25000);
         numList.push('showall');
         message.channel.awaitMessages(response => numList.indexOf(response.content) != -1, {
         max: 1,
-        time: 15000,
+        time: 25000,
         errors: ['time'],
       })
       .then((collected) => {
-        if (collected.first().content.toLowerCase() == 'showall') {
+        if (collected.first().content == 'showall') {
           for (let j = 0; j < servantSearch.length; j++){
-            let servnum = pad(servantSearch[j].id, 3);
-            if (servnum == '001' && ascensionNumber == 4) {
-              ascensionNumber = 'Extra';
-            }
-            else if (servnum == '001' && ascensionNumber == 5){
-              ascensionNumber = 'Ortenaus';
-            }
-            if (servantSearch[j].costume == 1 && ascensionNumber == 4){
-              ascensionNumber = 'B';
-            }
-            else if (servantSearch[j].costume == 2 && ascensionNumber == 4){
-              ascensionNumber = 'Extra';
-            }
-            else if (servantSearch[j].costume == 2 && ascensionNumber == 5){
-              ascensionNumber = 'Extra_2';
-            }
-            let servstring = `Sprite_Servant_`+ servnum + '_' + ascensionNumber + `.png`;
-            let imgurl = `https://grandorder.wiki/File:`+servstring;
-            let array = [];
-            request(imgurl, function(err, resp, body){
-              $ = cheerio.load(body);
-              links = $('a');
-              $(links).each(function(){
-                var link = $(this).attr('href');
-                array.push(link);
-              });
-
-              for (let x = 7; x < array.length; x++){
-                if (array[x].indexOf('/' + servstring) != -1){
-                  showSprite(array[x], servantSearch[j], ascensionNumber, servnum, message);
-                  return;
-                }
-                else
-                {
-                  message.channel.send(`Sorry, it doesn't look like that sprite artwork exists for ${servantSearch[j].name} (${servnum}).`);
-                  return;
-                }
-              }
-            });
+            showSprite(servantSearch[j], ascensionNumber, message);
           }
         }
         else {
           for (let j = 0; j < servantSearch.length; j++){
             if (Number(collected.first().content) == Number(servantSearch[j].id)){
-              let servnum = pad(servantSearch[j].id, 3);
-              if (servnum == '001' && ascensionNumber == 4) {
-                ascensionNumber = 'Extra';
-              }
-              else if (servnum == '001' && ascensionNumber == 5){
-                ascensionNumber = 'Ortenaus';
-              }
-              if (servantSearch[j].costume == 1 && ascensionNumber == 4){
-                ascensionNumber = 'B';
-              }
-              else if (servantSearch[j].costume == 2 && ascensionNumber == 4){
-                ascensionNumber = 'Extra';
-              }
-              else if (servantSearch[j].costume == 2 && ascensionNumber == 5){
-                ascensionNumber = 'Extra_2';
-              }
-              let servstring = `Sprite_Servant_`+ servnum + '_' + ascensionNumber + `.png`;
-              let imgurl = `https://grandorder.wiki/File:`+servstring;
-              let array = [];
-              request(imgurl, function(err, resp, body){
-                $ = cheerio.load(body);
-                links = $('a');
-                $(links).each(function(){
-                  var link = $(this).attr('href');
-                  array.push(link);
-                });
-
-                for (let x = 7; x < array.length; x++){
-                  if (array[x].indexOf('/' + servstring) != -1){
-                    showSprite(array[x], servantSearch[j], ascensionNumber, servnum, message);
-                    return;
-                  }
-                  else
-                  {
-                    message.channel.send(`Sorry, it doesn't look like sprite artwork ${ascensionNumber} exists for ${servantSearch[j].name} (${servnum}).`);
-                    return;
-                  }
-                }
-              });
-              //showSprite(imgurl, servantSearch, ascensionNumber, servnum, message);
+              showSprite(servantSearch[j], ascensionNumber, message);
             }
           }
         }
@@ -183,21 +74,24 @@ exports.run = (client, message, args) => {
   }
   else
     message.channel.send("Sorry, I couldn't find that servant. Please try again, or use a search term longer than two characters.");
-}
+  }
 
 
 
-function showSprite(url, servantSearch, ascensionNumber, servnum, message) {
+function showSprite(servantSearch, ascensionNumber, message) {
   let name = `${servantSearch.name}`;
   let desc = '';
   if (servantSearch.hiddenname) {
     //name = `${servantSearch[j].name}/||${servantSearch[j].alias}||`
     desc = `||${servantSearch.alias}||`;
   }
-  let imgurl = `https://grandorder.wiki`+url;
-  //console.log(imgurl);
-  let exists = imageExists(imgurl);
-  if (exists){
+  let imgurl = servantSearch.sprite.split(',')[ascensionNumber-1]
+  if (imgurl == undefined) {
+    message.channel.send(`Sorry, it doesn't look like that sprite artwork ${ascensionNumber} exists for ${servantSearch.name} (${servantSearch.id}).`);
+    return;
+  }
+
+  else {
     message.channel.send({
       "embed": {
         "title": `${servantSearch.name}`,
@@ -208,7 +102,9 @@ function showSprite(url, servantSearch, ascensionNumber, servnum, message) {
         }
       }
     }).catch(console.error);
+    return;
   }
+
 }
 
 

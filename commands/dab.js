@@ -35,7 +35,8 @@ const answers = ["https://i.imgur.com/sSIu82q.png",
 "https://i.imgur.com/9Xs2Tl7.png",
 "https://i.imgur.com/4Vticsa.png",
 "https://i.imgur.com/zvoNjmF.png",
-"https://i.imgur.com/UEdKAGP.png"]
+"https://i.imgur.com/UEdKAGP.png",
+"https://i.imgur.com/jtom30T.png"]
 
 function randomImage() {
   return answers[Math.floor(Math.random()*answers.length)];
