@@ -1,7 +1,7 @@
 const storyGrails = 10;
 const storyGrails2 = 4;
-const storyGrails3 = 1;
-const eventGrails = 13;
+const storyGrails3 = 2;
+const eventGrails = 15;
 const jpStoryGrails1 = 10;
 const jpStoryGrails2 = 4;
 const jpStoryGrails3 = 6;
@@ -48,7 +48,7 @@ exports.run = (client, message, args) => {
         },
         {
           "name": "Events that give grails",
-          "value": `Halloween 2015\nDa Vinci\nFate/Zero Collaboration\nOnigashima\nSummer 2016\nHalloween 2016\nGudaGuda Meiji Restoration\nCCC Collaboration\nSummer 2017\nHalloween 2017\nValentine's 2018\nApocrypha Collaboration\n→ GudaGuda Imperial Capital ←\nSummer 2018 (x2)\nBattle in NY 2018\nHalloween 2018 ONILAND\nChristmas 2018\nNew Years 2019\nValentine's 2019\nCCC Rerun (+1)\nCBC 2019\nTokugawa Labyrinth\nCase Files Collaboration\nA Study at Meiho Manor\nGudaGuda Final Honnoji\nSummer 2019\nBattle in NY 2019\nSaber Wars II\nChristmas 2019\nNY 2020 Login Bonus\namazoness.com CEO Crisis\nValentine's 2020\nAeaean Spring Breeze\nRequiem Collaboration`,
+          "value": `Halloween 2015\nDa Vinci\nFate/Zero Collaboration\nOnigashima\nSummer 2016\nHalloween 2016\nGudaGuda Meiji Restoration\nCCC Collaboration\nSummer 2017\nHalloween 2017\nValentine's 2018\nApocrypha Collaboration\nGudaGuda Imperial Capital\n→ Summer 2018 (x2) ←\nBattle in NY 2018\nHalloween 2018 ONILAND\nChristmas 2018\nNew Years 2019\nValentine's 2019\nCCC Rerun (+1)\nCBC 2019\nTokugawa Labyrinth\nCase Files Collaboration\nA Study at Meiho Manor\nGudaGuda Final Honnoji\nSummer 2019\nBattle in NY 2019\nSaber Wars II\nChristmas 2019\nNY 2020 Login Bonus\namazoness.com CEO Crisis\nValentine's 2020\nAeaean Spring Breeze\nRequiem Collaboration`,
           "inline": true
         }
       ]

@@ -9,7 +9,7 @@ const util = require('util');
 
 let totalrollstats = [0,0,0,0,0,0]; // in order from SSR, SR, R servants to ces
 let userstats = {};
-let banners = ['gowest', 'apoc', 'kogetsukan', 'guda3', 'napoleon', 'lb2', 'skadi', 'story', 'storyjp'];
+let banners = ['skadi', 'summer1', 'summer2', 'summer3', 'fatezero', 'binny', 'sitonai', 'story', 'storyjp'];
 
 exports.run = (client, message, args) => {
   if (message.guild.id == 328226892798754819 && message.channel.id != 421357102229880842) {
@@ -31,45 +31,45 @@ exports.run = (client, message, args) => {
     case "stats":
       showstats(message);
       break;
-    case "gowest":
-      var normgacha = require("../data/gacha/gacha-standardpool.json"),
-          rateup = require("../data/gacha/rateup-gowest.json"),
-          rates = rateup.rates;
-      rollten(rates, normgacha, rateup, message);
-      break;
-    case "apoc":
-      var normgacha = require("../data/gacha/gacha-standardpool.json"),
-          rateup = require("../data/gacha/rateup-apoc.json"),
-          rates = rateup.rates;
-      rollten(rates, normgacha, rateup, message);
-      break;
-    case "kogetsukan":
-      var normgacha = require("../data/gacha/gacha-standardpool.json"),
-          rateup = require("../data/gacha/rateup-kogetsukan.json"),
-          rates = rateup.rates;
-      rollten(rates, normgacha, rateup, message);
-      break;
-    case "guda3":
-      var normgacha = require("../data/gacha/gacha-standardpool.json"),
-          rateup = require("../data/gacha/rateup-guda3.json"),
-          rates = rateup.rates;
-      rollten(rates, normgacha, rateup, message);
-      break;
-    case "napoleon":
-      var normgacha = require("../data/gacha/gacha-standardpool.json"),
-          rateup = require("../data/gacha/rateup-napoleon.json"),
-          rates = rateup.rates;
-      rollten(rates, normgacha, rateup, message);
-      break;
-    case "lb2":
-      var normgacha = require("../data/gacha/gacha-standardpool.json"),
-          rateup = require("../data/gacha/rateup-lb2.json"),
-          rates = rateup.rates;
-      rollten(rates, normgacha, rateup, message);
-      break;
     case "skadi":
       var normgacha = require("../data/gacha/gacha-standardpool.json"),
           rateup = require("../data/gacha/rateup-skadi.json"),
+          rates = rateup.rates;
+      rollten(rates, normgacha, rateup, message);
+      break;
+    case "summer1":
+      var normgacha = require("../data/gacha/gacha-standardpool.json"),
+          rateup = require("../data/gacha/rateup-summer1.json"),
+          rates = rateup.rates;
+      rollten(rates, normgacha, rateup, message);
+      break;
+    case "summer2":
+      var normgacha = require("../data/gacha/gacha-standardpool.json"),
+          rateup = require("../data/gacha/rateup-summer2.json"),
+          rates = rateup.rates;
+      rollten(rates, normgacha, rateup, message);
+      break;
+    case "summer3":
+      var normgacha = require("../data/gacha/gacha-standardpool.json"),
+          rateup = require("../data/gacha/rateup-summer3.json"),
+          rates = rateup.rates;
+      rollten(rates, normgacha, rateup, message);
+      break;
+    case "fatezero":
+      var normgacha = require("../data/gacha/gacha-standardpool.json"),
+          rateup = require("../data/gacha/rateup-fatezero.json"),
+          rates = rateup.rates;
+      rollten(rates, normgacha, rateup, message);
+      break;
+    case "binny":
+      var normgacha = require("../data/gacha/gacha-standardpool.json"),
+          rateup = require("../data/gacha/rateup-binny.json"),
+          rates = rateup.rates;
+      rollten(rates, normgacha, rateup, message);
+      break;
+    case "sitonai":
+      var normgacha = require("../data/gacha/gacha-standardpool.json"),
+          rateup = require("../data/gacha/rateup-sitonai.json"),
           rates = rateup.rates;
       rollten(rates, normgacha, rateup, message);
       break;
