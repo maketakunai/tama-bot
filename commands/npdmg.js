@@ -1,13 +1,15 @@
 const emoji = require("../data/emoji.json")
 const servantList = require("../data/servant_db.json");
-const lastUpdated = "08/10/2020"
+const lastUpdated = "10/03/2020"
 const master = require("../data/master.json")
 
 exports.run = (client, message, args) => {
+  let npnotes = require("../data/npnotes.json")
+  delete require.cache[require.resolve('../data/npnotes.json')];
   if ( Number(args[0]) && (args.length == 1)){
     for (let i = 0; i < servantList.length; i++){
       if (Number(servantList[i].id) == Number(args[0])){
-        printServantData(servantList, i, message);
+        printServantData(servantList, i, message, npnotes);
         return;
       }
     }
@@ -30,9 +32,10 @@ exports.run = (client, message, args) => {
   let responseList = [];
   let numList = [];
 
+
   if (servantSearch.length == 1){
     for (let j = 0; j < servantSearch.length; j++){
-      printServantData(servantSearch, j, message);
+      printServantData(servantSearch, j, message, npnotes);
     }
     return;
   }
@@ -56,13 +59,13 @@ exports.run = (client, message, args) => {
       .then((collected) => {
         if (collected.first().content.toLowerCase() == 'showall') {
           for (let j = 0; j < servantSearch.length; j++){
-            printServantData(servantSearch, j, message);
+            printServantData(servantSearch, j, message, npnotes);
           }
         }
         else {
           for (let j = 0; j < servantSearch.length; j++){
             if (Number(collected.first().content) == Number(servantSearch[j].id)){
-              printServantData(servantSearch, j, message);
+              printServantData(servantSearch, j, message, npnotes);
             }
           }
         }
@@ -77,7 +80,7 @@ exports.run = (client, message, args) => {
 }
 
 
-function printServantData(servantSearch, j, message){
+function printServantData(servantSearch, j, message, npnotes){
   //generate url for embed image
   let servnum = pad(servantSearch[j].id, 3);
   //let imgurl = `http://fate-go.cirnopedia.org/icons/servant/servant_`+ servnum +`1.png`;
@@ -133,6 +136,15 @@ function printServantData(servantSearch, j, message){
     //title = `${servantSearch[j].name}/||${servantSearch[j].alias}||, ${servantSearch[j].rarity} ★ ${emoji[servantSearch[j].class]} ${servantSearch[j].class}`
     //}
 
+  let note = '-';
+  for (let k = 0; k < npnotes.length; k++) {
+    if (npnotes[k].id == servantSearch[j].id && npnotes[k].npnotes) {
+      note = npnotes[k].npnotes
+      note = note.split('\\n').join('\n')
+    }
+  }
+
+
   message.channel.send({
     "embed": {
       "description": `${emoji[type]} ${type}, ${servantSearch[j].nptarget}, Upgrade: ${upgrade}\n${multipliers}`,
@@ -142,7 +154,8 @@ function printServantData(servantSearch, j, message){
         "url": `${imgurl}`
       },
       "footer": {
-      "text": `Last updated ${lastUpdated}. '!help npdmg'`
+      //"text": `Last updated ${lastUpdated}. '!help npdmg'`
+      "text": `'!help npdmg'`
       },
       "image": {
       "url": ""
@@ -157,6 +170,11 @@ function printServantData(servantSearch, j, message){
           "name": `Special: ${servantSearch[j].npspecial}` ,
           "value": `NP1: ${specialdmg[0]}\nNP2: ${specialdmg[1]}\nNP3: ${specialdmg[2]}\nNP4: ${specialdmg[3]}\nNP5: ${specialdmg[4]}\n`,
           "inline": true
+        },
+        {
+          "name": `Notes`,
+          "value": `${note}`,
+          "inline": false
         }
       ]
     }

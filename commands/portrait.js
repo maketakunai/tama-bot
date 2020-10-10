@@ -162,6 +162,11 @@ function showPortrait(servantSearch, j, ascensionNumber, message) {
     //cropDims = [0, 0, 512, 724]
     idAdd = 50;
   }
+  else if (ascensionNumber == 8) {
+    imgLetter = 'a';
+    //cropDims = [0, 0, 512, 724]
+    idAdd = 60;
+  }
 
   for (let i = 0; i < master.mstSvt.length; i++){ //lets iterate through mstSvt and find the game ID for a servant
     if ( master.mstSvt[i].cvId ){ //so if that cv ID first exists (servant, so we dont get confused with CEs),
@@ -211,6 +216,9 @@ function showPortrait(servantSearch, j, ascensionNumber, message) {
         cropDims = [0, 0, imgSize.width, imgSize.height]
       }
       else if (ascensionNumber == 7) {
+        cropDims = [0, 0, imgSize.width, imgSize.height]
+      }
+      else if (ascensionNumber == 8) {
         cropDims = [0, 0, imgSize.width, imgSize.height]
       }
 

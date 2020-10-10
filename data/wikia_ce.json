@@ -1817,7 +1817,7 @@
     "id": "102",
     "rarity": "4★",
     "name_jp": "英霊肖像：アルテラ",
-    "name_eng": "Heroic Spirit Portrait: Attila",
+    "name_eng": "Heroic Spirit Portrait: Altera",
     "cost": "5",
     "hp": [
       "500",
@@ -3555,7 +3555,7 @@
       "100"
     ],
     "illustrator": "Tawawa Minoru",
-    "effect": "When equipped on Attila,\nIncreases party's attack by 15% while she is on the field.\n"
+    "effect": "When equipped on Altera,\nIncreases party's attack by 15% while she is on the field.\n"
   },
   {
     "id": "202",
@@ -4950,7 +4950,7 @@
     "id": "282",
     "rarity": "4★",
     "name_jp": "授かりの英雄",
-    "name_eng": "Endowed Hero (CE)",
+    "name_eng": "Endowed Hero",
     "cost": "9",
     "hp": [
       "100",
@@ -5062,7 +5062,7 @@
       "100",
       "100"
     ],
-    "illustrator": "—",
+    "illustrator": "?",
     "effect": "When equipped on Musashibō Benkei,\nIncreases party's NP generation rate when taking damage by 20% while he is on the field.\n"
   },
   {
@@ -5257,7 +5257,7 @@
       "100",
       "100"
     ],
-    "illustrator": "—",
+    "illustrator": "?",
     "effect": "When equipped on Mysterious Heroine X,\nIncrease Party's damage to  Saber enemies by 20% while she is on the field.\n"
   },
   {
@@ -6002,7 +6002,7 @@
       "100",
       "100"
     ],
-    "illustrator": "?",
+    "illustrator": "—",
     "effect": "When equipped on Paracelsus von Hohenheim,\nIncreases party's Arts performance and NP damage by 10% while he is on the field.\n"
   },
   {
@@ -6393,7 +6393,7 @@
     "id": "365",
     "rarity": "4★",
     "name_jp": "霊子肖像：アルテラ",
-    "name_eng": "Spiritron Portrait: Attila",
+    "name_eng": "Spiritron Portrait: Altera",
     "cost": "9",
     "hp": [
       "100",
@@ -6971,7 +6971,7 @@
       "100"
     ],
     "illustrator": "?",
-    "effect": "When equipped on Elizabeth Báthory (Brave),\nIncrease Buster Card performance of all allies by 20% but reduce Defense by 10% while she is on the field.\n"
+    "effect": "When equipped on Elizabeth Báthory (Brave),\nIncrease Buster Card performance of all allies by 20% but reduce Defense by 10% [Demerit] while she is on the field.\n"
   },
   {
     "id": "399",
@@ -7517,7 +7517,7 @@
       "100"
     ],
     "illustrator": "—",
-    "effect": "When equipped on Mysterious Heroine X (Alter),\nIncreases Party’s damage to Saber class enemies by 20% while she is on the field.\n"
+    "effect": "When equipped on Mysterious Heroine X (Alter),\nIncreases Party’s damage to  Saber enemies by 20% while she is on the field.\n"
   },
   {
     "id": "430",
@@ -10371,7 +10371,7 @@
     "id": "596",
     "rarity": "4★",
     "name_jp": "英霊正装: アルテラ",
-    "name_eng": "Heroic Spirit Formal Dress: Attila",
+    "name_eng": "Heroic Spirit Formal Dress: Altera",
     "cost": "9",
     "hp": [
       "100",
@@ -11438,7 +11438,7 @@
     ],
     "illustrator": "Shaka P (DELiGHTWORKS)",
     "effect": "Increases Arts performance by 8%.\nIncreases NP damage by 8%.\nStarts battle with 30% NP gauge.\n",
-    "mlb": "Increases Arts performance by 10%.\nIncreases NP damage by 10%.\nStars battle with 50% NP gauge.\n"
+    "mlb": "Increases Arts performance by 10%.\nIncreases NP damage by 10%.\nStarts battle with 50% NP gauge.\n"
   },
   {
     "id": "656",
@@ -11530,7 +11530,7 @@
     "id": "661",
     "rarity": "5★",
     "name_jp": "二神三脚",
-    "name_eng": "2 Gods 3 Legs",
+    "name_eng": "Divine Three-Legged Race",
     "cost": "12",
     "hp": [
       "0",
@@ -11592,7 +11592,7 @@
     ],
     "atk": [
       "200",
-      "100"
+      "1000"
     ],
     "illustrator": "Azusa",
     "effect": "Increases Buster performance by 3%.\nIncreases critical damage by 8%.\n",
@@ -11814,7 +11814,7 @@
   {
     "id": "677",
     "rarity": "4★",
-    "name_jp": "十文字槍",
+    "name_jp": "十文字槍\"",
     "name_eng": "Jūmonji Yari",
     "cost": "9",
     "hp": [
@@ -11959,12 +11959,12 @@
     "name_eng": "Nostalgic Form",
     "cost": "5",
     "hp": [
-      "0",
-      "0"
-    ],
-    "atk": [
       "300",
       "1500"
+    ],
+    "atk": [
+      "0",
+      "0"
     ],
     "illustrator": "Shimizu Eiichi × Shimoguchi Tomohiro",
     "effect": "Increases defense by 3%. \nIncreases Buster performance by 3%.\n",
@@ -11988,7 +11988,7 @@
     "effect": "When equipped on Osakabehime,\nIncreases party's NP generation by 15% while she is on the field.\n"
   },
   {
-    "id": "686",
+    "id": "687",
     "rarity": "4★",
     "name_jp": "エレクトロジカ ダイアグラム",
     "name_eng": "Electrologica Diagram",
@@ -12246,7 +12246,7 @@
       "100"
     ],
     "illustrator": "—",
-    "effect": "When equipped on Attila the San(ta),\nIncreases party's Quick card performance by 10% and critical damage by 15% while she is on the field.\n"
+    "effect": "When equipped on Altera the San(ta),\nIncreases party's Quick card performance by 10% and critical damage by 15% while she is on the field.\n"
   },
   {
     "id": "702",
@@ -12335,8 +12335,8 @@
       "0"
     ],
     "illustrator": "Riyo",
-    "effect": "Increases QP gained by 2018.\n",
-    "mlb": "Increases QP gained by 2018.\nReduces damage taken by 18.\n"
+    "effect": "Increases QP gained by 2020.\n",
+    "mlb": "Increases QP gained by 2020.\nReduces damage taken by 20.\n"
   },
   {
     "id": "707",
@@ -12605,7 +12605,7 @@
     "id": "722",
     "rarity": "4★",
     "name_jp": "マカロニグラタン",
-    "name_eng": "Macaroni au Gratin​",
+    "name_eng": "Macaroni au Gratin",
     "cost": "3",
     "hp": [
       "0",
@@ -13693,7 +13693,7 @@
   {
     "id": "785",
     "rarity": "2★",
-    "name_jp": "同調2",
+    "name_jp": "同調",
     "name_eng": "Conformity",
     "cost": "3",
     "hp": [
@@ -14397,7 +14397,7 @@
     "id": "825",
     "rarity": "4★",
     "name_jp": "英霊旅装: アルテラ",
-    "name_eng": "Heroic Spirit Traveling Outfit: Attila",
+    "name_eng": "Heroic Spirit Traveling Outfit: Altera",
     "cost": "9",
     "hp": [
       "100",
@@ -15431,7 +15431,7 @@
     "id": "883",
     "rarity": "4★",
     "name_jp": "悪役令嬢は悪女をぶち抜きたい！",
-    "name_eng": "I Want to Rip the Wicked & Villain​ous Daughter Apart!",
+    "name_eng": "I Want to Rip the Wicked & Villainous Daughter Apart!",
     "cost": "3",
     "hp": [
       "0",
@@ -16026,7 +16026,7 @@
     "id": "917",
     "rarity": "4★",
     "name_jp": "我が毒杯、我が仮面",
-    "name_eng": "My Mask, My Cup of Poisoned Alcohol​",
+    "name_eng": "My Mask, My Cup of Poisoned Alcohol",
     "cost": "9",
     "hp": [
       "100",
@@ -16043,7 +16043,7 @@
     "id": "918",
     "rarity": "4★",
     "name_jp": "トネリコの木",
-    "name_eng": "Ashleaf Maple​ Wood",
+    "name_eng": "Ashleaf Maple Wood",
     "cost": "9",
     "hp": [
       "100",
@@ -16088,7 +16088,7 @@
       "100"
     ],
     "illustrator": "Ninmaru",
-    "effect": "When equipped on Yu Miaoyi, \nIncreases party's Buster and Quick performance by 10% while she is on the field.\n"
+    "effect": "When equipped on Consort Yu, \nIncreases party's Buster and Quick performance by 10% while she is on the field.\n"
   },
   {
     "id": "921",
@@ -16286,7 +16286,7 @@
     "id": "932",
     "rarity": "4★",
     "name_jp": "正月の神秘",
-    "name_eng": "New Year Sacred Mysteries​",
+    "name_eng": "New Year Sacred Mysteries",
     "cost": "9",
     "hp": [
       "320",
@@ -16322,7 +16322,7 @@
     "id": "934",
     "rarity": "5★",
     "name_jp": "銀雪の女神たち",
-    "name_eng": "Silver-Glittering Snow​ Goddesses",
+    "name_eng": "Silver-Glittering Snow Goddesses",
     "cost": "12",
     "hp": [
       "400",
@@ -16333,8 +16333,8 @@
       "1000"
     ],
     "illustrator": "Hanamura Mai",
-    "effect": "Increases Buster, Arts and Quick performance by 6%.\nStarts battle with 30% NP gauge.\n",
-    "mlb": "Increases Buster, Arts and Quick performance by 8%.\nStarts battle with 50% NP gauge.\n"
+    "effect": "Increases Quick, Arts and Buster performance by 6%.\nStarts battle with 30% NP gauge.\n",
+    "mlb": "Increases Quick, Arts and Buster performance by 8%.\nStarts battle with 50% NP gauge.\n"
   },
   {
     "id": "935",
@@ -16571,7 +16571,7 @@
     "id": "948",
     "rarity": "4★",
     "name_jp": "新・源氏物語絵巻",
-    "name_eng": "Shin-Genji Monogatari Emaki​",
+    "name_eng": "Shin-Genji Monogatari Emaki",
     "cost": "9",
     "hp": [
       "100",
@@ -17047,7 +17047,7 @@
     "id": "976",
     "rarity": "4★",
     "name_jp": "美貌を隠す仮面",
-    "name_eng": "Beauty-Concealing Mask",
+    "name_eng": "Beauty-Concealing Mask (CE)",
     "cost": "3",
     "hp": [
       "0",
@@ -17057,7 +17057,7 @@
       "0",
       "0"
     ],
-    "illustrator": "—",
+    "illustrator": "Satoru Wada",
     "effect": "Increases  points by +10%\n"
   },
   {
@@ -18417,7 +18417,7 @@
     "id": "1054",
     "rarity": "4★",
     "name_jp": "英霊祭装：虞美人",
-    "name_eng": "Heroic Spirit Festive Wear: Yu Miaoyi",
+    "name_eng": "Heroic Spirit Festive Wear: Consort Yu",
     "cost": "9",
     "hp": [
       "100",
@@ -19193,7 +19193,7 @@
       "100",
       "100"
     ],
-    "illustrator": "渡辺悟",
+    "illustrator": "Watanabe Satoru",
     "effect": "When equipped on Miyamoto Musashi (Berserker),\nIncreases own NP damage by 30% and buff removal\nresistance by 100% (3 times) while she is on the field.\n"
   },
   {
@@ -19400,7 +19400,7 @@
       "250",
       "1000"
     ],
-    "illustrator": "—",
+    "illustrator": "Kaoruisi",
     "effect": "Grants Guts status for 1 time. (Revive with 1 HP.)\nReduces damage taken by 300.\n",
     "mlb": "Grants Guts status for 1 time. (Revive with 1 HP.)\nReduces damage taken by 400.\n"
   },
@@ -19543,7 +19543,7 @@
       "0",
       "0"
     ],
-    "illustrator": "—",
+    "illustrator": "Momiji Mao",
     "effect": "Experience CE, no effect.\n"
   },
   {
@@ -19788,7 +19788,7 @@
       "100",
       "500"
     ],
-    "illustrator": "Amano Hana",
+    "illustrator": "Amanohana",
     "effect": "Increases critical damage of Arts Cards by 25%.\n",
     "mlb": "Increases critical damage of Arts Cards by 30%.\n"
   },
@@ -20360,7 +20360,7 @@
       "0",
       "0"
     ],
-    "illustrator": "Nowaki",
+    "illustrator": "Nowaki Nakasane",
     "effect": "Increase  drops by 10%\n"
   },
   {
@@ -20690,7 +20690,7 @@
     "id": "1184",
     "rarity": "4★",
     "name_jp": "ジェットチョコ羊羹",
-    "name_eng": "Jet Choco Yōkan​",
+    "name_eng": "Jet Choco Yōkan",
     "cost": "3",
     "hp": [
       "0",
@@ -20751,7 +20751,7 @@
       "0",
       "0"
     ],
-    "illustrator": "Nowaki",
+    "illustrator": "Nowaki Nakasane",
     "effect": "Increase  drops by 10%\n"
   },
   {
@@ -21349,5 +21349,1455 @@
     ],
     "illustrator": "—",
     "effect": "When equipped on Utsumi Erice,\nIncreases party's Quick and Arts performance by 10% while she is on the field.\n"
+  },
+  {
+    "id": "1222",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：アタランテ",
+    "name_eng": "Heroic Spirit Travel Journal: Atalanta",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Rin Kususaga",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1223",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：アナスタシア",
+    "name_eng": "Heroic Spirit Travel Journal: Anastasia",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "sime",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1224",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：アビゲイル・ウィリアムズ",
+    "name_eng": "Heroic Spirit Travel Journal: Abigail Williams",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Kuroboshi Kouhaku",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1225",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：天草四郎",
+    "name_eng": "Heroic Spirit Travel Journal: Amakusa Shirou",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Konoe Ototsugu",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1226",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：アルトリア・ペンドラゴン",
+    "name_eng": "Heroic Spirit Travel Journal: Artoria Pendragon",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Takeuchi Takashi",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1227",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：イシュタル",
+    "name_eng": "Heroic Spirit Travel Journal: Ishtar",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Morii Shizuki",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1228",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：牛若丸＆武蔵坊弁慶",
+    "name_eng": "Heroic Spirit Travel Journal: Ushiwakamaru and Musashibou Benkei",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Sakamoto Mineji and Shinjirō\u200f\u200e",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1229",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：エレシュキガル",
+    "name_eng": "Heroic Spirit Travel Journal: Ereshkigal",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Morii Shizuki",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1230",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：燕青",
+    "name_eng": "Heroic Spirit Travel Journal: Yan Qing",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Shimaudon",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1231",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：岡田以蔵",
+    "name_eng": "Heroic Spirit Travel Journal: Okada Izou",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "lack",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1232",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：刑部姫",
+    "name_eng": "Heroic Spirit Travel Journal: Osakabehime",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Moriyama Daisuke",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1233",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：葛飾北斎",
+    "name_eng": "Heroic Spirit Travel Journal: Katsushika Hokusai",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Kuroboshi Kouhaku",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1234",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：加藤段蔵",
+    "name_eng": "Heroic Spirit Travel Journal: Katou Danzo",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Soga Makoto",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1235",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：カルナ＆アルジュナ",
+    "name_eng": "Heroic Spirit Travel Journal: Karna and Arjuna",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "pako",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1236",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：清姫",
+    "name_eng": "Heroic Spirit Travel Journal: Kiyohime",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "BLACK",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1237",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：キングプロテア",
+    "name_eng": "Heroic Spirit Travel Journal: Kingprotea",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Wada Arco",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1238",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：クー・フーリン",
+    "name_eng": "Heroic Spirit Travel Journal: Cu Chulainn (Alter)",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Shimadoriru",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1239",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：虞美人",
+    "name_eng": "Heroic Spirit Travel Journal: Consort Yu",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "toi8",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1240",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：ゲオルギウス",
+    "name_eng": "Heroic Spirit Travel Journal: Georgios",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Higashiguchi Chuuou",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1241",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：玄奘三蔵",
+    "name_eng": "Heroic Spirit Travel Journal: Xuanzang Sanzang",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Okazaki Takeshi",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1242",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：佐々木小次郎",
+    "name_eng": "Heroic Spirit Travel Journal: Sasaki Kojirou",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Mata",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1243",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：シグルド＆ブリュンヒルデ",
+    "name_eng": "Heroic Spirit Travel Journal: Sigurd and Brynhildr",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Miwa Shirō",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1244",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：シャーロック・ホームズ",
+    "name_eng": "Heroic Spirit Travel Journal: Sherlock Holmes",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Yamanaka Kotetsu",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1245",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：ジャガーマン",
+    "name_eng": "Heroic Spirit Travel Journal: Jaguar Man",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Aotsuki Takao",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1246",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：ジャック・ザ・リッパー",
+    "name_eng": "Heroic Spirit Travel Journal: Jack the Ripper",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Konoe Ototsugu",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1247",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：酒呑童子",
+    "name_eng": "Heroic Spirit Travel Journal: Shuten Douji",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Honjou Raita",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1248",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：スカサハ＝スカディ",
+    "name_eng": "Heroic Spirit Travel Journal: Scathach-Skadi",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Koyama Hirokazu",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1249",
+    "rarity": "4★",
+    "name_jp": " 英霊紀行：鈴鹿御前",
+    "name_eng": "Heroic Spirit Travel Journal: Suzuka Gozen",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": " Takenoko Seijin",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1250",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：清少納言",
+    "name_eng": "Heroic Spirit Travel Journal: Sei Shounagon",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Mika Pikazo",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1251",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：謎のヒロインX",
+    "name_eng": "Heroic Spirit Travel Journal: Mysterious Heroine X",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "BUNBUN",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1252",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：ニトクリス",
+    "name_eng": "Heroic Spirit Travel Journal: Nitocris",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Shimaudon",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1253",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：風魔小太郎",
+    "name_eng": "Heroic Spirit Travel Journal: Fuuma Kotarou",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Sasaki Shonen",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1254",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：フランケンシュタイン",
+    "name_eng": "Heroic Spirit Travel Journal: Frankenstein",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Okazaki Takeshi",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1255",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：ベディヴィエール",
+    "name_eng": "Heroic Spirit Travel Journal: Bedivere",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Sky Sphere",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1256",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：紅閻魔",
+    "name_eng": "Heroic Spirit Travel Journal: Beni-enma",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Harada Takehito",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1257",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：ヘラクレス",
+    "name_eng": "Heroic Spirit Travel Journal: Heracles",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Azusa",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1258",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：ポール・バニヤン",
+    "name_eng": "Heroic Spirit Travel Journal: Paul Bunyan",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Riyo",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1259",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：マーリン",
+    "name_eng": "Heroic Spirit Travel Journal: Merlin",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Taiki",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1260",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：マシュ・キリエライト",
+    "name_eng": "Heroic Spirit Travel Journal: Mashu Kyrielight",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Takeuchi Takashi",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1261",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：マリー・アントワネット",
+    "name_eng": "Heroic Spirit Travel Journal: Marie Antoinette",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Ginka",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1262",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：マルタ",
+    "name_eng": "Heroic Spirit Travel Journal: Martha",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Sakamoto Mineji",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1263",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：宮本武蔵",
+    "name_eng": "Heroic Spirit Travel Journal: Miyamoto Musashi",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Koyama Hirokazu",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1264",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：紫式部",
+    "name_eng": "Heroic Spirit Travel Journal: Murasaki Shikibu",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Honjou Raita",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1265",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：メドゥーサ",
+    "name_eng": "Heroic Spirit Travel Journal: Medusa (Lancer)",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "BLACK",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1266",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：森長可",
+    "name_eng": "Heroic Spirit Travel Journal: Mori Nagayoshi",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Dd",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1267",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：柳生但馬守宗矩",
+    "name_eng": "Heroic Spirit Travel Journal: Yagyu Munenori",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Furumi Shouichi",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1268",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：蘭陵王",
+    "name_eng": "Heroic Spirit Travel Journal: Lanling Wang",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "hou",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1269",
+    "rarity": "4★",
+    "name_jp": "英霊紀行：レオナルド・ダ・ヴィンチ",
+    "name_eng": "Heroic Spirit Travel Journal: Leonardo Da Vinci (Rider)",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Simosi",
+    "effect": "N/A\n",
+    "mlb": "Increases Friend Points gained by 10 (stackable).\n"
+  },
+  {
+    "id": "1270",
+    "rarity": "5★",
+    "name_jp": "セレブレイト・メモリーズ",
+    "name_eng": "Celebrate Memories",
+    "cost": "12",
+    "hp": [
+      "400",
+      "1600"
+    ],
+    "atk": [
+      "250",
+      "1000"
+    ],
+    "illustrator": "Hanagata",
+    "effect": "Increases own Quick and Buster Card by 8%.\nStarts battle with 50% NP gauge.\n",
+    "mlb": "Increases own Quick and Buster Card by 10%.\nStarts battle with 60% NP gauge.\n"
+  },
+  {
+    "id": "1271",
+    "rarity": "4★",
+    "name_jp": "ブレイン･ストーミング",
+    "name_eng": "Brainstorming",
+    "cost": "9",
+    "hp": [
+      "0",
+      "0"
+    ],
+    "atk": [
+      "400",
+      "1500"
+    ],
+    "illustrator": "Mebaru",
+    "effect": "Increases NP damage by 15%.\nOvercharges NP by 1 stage for 1 time.\n",
+    "mlb": "Increases NP damage by 20%.\nOvercharges NP by 1 stage for 1 time.\n"
+  },
+  {
+    "id": "1272",
+    "rarity": "3★",
+    "name_jp": "フィラー･フラワー",
+    "name_eng": "Filler Flower",
+    "cost": "5",
+    "hp": [
+      "300",
+      "1500"
+    ],
+    "atk": [
+      "0",
+      "0"
+    ],
+    "illustrator": "Makitoshi",
+    "effect": "Recovers 50 HP per turn.\nReduces damage taken by 100.\n",
+    "mlb": "Recovers 100 HP per turn.\nReduces damage taken by 200.\n"
+  },
+  {
+    "id": "1273",
+    "rarity": "5★",
+    "name_jp": "アイドル･メイカー",
+    "name_eng": "Idol Maker",
+    "cost": "12",
+    "hp": [
+      "750",
+      "3000"
+    ],
+    "atk": [
+      "0",
+      "0"
+    ],
+    "illustrator": "Taiki",
+    "effect": "Increases Master EXP gained by 1%.\nIncreases Mystic Code EXP gained by 1%.\n",
+    "mlb": "Increases Master EXP gained by 5%.\nIncreases Mystic Code EXP gained by 5%.\n"
+  },
+  {
+    "id": "1274",
+    "rarity": "4★",
+    "name_jp": "約束の刻",
+    "name_eng": "The Promised Moment",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Sakuma Mitsuro",
+    "effect": "When equipped on Artoria Caster,\nIncreases the party's attack and NP generation rate by 10% while she is on the field.\n"
+  },
+  {
+    "id": "1275",
+    "rarity": "4★",
+    "name_jp": "Waltz in the MOONLIGHT",
+    "name_eng": "Waltz in the MOONLIGHT",
+    "cost": "9",
+    "hp": [
+      "0",
+      "0"
+    ],
+    "atk": [
+      "400",
+      "1500"
+    ],
+    "illustrator": "Takashi Takeuchi",
+    "effect": "N/A\n",
+    "mlb": "Increases Master EXP gained by 50.\n"
+  },
+  {
+    "id": "1276",
+    "rarity": "4★",
+    "name_jp": "徒なる影",
+    "name_eng": "Ephemeral Silhouette",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Endou Kaori (ufotable)",
+    "effect": "N/A\n",
+    "mlb": "Increases Mystic Code EXP gained by 50.\n"
+  },
+  {
+    "id": "1277",
+    "rarity": "4★",
+    "name_jp": "夢に見し路",
+    "name_eng": "The Path I Saw in My Dreams",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Endou Kaori (ufotable)",
+    "effect": "N/A\n",
+    "mlb": "Increases Mystic Code EXP gained by 50.\n"
+  },
+  {
+    "id": "1278",
+    "rarity": "4★",
+    "name_jp": "茨の種",
+    "name_eng": "Seed of the Briar",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Endou Kaori (ufotable)",
+    "effect": "N/A\n",
+    "mlb": "Increases Mystic Code EXP gained by 50.\n"
+  },
+  {
+    "id": "1279",
+    "rarity": "4★",
+    "name_jp": "天に挿頭す",
+    "name_eng": "Above the Heavens",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Endou Kaori (ufotable)",
+    "effect": "N/A\n",
+    "mlb": "Increases Mystic Code EXP gained by 50.\n"
+  },
+  {
+    "id": "1280",
+    "rarity": "5★",
+    "name_jp": "ハニー･レイク",
+    "name_eng": "Honey Lake",
+    "cost": "12",
+    "hp": [
+      "0",
+      "0"
+    ],
+    "atk": [
+      "500",
+      "2000"
+    ],
+    "illustrator": "rurudo",
+    "effect": "Grants self Pierce Invincibility. \n Increases damage against enemies with   Burn by 35%.\n",
+    "mlb": "Grants self Pierce Invincibility. \n Increases damage against enemies with   Burn by 40%.\n"
+  },
+  {
+    "id": "1281",
+    "rarity": "4★",
+    "name_jp": "ハッピー☆ドライブ",
+    "name_eng": "Happy☆Drive",
+    "cost": "9",
+    "hp": [
+      "320",
+      "1200"
+    ],
+    "atk": [
+      "200",
+      "750"
+    ],
+    "illustrator": "Fukahire",
+    "effect": "Increases Arts performance by 8%.\n Increases critical damage by 8% \n Increases NP generation rate by 8%\n",
+    "mlb": "Increases Arts performance by 10%.\n Increases critical damage by 10% \n Increases NP generation rate by  10%\n"
+  },
+  {
+    "id": "1282",
+    "rarity": "3★",
+    "name_jp": "ホラー･コンシェルジュ",
+    "name_eng": "Horror Concierge",
+    "cost": "5",
+    "hp": [
+      "0",
+      "0"
+    ],
+    "atk": [
+      "200",
+      "1000"
+    ],
+    "illustrator": "Yasuyuki",
+    "effect": "Increases damage against Undead enemies by 15%.\n",
+    "mlb": "Increases damage against Undead enemies by 20%.\n"
+  },
+  {
+    "id": "1283",
+    "rarity": "5★",
+    "name_jp": "ハイド･ハンター",
+    "name_eng": "Hide Hunter",
+    "cost": "12",
+    "hp": [
+      "0",
+      "0"
+    ],
+    "atk": [
+      "500",
+      "2000"
+    ],
+    "illustrator": "ShakaP (DELiGHTWORKS)",
+    "effect": "Increases NP generation rate by 15%.\n Increases Critical damage by 15%. \nStarts battle with 15 critical stars.\n",
+    "mlb": "Increases NP generation rate by 20%.\n Increases Critical damage by 20%. \nStarts battle with 20 critical stars.\n"
+  },
+  {
+    "id": "1284",
+    "rarity": "5★",
+    "name_jp": "チェーンソー･オブ･ザ･デッド",
+    "name_eng": "Chainsaw of the Dead",
+    "cost": "12",
+    "hp": [
+      "750",
+      "3000"
+    ],
+    "atk": [
+      "0",
+      "0"
+    ],
+    "illustrator": "Saitou Hiroki (DELiGHTWORKS)",
+    "effect": "Increases Arts performance by 8%.\n Increases resistance toward critical attack chance by 5%.\nStarts battle with 30% NP charge.\n",
+    "mlb": "Increases Arts performance by 10%.\n Increases resistance toward critical attack chance by 10%.\nStarts battle with 50% NP charge.\n"
+  },
+  {
+    "id": "1285",
+    "rarity": "5★",
+    "name_jp": "イノセント･ブルー",
+    "name_eng": "Innocent Blue",
+    "cost": "12",
+    "hp": [
+      "400",
+      "1600"
+    ],
+    "atk": [
+      "250",
+      "1000"
+    ],
+    "illustrator": "Kazui",
+    "effect": "Grants Invincibility for 2 attacks.\n Increases Arts performance by 10%.\n",
+    "mlb": "Grants Invincibility for 2 attacks.\n Increases Arts performance by 15%.\n"
+  },
+  {
+    "id": "1286",
+    "rarity": "4★",
+    "name_jp": "クライミング･バトル",
+    "name_eng": "Climbing Battle",
+    "cost": "9",
+    "hp": [
+      "0",
+      "0"
+    ],
+    "atk": [
+      "200",
+      "1000"
+    ],
+    "illustrator": "Natsuo",
+    "effect": "Increases Quick and Buster performance by 8%.\n Increases NP generation rate by 8%.\n",
+    "mlb": "Increases Quick and Buster performance by 10%.\n Increases NP generation rate by 10%.\n"
+  },
+  {
+    "id": "1287",
+    "rarity": "3★",
+    "name_jp": "マブダチ･バーベキュー",
+    "name_eng": "Barbeque Buddies",
+    "cost": "5",
+    "hp": [
+      "300",
+      "1500"
+    ],
+    "atk": [
+      "0",
+      "0"
+    ],
+    "illustrator": "Shinotouko",
+    "effect": "Grants Evasion for 1 attack.\n Increases NP damage by 3%. \n Increases Critical damage by 3%.\n",
+    "mlb": "Grants Evasion for 1 attack.\n Increases NP damage by 5%. \n Increases Critical damage by 5%.\n"
+  },
+  {
+    "id": "1288",
+    "rarity": "4★",
+    "name_jp": "掌上の楼閣",
+    "name_eng": "Palm-Top Multistoried Building",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Yamaneko",
+    "effect": "When equipped on Sesshōin Kiara (Moon Cancer), \nGrants self Guts (1 time, Revive with 100% HP, Stackable with Other Guts). \nDecreases the MAX HP of all allied units by 1,000 [Demerit], \nwhile she is on the field.\n"
+  },
+  {
+    "id": "1289",
+    "rarity": "4★",
+    "name_jp": "スプラッタ☆レインボー！",
+    "name_eng": "Splatter Rainbow!",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "—",
+    "effect": "When equipped on Illyasviel von Einzbern (Archer), \nIncreases Quick, Arts, and Buster Performance of all allies by 8%\nwhile she is on the field.\n"
+  },
+  {
+    "id": "1290",
+    "rarity": "4★",
+    "name_jp": "御中元",
+    "name_eng": "Summer Gift",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Akihiro Mibuta",
+    "effect": "When equipped on Brynhildr (Berserker), \nIncreases Arts and Buster Card Performance of all (Brynhildr's Beloved) Allies except Self by 15%\nIncreases own Arts and Buster Card Performance by 10%\nwhile she is on the field.\n"
+  },
+  {
+    "id": "1291",
+    "rarity": "4★",
+    "name_jp": "夏の寄り添い",
+    "name_eng": "Cuddling Up in Summer",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Higashiyama Yuusei",
+    "effect": "When equipped on Consort Yu (Lancer), \nincreases Quick Performance of all allies by 10%, and their Critical Damage by 15%\nwhile she is on the field.\n"
+  },
+  {
+    "id": "1292",
+    "rarity": "4★",
+    "name_jp": "バルーンの偃月刀",
+    "name_eng": "Balloon Scimitar",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "Tatsuyo",
+    "effect": "When equipped on Abigail Williams (Summer), \n Increases own NP damage by 30% and grants self Debuff Immunity (3 times)\n"
+  },
+  {
+    "id": "1293",
+    "rarity": "4★",
+    "name_jp": "カルデアVR（コントローラー付属）",
+    "name_eng": "Chaldea VR (Controllers Included)",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "moryo",
+    "effect": "When equipped on Tomoe Gozen (Saber), \nIncreases party's Arts Performance by 10% and Critical Damage by 15%\nwhile she is on the field.\n"
+  },
+  {
+    "id": "1294",
+    "rarity": "4★",
+    "name_jp": "カルデア夏の推薦図書",
+    "name_eng": "Recommended Books for Chaldean Summer",
+    "cost": "9",
+    "hp": [
+      "100",
+      "100"
+    ],
+    "atk": [
+      "100",
+      "100"
+    ],
+    "illustrator": "—",
+    "effect": "When equipped on Murasaki Shikibu (Rider), \n increases party's Arts Card Performance by 10% and NP Gain by 10%, as long as she is on the field.\n"
+  },
+  {
+    "id": "1295",
+    "rarity": "5★",
+    "name_jp": "真紅の教槍",
+    "name_eng": "True Crimson Spear Trainer",
+    "cost": "12",
+    "hp": [
+      "0",
+      "0"
+    ],
+    "atk": [
+      "500",
+      "2000"
+    ],
+    "illustrator": "Kayahara",
+    "effect": "Increases Quick performance by 10%.\nIncreases critical damage of Quick Cards by 15%.\nStarts battle with 40% NP gauge.\n",
+    "mlb": "Increases Quick performance by 15%.\nIncreases critical damage of Quick Cards by 20%.\nStarts battle with 50% NP gauge.\n"
+  },
+  {
+    "id": "1296",
+    "rarity": "4★",
+    "name_jp": "ヘルズキッチン",
+    "name_eng": "Hell's Kitchen",
+    "cost": "9",
+    "hp": [
+      "0",
+      "0"
+    ],
+    "atk": [
+      "400",
+      "1500"
+    ],
+    "illustrator": "Nagishiro Mito",
+    "effect": "Increases Arts performance by 8%.\nIncreases NP Damage by 10%.\nIncreases Critical Damage by 10%.\n",
+    "mlb": "Increases Arts performance by 10%.\nIncreases NP Damage by 15%.\nIncreases Critical Damage by 15%.\n"
+  },
+  {
+    "id": "1297",
+    "rarity": "3★",
+    "name_jp": "掲げるは我が心",
+    "name_eng": "Blue Sky Academy",
+    "cost": "5",
+    "hp": [
+      "160",
+      "800"
+    ],
+    "atk": [
+      "100",
+      "500"
+    ],
+    "illustrator": "Kokoro Ten",
+    "effect": "Gain 1 critical star per turn.\nIncreases Arts performance by 3%.\n",
+    "mlb": "Gain 2 critical stars per turn.\nIncreases Arts performance by 5%.\n"
+  },
+  {
+    "id": "1298",
+    "rarity": "5★",
+    "name_jp": "掲げるは我が心",
+    "name_eng": "Wearing Our Hearts on Our Sleeves",
+    "cost": "12",
+    "hp": [
+      "400",
+      "1600"
+    ],
+    "atk": [
+      "250",
+      "1000"
+    ],
+    "illustrator": "Itou Noizi",
+    "effect": "Grants Guts status for 1 time. (Revive with 1 HP.)\nIncreases Buster performance by 8%.\n",
+    "mlb": "Grants Guts status for 1 time. (Revive with 1 HP.)\nIncreases Buster performance by 10%.\n"
+  },
+  {
+    "id": "1299",
+    "rarity": "5★",
+    "name_jp": "誠の蛍火",
+    "name_eng": "Firefly's Flame of Integrity",
+    "cost": "12",
+    "hp": [
+      "0 ",
+      " 0"
+    ],
+    "atk": [
+      "500 ",
+      " 2000"
+    ],
+    "illustrator": "Shinotsuki Shinobu",
+    "effect": "Increases Quick performance by 10% \n Increase Arts performance by 10% \n NP Overcharges NP by 2 stage for 1 time.\n",
+    "mlb": "Increases Quick performance by 15% \n Increase Arts performance by 15% \n Overcharges NP by 2 stage for 1 time.\n"
+  },
+  {
+    "id": "1300",
+    "rarity": "4★",
+    "name_jp": "晴れの日",
+    "name_eng": "Fine Day CE",
+    "cost": "9",
+    "hp": [
+      "320 ",
+      " 1200"
+    ],
+    "atk": [
+      "200 ",
+      " 750"
+    ],
+    "illustrator": "NyataBE",
+    "effect": "Gain 10 Critical Stars when equipped Servant enters the battlefield. \n Increases NP damage by 15%.\n",
+    "mlb": "Gain 12 Critical Stars when equipped Servant enters the battlefield. \n Increases NP damage by 20%.\n"
+  },
+  {
+    "id": "1301",
+    "rarity": "3★",
+    "name_jp": "金色ノ原",
+    "name_eng": "Golden Prairie",
+    "cost": "5",
+    "hp": [
+      "300 ",
+      " 1500"
+    ],
+    "atk": [
+      "0 ",
+      " 0"
+    ],
+    "illustrator": "Haya Kewi",
+    "effect": "Increase Quick performance by 3% \n Increases HP Recovery Rate by 5%.\n",
+    "mlb": "Increase Quick performance by 5% \n Increases HP Recovery Rate by 10%.\n"
+  },
+  {
+    "id": "1302",
+    "rarity": "5★",
+    "name_jp": "姫巫女の寸暇",
+    "name_eng": "Himiko's Leisure",
+    "cost": "12",
+    "hp": [
+      "400 ",
+      " 1600"
+    ],
+    "atk": [
+      "250 ",
+      " 1000"
+    ],
+    "illustrator": "Mizumizutori",
+    "effect": "Increases Critical Damage by 10% \n Increases Buster Card Critical Damage by 15% \n Start Battle with 30% NP.\n",
+    "mlb": "Increases Critical Damage by 15% \n Increases Buster Card Critical Damage by 20% \n Start Battle with 50% NP.\n"
   }
 ]

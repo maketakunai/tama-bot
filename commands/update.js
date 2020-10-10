@@ -3,6 +3,28 @@ const fs = require('fs');
 const config = require("../config.json");
 
 exports.run = (client, message, args) => {
+  if (args[0] === "notes") {
+    message.channel.send("Updating Tamabot's NP damage notes... Please wait.");
+    gsjson({
+      spreadsheetId: config.npnotes,
+      credentials: config.creds
+    }).then(function(result) {
+        console.log(result.length);
+        return new Promise(function(resolve, reject) {
+          fs.writeFile('./data/npnotes.json', JSON.stringify(result), function(err){
+            if (err) reject (err);
+            else resolve(result);
+          });
+        });
+    }).then(function(result){
+        message.channel.send("Tamabot's NP damage notes have been updated.");
+    }).catch(function(err) {
+        console.log(err.message);
+        console.log(err.stack);
+        return;
+    });
+    return;
+  }
   if (args[0] === "drops") {
     message.channel.send("Updating Tamabot's drop info... Please wait.");
     gsjson({

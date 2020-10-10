@@ -27,7 +27,7 @@ exports.run = async (client, message, args) => {
   });
 
   message.channel.send({embed: {
-    "title":`Click on a reaction emoji to choose a role!`,
+    "title":`Click on a reaction emoji to choose a role! Tama-bot will add reaction emojis to this message, so click the one that corresponds to the role color you'd like.`,
     "color": 000000,
     "footer": {
       "text": `For user: ${message.author.username}`
@@ -67,7 +67,7 @@ exports.run = async (client, message, args) => {
 
     msg.awaitReactions(filter, {
       max: 1,
-      time: 30000,
+      time: 45000,
       errors: ['time']
     }).then(collected => {
 
@@ -222,6 +222,6 @@ exports.conf = {
 
 exports.help = {
   name: 'roles',
-  description: `change yer role by clickin a button`,
+  description: `Change your role by clicking on a reaction emoji`,
   usage: '!roles'
 };
